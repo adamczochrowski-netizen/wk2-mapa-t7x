@@ -26,7 +26,8 @@ self.addEventListener("fetch", e => {
     })));
     return;
   }
-  e.respondWith(fetch(req).then(res => {
+  // cache:"no-cache" = zawsze zapytaj serwer o świeżą wersję (GitHub każe przeglądarce trzymać pliki 10 minut)
+  e.respondWith(fetch(req, {cache: "no-cache"}).then(res => {
     const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); return res;
   }).catch(() => caches.match(req, {ignoreSearch: true}).then(hit => hit || caches.match("index.html"))));
 });
