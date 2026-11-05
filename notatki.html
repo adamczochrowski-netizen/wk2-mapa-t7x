@@ -23,10 +23,26 @@
 <link rel="stylesheet" href="wspolne.css">
 <style>
 .form{display:flex;flex-direction:column;gap:10px}
-.form textarea,.form input[type=date],.form input[type=time]{font:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:100%;box-sizing:border-box}
-.form textarea{min-height:90px;resize:vertical}
-.form textarea:focus,.form input:focus{outline:2px solid var(--accent);outline-offset:1px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.form textarea{font:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:100%;box-sizing:border-box;min-height:90px;resize:vertical}
+.form textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+/* data i godzina: własny wygląd pola (ikona, podpis, „wybierz…”), prawdziwy kalendarz telefonu pod spodem */
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.pole{position:relative;display:flex;align-items:center;gap:10px;min-width:0;min-height:56px;padding:6px 12px;box-sizing:border-box;
+  border-radius:12px;border:1px solid var(--line);background:var(--bg);overflow:hidden}
+.pole:focus-within{outline:2px solid var(--accent);outline-offset:1px}
+.pole svg{width:22px;height:22px;flex:none;color:var(--accent)}
+.pole .opis{display:flex;flex-direction:column;min-width:0;line-height:1.2}
+.pole .opis small{font-size:12px;color:var(--muted)}
+.pole .opis b{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pole .opis b.puste{color:var(--muted);font-weight:400}
+.pole input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;-webkit-appearance:none;appearance:none;border:0;margin:0;font-size:16px}
+.szybkie{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;margin-top:8px}
+.szybkie button{font:inherit;font-size:14px;font-weight:600;padding:8px 10px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+.szybkie button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.szybkie button.bez{color:var(--muted)}
+/* duży tekst albo bardzo wąski ekran: dzień i godzina jedno pod drugim */
+html[data-duze] .row2{grid-template-columns:minmax(0,1fr)}
+@media (max-width:340px){ .row2{grid-template-columns:minmax(0,1fr)} }
 .lab{font-size:13px;color:var(--muted);display:block;margin-bottom:4px}
 .check{display:flex;align-items:center;gap:10px;font-weight:600;cursor:pointer}
 .check input{width:22px;height:22px;accent-color:var(--accent)}
@@ -51,7 +67,20 @@
     <div><label class="lab" for="tekst">Treść</label>
       <textarea id="tekst" placeholder="Np. kupić znicze na 1 listopada, zadzwonić do sołtysa…" required></textarea></div>
     <div><span class="lab">Przypomnienie (opcjonalnie)</span>
-      <div class="row2"><input type="date" id="data" aria-label="Data przypomnienia"><input type="time" id="godz" aria-label="Godzina przypomnienia"></div></div>
+      <div class="row2">
+        <label class="pole"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <span class="opis"><small>Dzień</small><b id="dataTxt" class="puste">wybierz</b></span>
+          <input type="date" id="data" aria-label="Dzień przypomnienia"></label>
+        <label class="pole"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span class="opis"><small>Godzina</small><b id="godzTxt" class="puste">dowolna</b></span>
+          <input type="time" id="godz" aria-label="Godzina przypomnienia"></label>
+      </div>
+      <div class="szybkie" aria-label="Szybki wybór">
+        <button type="button" data-q="wieczor">Dziś 19:00</button>
+        <button type="button" data-q="jutro">Jutro 9:00</button>
+        <button type="button" data-q="tydzien">Za tydzień</button>
+        <button type="button" data-q="bez" class="bez">Bez daty</button>
+      </div></div>
     <label class="check"><input type="checkbox" id="naGl"> Pokaż na stronie głównej</label>
     <div class="btns" style="margin-top:2px">
       <button class="btn primary" type="submit" id="bZapisz">Dodaj notatkę</button>
@@ -95,7 +124,7 @@ function render(){
     : `<div class="card empty"><p style="margin:0">Nie masz jeszcze notatek. Napisz pierwszą powyżej.</p></div>`;
 }
 
-function wyczyscForm(){ edytowana=null; $("form").reset(); $("formTyt").textContent="Nowa notatka"; $("bZapisz").textContent="Dodaj notatkę"; $("bAnuluj").hidden=true; }
+function wyczyscForm(){ edytowana=null; $("form").reset(); pokazPola(); $("formTyt").textContent="Nowa notatka"; $("bZapisz").textContent="Dodaj notatkę"; $("bAnuluj").hidden=true; }
 $("form").addEventListener("submit",e=>{
   e.preventDefault();
   const tekst=$("tekst").value.trim(); if(!tekst) return;
@@ -110,8 +139,30 @@ $("form").addEventListener("submit",e=>{
   wyczyscForm(); render();
 });
 $("bAnuluj").onclick=()=>{ wyczyscForm(); $("formMsg").hidden=true; };
+// Podpisy w polach daty i godziny (telefon nie pokazuje nic w pustym polu)
+const isoDzien=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+function pokazPola(){
+  const d=$("data").value, g=$("godz").value;
+  const k=d?kiedyNotatki(d):null;
+  $("dataTxt").textContent = k ? kiedy(k.d) : "wybierz"; $("dataTxt").classList.toggle("puste",!d);
+  $("godzTxt").textContent = g || (d?"cały dzień":"dowolna"); $("godzTxt").classList.toggle("puste",!g);
+}
+$("data").addEventListener("input",pokazPola); $("data").addEventListener("change",pokazPola);
 // godzina bez daty → podpowiedz dzisiejszą datę
-$("godz").addEventListener("change",()=>{ if($("godz").value&&!$("data").value){ const d=new Date(); $("data").value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; } });
+$("godz").addEventListener("change",()=>{ if($("godz").value&&!$("data").value) $("data").value=isoDzien(new Date()); pokazPola(); });
+$("godz").addEventListener("input",pokazPola);
+// dotknięcie gdziekolwiek w polu otwiera kalendarz / zegar telefonu
+["data","godz"].forEach(id=>$(id).addEventListener("click",function(){ try{ this.showPicker(); }catch(e){} }));
+// Szybki wybór
+document.querySelector(".szybkie").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-q]"); if(!b) return;
+  const d=new Date();
+  if(b.dataset.q==="wieczor"){ $("data").value=isoDzien(d); $("godz").value="19:00"; }
+  if(b.dataset.q==="jutro"){ d.setDate(d.getDate()+1); $("data").value=isoDzien(d); $("godz").value="09:00"; }
+  if(b.dataset.q==="tydzien"){ d.setDate(d.getDate()+7); $("data").value=isoDzien(d); $("godz").value="09:00"; }
+  if(b.dataset.q==="bez"){ $("data").value=""; $("godz").value=""; }
+  pokazPola();
+});
 
 $("lista").addEventListener("change",e=>{
   if(!e.target.classList.contains("tick")) return;
@@ -127,7 +178,7 @@ $("lista").addEventListener("click",e=>{
   }
   if(b.dataset.a==="edytuj"){
     edytowana=id; $("tekst").value=n.tekst; const [d,g]=(n.kiedy||"").split("T"); $("data").value=d||""; $("godz").value=g||"";
-    $("naGl").checked=!!n.naGlownej; $("formTyt").textContent="Edytuj notatkę"; $("bZapisz").textContent="Zapisz zmiany"; $("bAnuluj").hidden=false;
+    $("naGl").checked=!!n.naGlownej; pokazPola(); $("formTyt").textContent="Edytuj notatkę"; $("bZapisz").textContent="Zapisz zmiany"; $("bAnuluj").hidden=false;
     $("form").scrollIntoView({behavior:"smooth",block:"start"}); $("tekst").focus();
   }
   if(b.dataset.a==="kal") doKalendarza(n);
@@ -152,7 +203,7 @@ function doKalendarza(n){
     window.open("https://calendar.google.com/calendar/render?"+q.toString(),"_blank","noopener");
   }
 }
-render();
+render(); pokazPola();
 </script>
 
 </body>

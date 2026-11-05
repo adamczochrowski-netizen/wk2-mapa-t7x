@@ -35,21 +35,25 @@ h2{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.25;
 .tile .pill{align-self:flex-start}
 
 /* kafelki na stronie głównej */
+/* Kafelki: wszystkie tak samo — ikona po lewej, tytuł i opis obok, ta sama wysokość */
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tile{display:flex;flex-direction:column;gap:8px;min-width:0;padding:16px;border-radius:14px;
-  background:var(--panel);border:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.tile{display:grid;grid-template-columns:48px 1fr;align-items:center;column-gap:14px;row-gap:2px;min-width:0;min-height:96px;box-sizing:border-box;
+  padding:14px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.tile>*{grid-column:2;min-width:0}
+.tile>.ic{grid-column:1;grid-row:1 / span 3;align-self:center}
 .tile:hover{border-color:var(--muted)}
 .tile:focus-visible,.btn:focus-visible,.num:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.tile .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--green-soft);color:var(--green)}
-.tile .ic svg{width:22px;height:22px}
+.tile .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--green-soft);color:var(--green)}
+.tile .ic svg{width:24px;height:24px}
 .tile h2{font-size:19px;margin:0}
-.tile p{margin:0;color:var(--muted);font-size:14px}
-.tile.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:14px}
-.tile.alarm{background:var(--alarm);border-color:var(--alarm);color:var(--on-alarm)}
+.tile p{margin:0;color:var(--muted);font-size:14px;line-height:1.35}
+.tile .pill{justify-self:start;margin-top:4px}
+.tile.wide{grid-column:1/-1}
+.tile.alarm{grid-template-columns:48px 1fr auto;background:var(--alarm);border-color:var(--alarm);color:var(--on-alarm)}
 .tile.alarm p{color:var(--on-alarm);opacity:.9}
 .tile.alarm .ic{background:rgba(255,255,255,.18);color:var(--on-alarm)}
-.tile.alarm .big{margin-left:auto;font-family:var(--f-display);font-weight:700;font-size:30px;font-variant-numeric:tabular-nums}
-@media (max-width:420px){ .tiles{grid-template-columns:1fr} }
+.tile.alarm .big{grid-column:3;grid-row:1 / span 3;font-family:var(--f-display);font-weight:700;font-size:30px;font-variant-numeric:tabular-nums}
+@media (max-width:600px){ .tiles{grid-template-columns:1fr} }
 
 /* listy i karty */
 .list{display:flex;flex-direction:column;gap:10px}
