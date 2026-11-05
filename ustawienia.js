@@ -7,8 +7,9 @@
   const get=k=>{ try{ return localStorage.getItem(k); }catch(e){ return null; } };
   const set=(k,v)=>{ try{ v===null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} };
   const root=document.documentElement;
+  const TYLKO_CIEMNY=true;   // na razie apka ma tylko ciemny motyw; false = wraca wybór motywu w panelu „Aa”
   function zastosuj(){
-    const m=get(K_MOTYW); if(m==="light"||m==="dark") root.setAttribute("data-theme",m); else root.removeAttribute("data-theme");
+    const m=TYLKO_CIEMNY?"dark":get(K_MOTYW); if(m==="light"||m==="dark") root.setAttribute("data-theme",m); else root.removeAttribute("data-theme");
     if(get(K_DUZE)==="1") root.setAttribute("data-duze","1"); else root.removeAttribute("data-duze");
   }
   zastosuj();
@@ -33,8 +34,8 @@
     b.setAttribute("aria-label","Ustawienia widoku: duży tekst i motyw"); b.setAttribute("aria-expanded","false");
     const p=document.createElement("div"); p.className="ust-pan"; p.hidden=true; p.setAttribute("role","dialog"); p.setAttribute("aria-label","Ustawienia widoku");
     p.innerHTML=`<h3>Wygląd</h3>
-      <p>Wielkość tekstu</p><div class="ust-seg" data-k="duze"><button type="button" data-v="0">Zwykły</button><button type="button" data-v="1">Duży</button></div>
-      <p>Motyw</p><div class="ust-seg" data-k="motyw"><button type="button" data-v="auto">Jak telefon</button><button type="button" data-v="light">Jasny</button><button type="button" data-v="dark">Ciemny</button></div>`;
+      <p>Wielkość tekstu</p><div class="ust-seg" data-k="duze"><button type="button" data-v="0">Zwykły</button><button type="button" data-v="1">Duży</button></div>`+(TYLKO_CIEMNY?"":`
+      <p>Motyw</p><div class="ust-seg" data-k="motyw"><button type="button" data-v="auto">Jak telefon</button><button type="button" data-v="light">Jasny</button><button type="button" data-v="dark">Ciemny</button></div>`);
     document.body.append(b,p);
     const odswiez=()=>{
       const d=get(K_DUZE)==="1"?"1":"0", m=get(K_MOTYW)||"auto";
