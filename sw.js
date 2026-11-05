@@ -2,10 +2,10 @@
 // Strony: najpierw sieć (żeby zawsze była najnowsza wersja), a bez zasięgu — zapisana kopia.
 // Czcionki i ikony: z pamięci (rzadko się zmieniają).
 // WERSJA zmienia się automatycznie przy każdym budowaniu (zbuduj.sh), co odświeża pamięć w telefonach.
-const WERSJA = "5f319a6311";
+const WERSJA = "d6291e0000";
 const CACHE = "wirkowice-" + WERSJA;
 const PLIKI = ["./", "index.html", "historia.html", "miejsca.html", "kosciol.html", "parafia.html",
-  "cmentarz.html", "alarmowe.html", "co-slychac.html", "smieci.html", "notatki.html", "wspolne.css", "dane.js", "ustawienia.js", "manifest.json", "ikona-192.png", "ikona-512.png", "ikona-180.png"];
+  "cmentarz.html", "alarmowe.html", "co-slychac.html", "smieci.html", "notatki.html", "zdrowie.html", "wspolne.css", "dane.js", "ustawienia.js", "manifest.json", "ikona-192.png", "ikona-512.png", "ikona-180.png"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(PLIKI)).then(() => self.skipWaiting()));
