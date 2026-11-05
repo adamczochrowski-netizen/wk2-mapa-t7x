@@ -35,10 +35,11 @@
 
   <section class="section">
     <h2>Noclegi w okolicy</h2>
-    <div class="card empty">
+    <p class="muted" style="margin:-4px 0 10px">Od najbliższych. Dane z publicznych katalogów turystycznych: przed przyjazdem potwierdź telefonicznie.</p>
+    <div class="list" id="noclegi"><div class="card empty">
       <p style="margin:0"><strong>Do uzupełnienia:</strong> agroturystyki, pokoje i hotele w pobliżu, z kontaktem i dojazdem.</p>
-      <p class="muted" style="margin:6px 0 0">Wspieramy lokalnych gospodarzy, więc najpierw miejsca z naszej okolicy.</p>
-    </div>
+      <p class="muted" style="margin:6px 0 0">Dopisuje się je w arkuszu, w karcie „Noclegi”.</p>
+    </div></div>
   </section>
 
   <footer>Brakuje jakiegoś miejsca? Daj znać, dopiszemy je razem ze zdjęciem i opisem.</footer>
@@ -82,13 +83,50 @@ function render(){
   }).join("");
 }
 render();
+
+// --- Noclegi z arkusza: nazwa | miejscowosc | opis | telefon | strona | adres | wspolrzedne | zrodlo ---
+let NOCLEGI=[];
+const WIRK={lat:50.8722, lon:23.0737};   // brama cmentarza = środek Wirkowic, do liczenia „ok. X km od Wirkowic”
+const kmTxt=d=>d<1?Math.round(d*1000)+" m":d.toFixed(1).replace(".",",")+" km";
+(async()=>{
+  const n=await wczytaj("Noclegi");
+  NOCLEGI=n.wiersze.filter(r=>r.nazwa).map(r=>{
+    const c=/(-?\d+[.,]\d+)\s*[,; ]\s*(-?\d+[.,]\d+)/.exec(r.wspolrzedne||"");
+    return {...r, lat:c?+c[1].replace(",","."):null, lon:c?+c[2].replace(",","."):null};
+  });
+  renderNoclegi();
+})();
+function renderNoclegi(){
+  if(!NOCLEGI.length) return;
+  const od=p=>typeof p.lat==="number"?km(WIRK.lat,WIRK.lon,p.lat,p.lon):999;
+  const lista=[...NOCLEGI].sort((a,b)=>od(a)-od(b));
+  document.getElementById("noclegi").innerHTML=lista.map(p=>{
+    const has=typeof p.lat==="number";
+    const wDist=has?`ok. ${kmTxt(od(p))} od Wirkowic`:"", meDist=has&&me?` · ${kmTxt(km(me.lat,me.lon,p.lat,p.lon))} od ciebie`:"";
+    const tel=(p.telefon||"").replace(/[^\d+]/g,"");
+    const www=p.strona?(/^https?:/.test(p.strona)?p.strona:"https://"+p.strona):"";
+    // dojazd: dokładny adres, jeśli jest (współrzędne bywają tylko środkiem wsi, do liczenia odległości)
+    const cel=p.adres?encodeURIComponent(p.adres):has?`${p.lat},${p.lon}`:encodeURIComponent(p.nazwa+", "+p.miejscowosc);
+    return `<div class="card">
+      <p class="eyebrow" style="margin:0 0 2px">${esc(p.miejscowosc)}${wDist?" · "+wDist:""}${meDist}</p>
+      <h2>${esc(p.nazwa)}</h2>
+      ${p.opis?`<p class="muted" style="margin:0">${esc(p.opis)}</p>`:""}
+      ${p.adres?`<p class="muted" style="margin:4px 0 0;font-size:14px">${esc(p.adres)}</p>`:""}
+      <div class="btns">
+        ${tel.length>=9?`<a class="btn primary" href="tel:${tel}">Zadzwoń ${esc(p.telefon)}</a>`:""}
+        ${www?`<a class="btn" href="${esc(www)}" target="_blank" rel="noopener">Strona</a>`:""}
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=${cel}" target="_blank" rel="noopener">Dojazd</a>
+      </div>
+    </div>`;
+  }).join("");
+}
 const dm=document.getElementById("distMsg");
 document.getElementById("bDist").onclick=()=>{
   dm.hidden=false;
   if(!("geolocation" in navigator)){ dm.textContent="Ta przeglądarka nie udostępnia lokalizacji."; return; }
   dm.textContent="Szukam pozycji…";
   try{
-    navigator.geolocation.getCurrentPosition(p=>{ me={lat:p.coords.latitude,lon:p.coords.longitude}; dm.hidden=true; render(); },
+    navigator.geolocation.getCurrentPosition(p=>{ me={lat:p.coords.latitude,lon:p.coords.longitude}; dm.hidden=true; render(); renderNoclegi(); },
       e=>{ dm.textContent=e.code===1?"Lokalizacja jest zablokowana. Zezwól tej stronie na dostęp do lokalizacji.":"Nie udało się ustalić pozycji."; },
       {enableHighAccuracy:false, timeout:15000, maximumAge:60000});
   }catch(e){ dm.textContent="Lokalizacja jest niedostępna w tym podglądzie."; }
