@@ -40,6 +40,9 @@
 .news .k svg{width:16px;height:16px;flex:none}
 #nSm .k{color:var(--c)}
 #nSm .k svg{color:var(--c)}
+#nWyd .cnt{color:var(--c);font-size:28px;margin:2px 0}
+#nSm .m{display:flex;align-items:center;gap:8px}
+#nSm .m .worek{vertical-align:0;margin:0}
 .news .t{font-weight:700;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .news .m{color:var(--muted);font-size:14px}
 @media (max-width:600px){ .news{grid-template-columns:1fr} }
@@ -160,7 +163,7 @@ const ustaw=(id,t,m)=>{ const a=document.getElementById(id); a.querySelector(".t
   const aS=document.getElementById("nSm");
   if(sm.length){ const t=sm[0].d.getTime(), dzien=sm.filter(x=>x.d.getTime()===t), n=dniDo(sm[0].d);
     const rodzaje=dzien.map(x=>x.r).join(", ");    aS.querySelector(".t").innerHTML = n===1 ? `Jutro wystaw: ${esc(rodzaje)}` : n===0 ? `Dziś wywóz: ${esc(rodzaje)}` : esc(kiedy(sm[0].d));
-    aS.querySelector(".m").innerHTML = `<span class="worki">${dzien.map(x=>worek(x.r)).join("")}</span>${n>1?esc(rodzaje):""}${s.przyklad?" (przykład)":""}`;
+    aS.querySelector(".m").innerHTML = `<span class="worki">${dzien.map(x=>worek(x.r)).join("")}</span><span>${n>1?esc(rodzaje):""}${s.przyklad?" (przykład)":""}</span>`;
     if(n<=1) aS.classList.add("hot","pilne");
   } else ustaw("nSm","Brak terminów","");
 })();
