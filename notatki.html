@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#3E6B4A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="ikona-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wirkowice">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<script src="ustawienia.js"></script>
+<script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
+</head>
+<body>
+<title>Moje notatki · Moje Wirkowice</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="wspolne.css">
+<style>
+.form{display:flex;flex-direction:column;gap:10px}
+.form textarea,.form input[type=date],.form input[type=time]{font:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:100%;box-sizing:border-box}
+.form textarea{min-height:90px;resize:vertical}
+.form textarea:focus,.form input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lab{font-size:13px;color:var(--muted);display:block;margin-bottom:4px}
+.check{display:flex;align-items:center;gap:10px;font-weight:600;cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--accent)}
+.note{display:flex;gap:12px;align-items:flex-start}
+.note .tick{width:24px;height:24px;margin-top:2px;flex:none;accent-color:var(--green)}
+.note .body{flex:1;min-width:0}
+.note .txt{margin:0;white-space:pre-wrap;word-wrap:break-word}
+.note.done .txt{text-decoration:line-through;color:var(--muted)}
+.note .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--green-soft);color:var(--green)}
+.chip.due{background:var(--accent);color:var(--on-accent)}
+.mini{font-size:14px;padding:7px 11px}
+</style>
+
+<main class="wrap">
+  <a class="back" href="index.html">← Moje Wirkowice</a>
+  <h1>Moje notatki</h1>
+  <p class="lead">Twoje notatki i przypomnienia. Są zapisane tylko w tym telefonie i nikt inny ich nie widzi.</p>
+
+  <form class="card form" id="form" autocomplete="off">
+    <h2 id="formTyt">Nowa notatka</h2>
+    <div><label class="lab" for="tekst">Treść</label>
+      <textarea id="tekst" placeholder="Np. kupić znicze na 1 listopada, zadzwonić do sołtysa…" required></textarea></div>
+    <div><span class="lab">Przypomnienie (opcjonalnie)</span>
+      <div class="row2"><input type="date" id="data" aria-label="Data przypomnienia"><input type="time" id="godz" aria-label="Godzina przypomnienia"></div></div>
+    <label class="check"><input type="checkbox" id="naGl"> Pokaż na stronie głównej</label>
+    <div class="btns" style="margin-top:2px">
+      <button class="btn primary" type="submit" id="bZapisz">Dodaj notatkę</button>
+      <button class="btn" type="button" id="bAnuluj" hidden>Anuluj</button>
+    </div>
+    <p class="muted" id="formMsg" style="margin:0" hidden></p>
+  </form>
+
+  <section class="section">
+    <h2>Notatki</h2>
+    <div class="list" id="lista"></div>
+  </section>
+
+  <footer>Notatki zostają w pamięci tej przeglądarki. Wyczyszczenie danych przeglądarki je usunie.</footer>
+</main>
+
+<script src="dane.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+let edytowana=null;
+const iOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+
+function render(){
+  const l=notatki().sort((a,b)=>(a.zrobione-b.zrobione)||((kiedyNotatki(a.kiedy)?.d||9e15)-(kiedyNotatki(b.kiedy)?.d||9e15))||(b.utworzono-a.utworzono));
+  $("lista").innerHTML = l.length ? l.map(n=>`
+    <article class="card note${n.zrobione?" done":""}" data-id="${n.id}">
+      <input type="checkbox" class="tick" ${n.zrobione?"checked":""} aria-label="Zrobione">
+      <div class="body">
+        <p class="txt">${esc(n.tekst)}</p>
+        <div class="meta">
+          ${n.kiedy?`<span class="chip${naCzasie(n)?" due":""}">⏰ ${esc(opisKiedy(n.kiedy))}</span>`:""}
+          ${n.naGlownej?`<span class="chip">na stronie głównej</span>`:""}
+        </div>
+        <div class="btns">
+          ${n.kiedy&&!n.zrobione?`<button class="btn mini" data-a="kal">Dodaj do kalendarza</button>`:""}
+          <button class="btn mini" data-a="edytuj">Edytuj</button>
+          <button class="btn mini" data-a="usun">Usuń</button>
+        </div>
+      </div>
+    </article>`).join("")
+    : `<div class="card empty"><p style="margin:0">Nie masz jeszcze notatek. Napisz pierwszą powyżej.</p></div>`;
+}
+
+function wyczyscForm(){ edytowana=null; $("form").reset(); $("formTyt").textContent="Nowa notatka"; $("bZapisz").textContent="Dodaj notatkę"; $("bAnuluj").hidden=true; }
+$("form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const tekst=$("tekst").value.trim(); if(!tekst) return;
+  const kiedy=$("data").value ? $("data").value+($("godz").value?"T"+$("godz").value:"") : "";
+  const l=notatki();
+  if(edytowana){ const n=l.find(x=>x.id===edytowana); if(n) Object.assign(n,{tekst,kiedy,naGlownej:$("naGl").checked}); }
+  else l.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),tekst,kiedy,naGlownej:$("naGl").checked,zrobione:false,utworzono:Date.now()});
+  const ok=zapiszNotatki(l);
+  $("formMsg").hidden=false;
+  $("formMsg").textContent = ok ? (edytowana?"Zapisano zmiany.":"Dodano notatkę.")+(kiedy?" Dotknij „Dodaj do kalendarza”, żeby telefon przypomniał ci o niej, nawet gdy apka jest zamknięta.":"")
+                                : "Nie udało się zapisać: ta przeglądarka nie pozwala zapamiętywać danych (np. tryb prywatny).";
+  wyczyscForm(); render();
+});
+$("bAnuluj").onclick=()=>{ wyczyscForm(); $("formMsg").hidden=true; };
+// godzina bez daty → podpowiedz dzisiejszą datę
+$("godz").addEventListener("change",()=>{ if($("godz").value&&!$("data").value){ const d=new Date(); $("data").value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; } });
+
+$("lista").addEventListener("change",e=>{
+  if(!e.target.classList.contains("tick")) return;
+  const id=e.target.closest(".note").dataset.id, l=notatki(), n=l.find(x=>x.id===id);
+  if(n){ n.zrobione=e.target.checked; zapiszNotatki(l); render(); }
+});
+$("lista").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-a]"); if(!b) return;
+  const art=b.closest(".note"), id=art.dataset.id, l=notatki(), n=l.find(x=>x.id===id); if(!n) return;
+  if(b.dataset.a==="usun"){
+    if(b.dataset.potw!=="1"){ b.dataset.potw="1"; b.textContent="Na pewno usunąć?"; b.classList.add("primary"); return; }   // potwierdzenie w przycisku
+    zapiszNotatki(l.filter(x=>x.id!==id)); render();
+  }
+  if(b.dataset.a==="edytuj"){
+    edytowana=id; $("tekst").value=n.tekst; const [d,g]=(n.kiedy||"").split("T"); $("data").value=d||""; $("godz").value=g||"";
+    $("naGl").checked=!!n.naGlownej; $("formTyt").textContent="Edytuj notatkę"; $("bZapisz").textContent="Zapisz zmiany"; $("bAnuluj").hidden=false;
+    $("form").scrollIntoView({behavior:"smooth",block:"start"}); $("tekst").focus();
+  }
+  if(b.dataset.a==="kal") doKalendarza(n);
+});
+
+// Przypomnienie w kalendarzu telefonu: iPhone — plik .ics (otwiera Kalendarz), inne — Kalendarz Google
+function doKalendarza(n){
+  const k=kiedyNotatki(n.kiedy); if(!k) return;
+  const p=x=>String(x).padStart(2,"0"), ymd=d=>`${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}`, hms=d=>`T${p(d.getHours())}${p(d.getMinutes())}00`;
+  const tytul=n.tekst.split("\n")[0].slice(0,80);
+  let start, koniec;
+  if(k.godzina){ const e=new Date(k.d.getTime()+30*60e3); start=ymd(k.d)+hms(k.d); koniec=ymd(e)+hms(e); }
+  else { const e=new Date(k.d); e.setDate(e.getDate()+1); start=ymd(k.d); koniec=ymd(e); }
+  if(iOS){
+    const dt=k.godzina?`DTSTART:${start}\r\nDTEND:${koniec}`:`DTSTART;VALUE=DATE:${start}\r\nDTEND;VALUE=DATE:${koniec}`;
+    const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Moje Wirkowice//PL","BEGIN:VEVENT",`UID:${n.id}@moje-wirkowice`,
+      `DTSTAMP:${ymd(new Date())}${hms(new Date())}`,dt,`SUMMARY:${tytul.replace(/[,;]/g,"\\$&")}`,`DESCRIPTION:${n.tekst.replace(/\n/g,"\\n").replace(/[,;]/g,"\\$&")}`,
+      "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:Przypomnienie",k.godzina?"TRIGGER:PT0M":"TRIGGER:PT9H","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+    const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"})); a.download="przypomnienie.ics"; a.click();
+  } else {
+    const q=new URLSearchParams({action:"TEMPLATE",text:tytul,dates:`${start}/${koniec}`,details:n.tekst,ctz:"Europe/Warsaw"});
+    window.open("https://calendar.google.com/calendar/render?"+q.toString(),"_blank","noopener");
+  }
+}
+render();
+</script>
+
+</body>
+</html>

@@ -11,6 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Wirkowice">
 <style>body{margin:0}[hidden]{display:none!important}</style>
+<script src="ustawienia.js"></script>
 <script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
 </head>
 <body>
@@ -21,7 +22,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="wspolne.css">
 <style>
-.bin{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.15)}
 .next{padding:18px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
 .next .big{font-family:var(--f-display);font-size:28px;font-weight:700;line-height:1.15;margin:2px 0}
 .row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
@@ -38,9 +38,7 @@
 
 <script src="dane.js"></script>
 <script>
-// Kolory jak na workach: rozpoznawane po słowie w kolumnie „rodzaj”
-const KOLORY=[[/plast|metal/i,"#F2C230"],[/papier/i,"#2F6FD0"],[/szk/i,"#2E9E52"],[/bio/i,"#8B5A2B"],[/gabaryt|elektro/i,"#7A6FB3"],[/.*/,"#4A4A4A"]];
-const kolor=r=>KOLORY.find(([re])=>re.test(r))[1];
+// Kolory i ikony worków są w dane.js (kolorSmieci, worek)
 (async()=>{
   const s=await wczytaj("Smieci");
   const lista=s.wiersze.map(r=>({d:data(r.data),rodzaj:r.rodzaj||"odpady"})).filter(r=>r.d&&r.d>=dzis()).sort((a,b)=>a.d-b.d);
@@ -48,12 +46,12 @@ const kolor=r=>KOLORY.find(([re])=>re.test(r))[1];
   if(!lista.length){ el.innerHTML=(s.przyklad?notkaPrzyklad:"")+'<div class="card empty"><p style="margin:0">Brak dat w harmonogramie. Wpisz je w arkuszu, w karcie „Smieci”.</p></div>'; return; }
   const pierwszy=lista[0].d.getTime(), dzien=lista.filter(r=>r.d.getTime()===pierwszy);
   el.innerHTML=(s.przyklad?notkaPrzyklad:"")+
-    `<div class="next"><p class="eyebrow" style="margin:0">Najbliższy wywóz</p>
+    `<div class="next${dniDo(lista[0].d)<=1?" pilne":""}"><p class="eyebrow" style="margin:0">Najbliższy wywóz</p>
       <p class="big">${esc(kiedy(lista[0].d))}</p>
-      <p style="margin:0">${dzien.map(r=>`<span class="bin" style="background:${kolor(r.rodzaj)}"></span>${esc(r.rodzaj)}`).join("<br>")}</p>
-      <p class="muted" style="margin:8px 0 0">Wystaw pojemnik wieczorem dzień wcześniej.</p></div>
+      <p style="margin:0;line-height:1.9">${dzien.map(r=>`${worek(r.rodzaj)}${esc(r.rodzaj)}`).join("<br>")}</p>
+      <p class="muted" style="margin:8px 0 0">${dniDo(lista[0].d)===1?"<strong>Wystaw dziś wieczorem.</strong>":dniDo(lista[0].d)===0?"<strong>Wywóz jest dziś.</strong>":"Wystaw pojemnik wieczorem dzień wcześniej."}</p></div>
     <section class="section"><h2>Kolejne terminy</h2><div class="card">`+
-    lista.slice(dzien.length,dzien.length+20).map(r=>`<div class="row"><span class="d">${esc(kiedy(r.d))}</span><span><span class="bin" style="background:${kolor(r.rodzaj)}"></span>${esc(r.rodzaj)}</span></div>`).join("")+
+    lista.slice(dzien.length,dzien.length+20).map(r=>`<div class="row"><span class="d">${esc(kiedy(r.d))}</span><span>${worek(r.rodzaj)}${esc(r.rodzaj)}</span></div>`).join("")+
     `</div></section>`;
 })();
 </script>

@@ -106,4 +106,28 @@ function kiedy(d){
   return ladnaData(d)+(d.getFullYear()!==dzis().getFullYear()?" "+d.getFullYear():"");
 }
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// Worki na śmieci: kolor rozpoznawany po słowie w kolumnie „rodzaj”
+const KOLORY_SMIECI=[[/plast|metal/i,"#F2C230"],[/papier/i,"#2F6FD0"],[/szk/i,"#2E9E52"],[/bio/i,"#8B5A2B"],[/gabaryt|elektro/i,"#7A6FB3"],[/.*/,"#4A4A4A"]];
+const kolorSmieci=r=>KOLORY_SMIECI.find(([re])=>re.test(r||""))[1];
+const worek=r=>`<svg class="worek" viewBox="0 0 18 20" aria-hidden="true"><path d="M6 1.5h6l-1 2.6c3.4 1.4 5.5 4.6 5.5 8.3 0 3.6-2.6 6.1-7.5 6.1S1.5 16 1.5 12.4c0-3.7 2.1-6.9 5.5-8.3z" fill="${kolorSmieci(r)}" stroke="rgba(0,0,0,.25)" stroke-width=".8"/><path d="M6.5 4.2h5" stroke="rgba(0,0,0,.35)" stroke-width="1.2" stroke-linecap="round"/></svg>`;
+const dniDo=d=>Math.round((d-dzis())/864e5);
+
+// ===== Moje notatki — zapisane tylko w tym telefonie (pamięć przeglądarki) =====
+// notatka: {id, tekst, kiedy:"2026-11-10" albo "2026-11-10T18:00" albo "", naGlownej:bool, zrobione:bool, utworzono:ms}
+const K_NOTATKI="wirk-notatki";
+function notatki(){ try{ return JSON.parse(localStorage.getItem(K_NOTATKI)||"[]"); }catch(e){ return []; } }
+function zapiszNotatki(l){ try{ localStorage.setItem(K_NOTATKI,JSON.stringify(l)); return true; }catch(e){ return false; } }
+function kiedyNotatki(s){   // → {d: Date, godzina: bool} albo null
+  if(!s) return null; const m=/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/.exec(s); if(!m) return null;
+  return {d:new Date(+m[1],+m[2]-1,+m[3],m[4]?+m[4]:0,m[5]?+m[5]:0), godzina:!!m[4]};
+}
+function opisKiedy(s){
+  const k=kiedyNotatki(s); if(!k) return "";
+  const dzien=new Date(k.d); dzien.setHours(0,0,0,0);
+  return kiedy(dzien)+(k.godzina?`, ${String(k.d.getHours()).padStart(2,"0")}:${String(k.d.getMinutes()).padStart(2,"0")}`:"");
+}
+// przypomnienie „na czasie”: minęła godzina (albo nadszedł dzień, gdy bez godziny) i notatka nie jest zrobiona
+function naCzasie(n){ const k=kiedyNotatki(n.kiedy); if(!k||n.zrobione) return false;
+  return k.godzina ? k.d<=new Date() : k.d<=dzis(); }
 const notkaPrzyklad='<p style="margin:0 0 10px;padding:8px 12px;border-radius:10px;background:var(--accent-soft);color:var(--fg);font-size:14px"><strong style="color:var(--accent)">Przykładowe dane.</strong> Prawdziwe pojawią się po podłączeniu arkusza.</p>';

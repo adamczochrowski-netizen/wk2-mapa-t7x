@@ -11,6 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Wirkowice">
 <style>body{margin:0}[hidden]{display:none!important}</style>
+<script src="ustawienia.js"></script>
 <script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
 </head>
 <body>
@@ -104,6 +105,21 @@ svg:active{cursor:grabbing}
 .route{fill:none;stroke:var(--accent);stroke-width:.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1.6 1}
 .acc{fill:var(--me);opacity:.15;stroke:var(--me);stroke-width:.12}
 .me{fill:var(--me);stroke:var(--panel);stroke-width:.35}
+.fala{fill:none;stroke:var(--me);stroke-width:.25;opacity:0}
+.znicz-glow{fill:#FFB347;opacity:.28}
+.znicz-kubek{fill:#B3261E;stroke:rgba(0,0,0,.35);stroke-width:.08}
+.plomien-zew{fill:#FF9A1F}
+.plomien-wew{fill:#FFE38A}
+.znicz-plomien,.znicz-glow,.fala{transform-box:fill-box;transform-origin:50% 100%}
+.znicz-glow,.fala{transform-origin:50% 50%}
+@keyframes fala{0%{transform:scale(1);opacity:.7}100%{transform:scale(5);opacity:0}}
+@keyframes plomien{0%,100%{transform:scale(1,1) rotate(-2deg)}25%{transform:scale(.92,1.08) rotate(3deg)}50%{transform:scale(1.05,.94) rotate(-1deg)}75%{transform:scale(.96,1.05) rotate(2deg)}}
+@keyframes poswiata{0%,100%{opacity:.22;transform:scale(1)}50%{opacity:.36;transform:scale(1.15)}}
+@media (prefers-reduced-motion: no-preference){
+  .fala{animation:fala 2s ease-out infinite}
+  .znicz-plomien{animation:plomien .9s ease-in-out infinite}
+  .znicz-glow{animation:poswiata 1.8s ease-in-out infinite}
+}
 .chapel{fill:var(--panel);stroke:var(--stone-dark);stroke-width:.25}
 @media (prefers-reduced-motion: no-preference){ .route{animation:march 1.2s linear infinite} @keyframes march{to{stroke-dashoffset:-2.6}} }
 
@@ -1365,6 +1381,7 @@ ADAM;RYBAK;A/I/4;;1988-05-18
 const P = {x:33.5, y:14};            // narożnik przy bramie na mapie (metry)
 const C = {x:0.945, y:0.328};        // kierunek osi s
 const D = {x:-0.331, y:0.944};       // kierunek osi t
+const PLAN_ROT = Math.atan2(C.y, C.x)*180/Math.PI;   // obrót planu względem mapy (stopnie)
 const L2W = (s,t) => ({x:P.x+s*C.x+t*D.x, y:P.y+s*C.y+t*D.y});
 const DET = C.x*D.y - D.x*C.y;
 const W2L = (x,y) => { const dx=x-P.x, dy=y-P.y; return {x:(D.y*dx-D.x*dy)/DET, y:(-C.y*dx+C.x*dy)/DET}; };
@@ -1592,17 +1609,39 @@ function drawStatic(){
 // Tryby pozycji: "none" (na start — trzeba włączyć GPS), "gps", "manual" (ustawiona ręcznie, z symulacją trasy)
 const state={ me:{...START}, acc:4, mode:"none", gpsOK:false, sel:null, route:null, walk:null, arrived:false, gpsMsg:"", watch:null };
 const hasPos=()=>state.mode==="manual"||(state.mode==="gps"&&state.gpsOK);
+// Elementy ruchome tworzone raz i tylko przesuwane — dzięki temu animacje (puls, płomień) nie restartują się
+let DYN=null;
+function dynInit(){
+  DYN={};
+  DYN.route=el("polyline",{class:"route",points:""},dyn);
+  // znicz przy wybranym grobie: poświata, szklany kubek, migający płomień
+  DYN.znicz=el("g",{class:"znicz"},dyn);
+  el("circle",{r:1.6,class:"znicz-glow"},DYN.znicz);
+  el("rect",{x:-.42,y:-.55,width:.84,height:1.0,rx:.15,class:"znicz-kubek"},DYN.znicz);
+  const pl=el("g",{class:"znicz-plomien"},DYN.znicz);
+  el("path",{d:"M0 -1.75 C .38 -1.25 .32 -.85 0 -.62 C -.32 -.85 -.38 -1.25 0 -1.75Z",class:"plomien-zew"},pl);
+  el("path",{d:"M0 -1.4 C .18 -1.1 .15 -.9 0 -.78 C -.15 -.9 -.18 -1.1 0 -1.4Z",class:"plomien-wew"},pl);
+  // ty: okrąg niepewności, rozchodząca się fala i kropka
+  DYN.me=el("g",{class:"ja"},dyn);
+  DYN.acc=el("circle",{r:4,class:"acc"},DYN.me);
+  DYN.fala=el("circle",{r:1,class:"fala"},DYN.me);
+  el("circle",{r:1,class:"me"},DYN.me);
+}
 function drawDynamic(){
-  dyn.innerHTML="";
+  if(!DYN) dynInit();
   document.querySelectorAll(".g.sel").forEach(n=>n.classList.remove("sel"));
   if(state.sel){ const n=svg.querySelector(`[data-g="${state.sel.id}"]`); if(n) n.classList.add("sel"); }
   const r=currentRoutePts();
-  if(r&&r.length>1) el("polyline",{points:r.map(p=>`${p.x},${p.y}`).join(" "),class:"route"},dyn);
-  if(state.sel) el("circle",{cx:state.sel.ax,cy:state.sel.ay,r:.5,fill:"var(--accent)"},dyn);
+  DYN.route.setAttribute("points", r&&r.length>1 ? r.map(p=>`${p.x},${p.y}`).join(" ") : "");
+  if(state.sel){
+    // znicz stoi na grobie, zawsze pionowo (przeciwnie do obrotu mapy w trybie „na wprost”)
+    const gx=state.sel.x+state.sel.w/2, gy=state.sel.y+state.sel.h/2, a=-(PLAN_ROT+(cam.on?cam.ang:0));
+    DYN.znicz.setAttribute("transform",`translate(${gx} ${gy}) rotate(${a})`); DYN.znicz.style.display="";
+  } else DYN.znicz.style.display="none";
   if(hasPos()){
-    el("circle",{cx:state.me.x,cy:state.me.y,r:Math.max(1,state.acc),class:"acc"},dyn);
-    el("circle",{cx:state.me.x,cy:state.me.y,r:1,class:"me"},dyn);
-  }
+    DYN.me.setAttribute("transform",`translate(${state.me.x} ${state.me.y})`);
+    DYN.acc.setAttribute("r",Math.max(1,state.acc)); DYN.me.style.display="";
+  } else DYN.me.style.display="none";
   camUpdate(!!state.walk);
   const nv=document.getElementById("nav"); if(nv) nv.textContent=navText();
 }

@@ -74,3 +74,29 @@ h2{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.25;
 .where{margin-top:12px}
 .coords{font-family:ui-monospace,Consolas,monospace;font-size:18px;font-weight:700;user-select:all;margin:6px 0}
 footer{margin-top:36px;color:var(--muted);font-size:13px}
+
+/* ===== Ruch: wejście ekranu, reakcja na dotyk, podświetlenie pilnych rzeczy ===== */
+@keyframes wejscie{from{opacity:.55;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pilne{0%,100%{box-shadow:0 0 0 0 var(--accent)}60%{box-shadow:0 0 0 7px transparent}}
+@media (prefers-reduced-motion: no-preference){
+  .wrap{animation:wejscie .35s ease-out both}
+  .tiles>*,.list>*,.news>*{animation:wejscie .45s ease-out both}
+  .tiles>:nth-child(2),.list>:nth-child(2),.news>:nth-child(2){animation-delay:.05s}
+  .tiles>:nth-child(3),.list>:nth-child(3),.news>:nth-child(3){animation-delay:.1s}
+  .tiles>:nth-child(4),.list>:nth-child(4){animation-delay:.15s}
+  .tiles>:nth-child(5),.list>:nth-child(5){animation-delay:.2s}
+  .tiles>:nth-child(n+6),.list>:nth-child(n+6){animation-delay:.25s}
+  .tile,.btn,.num,.news a{transition:transform .14s ease,box-shadow .2s ease,border-color .2s ease}
+  .tile:active,.btn:active,.num:active,.news a:active{transform:scale(.96)}
+  .tile .ic{transition:transform .25s ease}
+  .tile:active .ic{transform:rotate(-8deg) scale(1.08)}
+  .pilne{animation:pilne 1.8s ease-out infinite}
+}
+@media (hover:hover) and (prefers-reduced-motion: no-preference){
+  .tile:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(20,30,22,.10)}
+  .tile:hover .ic{transform:rotate(-6deg) scale(1.06)}
+}
+
+/* worki na śmieci */
+.worek{display:inline-block;width:18px;height:20px;vertical-align:-4px;margin-right:6px;flex:none}
+.worki{display:inline-flex;gap:2px;align-items:center}
