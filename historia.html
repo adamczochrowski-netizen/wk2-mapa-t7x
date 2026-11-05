@@ -69,9 +69,17 @@
 
 <script src="dane.js"></script>
 <script>
-// Sortowanie po pierwszej liczbie 3–4 cyfrowej w kolumnie „rok” („lata 60.” → 1960); bez liczby → na koniec
+// Sortowanie po roku z kolumny „rok”: „1392”, „5 sierpnia 1943”, „lata 60.” → 1960, „XVIII w.” → 1750; bez roku → na koniec
+const RZYM={I:1,V:5,X:10,L:50,C:100};
+const rzym=s=>[...s].reduce((a,c,i,t)=>RZYM[c]<(RZYM[t[i+1]]||0)?a-RZYM[c]:a+RZYM[c],0);
 function rokLiczba(s){ s=String(s||""); let m=/(\d{4})/.exec(s); if(m) return +m[1];
-  m=/lat\w*\s+(\d{2})/i.exec(s); if(m) return 1900+ +m[1]; return 99999; }
+  m=/lat\w*\s+(\d{2})/i.exec(s); if(m) return 1900+ +m[1];
+  m=/\b([IVXLC]+)\s*w/.exec(s); if(m) return (rzym(m[1])-1)*100+50;
+  return 99999; }
+const ZRODLA=[[/wikipedia/,"Wikipedia"],[/teatrnn/,"Ośrodek „Brama Grodzka – Teatr NN”"],[/muzeumkrasnystaw/,"Muzeum Regionalne w Krasnymstawie"],
+  [/supertydzien/,"Super Tydzień Chełmski"],[/sites\.google/,"Izbica – strona przyjaciół miejscowości i gminy"]];
+const zrodloLink=u=>{ try{ const h=new URL(u).hostname.replace(/^www\./,""); const z=ZRODLA.find(([re])=>re.test(h)), n=z?z[1]:h;
+  return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`; }catch(e){ return ""; } };
 const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
 (async()=>{
   const h=await wczytaj("Historia");
@@ -85,7 +93,9 @@ const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
       ${r.tresc?`<p class="t">${esc(r.tresc)}</p>`:""}
       ${idx.length?`<div class="ph">${idx.map(i=>`<button data-i="${i}" aria-label="Powiększ zdjęcie"><img src="${esc(FOTO[i].mini)}" alt="${esc(r.podpis||r.tytul)}" loading="lazy"></button>`).join("")}</div>`:""}
       ${(r.podpis||r.autor)&&idx.length?`<div class="who">${esc(r.podpis||"")}${r.autor?` · zdjęcie: ${esc(r.autor)}`:""}</div>`:(r.autor?`<div class="who">Spisał(a): ${esc(r.autor)}</div>`:"")}
-    </article>`; }).join("")+'</div>';
+      ${r.zrodlo?`<div class="who">Źródło: ${String(r.zrodlo).split(/\s+/).filter(Boolean).map(zrodloLink).join(", ")}</div>`:""}
+    </article>`; }).join("")+'</div>'+
+    (wpisy.some(r=>/wikipedia/.test(r.zrodlo||""))?'<p class="muted" style="font-size:13px">Wpisy ze źródłem „Wikipedia” opracowano na podstawie artykułów Wikipedii, na licencji <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pl" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p>':"");
   if(FOTO.length>1){ document.getElementById("galSec").hidden=false;
     document.getElementById("gal").innerHTML=FOTO.map((f,i)=>`<div class="ph" style="margin:0;display:block"><button data-i="${i}" aria-label="Powiększ zdjęcie"><img src="${esc(f.mini)}" alt="${esc(f.podpis||f.tytul)}" loading="lazy"></button></div>`).join(""); }
   document.querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>pokaz(+b.dataset.i));

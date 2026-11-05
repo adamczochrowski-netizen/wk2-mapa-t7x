@@ -10,7 +10,7 @@ const ARKUSZ_ID = "1mlQaWSLw0cNGBsjqeHoOdxOMQXnadhu9";
 //  Miejsca:     nazwa | wies | opis | wspolrzedne
 //  Kontakty:    nazwa | telefon | opis
 //  Parafia:     pole | tresc
-//  Historia:    rok | tytul | tresc | zdjecia | podpis | autor
+//  Historia:    rok | tytul | tresc | zdjecia | podpis | autor | zrodlo   (zrodlo = link do źródła, opcjonalnie)
 //               zdjecia = link(i) do zdjęć z Dysku Google („Każda osoba mająca link”), kilka linków oddziel spacją
 
 const PRZYKLADY = {
