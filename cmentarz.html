@@ -108,11 +108,16 @@ svg:active{cursor:grabbing}
 @media (prefers-reduced-motion: no-preference){ .route{animation:march 1.2s linear infinite} @keyframes march{to{stroke-dashoffset:-2.6}} }
 
 @media (max-width: 760px){
-  .app{grid-template-columns:1fr;grid-template-rows:auto 1fr auto;grid-template-areas:"top" "map" "card"}
+  /* telefon: duża mapa (ok. 2/3 ekranu), karta grobu pod nią — strona przewija się w dół */
+  html,body{height:auto}
+  body{overflow:auto}
+  .app{height:auto;grid-template-columns:1fr;grid-template-rows:auto 66vh auto;grid-template-rows:auto 66svh auto;grid-template-areas:"top" "map" "card"}
+  .map{min-height:360px}
   .top,.card{border-right:0;padding-right:max(16px,env(safe-area-inset-right,0px))}
-  .top{padding-block:12px 10px;gap:8px;border-bottom:1px solid var(--line)}
+  .top{padding-block:10px 8px;gap:6px;border-bottom:1px solid var(--line)}
+  .top label{display:none}
   h1{font-size:18px}
-  .card{max-height:44vh;border-top:1px solid var(--line);padding-block:12px 14px}
+  .card{max-height:none;overflow:visible;border-top:1px solid var(--line);padding-block:12px 24px}
   .legend{display:none}
 }
 </style>
@@ -1584,7 +1589,9 @@ function drawStatic(){
 }
 
 // ===== Stan =====
-const state={ me:{...START}, acc:4, mode:"demo", sel:null, route:null, walk:null, arrived:false, gpsMsg:"", watch:null };
+// Tryby pozycji: "none" (na start — trzeba włączyć GPS), "gps", "manual" (ustawiona ręcznie, z symulacją trasy)
+const state={ me:{...START}, acc:4, mode:"none", gpsOK:false, sel:null, route:null, walk:null, arrived:false, gpsMsg:"", watch:null };
+const hasPos=()=>state.mode==="manual"||(state.mode==="gps"&&state.gpsOK);
 function drawDynamic(){
   dyn.innerHTML="";
   document.querySelectorAll(".g.sel").forEach(n=>n.classList.remove("sel"));
@@ -1592,8 +1599,10 @@ function drawDynamic(){
   const r=currentRoutePts();
   if(r&&r.length>1) el("polyline",{points:r.map(p=>`${p.x},${p.y}`).join(" "),class:"route"},dyn);
   if(state.sel) el("circle",{cx:state.sel.ax,cy:state.sel.ay,r:.5,fill:"var(--accent)"},dyn);
-  el("circle",{cx:state.me.x,cy:state.me.y,r:Math.max(1,state.acc),class:"acc"},dyn);
-  el("circle",{cx:state.me.x,cy:state.me.y,r:1,class:"me"},dyn);
+  if(hasPos()){
+    el("circle",{cx:state.me.x,cy:state.me.y,r:Math.max(1,state.acc),class:"acc"},dyn);
+    el("circle",{cx:state.me.x,cy:state.me.y,r:1,class:"me"},dyn);
+  }
   camUpdate(!!state.walk);
   const nv=document.getElementById("nav"); if(nv) nv.textContent=navText();
 }
@@ -1652,8 +1661,8 @@ function navText(){
 function currentRoutePts(){ if(!state.route) return null; if(!state.walk) return state.route.pts; return [state.me,...state.route.pts.slice(state.walk.seg+1)]; }
 function remaining(){ if(!state.route) return 0; if(!state.walk) return state.route.len; return Math.max(0,state.route.len-state.walk.s); }
 function recompute(){
-  state.route=state.sel?route(state.me,{x:state.sel.ax,y:state.sel.ay}):null;
-  state.arrived=!!(state.sel&&dst(state.me,{x:state.sel.ax,y:state.sel.ay})<3);
+  state.route=state.sel&&hasPos()?route(state.me,{x:state.sel.ax,y:state.sel.ay}):null;
+  state.arrived=!!(state.sel&&hasPos()&&dst(state.me,{x:state.sel.ax,y:state.sel.ay})<3);
 }
 
 // ===== Karta =====
@@ -1677,19 +1686,26 @@ function renderCard(){
     } else if(state.route){
       h+=`<div class="dist"><b>${Math.round(remaining())} m</b><span class="muted">${state.walk?"zostało do grobu":"pieszo alejkami"}</span></div>`;
       h+=`<div class="nav" id="nav">${esc(navText())}</div>`;
+    } else if(!hasPos()){
+      h+=`<p style="margin:0 0 10px;font-weight:600">${state.mode==="gps"?"Czekam na twoją pozycję na cmentarzu…":"Włącz GPS, a poprowadzę cię alejkami do tego grobu."}</p>`;
     }
     h+=`<div class="btns">`;
-    if(state.mode==="demo"&&!state.arrived) h+=state.walk?`<button class="btn primary" id="bStop">Zatrzymaj</button>`:`<button class="btn primary" id="bWalk">Symuluj dojście</button>`;
-    if(state.arrived&&state.mode==="demo") h+=`<button class="btn primary" id="bReset">Wróć do bramy</button>`;
+    if(state.mode==="none") h+=`<button class="btn primary" id="bGps2">Włącz GPS</button>`;
+    if(state.mode==="manual"&&!state.arrived) h+=state.walk?`<button class="btn primary" id="bStop">Zatrzymaj</button>`:`<button class="btn primary" id="bWalk">Symuluj trasę</button>`;
+    if(state.arrived&&state.mode==="manual") h+=`<button class="btn primary" id="bReset">Wróć do bramy</button>`;
     if(g.code) h+=`<button class="btn" id="bShare">Udostępnij</button>`;
     h+=`<button class="btn" id="bClear">Wyczyść</button></div>`;
     if(state.shareMsg) h+=`<p class="muted" style="margin:8px 0 0">${state.shareMsg}</p>`;
   }
+  const pill = state.mode==="gps" ? (state.gpsOK?"GPS ±"+Math.round(state.acc)+" m":"GPS: szukam…") : state.mode==="manual" ? "ustawiona ręcznie" : "nieznana";
   h+=`<div class="status">
-      <div class="row">Twoja pozycja: <span class="pill">${state.mode==="gps"?"GPS ±"+Math.round(state.acc)+" m":"symulacja"}</span></div>
+      <div class="row">Twoja pozycja: <span class="pill">${pill}</span></div>
       ${state.gpsMsg?`<div class="msg">${esc(state.gpsMsg)}</div>`:""}
-      <div class="row">${state.mode==="gps"?`<button class="btn" id="bDemo">Wróć do symulacji</button>`:`<button class="btn" id="bGps">Użyj mojego GPS</button>`}</div>
-      ${state.mode==="demo"?`<div>Dotknij pustego miejsca na mapie, żeby przestawić „tu jestem”.</div>`:""}
+      <div class="row">
+        ${state.mode!=="gps"&&!(state.mode==="none"&&state.sel)?`<button class="btn${state.mode==="none"?" primary":""}" id="bGps">Włącz GPS</button>`:""}
+        ${state.mode!=="manual"?`<button class="btn" id="bManual">Ustaw lokalizację ręcznie</button>`:""}
+      </div>
+      ${state.mode==="manual"?`<div>Dotknij mapy w miejscu, w którym stoisz. „Symuluj trasę” pokaże, jak dojść do grobu.</div>`:""}
       <div>Układ alejek odrysowany ze zdjęcia z drona, wymiary są szacunkowe. Wpisane są kwatery A/I, A/II, B/III i B/IV, przepisane z listy cmentarza. To pokaz działania, nie oficjalna ewidencja.</div>
     </div>`;
   card.innerHTML=h;
@@ -1697,7 +1713,7 @@ function renderCard(){
   on("bWalk",startWalk); on("bStop",()=>stopWalk()); on("bClear",()=>select(null));
   on("bShare",shareGrave);
   on("bReset",()=>{state.me={...START}; state.arriveSide=""; camSet(false); vb={...FIT}; setVB(); recompute(); update();});
-  on("bGps",startGps); on("bDemo",()=>stopGps());
+  on("bGps",startGps); on("bGps2",startGps); on("bManual",startManual);
 }
 function update(){ drawDynamic(); renderCard(); }
 function select(g){ stopWalk(true); state.sel=g; state.arriveSide=""; state.shareMsg="";
@@ -1779,17 +1795,18 @@ async function startCompass(){
 }
 function startGps(){
   stopWalk(true);
-  if(!calibOK){ state.gpsMsg="GPS nie jest jeszcze skalibrowany: brakuje współrzędnych bramy. Na razie działa symulacja."; renderCard(); return; }
-  if(!("geolocation" in navigator)){ state.gpsMsg="Ta przeglądarka nie udostępnia lokalizacji."; renderCard(); return; }
+  if(!calibOK){ state.gpsMsg="GPS nie jest jeszcze skalibrowany: brakuje współrzędnych bramy. Ustaw lokalizację ręcznie."; renderCard(); return; }
+  if(!("geolocation" in navigator)){ state.gpsMsg="Ta przeglądarka nie udostępnia lokalizacji. Ustaw lokalizację ręcznie."; renderCard(); return; }
   startCompass();   // wywołane z kliknięcia, więc iPhone może zapytać o kompas
-  state.gpsMsg="Czekam na sygnał GPS…"; renderCard();
+  if(state.watch!==null){ try{navigator.geolocation.clearWatch(state.watch);}catch(e){} state.watch=null; }
+  state.mode="gps"; state.gpsOK=false; state.gpsMsg="Czekam na sygnał GPS…"; recompute(); update();
   try{
     state.watch=navigator.geolocation.watchPosition(pos=>{
       const p=geoToLocal(pos.coords.latitude,pos.coords.longitude), far=Math.hypot(p.x-45,p.y-55);
       state.mode="gps"; state.acc=pos.coords.accuracy||8;
-      if(far>400){ state.gpsMsg=`Jesteś ok. ${(far/1000).toFixed(1)} km od cmentarza. Trasa pojawi się, gdy będziesz na miejscu.`; renderCard(); return; }
-      const first=state.gpsMsg!=="";
-      state.gpsMsg=""; state.me=p; recompute();
+      if(far>400){ state.gpsOK=false; state.gpsMsg=`Jesteś ok. ${(far/1000).toFixed(1)} km od cmentarza. Trasa pojawi się, gdy będziesz na miejscu.`; recompute(); update(); return; }
+      const first=!state.gpsOK;
+      state.gpsOK=true; state.gpsMsg=""; state.me=p; recompute();
       if(first&&state.sel&&!cam.on) camSet(true);   // pierwsza pozycja na cmentarzu: od razu widok na wprost
       update();
     }, err=>{
@@ -1802,9 +1819,18 @@ function startGps(){
 }
 function stopGps(keepMsg){
   if(state.watch!==null){ try{navigator.geolocation.clearWatch(state.watch);}catch(e){} state.watch=null; }
-  state.compass=null;
-  state.mode="demo"; state.acc=4;
-  if(keepMsg!==true){ state.gpsMsg=""; state.me={...START}; recompute(); update(); }
+  state.compass=null; state.gpsOK=false;
+  state.mode="none"; state.acc=4;
+  if(keepMsg!==true) state.gpsMsg="";
+  recompute(); update();
+}
+// Ręczne ustawienie pozycji (np. gdy GPS nie działa albo do pokazania trasy w domu): start przy bramie
+function startManual(){
+  stopWalk(true);
+  if(state.watch!==null){ try{navigator.geolocation.clearWatch(state.watch);}catch(e){} state.watch=null; }
+  state.compass=null; state.gpsOK=false; state.gpsMsg="";
+  state.mode="manual"; state.acc=4; state.me={...START};
+  recompute(); update();
 }
 
 // ===== Wyszukiwarka =====
@@ -1823,7 +1849,10 @@ q.addEventListener("input",()=>{
 });
 
 // ===== Przesuwanie i przybliżanie mapy =====
-const FIT={x:-10,y:12,w:138,h:140};
+// Widok „cały cmentarz”: prostokąt ciasno wokół ogrodzenia i bramy (z małym marginesem), żeby plan wypełniał mapę
+const FIT=(()=>{ const pts=[[-3,-8],[96,6],[96,99],[87.5,111.2],[-3,111.2]].map(([s,t])=>L2W(s,t));
+  const xs=pts.map(p=>p.x), ys=pts.map(p=>p.y), m=3;
+  const x0=Math.min(...xs)-m, y0=Math.min(...ys)-m; return {x:x0, y:y0, w:Math.max(...xs)+m-x0, h:Math.max(...ys)+m-y0}; })();
 let vb={...FIT};
 const setVB=()=>svg.setAttribute("viewBox",`${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
 const toSvg=(cx,cy)=>{const p=svg.createSVGPoint(); p.x=cx; p.y=cy; return p.matrixTransform(svg.getScreenCTM().inverse());};
@@ -1859,7 +1888,7 @@ svg.addEventListener("pointerup",e=>{
   if(was===1&&downAt&&moved<=6){
     const gEl=downAt.target.closest&&downAt.target.closest("[data-g]"), g=gEl&&byId.get(gEl.dataset.g);
     if(g) select(g);
-    else if(state.mode==="demo"){
+    else if(state.mode==="manual"){
       const p=toLocal(e.clientX,e.clientY); stopWalk(true);
       state.me={x:Math.max(-6,Math.min(99,p.x)), y:Math.max(-8,Math.min(113,p.y))};
       recompute(); update();
