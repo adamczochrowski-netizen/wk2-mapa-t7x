@@ -55,6 +55,8 @@ html[data-duze] .row2{grid-template-columns:minmax(0,1fr)}
 .chip{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--green-soft);color:var(--green)}
 .chip.due{background:var(--accent);color:var(--on-accent)}
 .mini{font-size:14px;padding:7px 11px}
+.kal{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.kal-uw{margin:0 0 4px;font-size:14px;padding:8px 10px;border-radius:10px;background:var(--accent-soft);color:var(--fg)}
 </style>
 
 <main class="wrap">
@@ -181,27 +183,46 @@ $("lista").addEventListener("click",e=>{
     $("naGl").checked=!!n.naGlownej; pokazPola(); $("formTyt").textContent="Edytuj notatkę"; $("bZapisz").textContent="Zapisz zmiany"; $("bAnuluj").hidden=false;
     $("form").scrollIntoView({behavior:"smooth",block:"start"}); $("tekst").focus();
   }
-  if(b.dataset.a==="kal") doKalendarza(n);
+  if(b.dataset.a==="kal") doKalendarza(n, art);
 });
 
-// Przypomnienie w kalendarzu telefonu: iPhone — plik .ics (otwiera Kalendarz), inne — Kalendarz Google
-function doKalendarza(n){
-  const k=kiedyNotatki(n.kiedy); if(!k) return;
+// Przypomnienie w kalendarzu telefonu. Pod notatką rozwija się wybór:
+//  • „Kalendarz iPhone'a” — otwiera plik wydarzenia (.ics) bezpośrednio, Safari pokazuje „Dodaj do kalendarza”,
+//  • „Kalendarz Google” — zwykły link, działa w każdej przeglądarce (konto Google).
+// Przeglądarka wbudowana w Messengera/Facebooka blokuje pliki — wtedy podpowiadamy otwarcie w Safari.
+const wApce=/FBAN|FBAV|FB_IAB|FBIOS|Messenger|Instagram|Line\//i.test(navigator.userAgent);
+function kalendarzDane(n){
+  const k=kiedyNotatki(n.kiedy); if(!k) return null;
   const p=x=>String(x).padStart(2,"0"), ymd=d=>`${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}`, hms=d=>`T${p(d.getHours())}${p(d.getMinutes())}00`;
   const tytul=n.tekst.split("\n")[0].slice(0,80);
   let start, koniec;
   if(k.godzina){ const e=new Date(k.d.getTime()+30*60e3); start=ymd(k.d)+hms(k.d); koniec=ymd(e)+hms(e); }
   else { const e=new Date(k.d); e.setDate(e.getDate()+1); start=ymd(k.d); koniec=ymd(e); }
-  if(iOS){
-    const dt=k.godzina?`DTSTART:${start}\r\nDTEND:${koniec}`:`DTSTART;VALUE=DATE:${start}\r\nDTEND;VALUE=DATE:${koniec}`;
-    const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Moje Wirkowice//PL","BEGIN:VEVENT",`UID:${n.id}@moje-wirkowice`,
-      `DTSTAMP:${ymd(new Date())}${hms(new Date())}`,dt,`SUMMARY:${tytul.replace(/[,;]/g,"\\$&")}`,`DESCRIPTION:${n.tekst.replace(/\n/g,"\\n").replace(/[,;]/g,"\\$&")}`,
-      "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:Przypomnienie",k.godzina?"TRIGGER:PT0M":"TRIGGER:PT9H","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
-    const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"})); a.download="przypomnienie.ics"; a.click();
-  } else {
-    const q=new URLSearchParams({action:"TEMPLATE",text:tytul,dates:`${start}/${koniec}`,details:n.tekst,ctz:"Europe/Warsaw"});
-    window.open("https://calendar.google.com/calendar/render?"+q.toString(),"_blank","noopener");
-  }
+  const tx=s=>s.replace(/\\/g,"\\\\").replace(/\n/g,"\\n").replace(/[,;]/g,"\\$&");
+  const dt=k.godzina?`DTSTART:${start}\r\nDTEND:${koniec}`:`DTSTART;VALUE=DATE:${start}\r\nDTEND;VALUE=DATE:${koniec}`;
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Moje Wirkowice//PL","CALSCALE:GREGORIAN","BEGIN:VEVENT",`UID:${n.id}@moje-wirkowice`,
+    `DTSTAMP:${ymd(new Date())}${hms(new Date())}`,dt,`SUMMARY:${tx(tytul)}`,`DESCRIPTION:${tx(n.tekst)}`,
+    "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:Przypomnienie",k.godzina?"TRIGGER:-PT0M":"TRIGGER:PT9H","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const q=new URLSearchParams({action:"TEMPLATE",text:tytul,dates:`${start}/${koniec}`,details:n.tekst,ctz:"Europe/Warsaw"});
+  return {ics, google:"https://calendar.google.com/calendar/render?"+q.toString()};
+}
+function doKalendarza(n, art){
+  const d=kalendarzDane(n); if(!d) return;
+  let box=art.querySelector(".kal"); if(box){ box.remove(); return; }   // drugi raz chowa wybór
+  box=document.createElement("div"); box.className="kal";
+  box.innerHTML=`
+    ${wApce?`<p class="kal-uw"><strong>Otwierasz apkę w Messengerze.</strong> Kalendarz iPhone'a zadziała po otwarciu strony w Safari: dotknij <b>⋯</b> u góry ekranu → <b>Otwórz w przeglądarce</b>. Kalendarz Google działa od razu.</p>`:""}
+    <div class="btns" style="margin-top:6px">
+      ${iOS?`<button type="button" class="btn mini primary" data-k="ios">Kalendarz iPhone'a</button>`:""}
+      <a class="btn mini${iOS?"":" primary"}" href="${esc(d.google)}" target="_blank" rel="noopener">Kalendarz Google</a>
+      ${!iOS?`<button type="button" class="btn mini" data-k="ios">Plik do kalendarza (.ics)</button>`:""}
+    </div>`;
+  art.querySelector(".body").appendChild(box);
+  box.querySelector('[data-k="ios"]')?.addEventListener("click",()=>{
+    const url="data:text/calendar;charset=utf-8,"+encodeURIComponent(d.ics);
+    if(iOS){ location.href=url; }   // Safari otwiera okno „Dodaj do kalendarza”
+    else { const a=document.createElement("a"); a.href=url; a.download="przypomnienie.ics"; document.body.appendChild(a); a.click(); a.remove(); }
+  });
 }
 render(); pokazPola();
 </script>
