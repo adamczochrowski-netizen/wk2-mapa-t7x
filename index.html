@@ -4,8 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="data:,">
+<meta name="theme-color" content="#3E6B4A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="ikona-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wirkowice">
 <style>body{margin:0}[hidden]{display:none!important}</style>
+<script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
 </head>
 <body>
 <title>Moje Wirkowice</title>
@@ -14,24 +20,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="wspolne.css">
+<style>
+.news{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 12px}
+.news a{display:flex;flex-direction:column;gap:2px;min-width:0;padding:12px 14px;border-radius:12px;background:var(--accent-soft);color:var(--fg);text-decoration:none;border:1px solid transparent}
+.news a:hover{border-color:var(--accent)}
+.news .k{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.news .t{font-weight:700;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.news .m{color:var(--muted);font-size:14px}
+@media (max-width:420px){ .news{grid-template-columns:1fr} }
+</style>
 
 <main class="wrap">
   <p class="eyebrow">Wirkowice Pierwsze · Wirkowice Drugie</p>
   <h1>Moje Wirkowice</h1>
-  <p class="lead">Nasza wieś w jednym miejscu: groby bliskich, ciekawe miejsca, historia i ważne numery.</p>
+  <p class="lead">Nasza wieś w jednym miejscu: historia, ciekawe miejsca, parafia i cmentarz, ważne numery.</p>
+
+  <div class="news" aria-label="Najnowsze">
+    <a href="co-slychac.html" id="nOgl"><span class="k">Ogłoszenie</span><span class="t">Wczytuję…</span><span class="m"></span></a>
+    <a href="smieci.html" id="nSm"><span class="k">Wywóz śmieci</span><span class="t">Wczytuję…</span><span class="m"></span></a>
+  </div>
 
   <nav class="tiles" aria-label="Działy">
-    <a class="tile wide alarm" href="alarmowe.html">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
-      <span><h2>Numery alarmowe</h2><p>Policja, straż, pogotowie, gaz, prąd</p></span>
-      <span class="big" aria-hidden="true">112</span>
-    </a>
-
-    <a class="tile" href="cmentarz.html">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7M9 6h6"/><path d="M6 21v-7a6 6 0 0 1 12 0v7"/><path d="M4 21h16"/></svg></span>
-      <h2>Cmentarz</h2>
-      <p>Znajdź grób bliskiej osoby i dojdź do niego alejkami.</p>
-      <span class="pill ok">Działa</span>
+    <a class="tile" href="historia.html">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 7h6M9 11h6"/></svg></span>
+      <h2>Historia</h2>
+      <p>Dzieje wsi, wspomnienia mieszkańców, stare zdjęcia.</p>
     </a>
 
     <a class="tile" href="miejsca.html">
@@ -41,16 +54,46 @@
       <span class="pill">W budowie</span>
     </a>
 
-    <a class="tile" href="historia.html">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 7h6M9 11h6"/></svg></span>
-      <h2>Historia</h2>
-      <p>Dzieje wsi, wspomnienia mieszkańców, stare zdjęcia.</p>
-      <span class="pill">W budowie</span>
+    <a class="tile wide" href="kosciol.html">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M10 4h4"/><path d="M12 6l-5 5v10h10V11z"/><path d="M4 21h16M10 21v-4a2 2 0 0 1 4 0v4"/></svg></span>
+      <span><h2>Kościół</h2><p>Parafia: kontakt, msze, ogłoszenia. Cmentarz z wyszukiwarką grobów.</p></span>
+    </a>
+
+    <a class="tile" href="co-slychac.html">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l5 4V6L7 10z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span>
+      <h2>Co słychać</h2>
+      <p>Ogłoszenia sołectwa i wydarzenia we wsi.</p>
+    </a>
+
+    <a class="tile" href="smieci.html">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg></span>
+      <h2>Wywóz śmieci</h2>
+      <p>Najbliższy termin i harmonogram.</p>
+    </a>
+
+    <a class="tile wide alarm" href="alarmowe.html">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+      <span><h2>Numery alarmowe</h2><p>Policja, straż, pogotowie, gaz, prąd</p></span>
+      <span class="big" aria-hidden="true">112</span>
     </a>
   </nav>
 
   <footer>Wersja testowa. Kolejne działy będą dochodzić stopniowo.</footer>
 </main>
+
+<script src="dane.js"></script>
+<script>
+const ustaw=(id,t,m)=>{ const a=document.getElementById(id); a.querySelector(".t").textContent=t; a.querySelector(".m").textContent=m; };
+(async()=>{
+  const o=await wczytaj("Ogloszenia");
+  const ogl=o.wiersze.filter(r=>r.tytul).filter(r=>{ const w=data(r.wazne_do); return !w||w>=dzis(); }).sort((a,b)=>(data(b.data)||0)-(data(a.data)||0));
+  if(ogl.length){ const d=data(ogl[0].data); ustaw("nOgl",ogl[0].tytul,d?kiedy(d):""); } else ustaw("nOgl","Brak nowych ogłoszeń","");
+  const s=await wczytaj("Smieci");
+  const sm=s.wiersze.map(r=>({d:data(r.data),r:r.rodzaj})).filter(x=>x.d&&x.d>=dzis()).sort((a,b)=>a.d-b.d);
+  if(sm.length){ const t=sm[0].d.getTime(); ustaw("nSm",kiedy(sm[0].d),sm.filter(x=>x.d.getTime()===t).map(x=>x.r).join(", ")+(s.przyklad?" (przykład)":"")); }
+  else ustaw("nSm","Brak terminów","");
+})();
+</script>
 
 </body>
 </html>

@@ -4,8 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="data:,">
+<meta name="theme-color" content="#3E6B4A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="ikona-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wirkowice">
 <style>body{margin:0}[hidden]{display:none!important}</style>
+<script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
 </head>
 <body>
 <title>Ciekawe miejsca · Moje Wirkowice</title>
@@ -38,17 +44,25 @@
   <footer>Brakuje jakiegoś miejsca? Daj znać, dopiszemy je razem ze zdjęciem i opisem.</footer>
 </main>
 
+<script src="dane.js"></script>
 <script>
-// Miejsca: nazwa, wieś, opis, współrzędne (z Google Maps: prawy klik → liczby), link w aplikacji (opcjonalnie).
-// Dodawaj kolejne obiekty do tej listy. Puste pozycje (lat:null) pokazują się jako „do uzupełnienia”.
-const PLACES=[
+// Miejsca: stałe (cmentarz) + z arkusza, karta „Miejsca”: nazwa | wies | opis | wspolrzedne („50.87, 23.07” z Google Maps).
+// Dopóki w arkuszu nie ma miejsc, widać puste pozycje „do uzupełnienia”.
+let PLACES=[
   {name:"Cmentarz", village:"Wirkowice Drugie", text:"Plan cmentarza z wyszukiwarką grobów i prowadzeniem alejkami do wybranego grobu.",
    lat:50.872167, lon:23.073667, app:"cmentarz.html", appLabel:"Plan i groby"},
   {name:"Zabytki Wirkowic Pierwszych", village:"Wirkowice Pierwsze", text:"Kapliczki, krzyże przydrożne, stare budynki: czekamy na listę miejsc i zdjęcia.", lat:null, lon:null},
   {name:"Zabytki Wirkowic Drugich", village:"Wirkowice Drugie", text:"Kapliczki, krzyże przydrożne, stare budynki: czekamy na listę miejsc i zdjęcia.", lat:null, lon:null},
 ];
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let me=null;
+(async()=>{
+  const m=await wczytaj("Miejsca");
+  const z=m.wiersze.filter(r=>r.nazwa).map(r=>{
+    const c=/(-?\d+[.,]\d+)\s*[,; ]\s*(-?\d+[.,]\d+)/.exec(r.wspolrzedne||"");
+    return {name:r.nazwa, village:r.wies||"", text:r.opis||"", lat:c?+c[1].replace(",","."):null, lon:c?+c[2].replace(",","."):null};
+  });
+  if(z.length){ PLACES=[PLACES[0],...z]; render(); }
+})();
 const km=(a,b,c,d)=>{ const R=6371, r=x=>x*Math.PI/180, dl=r(c-a), dn=r(d-b);
   const h=Math.sin(dl/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(dn/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
 function render(){

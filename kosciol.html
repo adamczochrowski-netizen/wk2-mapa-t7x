@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#3E6B4A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="ikona-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wirkowice">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
+</head>
+<body>
+<title>Kościół · Moje Wirkowice</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="wspolne.css">
+
+<main class="wrap">
+  <a class="back" href="index.html">← Moje Wirkowice</a>
+  <h1>Kościół</h1>
+  <p class="lead">Sprawy parafii i nasz cmentarz.</p>
+
+  <nav class="tiles" aria-label="Kościół">
+    <a class="tile" href="parafia.html">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M10 4h4"/><path d="M12 6l-5 5v10h10V11z"/><path d="M4 21h16"/></svg></span>
+      <h2>Ogólne</h2>
+      <p>Telefon do kościoła, ksiądz, msze święte, ogłoszenia parafialne.</p>
+      <span class="pill">W budowie</span>
+    </a>
+
+    <a class="tile" href="cmentarz.html">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7M9 6h6"/><path d="M6 21v-7a6 6 0 0 1 12 0v7"/><path d="M4 21h16"/></svg></span>
+      <h2>Cmentarz</h2>
+      <p>Znajdź grób bliskiej osoby i dojdź do niego alejkami.</p>
+      <span class="pill ok">Działa</span>
+    </a>
+  </nav>
+</main>
+
+</body>
+</html>

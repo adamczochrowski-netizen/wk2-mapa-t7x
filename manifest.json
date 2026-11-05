@@ -1,0 +1,16 @@
+{
+  "name": "Moje Wirkowice",
+  "short_name": "Wirkowice",
+  "description": "Historia, ciekawe miejsca, parafia i cmentarz Wirkowic Pierwszych i Drugich.",
+  "lang": "pl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EDF0EB",
+  "theme_color": "#3E6B4A",
+  "icons": [
+    { "src": "ikona-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "ikona-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -4,8 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="data:,">
+<meta name="theme-color" content="#3E6B4A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="ikona-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wirkowice">
 <style>body{margin:0}[hidden]{display:none!important}</style>
+<script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
 </head>
 <body>
 <title>Historia · Moje Wirkowice</title>
@@ -14,29 +20,94 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="wspolne.css">
+<style>
+/* oś czasu: pionowa linia, rok przy kropce, wpis obok */
+.tl{position:relative;margin:8px 0 0;padding-left:22px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.ev{position:relative;padding:0 0 22px}
+.ev::before{content:"";position:absolute;left:-21px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--bg)}
+.ev .yr{font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.02em}
+.ev h2{margin:2px 0 4px}
+.ev p.t{margin:0;white-space:pre-line}
+.ph{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;margin-top:10px}
+.ph button{all:unset;cursor:pointer;display:block;aspect-ratio:4/3;max-width:100%;border-radius:8px;overflow:hidden;background:var(--line)}
+.ph button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.08)}
+.ev .who{color:var(--muted);font-size:13px;margin-top:6px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px}
+/* powiększenie */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,12,10,.94);display:flex;flex-direction:column;
+  padding:calc(12px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.lb .bar{display:flex;justify-content:space-between;align-items:center;color:#eee;font-size:14px}
+.lb .x,.lb .nav{all:unset;cursor:pointer;color:#fff;font-size:26px;width:44px;height:44px;display:grid;place-items:center;border-radius:10px}
+.lb .x:focus-visible,.lb .nav:focus-visible{outline:2px solid #fff}
+.lb .stage{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;min-height:0}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;flex:1;min-width:0}
+.lb .cap{color:#eee;text-align:center;padding:10px 4px 0;font-size:15px}
+.lb .cap small{display:block;color:#aaa;font-size:13px}
+</style>
 
 <main class="wrap">
   <a class="back" href="index.html">← Moje Wirkowice</a>
   <h1>Historia</h1>
-  <p class="lead">Tu zbierzemy dzieje Wirkowic Pierwszych i Drugich: opisy, wspomnienia mieszkańców i stare zdjęcia z rodzinnych albumów.</p>
+  <p class="lead">Dzieje Wirkowic Pierwszych i Drugich: wydarzenia, wspomnienia mieszkańców i stare zdjęcia z rodzinnych albumów.</p>
+  <div id="out"><p class="muted">Wczytuję…</p></div>
 
-  <section class="section">
-    <h2>Dawne czasy</h2>
-    <div class="card empty"><p style="margin:0">Skąd się wzięła wieś, jak wyglądała dawniej, ważne wydarzenia. <span class="muted">Czekamy na materiały.</span></p></div>
+  <section class="section" id="galSec" hidden>
+    <h2>Wszystkie zdjęcia</h2>
+    <div class="gal" id="gal"></div>
   </section>
 
-  <section class="section">
-    <h2>Ludzie i wspomnienia</h2>
-    <div class="card empty"><p style="margin:0">Opowieści najstarszych mieszkańców, rodziny, zawody, zwyczaje. <span class="muted">Czekamy na materiały.</span></p></div>
-  </section>
-
-  <section class="section">
-    <h2>Stare zdjęcia</h2>
-    <div class="card empty"><p style="margin:0">Galeria zdjęć z podpisami: kto, gdzie, kiedy. <span class="muted">Czekamy na zdjęcia.</span></p></div>
-  </section>
-
-  <footer>Masz stare zdjęcia, dokumenty albo pamiętasz dawne historie? Daj znać, a trafią tutaj, z podpisem autora.</footer>
+  <footer>Masz stare zdjęcia, dokumenty albo pamiętasz dawne historie? Daj znać, a trafią tutaj z podpisem autora.</footer>
 </main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Zdjęcie">
+  <div class="bar"><span id="lbN"></span><button class="x" id="lbX" aria-label="Zamknij">✕</button></div>
+  <div class="stage"><button class="nav" id="lbP" aria-label="Poprzednie">‹</button><img id="lbI" alt=""><button class="nav" id="lbN2" aria-label="Następne">›</button></div>
+  <div class="cap" id="lbC"></div>
+</div>
+
+<script src="dane.js"></script>
+<script>
+// Sortowanie po pierwszej liczbie 3–4 cyfrowej w kolumnie „rok” („lata 60.” → 1960); bez liczby → na koniec
+function rokLiczba(s){ s=String(s||""); let m=/(\d{4})/.exec(s); if(m) return +m[1];
+  m=/lat\w*\s+(\d{2})/i.exec(s); if(m) return 1900+ +m[1]; return 99999; }
+const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
+(async()=>{
+  const h=await wczytaj("Historia");
+  const wpisy=h.wiersze.filter(r=>r.tytul||r.tresc).sort((a,b)=>rokLiczba(a.rok)-rokLiczba(b.rok));
+  const out=document.getElementById("out");
+  if(!wpisy.length){ out.innerHTML=(h.przyklad?notkaPrzyklad:"")+'<div class="card empty"><p style="margin:0">Historia czeka na pierwsze wpisy. Dopisuje się je w arkuszu, w karcie „Historia”.</p></div>'; return; }
+  out.innerHTML=(h.przyklad?notkaPrzyklad:"")+'<div class="tl">'+wpisy.map(r=>{
+    const linki=String(r.zdjecia||"").split(/[\s,;]+/).map(l=>obrazek(l)).filter(Boolean);
+    const idx=linki.map(src=>{ FOTO.push({src, mini:src.replace(/sz=w\d+/,"sz=w400"), podpis:r.podpis, autor:r.autor, tytul:r.tytul}); return FOTO.length-1; });
+    return `<article class="ev"><div class="yr">${esc(r.rok||"")}</div><h2>${esc(r.tytul)}</h2>
+      ${r.tresc?`<p class="t">${esc(r.tresc)}</p>`:""}
+      ${idx.length?`<div class="ph">${idx.map(i=>`<button data-i="${i}" aria-label="Powiększ zdjęcie"><img src="${esc(FOTO[i].mini)}" alt="${esc(r.podpis||r.tytul)}" loading="lazy"></button>`).join("")}</div>`:""}
+      ${(r.podpis||r.autor)&&idx.length?`<div class="who">${esc(r.podpis||"")}${r.autor?` · zdjęcie: ${esc(r.autor)}`:""}</div>`:(r.autor?`<div class="who">Spisał(a): ${esc(r.autor)}</div>`:"")}
+    </article>`; }).join("")+'</div>';
+  if(FOTO.length>1){ document.getElementById("galSec").hidden=false;
+    document.getElementById("gal").innerHTML=FOTO.map((f,i)=>`<div class="ph" style="margin:0;display:block"><button data-i="${i}" aria-label="Powiększ zdjęcie"><img src="${esc(f.mini)}" alt="${esc(f.podpis||f.tytul)}" loading="lazy"></button></div>`).join(""); }
+  document.querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>pokaz(+b.dataset.i));
+})();
+
+// --- powiększenie z przewijaniem (strzałki, klawiatura, przesunięcie palcem) ---
+const lb=document.getElementById("lb"), lbI=document.getElementById("lbI"); let cur=0, ostatni=null;
+function pokaz(i){ cur=(i+FOTO.length)%FOTO.length; const f=FOTO[cur];
+  lbI.src=f.src; lbI.alt=f.podpis||f.tytul||"";
+  document.getElementById("lbC").innerHTML=`${esc(f.podpis||f.tytul||"")}${f.autor?`<small>zdjęcie: ${esc(f.autor)}</small>`:""}`;
+  document.getElementById("lbN").textContent=FOTO.length>1?`${cur+1} / ${FOTO.length}`:"";
+  document.getElementById("lbP").hidden=document.getElementById("lbN2").hidden=FOTO.length<2;
+  if(lb.hidden){ ostatni=document.activeElement; lb.hidden=false; document.body.style.overflow="hidden"; document.getElementById("lbX").focus(); } }
+function zamknij(){ lb.hidden=true; document.body.style.overflow=""; if(ostatni) ostatni.focus(); }
+document.getElementById("lbX").onclick=zamknij;
+document.getElementById("lbP").onclick=()=>pokaz(cur-1);
+document.getElementById("lbN2").onclick=()=>pokaz(cur+1);
+lb.addEventListener("click",e=>{ if(e.target===lb||e.target.classList.contains("stage")) zamknij(); });
+addEventListener("keydown",e=>{ if(lb.hidden) return; if(e.key==="Escape") zamknij(); if(e.key==="ArrowLeft") pokaz(cur-1); if(e.key==="ArrowRight") pokaz(cur+1); });
+let x0=null; lb.addEventListener("touchstart",e=>{ x0=e.touches[0].clientX; },{passive:true});
+lb.addEventListener("touchend",e=>{ if(x0===null) return; const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>50&&FOTO.length>1) pokaz(cur+(dx<0?1:-1)); x0=null; });
+</script>
 
 </body>
 </html>

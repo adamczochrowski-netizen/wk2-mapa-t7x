@@ -4,8 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="data:,">
+<meta name="theme-color" content="#3E6B4A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="ikona-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wirkowice">
 <style>body{margin:0}[hidden]{display:none!important}</style>
+<script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
 </head>
 <body>
 <title>Cmentarz Wirkowice Drugie</title>
@@ -113,7 +119,7 @@ svg:active{cursor:grabbing}
 
 <div class="app">
   <section class="top">
-    <div class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none;font-weight:700">← Moje Wirkowice</a> <span class="pill">WERSJA TESTOWA</span></div>
+    <div class="eyebrow"><a href="kosciol.html" style="color:inherit;text-decoration:none;font-weight:700">← Kościół</a> <span class="pill">WERSJA TESTOWA</span></div>
     <h1>Cmentarz w Wirkowicach Drugich</h1>
     <div class="search">
       <label for="q" class="muted" style="display:block;margin-bottom:4px">Kogo szukasz?</label>
@@ -1539,7 +1545,7 @@ function label(s,t,text,cls){ const w=L2W(s,t); const n=el("text",{x:w.x,y:w.y,c
 function drawStatic(){
   camG=el("g",{id:"cam"});   // „kamera”: w trybie na wprost obraca całą mapę wokół twojej pozycji
   plan=el("g",{transform:`matrix(${C.x} ${C.y} ${D.x} ${D.y} ${P.x} ${P.y})`},camG);
-  el("polygon",{points:"-3,0 96,6 94,100 88,110 -3,110",class:"fence"},plan);
+  el("polygon",{points:"-3,0 96,6 96,99 95.2,103 93.5,106.5 91,109.5 87.5,111.2 -3,111.2",class:"fence"},plan);   // prawy dolny róg zaokrąglony jak na zdjęciu
   // drzewa wzdłuż ogrodzenia
   for(let t=12;t<100;t+=11) el("circle",{cx:94.2-t*0.02,cy:t,r:1.3,class:"tree"},plan);
   for(let s=5;s<86;s+=12) el("circle",{cx:s,cy:108.6,r:1.1,class:"tree"},plan);
@@ -1549,7 +1555,6 @@ function drawStatic(){
   // plac z kaplicą
   el("rect",{x:33,y:37,width:14,height:10,rx:.6,class:"plaza"},plan);
   el("rect",{x:34.5,y:39,width:4.5,height:4.5,class:"chapel"},plan);
-  el("path",{d:"M36.75 39.8V42.7M35.7 40.7H37.8",stroke:"var(--stone-dark)","stroke-width":.35,fill:"none"},plan);
   // alejki
   const draw=(list,w)=>{ for(const [x1,y1,x2,y2] of list){
     el("line",{x1,y1,x2,y2,class:"alley-edge","stroke-width":w+.3},plan);
@@ -1571,6 +1576,11 @@ function drawStatic(){
   label(50,111.5,"kwatery wg mapy cmentarza, groby orientacyjnie","note");
   label(45,-6,"BRAMA","sm"); label(36.8,51.5,"kaplica","sm");
   label(8,62,"wolny teren","note"); label(8,66,"(bez grobów)","note");
+  // Krzyż na kaplicy rysowany poza planem i obracany odwrotnie do mapy, jak podpisy: zawsze stoi prosto.
+  { const w=L2W(36.75,41.25);
+    const n=el("path",{d:`M${w.x} ${w.y-1.45}V${w.y+1.5}M${w.x-1.05} ${w.y-0.55}H${w.x+1.05}`,
+      stroke:"var(--stone-dark)","stroke-width":.35,"stroke-linecap":"round",fill:"none"},camG);
+    labelsArr.push({n,x:w.x,y:w.y}); }
 }
 
 // ===== Stan =====
@@ -1671,7 +1681,9 @@ function renderCard(){
     h+=`<div class="btns">`;
     if(state.mode==="demo"&&!state.arrived) h+=state.walk?`<button class="btn primary" id="bStop">Zatrzymaj</button>`:`<button class="btn primary" id="bWalk">Symuluj dojście</button>`;
     if(state.arrived&&state.mode==="demo") h+=`<button class="btn primary" id="bReset">Wróć do bramy</button>`;
+    if(g.code) h+=`<button class="btn" id="bShare">Udostępnij</button>`;
     h+=`<button class="btn" id="bClear">Wyczyść</button></div>`;
+    if(state.shareMsg) h+=`<p class="muted" style="margin:8px 0 0">${state.shareMsg}</p>`;
   }
   h+=`<div class="status">
       <div class="row">Twoja pozycja: <span class="pill">${state.mode==="gps"?"GPS ±"+Math.round(state.acc)+" m":"symulacja"}</span></div>
@@ -1683,11 +1695,12 @@ function renderCard(){
   card.innerHTML=h;
   const on=(id,fn)=>{const b=document.getElementById(id); if(b) b.onclick=fn;};
   on("bWalk",startWalk); on("bStop",()=>stopWalk()); on("bClear",()=>select(null));
+  on("bShare",shareGrave);
   on("bReset",()=>{state.me={...START}; state.arriveSide=""; camSet(false); vb={...FIT}; setVB(); recompute(); update();});
   on("bGps",startGps); on("bDemo",()=>stopGps());
 }
 function update(){ drawDynamic(); renderCard(); }
-function select(g){ stopWalk(true); state.sel=g; state.arriveSide="";
+function select(g){ stopWalk(true); state.sel=g; state.arriveSide=""; state.shareMsg="";
   if(!g&&cam.on){ camSet(false); vb={...FIT}; setVB(); }
   recompute(); update(); if(g&&!cam.on) ensureVisible(g); }
 
@@ -1865,7 +1878,23 @@ document.getElementById("zhead").onclick=()=>{ if(cam.on){ camSet(false); vb={..
 
 // ===== Start: przykładowy grób już wybrany =====
 setVB(); drawStatic();
-state.sel=byCode.get("B/IV/97")||graves.find(g=>g.persons.length);
+// ===== Udostępnianie grobu: link z kodem grobu po #, np. cmentarz.html#A-II-305 =====
+const codeToHash=c=>c.replace(/\//g,"-");
+const hashToGrave=()=>{ const h=decodeURIComponent(location.hash.slice(1)); if(!/^[AB]-[IV]+-\d+$/.test(h)) return null;
+  return byCode.get(h.replace(/-/g,"/"))||null; };
+async function shareGrave(){
+  const g=state.sel; if(!g||!g.code) return;
+  const url=location.href.split("#")[0]+"#"+codeToHash(g.code);
+  const who=g.persons.map(p=>`${p.first} ${p.last}`).join(", ");
+  const text=`${who?who+" — ":""}grób ${g.code} na cmentarzu w Wirkowicach Drugich. Mapa z prowadzeniem do grobu:`;
+  try{ if(navigator.share){ await navigator.share({title:"Grób "+g.code,text,url}); return; } }catch(e){ if(e&&e.name==="AbortError") return; }
+  try{ await navigator.clipboard.writeText(text+" "+url); state.shareMsg="Skopiowano link. Wklej go w SMS-ie albo komunikatorze."; }
+  catch(e){ state.shareMsg="Link do tego grobu: <span style=\"user-select:all;word-break:break-all\">"+esc(url)+"</span>"; }
+  renderCard();
+}
+window.addEventListener("hashchange",()=>{ const g=hashToGrave(); if(g) select(g); });
+
+state.sel=hashToGrave()||byCode.get("B/IV/97")||graves.find(g=>g.persons.length);
 recompute(); update();
 </script>
 

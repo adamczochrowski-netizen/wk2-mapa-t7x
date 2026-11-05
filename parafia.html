@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#3E6B4A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="ikona-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wirkowice">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
+</head>
+<body>
+<title>Parafia · Moje Wirkowice</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="wspolne.css">
+
+<main class="wrap">
+  <a class="back" href="kosciol.html">← Kościół</a>
+  <h1>Parafia</h1>
+  <p class="lead">Najważniejsze informacje o naszej parafii w jednym miejscu.</p>
+  <div id="out"><p class="muted">Wczytuję…</p></div>
+</main>
+
+<script src="dane.js"></script>
+<script>
+// Karta „Parafia” w arkuszu: kolumny pole | tresc. Rozpoznawane pola (wielkość liter bez znaczenia):
+// Nazwa parafii, Adres, Telefon, Kancelaria, Proboszcz, Wikariusz, Msze w niedziele, Msze w tygodniu, Ogloszenia (link)
+const SEKCJE=[
+  {tytul:"Kontakt",        pola:["nazwa parafii","adres","telefon","kancelaria"], brak:"nazwa parafii, adres, telefon do kancelarii lub plebanii, godziny kancelarii"},
+  {tytul:"Duszpasterze",   pola:["proboszcz","wikariusz"],                        brak:"proboszcz, wikariusz"},
+  {tytul:"Msze święte",    pola:["msze w niedziele","msze w tygodniu","msze w święta"], brak:"godziny mszy w niedziele, w tygodniu i w święta"},
+  {tytul:"Ogłoszenia parafialne", pola:["ogloszenia","ogłoszenia"],             brak:"link do ogłoszeń parafii (strona lub Facebook) albo ich treść"},
+];
+const tel=v=>{ const d=v.replace(/[^\d+]/g,""); return d.length>=9?`<a class="btn primary" href="tel:${d}">Zadzwoń ${esc(v)}</a>`:esc(v); };
+const pokaz=(pole,v)=> pole==="telefon" ? tel(v) : /^https?:\/\//.test(v) ? `<a class="btn" href="${esc(v)}" target="_blank" rel="noopener">Otwórz ogłoszenia</a>` : `<span style="white-space:pre-line">${esc(v)}</span>`;
+(async()=>{
+  const p=await wczytaj("Parafia");
+  const m={}; p.wiersze.forEach(r=>{ if(r.pole&&r.tresc) m[r.pole.trim().toLowerCase()]=r.tresc; });
+  document.getElementById("out").innerHTML=SEKCJE.map(s=>{
+    const jest=s.pola.filter(f=>m[f]);
+    return `<section class="section"><h2>${s.tytul}</h2>`+(jest.length
+      ? `<div class="card">${jest.map(f=>`<p class="eyebrow" style="margin:6px 0 2px">${esc(f[0].toUpperCase()+f.slice(1))}</p><div>${pokaz(f,m[f])}</div>`).join("")}</div>`
+      : `<div class="card empty"><p style="margin:0"><strong>Do uzupełnienia:</strong> ${s.brak}.</p></div>`)+`</section>`;
+  }).join("");
+})();
+</script>
+
+</body>
+</html>
