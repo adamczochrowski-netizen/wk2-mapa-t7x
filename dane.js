@@ -1,7 +1,7 @@
 // Moje Wirkowice — dane z Arkusza Google.
 // Jak podłączyć: w arkuszu Udostępnij → „Każda osoba mająca link” → Przeglądający, potem wpisz tu ID arkusza
 // (to długi ciąg liter między /d/ a /edit w adresie arkusza). Dopóki ARKUSZ_ID jest pusty, apka pokazuje PRZYKŁADY.
-const ARKUSZ_ID = "1nZUtHZyyJ7qufBQinUSlsYFC4HrqXoTW";
+const ARKUSZ_ID = "1hY7dNrD_iAFz41AtFXqxKMPjETiMcxb7r6rrIa-BG8s";
 
 // Karty arkusza i ich kolumny (pierwszy wiersz arkusza = nagłówki, dokładnie takie jak tu):
 //  Ogloszenia:  data | tytul | tresc | wazne_do
