@@ -32,22 +32,28 @@
 <script src="dane.js"></script>
 <script>
 // Karta „Parafia” w arkuszu: kolumny pole | tresc. Rozpoznawane pola (wielkość liter bez znaczenia):
-// Nazwa parafii, Adres, Telefon, Kancelaria, Proboszcz, Wikariusz, Msze w niedziele, Msze w tygodniu, Ogloszenia (link)
+// Nazwa parafii, Adres, Telefon, Kancelaria, Proboszcz, Wikariusz, Msze w niedziele, Msze w tygodniu, Msze w święta,
+// Ogloszenia (link albo tekst), Dekanat, Erygowana, Odpust
 const SEKCJE=[
   {tytul:"Kontakt",        pola:["nazwa parafii","adres","telefon","kancelaria"], brak:"nazwa parafii, adres, telefon do kancelarii lub plebanii, godziny kancelarii"},
-  {tytul:"Duszpasterze",   pola:["proboszcz","wikariusz"],                        brak:"proboszcz, wikariusz"},
   {tytul:"Msze święte",    pola:["msze w niedziele","msze w tygodniu","msze w święta"], brak:"godziny mszy w niedziele, w tygodniu i w święta"},
+  {tytul:"Duszpasterze",   pola:["proboszcz","wikariusz"],                        brak:"proboszcz, wikariusz"},
   {tytul:"Ogłoszenia parafialne", pola:["ogloszenia","ogłoszenia"],             brak:"link do ogłoszeń parafii (strona lub Facebook) albo ich treść"},
+  {tytul:"O parafii",      pola:["dekanat","erygowana","odpust"],                 brak:"dekanat, data powstania parafii, odpust", ukryjPuste:true},
 ];
+const NAZWY={"ogloszenia":"Ogłoszenia","msze w swieta":"Msze w święta","erygowana":"Erygowana (powstała)"};
 const tel=v=>{ const d=v.replace(/[^\d+]/g,""); return d.length>=9?`<a class="btn primary" href="tel:${d}">Zadzwoń ${esc(v)}</a>`:esc(v); };
-const pokaz=(pole,v)=> pole==="telefon" ? tel(v) : /^https?:\/\//.test(v) ? `<a class="btn" href="${esc(v)}" target="_blank" rel="noopener">Otwórz ogłoszenia</a>` : `<span style="white-space:pre-line">${esc(v)}</span>`;
+const pokaz=(pole,v)=> pole==="telefon" ? tel(v)
+  : pole==="adres" ? `<span>${esc(v)}</span><div class="btns" style="margin-top:6px"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(v)}" target="_blank" rel="noopener">Dojazd do kościoła</a></div>`
+  : /^https?:\/\//.test(v) ? `<a class="btn" href="${esc(v)}" target="_blank" rel="noopener">Otwórz ogłoszenia</a>` : `<span style="white-space:pre-line">${esc(v)}</span>`;
 (async()=>{
   const p=await wczytaj("Parafia");
   const m={}; p.wiersze.forEach(r=>{ if(r.pole&&r.tresc) m[r.pole.trim().toLowerCase()]=r.tresc; });
   document.getElementById("out").innerHTML=SEKCJE.map(s=>{
     const jest=s.pola.filter(f=>m[f]);
+    if(!jest.length&&s.ukryjPuste) return "";
     return `<section class="section"><h2>${s.tytul}</h2>`+(jest.length
-      ? `<div class="card">${jest.map(f=>`<p class="eyebrow" style="margin:6px 0 2px">${esc(f[0].toUpperCase()+f.slice(1))}</p><div>${pokaz(f,m[f])}</div>`).join("")}</div>`
+      ? `<div class="card">${jest.map(f=>`<p class="eyebrow" style="margin:6px 0 2px">${esc(NAZWY[f]||f[0].toUpperCase()+f.slice(1))}</p><div>${pokaz(f,m[f])}</div>`).join("")}</div>`
       : `<div class="card empty"><p style="margin:0"><strong>Do uzupełnienia:</strong> ${s.brak}.</p></div>`)+`</section>`;
   }).join("");
 })();
