@@ -56,7 +56,11 @@ html[data-duze] .row2{grid-template-columns:minmax(0,1fr)}
 .chip.due{background:var(--accent);color:var(--on-accent)}
 .mini{font-size:14px;padding:7px 11px}
 .kal{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
-.kal-uw{margin:0 0 4px;font-size:14px;padding:8px 10px;border-radius:10px;background:var(--accent-soft);color:var(--fg)}
+.kal-uw{margin:0 0 6px;font-size:14px;padding:8px 10px;border-radius:10px;background:var(--accent-soft);color:var(--fg)}
+.kal-lista{display:flex;flex-direction:column;gap:6px;align-items:stretch}
+.kal-lista .btn{justify-content:center;text-align:center}
+.kal-op{margin:6px 0 0;font-size:14px}
+.kal-op:empty{display:none}
 </style>
 
 <main class="wrap">
@@ -96,7 +100,27 @@ html[data-duze] .row2{grid-template-columns:minmax(0,1fr)}
     <div class="list" id="lista"></div>
   </section>
 
-  <footer>Notatki zostają w pamięci tej przeglądarki. Wyczyszczenie danych przeglądarki je usunie.</footer>
+  <section class="section">
+    <h2>Kopia zapasowa</h2>
+    <div class="card">
+      <p class="muted" style="margin:0">Notatki są tylko w tym telefonie. Zapisz kopię (np. na Dysku Google albo w Plikach), żeby nie zniknęły po wyczyszczeniu przeglądarki i żeby przenieść je na inny telefon.</p>
+      <div class="btns">
+        <button class="btn primary" type="button" id="bKopia">Zapisz kopię</button>
+        <button class="btn" type="button" id="bWczytaj">Wczytaj kopię</button>
+        <input type="file" id="plikKopii" accept=".json,application/json,text/plain" hidden>
+      </div>
+      <details style="margin-top:10px">
+        <summary class="muted" style="cursor:pointer">Nie da się zapisać pliku? Skopiuj albo wklej jako tekst</summary>
+        <div class="btns"><button class="btn mini" type="button" id="bKopiujTekst">Skopiuj notatki jako tekst</button></div>
+        <label class="lab" for="wklej" style="margin-top:10px">Wklej tu skopiowany tekst kopii:</label>
+        <textarea id="wklej" style="width:100%;box-sizing:border-box;min-height:70px;font:inherit;font-size:14px;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg)"></textarea>
+        <div class="btns"><button class="btn mini" type="button" id="bWklej">Wczytaj z tekstu</button></div>
+      </details>
+      <p id="kopiaMsg" style="margin:10px 0 0;font-weight:600" hidden></p>
+    </div>
+  </section>
+
+  <footer>Notatki zostają w pamięci tej przeglądarki. Wyczyszczenie danych przeglądarki je usunie, więc co jakiś czas zapisz kopię.</footer>
 </main>
 
 <script src="dane.js"></script>
@@ -206,24 +230,89 @@ function kalendarzDane(n){
   const q=new URLSearchParams({action:"TEMPLATE",text:tytul,dates:`${start}/${koniec}`,details:n.tekst,ctz:"Europe/Warsaw"});
   return {ics, google:"https://calendar.google.com/calendar/render?"+q.toString()};
 }
+// Rozpoznanie telefonu
+const android=/Android/i.test(navigator.userAgent);
+const standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;   // apka z ekranu głównego
+async function kopiuj(t){ try{ await navigator.clipboard.writeText(t); return true; }catch(e){ return false; } }
+
 function doKalendarza(n, art){
   const d=kalendarzDane(n); if(!d) return;
   let box=art.querySelector(".kal"); if(box){ box.remove(); return; }   // drugi raz chowa wybór
   box=document.createElement("div"); box.className="kal";
-  box.innerHTML=`
-    ${wApce?`<p class="kal-uw"><strong>Otwierasz apkę w Messengerze.</strong> Kalendarz iPhone'a zadziała po otwarciu strony w Safari: dotknij <b>⋯</b> u góry ekranu → <b>Otwórz w przeglądarce</b>. Kalendarz Google działa od razu.</p>`:""}
-    <div class="btns" style="margin-top:6px">
-      ${iOS?`<button type="button" class="btn mini primary" data-k="ios">Kalendarz iPhone'a</button>`:""}
-      <a class="btn mini${iOS?"":" primary"}" href="${esc(d.google)}" target="_blank" rel="noopener">Kalendarz Google</a>
-      ${!iOS?`<button type="button" class="btn mini" data-k="ios">Plik do kalendarza (.ics)</button>`:""}
-    </div>`;
+  const k=kiedyNotatki(n.kiedy);
+  let html="";
+  if(wApce) html+=`<p class="kal-uw"><strong>Otwierasz apkę w Messengerze.</strong> On blokuje kalendarz. Dotknij <b>⋯</b> u góry ekranu → <b>Otwórz w ${iOS?"Safari":"przeglądarce"}</b> i spróbuj tam.</p>`;
+  if(iOS){
+    html+=`<p class="kal-op">Wybierz sposób:</p><div class="kal-lista">
+      ${!standalone?`<button type="button" class="btn mini primary" data-k="ics">1. Dodaj do Kalendarza iPhone'a</button>`:""}
+      <button type="button" class="btn mini${standalone?" primary":""}" data-k="calshow">${standalone?"1":"2"}. Otwórz Kalendarz na ten dzień</button>
+      <a class="btn mini" href="${esc(d.google)}" target="_blank" rel="noopener">${standalone?"2":"3"}. Kalendarz Google</a></div>
+      <p class="kal-op muted" id="kalMsg-${n.id}"></p>`;
+  } else {
+    html+=`<div class="kal-lista">
+      <a class="btn mini primary" href="${esc(d.google)}" target="_blank" rel="noopener">Dodaj do Kalendarza Google</a>
+      <button type="button" class="btn mini" data-k="plik">Pobierz plik do kalendarza</button></div>
+      <p class="kal-op muted">${android?"Kalendarz Google jest w każdym Androidzie: wydarzenie pojawi się w telefonie z przypomnieniem.":"Otworzy się Kalendarz Google z gotowym wydarzeniem."}</p>`;
+  }
+  box.innerHTML=html;
   art.querySelector(".body").appendChild(box);
-  box.querySelector('[data-k="ios"]')?.addEventListener("click",()=>{
-    const url="data:text/calendar;charset=utf-8,"+encodeURIComponent(d.ics);
-    if(iOS){ location.href=url; }   // Safari otwiera okno „Dodaj do kalendarza”
-    else { const a=document.createElement("a"); a.href=url; a.download="przypomnienie.ics"; document.body.appendChild(a); a.click(); a.remove(); }
+  const msg=t=>{ const m=box.querySelector(".kal-op.muted"); if(m) m.innerHTML=t; };
+  // iPhone, Safari: plik wydarzenia jako „kalendarz” — Safari pyta „Dodaj do kalendarza?”
+  box.querySelector('[data-k="ics"]')?.addEventListener("click",()=>{
+    const url=URL.createObjectURL(new Blob([d.ics],{type:"text/calendar;charset=utf-8"}));
+    location.assign(url);
+    msg("Jeśli nic się nie pokazało, wybierz sposób 2: działa zawsze.");
+  });
+  // iPhone: otwórz aplikację Kalendarz na właściwym dniu (adres calshow:), treść notatki w schowku do wklejenia
+  box.querySelector('[data-k="calshow"]')?.addEventListener("click",async()=>{
+    const ok=await kopiuj(n.tekst);
+    const sek=Math.round((k.d.getTime()-Date.UTC(2001,0,1))/1000);
+    msg(`${ok?"Treść notatki jest skopiowana. ":""}W Kalendarzu dotknij <b>+</b>, ${ok?"wklej tytuł":"wpisz tytuł"}, ustaw godzinę${k.godzina?" "+esc(opisKiedy(n.kiedy).split(", ").pop()):""} i w polu <b>Alert</b> wybierz „W chwili wydarzenia”.`);
+    location.href="calshow:"+sek;
+  });
+  // Android / komputer: plik .ics do pobrania (otwiera się w aplikacji kalendarza)
+  box.querySelector('[data-k="plik"]')?.addEventListener("click",()=>{
+    const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([d.ics],{type:"text/calendar;charset=utf-8"}));
+    a.download="przypomnienie.ics"; document.body.appendChild(a); a.click(); a.remove();
+    msg("Plik jest w Pobranych. Dotknij go, żeby dodać wydarzenie do kalendarza.");
   });
 }
+// ===== Kopia zapasowa notatek =====
+const kMsg=(t,blad)=>{ const m=$("kopiaMsg"); m.hidden=false; m.textContent=t; m.style.color=blad?"var(--alarm)":"var(--green)"; };
+const dzisiaj=()=>{ const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; };
+const tekstKopii=()=>JSON.stringify({aplikacja:"Moje Wirkowice", rodzaj:"notatki", zapisano:new Date().toISOString(), notatki:notatki()}, null, 1);
+$("bKopia").onclick=async()=>{
+  const l=notatki(); if(!l.length){ kMsg("Nie masz jeszcze notatek do zapisania.",true); return; }
+  const nazwa=`moje-wirkowice-notatki-${dzisiaj()}.json`, plik=new File([tekstKopii()],nazwa,{type:"application/json"});
+  // telefon: okno „Udostępnij” (Zapisz w Plikach, Dysk Google, wyślij sobie) — działa też na iPhonie
+  try{ if(navigator.canShare&&navigator.canShare({files:[plik]})){ await navigator.share({files:[plik],title:"Kopia notatek"}); kMsg(`Kopia gotowa (${l.length} notatek).`); return; } }
+  catch(e){ if(e&&e.name==="AbortError") return; }
+  // komputer: zwykłe pobranie pliku
+  try{ const a=document.createElement("a"); a.href=URL.createObjectURL(plik); a.download=nazwa; document.body.appendChild(a); a.click(); a.remove();
+    kMsg(`Zapisano plik ${nazwa} (${l.length} notatek) w Pobranych.`); }
+  catch(e){ kMsg("Nie udało się zapisać pliku. Użyj „Skopiuj notatki jako tekst” poniżej.",true); }
+};
+$("bKopiujTekst").onclick=async()=>{
+  try{ await navigator.clipboard.writeText(tekstKopii()); kMsg("Skopiowano. Wklej to np. w notatkę w telefonie albo wiadomość do siebie."); }
+  catch(e){ $("wklej").value=tekstKopii(); $("wklej").select(); kMsg("Zaznaczyłem tekst kopii w polu poniżej: skopiuj go ręcznie.",false); }
+};
+// Wczytanie: notatki z kopii są DOKLEJANE do obecnych (te same notatki się nie dublują)
+function wczytajKopie(tekst){
+  let dane; try{ dane=JSON.parse(tekst); }catch(e){ kMsg("To nie jest plik kopii notatek z tej apki.",true); return; }
+  const z=Array.isArray(dane)?dane:dane&&Array.isArray(dane.notatki)?dane.notatki:null;
+  if(!z){ kMsg("W tym pliku nie ma notatek.",true); return; }
+  const l=notatki(), ids=new Set(l.map(n=>n.id)); let nowe=0;
+  for(const n of z){ if(!n||typeof n.tekst!=="string") continue;
+    const czysta={id:String(n.id||Date.now().toString(36)+Math.random().toString(36).slice(2,6)), tekst:n.tekst.slice(0,5000),
+      kiedy:typeof n.kiedy==="string"?n.kiedy:"", naGlownej:!!n.naGlownej, zrobione:!!n.zrobione, utworzono:+n.utworzono||Date.now()};
+    if(ids.has(czysta.id)) continue; l.push(czysta); ids.add(czysta.id); nowe++; }
+  if(!zapiszNotatki(l)){ kMsg("Nie udało się zapisać notatek w tej przeglądarce.",true); return; }
+  render(); kMsg(nowe?`Wczytano ${nowe} ${nowe===1?"notatkę":nowe<5?"notatki":"notatek"}.`:"Wszystkie notatki z kopii już tu są.");
+}
+$("bWczytaj").onclick=()=>$("plikKopii").click();
+$("plikKopii").onchange=e=>{ const f=e.target.files[0]; if(!f) return; f.text().then(wczytajKopie); e.target.value=""; };
+$("bWklej").onclick=()=>{ const t=$("wklej").value.trim(); if(t) wczytajKopie(t); };
+
 render(); pokazPola();
 </script>
 
