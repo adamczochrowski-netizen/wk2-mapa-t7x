@@ -1,12 +1,3 @@
-<!doctype html>
-<html lang="pl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow">
-<style>body{margin:0}[hidden]{display:none!important}</style>
-</head>
-<body>
 <title>Cmentarz Wirkowice Drugie</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1362,9 +1353,11 @@ const START = {x:45, y:-3};          // „tu jesteś” na start: przed bramą
 // ===== Kalibracja GPS =====
 // Dwa punkty planu o znanych współrzędnych geograficznych. Z nich liczę przesunięcie, obrót i skalę planu.
 // Skąd wziąć: Google Maps (widok satelitarny) → prawy klik dokładnie w punkt → kliknij w liczby (kopiują się).
-// Wpisz jako liczby, np. lat: 50.84321, lon: 23.54765. Dopóki są null, przycisk GPS pokaże komunikat.
+// Wpisz jako liczby, np. lat: 50.84321, lon: 23.54765.
+// Wystarczy brama: wtedy plan zakłada północ u góry i skalę ze zdjęcia (mapa cmentarz.app jest ustawiona północą do góry).
+// Drugi punkt (kaplica) poprawia obrót i skalę.
 const CALIB = [
-  {name:"brama (wejście, przerwa w płocie)", local:{x:44,    y:1},     lat:null, lon:null},
+  {name:"brama (wejście, przerwa w płocie)", local:{x:44,    y:1},     lat:50.872167, lon:23.073667},   // 50°52'19.8"N 23°04'25.2"E
   {name:"kaplica (biały dach z krzyżem)",    local:{x:36.75, y:41.25}, lat:null, lon:null},
 ];
 
@@ -1596,7 +1589,8 @@ function headingTarget(){
 }
 function camUpdate(smooth){
   if(!cam.on||!camG) return;
-  const tgt=headingTarget();
+  // GPS + kompas: góra ekranu = kierunek, w który patrzysz. Symulacja: góra ekranu = kierunek trasy.
+  const tgt = (state.mode==="gps"&&typeof state.compass==="number"&&GEO) ? -GEO.rotDeg-state.compass : headingTarget();
   if(tgt!==null){ const d=((tgt-cam.ang)%360+540)%360-180; cam.ang+= smooth? d*0.12 : d; }
   const m=L2W(state.me.x,state.me.y), r=svg.getBoundingClientRect(), h=cam.w*(r.height/Math.max(1,r.width));
   camG.setAttribute("transform",`rotate(${cam.ang} ${m.x} ${m.y})`);
@@ -1674,7 +1668,7 @@ function renderCard(){
       ${state.gpsMsg?`<div class="msg">${esc(state.gpsMsg)}</div>`:""}
       <div class="row">${state.mode==="gps"?`<button class="btn" id="bDemo">Wróć do symulacji</button>`:`<button class="btn" id="bGps">Użyj mojego GPS</button>`}</div>
       ${state.mode==="demo"?`<div>Dotknij pustego miejsca na mapie, żeby przestawić „tu jestem”.</div>`:""}
-      <div>Układ alejek odrysowany ze zdjęcia z drona, wymiary są szacunkowe. Wpisane są kwatery B/IV, B/III, A/II i część A/I, przepisane z listy cmentarza. To pokaz działania, nie oficjalna ewidencja.</div>
+      <div>Układ alejek odrysowany ze zdjęcia z drona, wymiary są szacunkowe. Wpisane są kwatery A/I, A/II, B/III i B/IV, przepisane z listy cmentarza. To pokaz działania, nie oficjalna ewidencja.</div>
     </div>`;
   card.innerHTML=h;
   const on=(id,fn)=>{const b=document.getElementById(id); if(b) b.onclick=fn;};
@@ -1720,34 +1714,64 @@ function stopWalk(silent){
 const Cx={ sub:(u,v)=>({re:u.re-v.re,im:u.im-v.im}), add:(u,v)=>({re:u.re+v.re,im:u.im+v.im}),
   mul:(u,v)=>({re:u.re*v.re-u.im*v.im,im:u.re*v.im+u.im*v.re}),
   div:(u,v)=>{const d=v.re*v.re+v.im*v.im; return {re:(u.re*v.re+u.im*v.im)/d,im:(u.im*v.re-u.re*v.im)/d};} };
-const calibOK = CALIB.every(c=>typeof c.lat==="number"&&typeof c.lon==="number");
+const hasCoords=c=>typeof c.lat==="number"&&typeof c.lon==="number";
+const calibOK = hasCoords(CALIB[0]);              // brama wystarczy; kaplica tylko poprawia obrót i skalę
 let GEO=null;
 if(calibOK){
   const lat0=CALIB[0].lat, lon0=CALIB[0].lon, k=Math.cos(lat0*Math.PI/180);
-  const enu=(lat,lon)=>({re:(lon-lon0)*k*111320, im:-(lat-lat0)*110540});
-  const q=CALIB.map(c=>enu(c.lat,c.lon)), p=CALIB.map(c=>{const w=L2W(c.local.x,c.local.y); return {re:w.x,im:w.y};});
-  const a=Cx.div(Cx.sub(p[1],p[0]),Cx.sub(q[1],q[0])), b=Cx.sub(p[0],Cx.mul(a,q[0]));
-  GEO={enu,a,b, scale:Math.hypot(a.re,a.im), rotDeg:Math.atan2(a.im,a.re)*180/Math.PI};
+  const enu=(lat,lon)=>({re:(lon-lon0)*k*111320, im:-(lat-lat0)*110540});   // metry: x = wschód, y = południe
+  const pts=CALIB.filter(hasCoords);
+  const q=pts.map(c=>enu(c.lat,c.lon)), p=pts.map(c=>{const w=L2W(c.local.x,c.local.y); return {re:w.x,im:w.y};});
+  const a = pts.length>1 ? Cx.div(Cx.sub(p[1],p[0]),Cx.sub(q[1],q[0])) : {re:1,im:0};   // jeden punkt: plan północą do góry, skala 1:1
+  const b=Cx.sub(p[0],Cx.mul(a,q[0]));
+  GEO={enu,a,b, points:pts.length, scale:Math.hypot(a.re,a.im), rotDeg:Math.atan2(a.im,a.re)*180/Math.PI};
   if(Math.abs(GEO.scale-1)>0.2) console.warn("Kalibracja GPS: skala",GEO.scale.toFixed(2),"— sprawdź współrzędne punktów");
 }
 function geoToLocal(lat,lon){
   const z=Cx.add(Cx.mul(GEO.a,GEO.enu(lat,lon)),GEO.b);
   return W2L(z.re,z.im);
 }
+
+// ===== Kompas telefonu: w trybie GPS mapa obraca się tak, jak trzymasz telefon =====
+let compassOn=false;
+function onOrient(e){
+  let h=null;
+  if(typeof e.webkitCompassHeading==="number") h=e.webkitCompassHeading;          // iPhone
+  else if(e.absolute&&typeof e.alpha==="number") h=(360-e.alpha)%360;             // Android
+  if(h===null) return;
+  const so=(screen.orientation&&screen.orientation.angle)||window.orientation||0;
+  state.compass=(h+so+360)%360;
+  if(cam.on&&state.mode==="gps") camUpdate(true);
+}
+async function startCompass(){
+  if(compassOn) return;
+  try{
+    if(typeof DeviceOrientationEvent!=="undefined"&&typeof DeviceOrientationEvent.requestPermission==="function"){
+      const r=await DeviceOrientationEvent.requestPermission(); if(r!=="granted") return;   // iPhone pyta o zgodę
+    }
+    window.addEventListener("deviceorientationabsolute",onOrient,true);
+    window.addEventListener("deviceorientation",onOrient,true);
+    compassOn=true;
+  }catch(e){}
+}
 function startGps(){
   stopWalk(true);
-  if(!calibOK){ state.gpsMsg="GPS nie jest jeszcze skalibrowany: brakuje współrzędnych bramy i kaplicy. Na razie działa symulacja."; renderCard(); return; }
+  if(!calibOK){ state.gpsMsg="GPS nie jest jeszcze skalibrowany: brakuje współrzędnych bramy. Na razie działa symulacja."; renderCard(); return; }
   if(!("geolocation" in navigator)){ state.gpsMsg="Ta przeglądarka nie udostępnia lokalizacji."; renderCard(); return; }
+  startCompass();   // wywołane z kliknięcia, więc iPhone może zapytać o kompas
   state.gpsMsg="Czekam na sygnał GPS…"; renderCard();
   try{
     state.watch=navigator.geolocation.watchPosition(pos=>{
       const p=geoToLocal(pos.coords.latitude,pos.coords.longitude), far=Math.hypot(p.x-45,p.y-55);
       state.mode="gps"; state.acc=pos.coords.accuracy||8;
       if(far>400){ state.gpsMsg=`Jesteś ok. ${(far/1000).toFixed(1)} km od cmentarza. Trasa pojawi się, gdy będziesz na miejscu.`; renderCard(); return; }
-      state.gpsMsg=""; state.me=p; recompute(); update();
+      const first=state.gpsMsg!=="";
+      state.gpsMsg=""; state.me=p; recompute();
+      if(first&&state.sel&&!cam.on) camSet(true);   // pierwsza pozycja na cmentarzu: od razu widok na wprost
+      update();
     }, err=>{
       state.gpsMsg=err.code===1
-        ? "Lokalizacja jest zablokowana. W tym podglądzie to normalne. Po wrzuceniu strony na zwykły adres (https) telefon zapyta o zgodę i zadziała."
+        ? "Lokalizacja jest zablokowana. Zezwól tej stronie na dostęp do lokalizacji (ikona kłódki przy adresie) i spróbuj ponownie. W podglądzie na claude.ai GPS nie działa."
         : "Nie udało się ustalić pozycji. Wyjdź na otwartą przestrzeń i spróbuj ponownie.";
       stopGps(true); renderCard();
     }, {enableHighAccuracy:true, maximumAge:2000, timeout:20000});
@@ -1755,6 +1779,7 @@ function startGps(){
 }
 function stopGps(keepMsg){
   if(state.watch!==null){ try{navigator.geolocation.clearWatch(state.watch);}catch(e){} state.watch=null; }
+  state.compass=null;
   state.mode="demo"; state.acc=4;
   if(keepMsg!==true){ state.gpsMsg=""; state.me={...START}; recompute(); update(); }
 }
@@ -1769,7 +1794,7 @@ q.addEventListener("input",()=>{
   const parts=v.split(/\s+/);
   const hits=index.filter(it=>parts.every(pt=>it.key.includes(pt))).sort((a,b)=>a.p.last.localeCompare(b.p.last,"pl")||a.p.first.localeCompare(b.p.first,"pl")).slice(0,40);
   res.innerHTML=hits.length?hits.map((it,i)=>`<li><button data-i="${i}"><div class="nm">${esc(it.p.first)} ${esc(it.p.last)}</div><div class="meta">grób ${esc(it.g.code)} · ${esc(lifeLine(it.p))}</div></button></li>`).join("")
-    :`<li class="empty-note">Nikogo takiego nie ma jeszcze na wpisanej liście. Na razie są kwatery B/IV, B/III, A/II i część A/I.</li>`;
+    :`<li class="empty-note">Nikogo takiego nie ma jeszcze na wpisanej liście. Wpisane są kwatery A/I, A/II, B/III i B/IV.</li>`;
   res.hidden=false;
   res.querySelectorAll("button").forEach(b=>b.onclick=()=>{ select(hits[+b.dataset.i].g); res.hidden=true; q.blur(); });
 });
@@ -1833,6 +1858,3 @@ setVB(); drawStatic();
 state.sel=byCode.get("B/IV/97")||graves.find(g=>g.persons.length);
 recompute(); update();
 </script>
-
-</body>
-</html>
