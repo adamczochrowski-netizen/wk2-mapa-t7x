@@ -110,7 +110,12 @@ const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 // Worki na śmieci: kolor rozpoznawany po słowie w kolumnie „rodzaj”
 const KOLORY_SMIECI=[[/plast|metal/i,"#F2C230"],[/papier/i,"#2F6FD0"],[/szk/i,"#2E9E52"],[/bio/i,"#8B5A2B"],[/gabaryt|elektro/i,"#7A6FB3"],[/.*/,"#4A4A4A"]];
 const kolorSmieci=r=>KOLORY_SMIECI.find(([re])=>re.test(r||""))[1];
-const worek=r=>`<svg class="worek" viewBox="0 0 18 20" aria-hidden="true"><path d="M6 1.5h6l-1 2.6c3.4 1.4 5.5 4.6 5.5 8.3 0 3.6-2.6 6.1-7.5 6.1S1.5 16 1.5 12.4c0-3.7 2.1-6.9 5.5-8.3z" fill="${kolorSmieci(r)}" stroke="rgba(0,0,0,.25)" stroke-width=".8"/><path d="M6.5 4.2h5" stroke="rgba(0,0,0,.35)" stroke-width="1.2" stroke-linecap="round"/></svg>`;
+// worek na śmieci: pękaty worek, zawiązany u góry, z dwoma „uszami” i kilkoma fałdami
+const worek=r=>{ const c=kolorSmieci(r); return `<svg class="worek" viewBox="0 0 20 22" aria-hidden="true">
+  <path d="M7.4 6.2 4.6 1.8c1.8-.2 3.6.7 5.4 2.5 1.8-1.8 3.6-2.7 5.4-2.5l-2.8 4.4z" fill="${c}" stroke="rgba(0,0,0,.35)" stroke-width=".7" stroke-linejoin="round"/>
+  <path d="M7.6 6.4c-3.6 1.4-6 4.6-6 8.4 0 3.9 3.4 5.9 8.4 5.9s8.4-2 8.4-5.9c0-3.8-2.4-7-6-8.4z" fill="${c}" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
+  <rect x="7.2" y="5.6" width="5.6" height="1.6" rx=".8" fill="rgba(0,0,0,.4)"/>
+  <path d="M6 11.5c.6 2.4 1.9 4.6 3.7 6.2M14.2 11.8c-.4 1.8-1.2 3.4-2.4 4.7" stroke="rgba(255,255,255,.35)" stroke-width=".9" fill="none" stroke-linecap="round"/></svg>`; };
 const dniDo=d=>Math.round((d-dzis())/864e5);
 
 // ===== Moje notatki — zapisane tylko w tym telefonie (pamięć przeglądarki) =====

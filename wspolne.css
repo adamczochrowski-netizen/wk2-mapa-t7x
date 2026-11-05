@@ -102,5 +102,5 @@ footer{margin-top:36px;color:var(--muted);font-size:13px}
 }
 
 /* worki na śmieci */
-.worek{display:inline-block;width:18px;height:20px;vertical-align:-4px;margin-right:6px;flex:none}
+.worek{display:inline-block;width:22px;height:24px;vertical-align:-6px;margin-right:6px;flex:none}
 .worki{display:inline-flex;gap:2px;align-items:center}

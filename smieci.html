@@ -24,9 +24,15 @@
 <style>
 .next{padding:18px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
 .next .big{font-family:var(--f-display);font-size:28px;font-weight:700;line-height:1.15;margin:2px 0}
-.row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
-.row:last-child{border-bottom:0}
-.row .d{min-width:9.5ch;color:var(--muted);font-variant-numeric:tabular-nums}
+/* kolejne terminy: równe kolumny — data | worek | rodzaj (wspólna siatka dla wszystkich wierszy) */
+.terminy{display:grid;grid-template-columns:max-content 34px minmax(0,1fr);align-items:center}
+.terminy .d{padding-right:14px!important}
+.terminy .row{display:contents}
+.terminy .row>*{padding:12px 0;border-bottom:1px solid var(--line);align-self:stretch;display:flex;align-items:center}
+.terminy .row:last-child>*{border-bottom:0}
+.terminy .d{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.terminy .ik .worek{margin:0}
+.terminy .r{min-width:0}
 </style>
 
 <main class="wrap">
@@ -50,8 +56,8 @@
       <p class="big">${esc(kiedy(lista[0].d))}</p>
       <p style="margin:0;line-height:1.9">${dzien.map(r=>`${worek(r.rodzaj)}${esc(r.rodzaj)}`).join("<br>")}</p>
       <p class="muted" style="margin:8px 0 0">${dniDo(lista[0].d)===1?"<strong>Wystaw dziś wieczorem.</strong>":dniDo(lista[0].d)===0?"<strong>Wywóz jest dziś.</strong>":"Wystaw pojemnik wieczorem dzień wcześniej."}</p></div>
-    <section class="section"><h2>Kolejne terminy</h2><div class="card">`+
-    lista.slice(dzien.length,dzien.length+20).map(r=>`<div class="row"><span class="d">${esc(kiedy(r.d))}</span><span>${worek(r.rodzaj)}${esc(r.rodzaj)}</span></div>`).join("")+
+    <section class="section"><h2>Kolejne terminy</h2><div class="card terminy">`+
+    lista.slice(dzien.length,dzien.length+20).map(r=>`<div class="row"><span class="d">${esc(kiedy(r.d))}</span><span class="ik">${worek(r.rodzaj)}</span><span class="r">${esc(r.rodzaj)}</span></div>`).join("")+
     `</div></section>`;
 })();
 </script>
