@@ -44,7 +44,7 @@ function obrazek(link, szer=1600){
 }
 
 // --- odczyt CSV (z obsługą cudzysłowów) ---
-function parseCSV(t){
+function parseCSV(t, karta){
   const rows=[]; let row=[], f="", q=false;
   for(let i=0;i<t.length;i++){ const c=t[i];
     if(q){ if(c==='"'){ if(t[i+1]==='"'){ f+='"'; i++; } else q=false; } else f+=c; }
@@ -52,13 +52,18 @@ function parseCSV(t){
     else if(c==='\n'){ row.push(f); rows.push(row); row=[]; f=""; } else if(c!=='\r') f+=c; }
   if(f!==""||row.length){ row.push(f); rows.push(row); }
   if(!rows.length) return [];
-  const head=rows[0].map(h=>h.trim().toLowerCase());
+  const domyslne=(typeof KOLUMNY!=="undefined"&&KOLUMNY[karta])||[];
+  const head=rows[0].map((h,i)=>h.trim().toLowerCase()||domyslne[i]||"");
   return rows.slice(1).filter(r=>r.some(x=>x.trim()!=="")).map(r=>Object.fromEntries(head.map((h,i)=>[h,(r[i]||"").trim()])));
 }
 
 // Kolumna, która musi być w nagłówku karty. Google przy braku karty o danej nazwie podaje PIERWSZĄ kartę,
 // więc bez tej kontroli apka pokazałaby cudze dane (np. śmieci jako ogłoszenia).
 const WYMAGANE={Ogloszenia:"tytul",Wydarzenia:"nazwa",Smieci:"rodzaj",Miejsca:"nazwa",Kontakty:"telefon",Parafia:"pole",Historia:"rok"};
+// Kolejność kolumn w każdej karcie — gdy Google zgubi nazwę kolumny (zdarza się), bierzemy ją stąd po pozycji.
+const KOLUMNY={Ogloszenia:["data","tytul","tresc","wazne_do"],Wydarzenia:["data","godzina","nazwa","miejsce","opis"],
+  Smieci:["data","rodzaj"],Miejsca:["nazwa","wies","opis","wspolrzedne"],Kontakty:["nazwa","telefon","opis"],
+  Parafia:["pole","tresc"],Historia:["rok","tytul","tresc","zdjecia","podpis","autor","zrodlo"]};
 
 // Zwraca {wiersze, przyklad:true/false, zapisane:true/false}. Bez internetu: ostatnia zapisana kopia.
 async function wczytaj(karta){
@@ -71,7 +76,7 @@ async function wczytaj(karta){
     const naglowki=(tekst.split("\n")[0]||"").toLowerCase();
     if(!naglowki.includes('"'+WYMAGANE[karta]+'"') && !naglowki.split(",").map(s=>s.trim()).includes(WYMAGANE[karta]))
       return {wiersze:PRZYKLADY[karta]||[], przyklad:true, brakKarty:true};   // karty jeszcze nie ma w arkuszu
-    const wiersze=parseCSV(tekst);
+    const wiersze=parseCSV(tekst, karta);
     try{ localStorage.setItem(klucz,JSON.stringify(wiersze)); }catch(e){}
     return {wiersze, przyklad:false};
   }catch(e){

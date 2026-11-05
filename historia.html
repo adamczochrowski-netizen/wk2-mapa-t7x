@@ -78,7 +78,9 @@ function rokLiczba(s){ s=String(s||""); let m=/(\d{4})/.exec(s); if(m) return +m
   return 99999; }
 const ZRODLA=[[/wikipedia/,"Wikipedia"],[/teatrnn/,"Ośrodek „Brama Grodzka – Teatr NN”"],[/muzeumkrasnystaw/,"Muzeum Regionalne w Krasnymstawie"],
   [/supertydzien/,"Super Tydzień Chełmski"],[/sites\.google/,"Izbica – strona przyjaciół miejscowości i gminy"]];
-const zrodloLink=u=>{ try{ const h=new URL(u).hostname.replace(/^www\./,""); const z=ZRODLA.find(([re])=>re.test(h)), n=z?z[1]:h;
+const zrodloLink=u=>{ try{ const url=new URL(u), h=url.hostname.replace(/^www\./,""); const z=ZRODLA.find(([re])=>re.test(h));
+    let n=z?z[1]:h;
+    if(/wikipedia/.test(h)){ const art=decodeURIComponent(url.pathname.split("/").pop()||"").replace(/_/g," "); if(art) n+=` (${art})`; }
   return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`; }catch(e){ return ""; } };
 const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
 (async()=>{
