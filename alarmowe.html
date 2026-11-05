@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:,">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Numery alarmowe · Moje Wirkowice</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="wspolne.css">
+
+<main class="wrap">
+  <a class="back" href="index.html">← Moje Wirkowice</a>
+  <h1>Numery alarmowe</h1>
+  <p class="lead">Dotknij numeru, żeby zadzwonić. Jeśli nie wiesz, gdzie dzwonić, wybierz 112.</p>
+
+  <div class="list">
+    <a class="num main" href="tel:112"><b>112</b><span><strong>Numer alarmowy</strong><small>Policja, straż pożarna, karetka. W każdym zagrożeniu życia, zdrowia lub mienia.</small></span></a>
+  </div>
+
+  <div class="card where">
+    <h2>Gdzie jestem?</h2>
+    <p class="muted" style="margin:0">Dyspozytor zapyta o miejsce zdarzenia. Na polu albo w lesie, gdzie nie ma adresu, podaj mu te liczby.</p>
+    <p class="coords" id="coords" hidden></p>
+    <p class="muted" id="coordsMsg" style="margin:6px 0 0" hidden></p>
+    <div class="btns"><button class="btn primary" id="bWhere" type="button">Pokaż moje współrzędne</button><button class="btn" id="bCopy" type="button" hidden>Kopiuj</button></div>
+  </div>
+
+  <section class="section">
+    <h2>Służby</h2>
+    <div class="list">
+      <a class="num" href="tel:997"><b>997</b><span><strong>Policja</strong><small>Przestępstwo, wypadek drogowy, zagrożenie bezpieczeństwa</small></span></a>
+      <a class="num" href="tel:998"><b>998</b><span><strong>Straż pożarna</strong><small>Pożar, powódź, wypadek z uwięzionymi osobami</small></span></a>
+      <a class="num" href="tel:999"><b>999</b><span><strong>Pogotowie ratunkowe</strong><small>Nagłe zagrożenie życia lub zdrowia</small></span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Awarie</h2>
+    <div class="list">
+      <a class="num" href="tel:992"><b>992</b><span><strong>Pogotowie gazowe</strong><small>Zapach gazu, awaria instalacji gazowej</small></span></a>
+      <a class="num" href="tel:991"><b>991</b><span><strong>Pogotowie energetyczne</strong><small>Brak prądu, zerwana linia, iskrząca instalacja</small></span></a>
+      <a class="num" href="tel:994"><b>994</b><span><strong>Pogotowie wodno-kanalizacyjne</strong><small>Awaria wodociągu lub kanalizacji</small></span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Wsparcie</h2>
+    <div class="list">
+      <a class="num" href="tel:116123"><b>116 123</b><span><strong>Kryzys emocjonalny (dorośli)</strong><small>Rozmowa z kimś, kto wysłucha i pomoże</small></span></a>
+      <a class="num" href="tel:116111"><b>116 111</b><span><strong>Telefon zaufania dla dzieci i młodzieży</strong><small>Bezpłatny i anonimowy</small></span></a>
+      <a class="num" href="tel:800702222"><b>800 70 2222</b><span><strong>Centrum Wsparcia</strong><small>Dla osób w kryzysie psychicznym, całą dobę</small></span></a>
+      <a class="num" href="tel:800120002"><b>800 120 002</b><span><strong>Niebieska Linia</strong><small>Przemoc domowa</small></span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Kontakty w okolicy</h2>
+    <div class="card empty">
+      <p style="margin:0"><strong>Do uzupełnienia:</strong> sołtys, najbliższy ośrodek zdrowia, nocna i świąteczna pomoc lekarska, posterunek policji, gmina.</p>
+      <p class="muted" style="margin:6px 0 0">Dopiszemy je, gdy zbierzemy aktualne numery.</p>
+    </div>
+  </section>
+
+  <footer>Numery ogólnopolskie. Połączenia z numerami alarmowymi są bezpłatne.</footer>
+</main>
+
+<script>
+const bWhere=document.getElementById("bWhere"), bCopy=document.getElementById("bCopy"),
+      out=document.getElementById("coords"), msg=document.getElementById("coordsMsg");
+const show=(t)=>{ msg.textContent=t; msg.hidden=false; };
+bWhere.onclick=()=>{
+  if(!("geolocation" in navigator)){ show("Ta przeglądarka nie udostępnia lokalizacji."); return; }
+  show("Szukam pozycji…");
+  try{
+    navigator.geolocation.getCurrentPosition(p=>{
+      const la=p.coords.latitude.toFixed(5), lo=p.coords.longitude.toFixed(5);
+      out.textContent=la+", "+lo; out.hidden=false; bCopy.hidden=false;
+      show("Dokładność ok. "+Math.round(p.coords.accuracy)+" m. Przeczytaj dyspozytorowi obie liczby.");
+    }, e=>{
+      show(e.code===1 ? "Lokalizacja jest zablokowana. Zezwól tej stronie na dostęp do lokalizacji (ikona przy adresie strony)." : "Nie udało się ustalić pozycji. Spróbuj na otwartej przestrzeni.");
+    }, {enableHighAccuracy:true, timeout:20000, maximumAge:0});
+  }catch(e){ show("Lokalizacja jest niedostępna w tym podglądzie."); }
+};
+bCopy.onclick=()=>{
+  try{ navigator.clipboard.writeText(out.textContent).then(()=>{ bCopy.textContent="Skopiowano"; },()=>selectIt()); }catch(e){ selectIt(); }
+};
+function selectIt(){ const r=document.createRange(); r.selectNodeContents(out); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+</script>
+
+</body>
+</html>
