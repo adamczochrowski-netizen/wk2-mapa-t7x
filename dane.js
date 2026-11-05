@@ -1,7 +1,7 @@
 // Moje Wirkowice — dane z Arkusza Google.
 // Jak podłączyć: w arkuszu Udostępnij → „Każda osoba mająca link” → Przeglądający, potem wpisz tu ID arkusza
 // (to długi ciąg liter między /d/ a /edit w adresie arkusza). Dopóki ARKUSZ_ID jest pusty, apka pokazuje PRZYKŁADY.
-const ARKUSZ_ID = "";
+const ARKUSZ_ID = "1mlQaWSLw0cNGBsjqeHoOdxOMQXnadhu9";
 
 // Karty arkusza i ich kolumny (pierwszy wiersz arkusza = nagłówki, dokładnie takie jak tu):
 //  Ogloszenia:  data | tytul | tresc | wazne_do
@@ -56,6 +56,10 @@ function parseCSV(t){
   return rows.slice(1).filter(r=>r.some(x=>x.trim()!=="")).map(r=>Object.fromEntries(head.map((h,i)=>[h,(r[i]||"").trim()])));
 }
 
+// Kolumna, która musi być w nagłówku karty. Google przy braku karty o danej nazwie podaje PIERWSZĄ kartę,
+// więc bez tej kontroli apka pokazałaby cudze dane (np. śmieci jako ogłoszenia).
+const WYMAGANE={Ogloszenia:"tytul",Wydarzenia:"nazwa",Smieci:"rodzaj",Miejsca:"nazwa",Kontakty:"telefon",Parafia:"pole",Historia:"rok"};
+
 // Zwraca {wiersze, przyklad:true/false, zapisane:true/false}. Bez internetu: ostatnia zapisana kopia.
 async function wczytaj(karta){
   if(!ARKUSZ_ID) return {wiersze:PRZYKLADY[karta]||[], przyklad:true};
@@ -63,7 +67,11 @@ async function wczytaj(karta){
   try{
     const url=`https://docs.google.com/spreadsheets/d/${ARKUSZ_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(karta)}`;
     const res=await fetch(url,{cache:"no-store"}); if(!res.ok) throw new Error(res.status);
-    const wiersze=parseCSV(await res.text());
+    const tekst=await res.text();
+    const naglowki=(tekst.split("\n")[0]||"").toLowerCase();
+    if(!naglowki.includes('"'+WYMAGANE[karta]+'"') && !naglowki.split(",").map(s=>s.trim()).includes(WYMAGANE[karta]))
+      return {wiersze:PRZYKLADY[karta]||[], przyklad:true, brakKarty:true};   // karty jeszcze nie ma w arkuszu
+    const wiersze=parseCSV(tekst);
     try{ localStorage.setItem(klucz,JSON.stringify(wiersze)); }catch(e){}
     return {wiersze, przyklad:false};
   }catch(e){
