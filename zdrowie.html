@@ -44,15 +44,18 @@
 :root[data-theme="dark"]{--granat:#5B7FC4}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--granat:#5B7FC4}}
 .granat{display:inline-block;border:2px solid var(--granat);border-radius:10px;padding:2px 14px}
-.section > h2.granat{margin-bottom:12px}
+.section > h2.granat{margin-bottom:12px;display:inline-flex}
+.section > h2.granat::before{display:none}
 .filtry button.granat{border:2px solid var(--granat);padding:7px 13px}
 .filtry button.granat[aria-pressed="true"]{background:var(--granat);border-color:var(--granat);color:#fff}
 </style>
 
-<main class="wrap">
+<main class="wrap h-mieta">
   <a class="back" href="index.html">← Strona główna</a>
-  <h1>Zdrowie</h1>
-  <p class="lead">Apteki, szpitale, lekarz, fizjoterapia i weterynarze w okolicy, od najbliższych. Przy każdym jest telefon i dojazd.</p>
+  <header class="naglowek">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span>
+    <div><h1>Zdrowie</h1><p class="lead">Apteki, szpitale, lekarz, fizjoterapia i weterynarze w okolicy, od najbliższych. Przy każdym jest telefon i dojazd.</p></div>
+  </header>
 
   <a class="sos" href="tel:112"><b>112</b><span><strong>Nagły wypadek: dzwoń 112</strong><small>Zagrożenie życia, wypadek, utrata przytomności</small></span></a>
 

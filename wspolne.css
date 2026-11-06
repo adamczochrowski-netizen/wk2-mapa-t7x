@@ -117,3 +117,48 @@ footer{margin-top:36px;color:var(--muted);font-size:13px}
 /* worki na śmieci */
 .worek{display:inline-block;width:22px;height:24px;vertical-align:-6px;margin-right:6px;flex:none}
 .worki{display:inline-flex;gap:2px;align-items:center}
+
+/* ===== Kolory działów (--h): strona główna i podstrony ===== */
+.h-nieb{--h:#7DB3E3}.h-burs{--h:#E59A44}.h-mieta{--h:#5CC2A8}.h-fiol{--h:#B9A2E8}.h-ziel{--h:#8FC29C}
+.h-sepia{--h:#D9AC78}.h-zlot{--h:#E3C26B}.h-mor{--h:#6CC4D6}.h-alarm{--h:var(--alarm)}
+/* Działy: każdy w swoim kolorze, po dwa w rzędzie */
+.tiles.kolor{grid-template-columns:1fr 1fr}
+.tiles.kolor .tile:not(.alarm){display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-height:150px;padding:16px;
+  background:color-mix(in srgb,var(--h) 12%,var(--panel));border-color:color-mix(in srgb,var(--h) 32%,var(--line))}
+.tiles.kolor .tile:not(.alarm) .ic{background:var(--h);color:#10160F;width:44px;height:44px;align-self:flex-start}
+.tiles.kolor .tile:not(.alarm)>span:not(.ic){align-self:stretch}
+.tiles.kolor .tile:not(.alarm) h2{font-size:18px;text-wrap:wrap}
+.tiles.kolor .tile:not(.alarm):hover{border-color:var(--h)}
+/* Nagłówek podstrony: ikona w kolorze działu, tytuł, opis */
+.naglowek{display:flex;gap:14px;align-items:center;margin:8px 0 22px;padding:18px 16px;border-radius:18px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--h,var(--green)) 26%,var(--panel)) 0%,var(--panel) 80%);border:1px solid color-mix(in srgb,var(--h,var(--green)) 35%,var(--line))}
+.naglowek>.ic{width:56px;height:56px;border-radius:16px;background:var(--h,var(--green));color:#10160F;display:grid;place-items:center;flex:none;box-shadow:0 6px 16px color-mix(in srgb,var(--h,var(--green)) 30%,transparent)}
+.naglowek>.ic svg{width:28px;height:28px}
+.naglowek>div{min-width:0}
+.naglowek h1{margin:0}
+.naglowek .lead{margin:4px 0 0;font-size:15px;line-height:1.4}
+.naglowek::after{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:var(--h,var(--green));opacity:.08;pointer-events:none}
+/* nagłówki sekcji: kreska w kolorze działu */
+.section>h2{display:flex;align-items:center;gap:10px}
+.section>h2::before{content:"";width:5px;height:1em;border-radius:3px;background:var(--h,var(--accent));flex:none}
+.back{color:color-mix(in srgb,var(--h,var(--muted)) 55%,var(--muted))}
+/* Ogłoszenie: kartka przypięta pinezką. Wydarzenie: kartka z kalendarza */
+.kartka{position:relative;display:flex;flex-direction:column;gap:3px;padding:20px 16px 14px;margin-top:6px;
+  background:#E9DFC4;color:#2A2216;border-radius:3px 3px 16px 3px;transform:rotate(-.7deg);box-shadow:0 8px 18px rgba(0,0,0,.35)}
+.kartka::before{content:"";position:absolute;top:-6px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#FF8A80,#C62828 70%);box-shadow:0 2px 3px rgba(0,0,0,.4)}
+.kartka .k{color:#9A4F10;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+.kartka .t{font-family:var(--f-display);font-size:18px}
+.kartka .m{color:#6B5E45;font-size:14px}
+.kal{display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:center;padding:12px;border-radius:14px;background:var(--panel);border:1px solid var(--line);color:var(--fg)}
+.kal-k{display:flex;flex-direction:column;align-items:center;border-radius:10px;overflow:hidden;background:#F2EFE8;color:#1D2520;box-shadow:0 3px 8px rgba(0,0,0,.3)}
+.kal-m{align-self:stretch;text-align:center;background:#2F6A9E;color:#fff;font-size:12px;font-weight:700;letter-spacing:.1em;padding:3px 0}
+.kal-d{font-family:var(--f-display);font-weight:700;font-size:32px;line-height:1.05;margin-top:2px;font-variant-numeric:tabular-nums}
+.kal-w{font-size:12px;color:#5B685F;margin-bottom:5px}
+.kal-x{display:flex;flex-direction:column;gap:2px;min-width:0}
+.kal .k{color:#7DB3E3}
+.kal .m{color:var(--muted);font-size:14px}
+.kal .cnt{align-self:flex-start;margin-top:4px;font-size:13px;font-weight:700;padding:2px 9px;border-radius:999px;background:#1E3550;color:#9CC8F2}
+.kal.hot{border-color:#7DB3E3;background:color-mix(in srgb,#7DB3E3 16%,var(--panel))}
+.kal.hot .cnt{background:#7DB3E3;color:#0E1A26}
+.list>.kartka:nth-child(even){transform:rotate(.6deg)}

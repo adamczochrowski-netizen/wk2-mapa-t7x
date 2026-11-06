@@ -24,10 +24,10 @@
 <style>
 /* oś czasu: pionowa linia, rok przy kropce, wpis obok */
 .tl{position:relative;margin:8px 0 0;padding-left:22px}
-.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--h),var(--line))}
 .ev{position:relative;padding:0 0 22px}
-.ev::before{content:"";position:absolute;left:-21px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--bg)}
-.ev .yr{font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.02em}
+.ev::before{content:"";position:absolute;left:-21px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--h);box-shadow:0 0 0 3px var(--bg)}
+.ev .yr{font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--h);letter-spacing:.02em}
 .ev h2{margin:2px 0 4px}
 .ev p.t{margin:0;white-space:pre-line}
 .ph{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;margin-top:10px}
@@ -48,10 +48,12 @@
 .lb .cap small{display:block;color:#aaa;font-size:13px}
 </style>
 
-<main class="wrap">
+<main class="wrap h-sepia">
   <a class="back" href="o-wirkowicach.html">← O Wirkowicach</a>
-  <h1>Historia</h1>
-  <p class="lead">Dzieje Wirkowic Pierwszych i Drugich: wydarzenia, wspomnienia mieszkańców i stare zdjęcia z rodzinnych albumów.</p>
+  <header class="naglowek">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 7h6M9 11h6"/></svg></span>
+    <div><h1>Historia</h1><p class="lead">Dzieje Wirkowic Pierwszych i Drugich: wydarzenia, wspomnienia mieszkańców i stare zdjęcia z rodzinnych albumów.</p></div>
+  </header>
   <div id="out"><p class="muted">Wczytuję…</p></div>
 
   <section class="section" id="galSec" hidden>
