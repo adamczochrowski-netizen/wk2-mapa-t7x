@@ -69,9 +69,10 @@ h2{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.25;
 .section > h2{margin-bottom:10px}
 
 /* numery alarmowe */
-.num{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;background:var(--panel);
+.num{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--panel);
   border:1px solid var(--line);text-decoration:none;color:var(--fg)}
-.num b{font-family:var(--f-display);font-size:26px;min-width:4.2ch;font-variant-numeric:tabular-nums}
+.num b{font-family:var(--f-display);font-size:26px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.num b.dl{font-size:18px}   /* długie numery (116 123, 800 …): mniejsze, w jednej linii, tekst obok zaczyna się zawsze w tym samym miejscu */
 .num span{display:flex;flex-direction:column;min-width:0}
 .num small{color:var(--muted);font-size:14px}
 .num.main{background:var(--alarm);border-color:var(--alarm);color:var(--on-alarm)}
@@ -120,7 +121,7 @@ footer{margin-top:36px;color:var(--muted);font-size:13px}
 
 /* ===== Kolory działów (--h): strona główna i podstrony ===== */
 .h-nieb{--h:#7DB3E3}.h-burs{--h:#E59A44}.h-mieta{--h:#5CC2A8}.h-fiol{--h:#B9A2E8}.h-ziel{--h:#8FC29C}
-.h-stal{--h:#A9B8CC}.h-sepia{--h:#D9AC78}.h-zlot{--h:#E3C26B}.h-mor{--h:#6CC4D6}.h-alarm{--h:var(--alarm)}
+.h-szary{--h:#B9C1BB}.h-stal{--h:#A9B8CC}.h-sepia{--h:#D9AC78}.h-zlot{--h:#E3C26B}.h-mor{--h:#6CC4D6}.h-alarm{--h:var(--alarm)}
 /* Działy: każdy w swoim kolorze, po dwa w rzędzie */
 .tiles.kolor{grid-template-columns:1fr 1fr}
 .tiles.kolor .tile:not(.wide){display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-height:150px;padding:16px;

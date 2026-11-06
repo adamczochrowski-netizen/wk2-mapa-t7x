@@ -62,10 +62,10 @@
   <section class="section">
     <h2>Wsparcie</h2>
     <div class="list">
-      <a class="num" href="tel:116123"><b>116 123</b><span><strong>Kryzys emocjonalny (dorośli)</strong><small>Rozmowa z kimś, kto wysłucha i pomoże</small></span></a>
-      <a class="num" href="tel:116111"><b>116 111</b><span><strong>Telefon zaufania dla dzieci i młodzieży</strong><small>Bezpłatny i anonimowy</small></span></a>
-      <a class="num" href="tel:800702222"><b>800 70 2222</b><span><strong>Centrum Wsparcia</strong><small>Dla osób w kryzysie psychicznym, całą dobę</small></span></a>
-      <a class="num" href="tel:800120002"><b>800 120 002</b><span><strong>Niebieska Linia</strong><small>Przemoc domowa</small></span></a>
+      <a class="num" href="tel:116123"><b class="dl">116 123</b><span><strong>Kryzys emocjonalny (dorośli)</strong><small>Rozmowa z kimś, kto wysłucha i pomoże</small></span></a>
+      <a class="num" href="tel:116111"><b class="dl">116 111</b><span><strong>Telefon zaufania dla dzieci i młodzieży</strong><small>Bezpłatny i anonimowy</small></span></a>
+      <a class="num" href="tel:800702222"><b class="dl">800 70 2222</b><span><strong>Centrum Wsparcia</strong><small>Dla osób w kryzysie psychicznym, całą dobę</small></span></a>
+      <a class="num" href="tel:800120002"><b class="dl">800 120 002</b><span><strong>Niebieska Linia</strong><small>Przemoc domowa</small></span></a>
     </div>
   </section>
 
@@ -88,7 +88,7 @@
   if(!rows.length) return;
   document.getElementById("lokalne").innerHTML='<div class="list">'+rows.map(r=>{
     const d=r.telefon.replace(/[^\d+]/g,"");
-    return `<a class="num" href="tel:${d}"><b style="font-size:18px;min-width:8ch">${esc(r.telefon)}</b><span><strong>${esc(r.nazwa)}</strong>${r.opis?`<small>${esc(r.opis)}</small>`:""}</span></a>`;
+    return `<a class="num" href="tel:${d}"><b class="${(r.telefon||"").replace(/\D/g,"").length>3?"dl":""}">${esc(r.telefon)}</b><span><strong>${esc(r.nazwa)}</strong>${r.opis?`<small>${esc(r.opis)}</small>`:""}</span></a>`;
   }).join("")+'</div>';
 })();
 const bWhere=document.getElementById("bWhere"), bCopy=document.getElementById("bCopy"),

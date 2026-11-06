@@ -29,11 +29,11 @@
 .news .t{font-weight:700;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .news .k{display:flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
 .na-skroty{margin:4px 0 8px}
-/* Moje notatki: szeroki pasek jak numery alarmowe, ale fioletowy; po prawej liczba notatek (albo +) */
-.tile.notatki{grid-template-columns:48px 1fr auto;background:#B9A2E8;border-color:#B9A2E8;color:#1B1430}
-.tile.notatki p{color:#1B1430;opacity:.8}
-.tile.notatki .ic{background:rgba(255,255,255,.35);color:#1B1430}
-.tile.notatki .big{grid-column:3;grid-row:1 / span 3;font-family:var(--f-display);font-weight:700;font-size:30px;font-variant-numeric:tabular-nums}
+/* Moje notatki: szeroki pasek jak numery alarmowe, ale spokojny — ciemnoszary, tylko 112 jest pełnym kolorem */
+.tile.notatki{--h:#B9C1BB;grid-template-columns:48px 1fr auto;background:#3B413E;border-color:#565E59}
+.tile.notatki:hover{border-color:var(--h)}
+.tile.notatki .ic{background:var(--h);color:#171C19}
+.tile.notatki .big{grid-column:3;grid-row:1 / span 3;font-family:var(--f-display);font-weight:700;font-size:30px;color:var(--h);font-variant-numeric:tabular-nums}
 /* Logo na górze: MOJE ♥ WIRKOWICE, na środku */
 .logo{text-align:center;margin:6px 0 14px}
 .logo h1{display:flex;justify-content:center;align-items:center;gap:.28em;font-size:clamp(26px,8.4vw,40px);letter-spacing:.06em;line-height:1.1;margin:0}
