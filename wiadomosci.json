@@ -1,6 +1,12 @@
 {
-"zaktualizowano": "2026-11-06T21:03:12+00:00",
+"zaktualizowano": "2026-11-06T21:37:13+00:00",
 "polska": [
+{
+"t": "Danuta Holecka reaguje na słowa Donalda Tuska. \"Życzę długiego życia pańskiej rodzinie\"",
+"l": "https://wiadomosci.onet.pl/kraj/danuta-holecka-reaguje-na-slowa-donalda-tuska-bezczelne-klamstwo/q7y9t4s",
+"z": "Onet",
+"d": "2026-11-06T21:18:19+00:00"
+},
 {
 "t": "Anna Korwin-Piotrowska wydała oświadczenie. Jest nagranie na stronie TK",
 "l": "https://wiadomosci.onet.pl/kraj/anna-korwin-piotrowska-wydala-oswiadczenie-jest-nagranie-na-stronie-tk/qtdbs5r",
@@ -134,12 +140,6 @@
 "d": "2026-11-06T16:19:00+00:00"
 },
 {
-"t": "Władysław Kosiniak-Kamysz podjął decyzję. Zmiany w dowództwie Wojska Polskiego",
-"l": "https://wiadomosci.onet.pl/kraj/wladyslaw-kosiniak-kamysz-wprowadza-zmiany-w-dowodztwie-wojska-polskiego/7z95kgt",
-"z": "Onet",
-"d": "2026-11-06T16:12:28+00:00"
-},
-{
 "t": "Kosiniak-Kamysz odpowiada na krytykę ws. współpracy z Palantirem: Lobbing jest ogromny",
 "l": "https://www.rmf24.pl/fakty/polska/news-kosiniak-kamysz-odpowiada-na-krytyke-ws-wspolpracy-z-palanti,nIdn,1025177",
 "z": "RMF24",
@@ -147,6 +147,12 @@
 }
 ],
 "swiat": [
+{
+"t": "Pentagon nagle odwołał spotkanie z Władysławem Kosiniakiem-Kamyszem. Jest nowy termin",
+"l": "https://wiadomosci.onet.pl/swiat/komunikat-pentagonu-chodzi-o-spotkanie-z-wladyslawem-kosiniakiem-kamyszem/cn5hzhr",
+"z": "Onet",
+"d": "2026-11-06T21:34:14+00:00"
+},
 {
 "t": "Wizyta Kosiniaka-Kamysza w Pentagonie. Znamy dokładną datę",
 "l": "https://www.rmf24.pl/fakty/polityka/news-wizyta-kosiniaka-kamysza-w-pentagonie-znamy-dokladna-date,nIdn,1025214",
@@ -284,15 +290,15 @@
 "l": "https://wiadomosci.onet.pl/swiat/witold-jurasz-trump-ustapi-putinowi-mozemy-odczuc-to-w-polsce/5n691pd",
 "z": "Onet",
 "d": "2026-11-06T15:50:31+00:00"
-},
-{
-"t": "Rosyjski poseł chce ograniczyć w Rosji naukę języków obcych. \"Pełzające podporządkowanie się Zachodowi\"",
-"l": "https://wiadomosci.onet.pl/swiat/duma-panstwowa-chce-ograniczyc-w-rosji-nauke-angielskiego-miekka-sila/1t49p4l",
-"z": "Onet",
-"d": "2026-11-06T15:33:28+00:00"
 }
 ],
 "religia": [
+{
+"t": "Leon XIV wylądował w Montevideo. Rozpoczyna najdłuższą pielgrzymkę swego pontyfikatu",
+"l": "https://stacja7.pl/ze-swiata/leon-xiv-wyladowal-w-montevideo-rozpoczyna-najdluzsza-pielgrzymke-swego-pontyfikatu/",
+"z": "Stacja7",
+"d": "2026-11-06T21:10:56+00:00"
+},
 {
 "t": "Papież poruszony historią Pabla, którego spotkał w Madrycie",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/pablo-reneo-zmarl-movistar-blogoslawienstwo-leon-xiv.html",
@@ -436,12 +442,6 @@
 "l": "https://archidiecezjalubelska.pl/blog/vi-chelmskie-obchody-swiatowego-dnia-mlodziezy-6-7-11-2026/",
 "z": "Archidiecezja Lubelska",
 "d": "2026-11-05T10:00:00+00:00"
-},
-{
-"t": "Stanowisko Rady Stałej Biskupów w kontekście obecnej sytuacji w kraju",
-"l": "https://archidiecezjalubelska.pl/blog/stanowisko-rady-stalej-biskupow-w-kontekscie-obecnej-sytuacji-w-kraju/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-05T09:03:00+00:00"
 }
 ],
 "rolnicze": [
