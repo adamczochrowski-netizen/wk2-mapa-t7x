@@ -29,6 +29,12 @@
 .news .t{font-weight:700;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .news .k{display:flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
 .na-skroty{margin:4px 0 8px}
+/* Wiadomości: szeroki kafelek z najnowszym nagłówkiem */
+.tile.wiad-tile{grid-template-columns:48px 1fr auto;background:color-mix(in srgb,var(--h) 12%,var(--panel));border-color:color-mix(in srgb,var(--h) 32%,var(--line))}
+.tile.wiad-tile:hover{border-color:var(--h)}
+.tile.wiad-tile .ic{background:var(--h);color:#10160F}
+.tile.wiad-tile p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tile.wiad-tile .big{grid-column:3;grid-row:1 / span 3;font-size:30px;color:var(--h)}
 /* Moje notatki: szeroki pasek jak numery alarmowe, ale spokojny — ciemnoszary, tylko 112 jest pełnym kolorem */
 .tile.notatki{--h:#B9C1BB;grid-template-columns:48px 1fr auto;background:#3B413E;border-color:#565E59}
 .tile.notatki:hover{border-color:var(--h)}
@@ -157,6 +163,12 @@
       <span><h2>Urzędowe</h2><p>Gmina, poczta, KRUS, ARiMR. Kto jest otwarty.</p></span>
     </a>
 
+    <a class="tile wide wiad-tile h-ind" href="wiadomosci.html">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v10a2 2 0 0 1-2 2"/><path d="M7 9h7M7 13h7M7 17h4"/></svg></span>
+      <span><h2>Wiadomości</h2><p id="wiadNaj">Polska i świat: najnowsze nagłówki.</p></span>
+      <span class="big" aria-hidden="true">›</span>
+    </a>
+
     <a class="tile wide notatki" href="notatki.html">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v4h4M8 12h8M8 16h5"/></svg></span>
       <span><h2>Moje notatki</h2><p id="notatkiOpis">Przypomnienia, tylko w tym telefonie.</p></span>
@@ -281,6 +293,10 @@ function niebo(c,d){
 }
 niebo();
 pogoda(); setInterval(pogoda,30*60e3);
+// Najnowszy nagłówek z Polski na kafelku „Wiadomości”
+fetch("wiadomosci.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(w=>{
+  const n=w&&w.polska&&w.polska[0]; if(n) document.getElementById("wiadNaj").textContent="Polska: "+n.t;
+}).catch(()=>{});
 
 const ustaw=(id,t,m)=>{ const a=document.getElementById(id); a.querySelector(".t").textContent=t; a.querySelector(".m").textContent=m; };
 (async()=>{

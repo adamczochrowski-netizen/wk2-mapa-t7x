@@ -2,10 +2,10 @@
 // Strony: najpierw sieć (żeby zawsze była najnowsza wersja), a bez zasięgu — zapisana kopia.
 // Czcionki i ikony: z pamięci (rzadko się zmieniają).
 // WERSJA zmienia się automatycznie przy każdym budowaniu (zbuduj.sh), co odświeża pamięć w telefonach.
-const WERSJA = "f924ee1507";
+const WERSJA = "732b1472a3";
 const CACHE = "wirkowice-" + WERSJA;
 const PLIKI = ["./", "index.html", "historia.html", "miejsca.html", "kosciol.html", "parafia.html",
-  "cmentarz.html", "alarmowe.html", "co-slychac.html", "smieci.html", "notatki.html", "zdrowie.html", "o-wirkowicach.html", "urzedowe.html", "wspolne.css", "dane.js", "godziny.js", "ustawienia.js", "manifest.json", "ikona-192.png", "ikona-512.png", "ikona-180.png"];
+  "cmentarz.html", "alarmowe.html", "co-slychac.html", "smieci.html", "notatki.html", "zdrowie.html", "o-wirkowicach.html", "urzedowe.html", "wiadomosci.html", "wspolne.css", "dane.js", "godziny.js", "ustawienia.js", "manifest.json", "ikona-192.png", "ikona-512.png", "ikona-180.png"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(PLIKI)).then(() => self.skipWaiting()));
@@ -20,6 +20,8 @@ self.addEventListener("fetch", e => {
   const url = new URL(req.url);
   const font = url.hostname === "fonts.googleapis.com" || url.hostname === "fonts.gstatic.com";
   if (url.origin !== location.origin && !font) return;      // np. Google Maps — zostawiamy przeglądarce
+  if (url.pathname.endsWith("wiadomosci.json")) return;
+  if (/\.mp4$/.test(url.pathname)) return;   // filmy: przeglądarka sama (wczytuje je kawałkami)   // nagłówki: zawsze świeże z sieci (strona sama prosi o no-store)
   if (font || /\.(png|css|json)$/.test(url.pathname)) {
     e.respondWith(caches.match(req).then(hit => hit || fetch(req).then(res => {
       const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); return res;

@@ -35,6 +35,9 @@
 .ph button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.08)}
 .ev .who{color:var(--muted);font-size:13px;margin-top:6px}
+.film{position:relative;margin:10px 0 0;border-radius:12px;overflow:hidden;background:var(--line);aspect-ratio:16/9}
+.film video{display:block;width:100%;height:100%;object-fit:cover}
+.film figcaption{position:absolute;left:8px;bottom:8px;font-size:11px;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:999px;background:rgba(10,14,12,.7);color:#E5EAE3}
 .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px}
 /* powiększenie */
 .lb{position:fixed;inset:0;z-index:50;background:rgba(10,12,10,.94);display:flex;flex-direction:column;
@@ -85,6 +88,10 @@ const zrodloLink=u=>{ try{ const url=new URL(u), h=url.hostname.replace(/^www\./
     let n=z?z[1]:h;
     if(/wikipedia/.test(h)){ const art=decodeURIComponent(url.pathname.split("/").pop()||"").replace(/_/g," "); if(art) n+=` (${art})`; }
   return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`; }catch(e){ return ""; } };
+// Filmy-ilustracje do wpisów (po tytule wpisu). Wygenerowane przez AI — zawsze z podpisem.
+const FILMY={"Młyn, dwór, browar i winnica":{src:"historia-mlyn.mp4", poster:"historia-mlyn.jpg", opis:"Młyn nad Wieprzem, dwór i winnica"}};
+const film=r=>{ const f=FILMY[r.tytul]; if(!f) return "";
+  return `<figure class="film"><video src="${f.src}" poster="${f.poster}" muted loop playsinline preload="none" aria-label="${esc(f.opis)}: ilustracja wygenerowana przez AI"></video><figcaption>Ilustracja AI</figcaption></figure>`; };
 const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
 (async()=>{
   const h=await wczytaj("Historia");
@@ -96,6 +103,7 @@ const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
     const idx=linki.map(src=>{ FOTO.push({src, mini:src.replace(/sz=w\d+/,"sz=w400"), podpis:r.podpis, autor:r.autor, tytul:r.tytul}); return FOTO.length-1; });
     return `<article class="ev"><div class="yr">${esc(r.rok||"")}</div><h2>${esc(r.tytul)}</h2>
       ${r.tresc?`<p class="t">${esc(r.tresc)}</p>`:""}
+      ${film(r)}
       ${idx.length?`<div class="ph">${idx.map(i=>`<button data-i="${i}" aria-label="Powiększ zdjęcie"><img src="${esc(FOTO[i].mini)}" alt="${esc(r.podpis||r.tytul)}" loading="lazy"></button>`).join("")}</div>`:""}
       ${(r.podpis||r.autor)&&idx.length?`<div class="who">${esc(r.podpis||"")}${r.autor?` · zdjęcie: ${esc(r.autor)}`:""}</div>`:(r.autor?`<div class="who">Spisał(a): ${esc(r.autor)}</div>`:"")}
       ${r.zrodlo?`<div class="who">Źródło: ${String(r.zrodlo).split(/\s+/).filter(Boolean).map(zrodloLink).join(", ")}</div>`:""}
@@ -104,6 +112,13 @@ const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
   if(FOTO.length>1){ document.getElementById("galSec").hidden=false;
     document.getElementById("gal").innerHTML=FOTO.map((f,i)=>`<div class="ph" style="margin:0;display:block"><button data-i="${i}" aria-label="Powiększ zdjęcie"><img src="${esc(f.mini)}" alt="${esc(f.podpis||f.tytul)}" loading="lazy"></button></div>`).join(""); }
   document.querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>pokaz(+b.dataset.i));
+  // filmik gra tylko, gdy jest widoczny (oszczędza baterię i internet); przy „ogranicz ruch” — tylko po dotknięciu
+  const spokoj=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".film video").forEach(v=>{
+    v.addEventListener("click",()=>v.paused?v.play():v.pause());
+    if(spokoj||!("IntersectionObserver" in window)) return;
+    new IntersectionObserver(([e])=>{ if(e.isIntersecting) v.play().catch(()=>{}); else v.pause(); },{threshold:.5}).observe(v);
+  });
 })();
 
 // --- powiększenie z przewijaniem (strzałki, klawiatura, przesunięcie palcem) ---
