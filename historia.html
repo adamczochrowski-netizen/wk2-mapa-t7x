@@ -89,7 +89,10 @@ const zrodloLink=u=>{ try{ const url=new URL(u), h=url.hostname.replace(/^www\./
     if(/wikipedia/.test(h)){ const art=decodeURIComponent(url.pathname.split("/").pop()||"").replace(/_/g," "); if(art) n+=` (${art})`; }
   return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`; }catch(e){ return ""; } };
 // Filmy-ilustracje do wpisów (po tytule wpisu). Wygenerowane przez AI — zawsze z podpisem.
-const FILMY={"Młyn, dwór, browar i winnica":{src:"historia-mlyn.mp4", poster:"historia-mlyn.jpg", opis:"Młyn nad Wieprzem, dwór i winnica"}};
+const FILMY={
+  "Młyn, dwór, browar i winnica":{src:"historia-mlyn.mp4", poster:"historia-mlyn.jpg", opis:"Młyn nad Wieprzem, dwór i winnica"},
+  "Kościół zbudowany w jeden dzień":{src:"historia-kosciol.mp4", poster:"historia-kosciol.jpg", opis:"Mieszkańcy budują drewniany kościół w jeden dzień"},
+};
 const film=r=>{ const f=FILMY[r.tytul]; if(!f) return "";
   return `<figure class="film"><video src="${f.src}" poster="${f.poster}" muted loop playsinline preload="none" aria-label="${esc(f.opis)}: ilustracja wygenerowana przez AI"></video><figcaption>Ilustracja AI</figcaption></figure>`; };
 const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
