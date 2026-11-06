@@ -41,6 +41,8 @@ h2{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.25;
   padding:14px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line);text-decoration:none;color:var(--fg)}
 .tile>*{grid-column:2;min-width:0}
 .tile>.ic{grid-column:1;grid-row:1 / span 3;align-self:center}
+.tile{align-content:center}                                   /* nadmiar wysokości dzielony równo góra/dół */
+.tile>span:not(.ic):not(.big):not(.pill){grid-row:1 / span 3;align-self:center}   /* tytuł+opis w jednym bloku: na wysokości ikony */
 .tile:hover{border-color:var(--muted)}
 .tile:focus-visible,.btn:focus-visible,.num:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .tile .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--green-soft);color:var(--green)}
