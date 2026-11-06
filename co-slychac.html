@@ -43,23 +43,29 @@
 (async()=>{
   // Ogłoszenia: najnowsze na górze, bez tych, którym minęła data „ważne do”
   const o=await wczytaj("Ogloszenia");
-  const ogl=o.wiersze.filter(r=>r.tytul||r.tresc)
-    .filter(r=>{ const w=data(r.wazne_do); return !w||w>=dzis(); })
-    .sort((a,b)=>(data(b.data)||0)-(data(a.data)||0));
+  const wszystkie=o.wiersze.filter(r=>r.tytul||r.tresc).sort((a,b)=>(data(b.data)||0)-(data(a.data)||0));
+  const aktualne=r=>{ const w=data(r.wazne_do); return !w||w>=dzis(); };
+  const ogl=wszystkie.filter(aktualne), oglMin=wszystkie.filter(r=>!aktualne(r));
+  const kartaO=r=>{ const d=data(r.data);
+    return `<article class="card"><p class="eyebrow" style="margin:0 0 2px">${d?esc(kiedy(d)):""}</p><h2>${esc(r.tytul)}</h2><p style="margin:4px 0 0;white-space:pre-line">${esc(r.tresc)}</p></article>`; };
   document.getElementById("ogl").innerHTML=(o.przyklad?notkaPrzyklad:"")+(o.zapisane?'<p class="muted">Brak internetu — pokazuję ostatnio zapisane.</p>':"")+
-    (ogl.length?'<div class="list">'+ogl.map(r=>{ const d=data(r.data);
-      return `<article class="card"><p class="eyebrow" style="margin:0 0 2px">${d?esc(kiedy(d)):""}</p><h2>${esc(r.tytul)}</h2><p style="margin:4px 0 0;white-space:pre-line">${esc(r.tresc)}</p></article>`; }).join("")+'</div>'
-      :'<div class="card empty"><p style="margin:0">Brak aktualnych ogłoszeń.</p></div>');
+    (ogl.length?'<div class="list">'+ogl.map(kartaO).join("")+'</div>'
+      :'<div class="card empty"><p style="margin:0">Brak aktualnych ogłoszeń.</p></div>')+
+    minione(oglMin.length,oglMin.slice(0,30).map(kartaO).join(""));
 
-  // Wydarzenia: tylko nadchodzące, od najbliższego
+  // Wydarzenia: nadchodzące od najbliższego; minione zwinięte, od najświeższego
   const w=await wczytaj("Wydarzenia");
-  const wyd=w.wiersze.filter(r=>r.nazwa&&data(r.data)&&data(r.data)>=dzis()).sort((a,b)=>data(a.data)-data(b.data));
+  const zData=w.wiersze.filter(r=>r.nazwa&&data(r.data));
+  const wyd=zData.filter(r=>data(r.data)>=dzis()).sort((a,b)=>data(a.data)-data(b.data));
+  const wydMin=zData.filter(r=>data(r.data)<dzis()).sort((a,b)=>data(b.data)-data(a.data));
+  const kartaW=(r,przyszle)=>{ const d=data(r.data);
+    return `<article class="card"><p class="eyebrow" style="margin:0 0 2px">${esc(kiedy(d))}${r.godzina?" · "+esc(r.godzina):""}${r.miejsce?" · "+esc(r.miejsce):""}</p>
+      <h2>${esc(r.nazwa)}</h2>${r.opis?`<p style="margin:4px 0 0;white-space:pre-line">${esc(r.opis)}</p>`:""}
+      ${przyszle?`<div class="btns"><a class="btn" href="${kalendarz(r,d)}" target="_blank" rel="noopener">Dodaj do kalendarza</a></div>`:""}</article>`; };
   document.getElementById("wyd").innerHTML=(w.przyklad?notkaPrzyklad:"")+
-    (wyd.length?'<div class="list">'+wyd.map(r=>{ const d=data(r.data);
-      return `<article class="card"><p class="eyebrow" style="margin:0 0 2px">${esc(kiedy(d))}${r.godzina?" · "+esc(r.godzina):""}${r.miejsce?" · "+esc(r.miejsce):""}</p>
-        <h2>${esc(r.nazwa)}</h2>${r.opis?`<p style="margin:4px 0 0;white-space:pre-line">${esc(r.opis)}</p>`:""}
-        <div class="btns"><a class="btn" href="${kalendarz(r,d)}" target="_blank" rel="noopener">Dodaj do kalendarza</a></div></article>`; }).join("")+'</div>'
-      :'<div class="card empty"><p style="margin:0">Na razie nic nie zaplanowano.</p></div>');
+    (wyd.length?'<div class="list">'+wyd.map(r=>kartaW(r,true)).join("")+'</div>'
+      :'<div class="card empty"><p style="margin:0">Na razie nic nie zaplanowano.</p></div>')+
+    minione(wydMin.length,wydMin.slice(0,30).map(r=>kartaW(r,false)).join(""));
 })();
 // Link do Kalendarza Google z wypełnionym wydarzeniem (2 godziny albo cały dzień)
 function kalendarz(r,d){

@@ -39,12 +39,20 @@
 .stan.tak{background:var(--green-soft);color:var(--green)}
 .stan.nie{background:var(--alarm-soft);color:var(--alarm)}
 .dzis{font-size:13px;color:var(--muted)}
+/* Zwierzęta: nazwa w granatowym obrysie */
+:root{--granat:#1E3A6E}
+:root[data-theme="dark"]{--granat:#5B7FC4}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--granat:#5B7FC4}}
+.granat{display:inline-block;border:2px solid var(--granat);border-radius:10px;padding:2px 14px}
+.section > h2.granat{margin-bottom:12px}
+.filtry button.granat{border:2px solid var(--granat);padding:7px 13px}
+.filtry button.granat[aria-pressed="true"]{background:var(--granat);border-color:var(--granat);color:#fff}
 </style>
 
 <main class="wrap">
   <a class="back" href="index.html">← Strona główna</a>
   <h1>Zdrowie</h1>
-  <p class="lead">Apteki, szpitale, lekarz i fizjoterapia w okolicy, od najbliższych. Przy każdym jest telefon i dojazd.</p>
+  <p class="lead">Apteki, szpitale, lekarz, fizjoterapia i weterynarze w okolicy, od najbliższych. Przy każdym jest telefon i dojazd.</p>
 
   <a class="sos" href="tel:112"><b>112</b><span><strong>Nagły wypadek: dzwoń 112</strong><small>Zagrożenie życia, wypadek, utrata przytomności</small></span></a>
 
@@ -54,6 +62,7 @@
     <button type="button" data-f="apteka" aria-pressed="false">Apteki</button>
     <button type="button" data-f="szpital" aria-pressed="false">Szpitale</button>
     <button type="button" data-f="fizjoterapia" aria-pressed="false">Fizjoterapia</button>
+    <button type="button" data-f="zwierzeta" aria-pressed="false" class="granat">Zwierzęta</button>
   </div>
   <div id="out"><p class="muted">Wczytuję…</p></div>
   <p class="muted" style="font-size:13px;margin-top:24px">Godziny mogą się zmienić, zwłaszcza w święta. W razie wątpliwości zadzwoń przed wyjazdem.</p>
@@ -71,9 +80,10 @@ const GRUPY=[
   {r:"apteka",       t:"Apteki"},
   {r:"przychodnia",  t:"Lekarz rodzinny"},
   {r:"fizjoterapia", t:"Fizjoterapia i rehabilitacja"},
+  {r:"zwierzeta",    t:"Zwierzęta", granat:true, pod:"Weterynarze w okolicy."},
 ];
 const rodzajK=s=>{ s=(s||"").toLowerCase();
-  return /aptek/.test(s)?"apteka":/szpital|sor|pogotow|nocn/.test(s)?"szpital":/fizjo|rehab/.test(s)?"fizjoterapia":"przychodnia"; };
+  return /weteryn|zwierz/.test(s)?"zwierzeta":/aptek/.test(s)?"apteka":/szpital|sor|pogotow|nocn/.test(s)?"szpital":/fizjo|rehab/.test(s)?"fizjoterapia":"przychodnia"; };
 
 // --- „Otwarte teraz” z godzin typu „pn–pt 8:00–16:00, sob 8:00–13:00”, „sob–nd całą dobę”, „całodobowo” ---
 const DNI_TYG={nd:0,niedz:0,pn:1,pon:1,wt:2,śr:3,sr:3,czw:4,cz:4,pt:5,pią:5,sob:6,so:6};
@@ -142,10 +152,10 @@ function karta(p){
 }
 function pokaz(){
   const out=document.getElementById("out");
-  if(!LISTA.length){ out.innerHTML=`<div class="card empty" style="margin-top:16px"><p style="margin:0"><strong>Do uzupełnienia:</strong> karta „Zdrowie” w arkuszu (apteki, szpitale, fizjoterapia).</p></div>`; return; }
+  if(!LISTA.length){ out.innerHTML=`<div class="card empty" style="margin-top:16px"><p style="margin:0"><strong>Do uzupełnienia:</strong> karta „Zdrowie” w arkuszu (apteki, szpitale, fizjoterapia, weterynarze).</p></div>`; return; }
   const ok=p=>!FILTR||(FILTR==="otwarte"?otwarte(p.godziny)===true:p.k===FILTR);
   const html=GRUPY.map(g=>{ const l=LISTA.filter(p=>p.k===g.r&&ok(p)); if(!l.length) return "";
-    return `<section class="section"><h2>${g.t}</h2><div class="list">${l.map(karta).join("")}</div></section>`; }).join("");
+    return `<section class="section"><h2${g.granat?' class="granat"':""}>${g.t}</h2>${g.pod?`<p class="muted" style="margin:-4px 0 10px">${g.pod}</p>`:""}<div class="list">${l.map(karta).join("")}</div></section>`; }).join("");
   out.innerHTML=html||`<p class="muted" style="margin-top:20px">Teraz nic z tej listy nie jest otwarte. W nagłej sytuacji dzwoń 112.</p>`;
 }
 document.querySelector(".filtry").addEventListener("click",e=>{

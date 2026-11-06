@@ -35,6 +35,7 @@
 .terminy .d{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
 .terminy .ik .worek{margin:0}
 .terminy .r{min-width:0}
+.minione .terminy{padding:4px 16px}
 </style>
 
 <main class="wrap">
@@ -51,9 +52,14 @@
 const dni=l=>{ const m=new Map(); l.forEach(r=>{ const k=r.d.getTime(); if(!m.has(k)) m.set(k,{d:r.d,r:[]}); m.get(k).r.push(r.rodzaj); }); return [...m.values()]; };
 (async()=>{
   const s=await wczytaj("Smieci");
-  const lista=s.wiersze.map(r=>({d:data(r.data),rodzaj:r.rodzaj||"odpady"})).filter(r=>r.d&&r.d>=dzis()).sort((a,b)=>a.d-b.d);
+  const wsz=s.wiersze.map(r=>({d:data(r.data),rodzaj:r.rodzaj||"odpady"})).filter(r=>r.d);
+  const lista=wsz.filter(r=>r.d>=dzis()).sort((a,b)=>a.d-b.d);
+  // Minione: odbiory, które już były, od najświeższego
+  const wiersz=g=>`<div class="row"><span class="d">${esc(kiedy(g.d))}</span><span class="ik"><span class="worki">${g.r.map(worek).join("")}</span></span><span class="r">${esc(g.r.join(", "))}</span></div>`;
+  const byly=dni(wsz.filter(r=>r.d<dzis()).sort((a,b)=>b.d-a.d));
+  const min=`<section class="section">${minione(byly.length,byly.slice(0,30).map(wiersz).join(""),"card terminy")}</section>`;
   const el=document.getElementById("out");
-  if(!lista.length){ el.innerHTML=(s.przyklad?notkaPrzyklad:"")+'<div class="card empty"><p style="margin:0">Brak kolejnych terminów. Harmonogram na nowy rok jeszcze nie jest wpisany.</p></div>'; return; }
+  if(!lista.length){ el.innerHTML=(s.przyklad?notkaPrzyklad:"")+'<div class="card empty"><p style="margin:0">Brak kolejnych terminów. Harmonogram na nowy rok jeszcze nie jest wpisany.</p></div>'+min; return; }
   const pierwszy=lista[0].d.getTime(), dzien=lista.filter(r=>r.d.getTime()===pierwszy);
   el.innerHTML=(s.przyklad?notkaPrzyklad:"")+
     `<div class="next${dniDo(lista[0].d)<=1?" pilne":""}"><p class="eyebrow" style="margin:0">Najbliższy wywóz</p>
@@ -61,8 +67,8 @@ const dni=l=>{ const m=new Map(); l.forEach(r=>{ const k=r.d.getTime(); if(!m.ha
       <p style="margin:0;line-height:1.9">${dzien.map(r=>`${worek(r.rodzaj)}${esc(r.rodzaj)}`).join("<br>")}</p>
       <p class="muted" style="margin:8px 0 0">${dniDo(lista[0].d)===1?"<strong>Wystaw dziś wieczorem.</strong> Odbiór jutro od godz. 7:00.":dniDo(lista[0].d)===0?"<strong>Wywóz jest dziś</strong> od godz. 7:00.":"Odbiór od godz. 7:00, więc wystaw worki dzień wcześniej wieczorem albo rano przed 7:00."}</p></div>
     <section class="section"><h2>Kolejne terminy</h2><div class="card terminy">`+
-    dni(lista.slice(dzien.length)).slice(0,12).map(g=>`<div class="row"><span class="d">${esc(kiedy(g.d))}</span><span class="ik"><span class="worki">${g.r.map(worek).join("")}</span></span><span class="r">${esc(g.r.join(", "))}</span></div>`).join("")+
-    `</div></section>`;
+    dni(lista.slice(dzien.length)).slice(0,12).map(wiersz).join("")+
+    `</div></section>`+min;
 })();
 </script>
 

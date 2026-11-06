@@ -121,6 +121,8 @@ const worek=r=>{ const c=kolorSmieci(r); return `<svg class="worek" viewBox="0 0
   <rect x="7.2" y="5.6" width="5.6" height="1.6" rx=".8" fill="rgba(0,0,0,.4)"/>
   <path d="M6 11.5c.6 2.4 1.9 4.6 3.7 6.2M14.2 11.8c-.4 1.8-1.2 3.4-2.4 4.7" stroke="rgba(255,255,255,.35)" stroke-width=".9" fill="none" stroke-linecap="round"/></svg>`; };
 const dniDo=d=>Math.round((d-dzis())/864e5);
+// „Minione” — zwinięta lista pod sekcją (ogłoszenia, wydarzenia, śmieci). n = ile, html = gotowe karty/wiersze
+const minione=(n,html,klasa="list")=>n?`<details class="minione"><summary>Minione (${n})</summary><div class="${klasa}">${html}</div></details>`:"";
 
 // ===== Moje notatki — zapisane tylko w tym telefonie (pamięć przeglądarki) =====
 // notatka: {id, tekst, kiedy:"2026-11-10" albo "2026-11-10T18:00" albo "", naGlownej:bool, zrobione:bool, utworzono:ms}
