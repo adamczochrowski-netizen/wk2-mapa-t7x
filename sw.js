@@ -2,7 +2,7 @@
 // Strony: najpierw sieć (żeby zawsze była najnowsza wersja), a bez zasięgu — zapisana kopia.
 // Czcionki i ikony: z pamięci (rzadko się zmieniają).
 // WERSJA zmienia się automatycznie przy każdym budowaniu (zbuduj.sh), co odświeża pamięć w telefonach.
-const WERSJA = "1c3d684262";
+const WERSJA = "f924ee1507";
 const CACHE = "wirkowice-" + WERSJA;
 const PLIKI = ["./", "index.html", "historia.html", "miejsca.html", "kosciol.html", "parafia.html",
   "cmentarz.html", "alarmowe.html", "co-slychac.html", "smieci.html", "notatki.html", "zdrowie.html", "o-wirkowicach.html", "urzedowe.html", "wspolne.css", "dane.js", "godziny.js", "ustawienia.js", "manifest.json", "ikona-192.png", "ikona-512.png", "ikona-180.png"];
