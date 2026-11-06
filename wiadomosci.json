@@ -1,6 +1,12 @@
 {
-"zaktualizowano": "2026-11-06T21:37:13+00:00",
+"zaktualizowano": "2026-11-06T22:36:57+00:00",
 "polska": [
+{
+"t": "Agencja ratingowa S&P podjęła decyzję ws. Polski",
+"l": "https://www.rmf24.pl/fakty/ekonomia/news-agencja-ratingowa-sp-podjela-decyzje-ws-polski,nIdn,1025216",
+"z": "RMF24",
+"d": "2026-11-06T21:36:00+00:00"
+},
 {
 "t": "Danuta Holecka reaguje na słowa Donalda Tuska. \"Życzę długiego życia pańskiej rodzinie\"",
 "l": "https://wiadomosci.onet.pl/kraj/danuta-holecka-reaguje-na-slowa-donalda-tuska-bezczelne-klamstwo/q7y9t4s",
@@ -138,17 +144,11 @@
 "l": "https://www.rmf24.pl/fakty/polska/news-bedzie-kolejne-zgromadzenie-ogolne-sedziow-tk-chodzi-o-immun,nIdn,1025180",
 "z": "RMF24",
 "d": "2026-11-06T16:19:00+00:00"
-},
-{
-"t": "Kosiniak-Kamysz odpowiada na krytykę ws. współpracy z Palantirem: Lobbing jest ogromny",
-"l": "https://www.rmf24.pl/fakty/polska/news-kosiniak-kamysz-odpowiada-na-krytyke-ws-wspolpracy-z-palanti,nIdn,1025177",
-"z": "RMF24",
-"d": "2026-11-06T16:09:00+00:00"
 }
 ],
 "swiat": [
 {
-"t": "Pentagon nagle odwołał spotkanie z Władysławem Kosiniakiem-Kamyszem. Jest nowy termin",
+"t": "Pentagon wydał komunikat. Chodzi o wizytę Władysława Kosiniaka-Kamysza w USA",
 "l": "https://wiadomosci.onet.pl/swiat/komunikat-pentagonu-chodzi-o-spotkanie-z-wladyslawem-kosiniakiem-kamyszem/cn5hzhr",
 "z": "Onet",
 "d": "2026-11-06T21:34:14+00:00"
@@ -294,6 +294,12 @@
 ],
 "religia": [
 {
+"t": "Leon XIV w Urugwaju: nikt nie powinien czuć się obcy wśród swoich",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/przemowienie-leona-xiv-do-wladz-w-urugwaju.html",
+"z": "Vatican News",
+"d": "2026-11-06T21:45:00+00:00"
+},
+{
 "t": "Leon XIV wylądował w Montevideo. Rozpoczyna najdłuższą pielgrzymkę swego pontyfikatu",
 "l": "https://stacja7.pl/ze-swiata/leon-xiv-wyladowal-w-montevideo-rozpoczyna-najdluzsza-pielgrzymke-swego-pontyfikatu/",
 "z": "Stacja7",
@@ -400,12 +406,6 @@
 "l": "https://stacja7.pl/wydarzenia/radoslaw-pazura-zagra-ks-franciszka-blachnickiego-rusza-odliczanie-do-wielkiego-widowiska/",
 "z": "Stacja7",
 "d": "2026-11-06T10:41:57+00:00"
-},
-{
-"t": "Abp Szewczuk: bez Papieża nie byłoby rozejmu w Oleszkach",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/abp-szewczuk-o-sytuacji-w-oleszkach-i-pomocy-papieza.html",
-"z": "Vatican News",
-"d": "2026-11-06T10:41:00+00:00"
 },
 {
 "t": "Papież wyruszył w podróż apostolską do Ameryki Łacińskiej",
