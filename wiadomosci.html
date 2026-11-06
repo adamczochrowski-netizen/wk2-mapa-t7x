@@ -23,11 +23,17 @@
 <link rel="stylesheet" href="wspolne.css">
 <style>
 /* Przełącznik Polska / Świat */
-.zakl{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:14px;background:var(--panel);border:1px solid var(--line);margin:0 0 14px}
-.zakl button{font:inherit;font-weight:700;font-size:16px;padding:10px 8px;border:0;border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.zakl{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;border-radius:14px;background:var(--panel);border:1px solid var(--line);margin:0 0 14px}
+.zakl button{font:inherit;font-weight:700;font-size:15px;padding:10px 4px;min-width:0;border:0;border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
 .zakl button svg{width:18px;height:18px}
 .zakl button[aria-selected="true"]{background:var(--h);color:#10160F}
 .zakl button:focus-visible{outline:2px solid var(--h);outline-offset:2px}
+/* Ogólne: podział Polska | Świat */
+.podzakl{display:flex;gap:8px;margin:-4px 0 12px}
+.podzakl[hidden]{display:none}
+.podzakl button{font:inherit;font-weight:600;font-size:15px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.podzakl button[aria-pressed="true"]{border-color:var(--h);color:var(--h);background:color-mix(in srgb,var(--h) 14%,var(--panel))}
+.podzakl button:focus-visible{outline:2px solid var(--h);outline-offset:2px}
 /* Lista nagłówków: pierwszy duży, reszta zwarta */
 .wiad{display:flex;flex-direction:column}
 .wiad a{display:block;text-decoration:none;color:var(--fg);padding:13px 0;border-bottom:1px solid var(--line)}
@@ -46,22 +52,29 @@
   <a class="back" href="index.html">← Strona główna</a>
   <header class="naglowek">
     <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v10a2 2 0 0 1-2 2"/><path d="M7 9h7M7 13h7M7 17h4"/></svg></span>
-    <div><h1>Wiadomości</h1><p class="lead">Najnowsze nagłówki z Polski i ze świata. Dotknij, żeby przeczytać całość u źródła.</p></div>
+    <div><h1>Wiadomości</h1><p class="lead">Najnowsze nagłówki: ogólne, religijne i rolnicze. Dotknij, żeby przeczytać całość u źródła.</p></div>
   </header>
 
-  <div class="zakl" role="tablist" aria-label="Wiadomości">
-    <button type="button" role="tab" id="tPolska" data-d="polska" aria-selected="true" aria-controls="lista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h13l-2 4 2 4H5"/></svg>Polska</button>
-    <button type="button" role="tab" id="tSwiat" data-d="swiat" aria-selected="false" aria-controls="lista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Świat</button>
+  <div class="zakl" role="tablist" aria-label="Rodzaj wiadomości">
+    <button type="button" role="tab" id="tOgolne" data-g="ogolne" aria-selected="true" aria-controls="lista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Ogólne</button>
+    <button type="button" role="tab" id="tReligia" data-g="religia" aria-selected="false" aria-controls="lista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M7 8h10"/></svg>Religia</button>
+    <button type="button" role="tab" id="tRolnicze" data-g="rolnicze" aria-selected="false" aria-controls="lista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9"/><path d="M12 9c0-3 2-5 5-5 0 3-2 5-5 5zM12 9c0-3-2-5-5-5 0 3 2 5 5 5zM12 15c0-3 2-5 5-5 0 3-2 5-5 5zM12 15c0-3-2-5-5-5 0 3 2 5 5 5z"/></svg>Rolnicze</button>
   </div>
-  <div class="card lista-wiad" id="lista" role="tabpanel" aria-labelledby="tPolska"><p class="muted" style="margin:10px 0">Wczytuję…</p></div>
+  <div class="podzakl" id="podzakl" role="group" aria-label="Ogólne">
+    <button type="button" data-d="polska" aria-pressed="true">Polska</button>
+    <button type="button" data-d="swiat" aria-pressed="false">Świat</button>
+  </div>
+  <div class="card lista-wiad" id="lista" role="tabpanel" aria-labelledby="tOgolne"><p class="muted" style="margin:10px 0">Wczytuję…</p></div>
   <p class="stopka-wiad" id="stopka"></p>
 </main>
 
 <script src="dane.js"></script>
 <script>
 // Nagłówki z wiadomosci.json — plik odświeża co 30 minut akcja GitHub (.github/workflows/wiadomosci.yml)
-let W=null, DZIAL="polska";
-try{ if(sessionStorage.getItem("wirk-wiad-dzial")==="swiat") DZIAL="swiat"; }catch(e){}
+let W=null, GL="ogolne", OG="polska";   // zakładka główna i podział „Ogólne” (polska / swiat)
+try{ GL=sessionStorage.getItem("wirk-wiad-gl")||GL; OG=sessionStorage.getItem("wirk-wiad-og")||OG; }catch(e){}
+if(!["ogolne","religia","rolnicze"].includes(GL)) GL="ogolne"; if(!["polska","swiat"].includes(OG)) OG="polska";
+const NAZWY={polska:"Polska",swiat:"Świat",religia:"Religia",rolnicze:"Rolnicze"};
 const temu=d=>{ const m=Math.round((Date.now()-d)/60000);
   if(m<1) return "przed chwilą"; if(m<60) return m+" min temu";
   const h=Math.floor(m/60); if(h<6) return h+" godz. temu";
@@ -69,19 +82,23 @@ const temu=d=>{ const m=Math.round((Date.now()-d)/60000);
   const n=Math.round((dzis()-new Date(d.getFullYear(),d.getMonth(),d.getDate()))/864e5);
   return n===0?"dziś, "+g:n===1?"wczoraj, "+g:ladnaData(d)+", "+g; };
 function pokaz(){
-  document.querySelectorAll(".zakl button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.d===DZIAL)));
-  document.getElementById("lista").setAttribute("aria-labelledby",DZIAL==="polska"?"tPolska":"tSwiat");
+  const DZIAL=GL==="ogolne"?OG:GL;
+  document.querySelectorAll(".zakl button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.g===GL)));
+  document.querySelectorAll(".podzakl button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.d===OG)));
+  document.getElementById("podzakl").hidden=GL!=="ogolne";
   const el=document.getElementById("lista");
+  el.setAttribute("aria-labelledby",{ogolne:"tOgolne",religia:"tReligia",rolnicze:"tRolnicze"}[GL]);
   if(!W){ el.innerHTML='<p style="margin:10px 0"><strong>Wiadomości jeszcze się nie pobrały.</strong> Pojawią się, gdy włączy się automatyczne pobieranie nagłówków.</p>'; return; }
   const l=(W[DZIAL]||[]).slice(0,25);
-  if(!l.length){ el.innerHTML='<p class="muted" style="margin:10px 0">Brak nagłówków. Spróbuj za chwilę.</p>'; return; }
+  const zr=[...new Set(l.map(w=>w.z))].join(", ");
+  document.getElementById("stopka").textContent=(zr?`${NAZWY[DZIAL]}: nagłówki z ${zr}. `:"")+`Odświeżane co pół godziny. Ostatnio: ${temu(new Date(W.zaktualizowano))}.`;
+  if(!l.length){ el.innerHTML='<p class="muted" style="margin:10px 0">W tym dziale nie ma jeszcze nagłówków. Pojawią się przy najbliższym odświeżeniu.</p>'; return; }
   el.innerHTML='<div class="wiad">'+l.map((w,i)=>{ const d=new Date(w.d), nowe=Date.now()-d<36e5;
     return `<a href="${esc(w.l)}" target="_blank" rel="noopener"${i===0?' class="glowna"':""}><span class="t">${esc(w.t)}</span><span class="m"><span class="z">${esc(w.z)}</span><span${nowe?' class="nowe"':""}>${esc(temu(d))}</span></span></a>`; }).join("")+'</div>';
-  const z=new Date(W.zaktualizowano);
-  document.getElementById("stopka").textContent=`Nagłówki z RMF24 i Polsat News, odświeżane co pół godziny. Ostatnio: ${temu(z)}.`;
 }
-document.querySelector(".zakl").addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b) return;
-  DZIAL=b.dataset.d; try{ sessionStorage.setItem("wirk-wiad-dzial",DZIAL); }catch(e){} pokaz(); });
+const zapisz=()=>{ try{ sessionStorage.setItem("wirk-wiad-gl",GL); sessionStorage.setItem("wirk-wiad-og",OG); }catch(e){} };
+document.querySelector(".zakl").addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b) return; GL=b.dataset.g; zapisz(); pokaz(); });
+document.querySelector(".podzakl").addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b) return; OG=b.dataset.d; zapisz(); pokaz(); });
 (async()=>{
   try{ const r=await fetch("wiadomosci.json?t="+Date.now(),{cache:"no-store"}); if(r.ok) W=await r.json(); }catch(e){}
   pokaz(); setInterval(pokaz,60e3);
