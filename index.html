@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="wspolne.css">
 <style>
 /* Paski „najnowsze”: każdy w swoim kolorze — obwódka, gruby pasek z lewej i ikonka (--c ustawiany niżej / z JS) */
-.news{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 12px}
+.news{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:0 0 12px}
 .news a{--c:var(--accent);display:flex;flex-direction:column;gap:2px;min-width:0;padding:12px 14px 12px 16px;border-radius:12px;
   background:var(--panel);color:var(--fg);text-decoration:none;
   border:1.5px solid var(--line);border:1.5px solid color-mix(in srgb,var(--c) 45%,var(--line));border-left:6px solid var(--c)}
@@ -54,6 +54,30 @@
 .logo + .lead{text-align:center;margin-inline:auto}
 @media (prefers-reduced-motion: no-preference){ .logo .serce{animation:bicie 2.4s ease-in-out infinite} }
 @keyframes bicie{0%,60%,100%{transform:scale(1)}15%{transform:scale(1.14)}30%{transform:scale(1)}45%{transform:scale(1.08)}}
+/* Karta „Dziś”: data, pogoda, ostrzeżenia i to, co dziś ważne */
+.dzis{padding:16px;border-radius:16px;background:var(--panel);border:1px solid var(--line);margin:0 0 12px}
+.dz-gl{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dz-gl h2{font-size:21px;margin:0}
+.pog{display:flex;align-items:center;gap:6px;flex:none}
+.pog-ik{font-size:30px;line-height:1}
+.pog-t{font-family:var(--f-display);font-weight:700;font-size:32px;font-variant-numeric:tabular-nums}
+.pog-opis{margin:2px 0 0;color:var(--muted);font-size:15px}
+.pog-opis:empty{display:none}
+.alert{display:flex;align-items:center;gap:8px;margin:10px 0 0;padding:8px 12px;border-radius:10px;font-weight:600;font-size:15px;
+  background:color-mix(in srgb,var(--c) 18%,var(--panel));border:1px solid var(--c);color:var(--fg)}
+.alert b{color:var(--c)}
+.dz-lista{display:flex;flex-direction:column;margin-top:12px;border-top:1px solid var(--line)}
+.dz{display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.dz:last-child{border-bottom:0;padding-bottom:0}
+.dz .i{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--green-soft);color:var(--green)}
+.dz .i svg{width:18px;height:18px}
+.dz .x{min-width:0;line-height:1.3}
+.dz .x small{display:block;color:var(--muted);font-size:14px}
+.dz .s{color:var(--muted);font-size:20px}
+.dz.hot .i{background:var(--accent);color:var(--on-accent)}
+.dz.hot .x strong{color:var(--accent)}
+.zrodlo-pog{margin:10px 0 0;font-size:12px;color:var(--muted)}
+.zrodlo-pog a{color:var(--muted)}
 .moje{margin:0 0 14px}
 .moje-gl{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 6px}
 .moje-gl h2{font-size:17px;margin:0}
@@ -75,10 +99,19 @@
   </header>
   <p class="lead">Nasza wieś w jednym miejscu: historia, ciekawe miejsca, parafia i cmentarz, ważne numery.</p>
 
+  <section class="dzis" aria-labelledby="dzData">
+    <div class="dz-gl">
+      <div><p class="eyebrow" style="margin:0">Dziś</p><h2 id="dzData"></h2></div>
+      <div class="pog" id="pog" hidden><span class="pog-ik" id="pogIk" aria-hidden="true"></span><span class="pog-t" id="pogT"></span></div>
+    </div>
+    <p class="pog-opis" id="pogOpis"></p>
+    <div id="pogAlert"></div>
+    <div class="dz-lista" id="dzLista"><p class="muted" style="margin:0">Wczytuję…</p></div>
+  </section>
+
   <div class="news" aria-label="Najnowsze">
     <a href="co-slychac.html" id="nOgl"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l6 4V6l-6 4z"/><path d="M17 9a4 4 0 0 1 0 6"/></svg>Ogłoszenie</span><span class="t">Wczytuję…</span><span class="m"></span></a>
     <a href="co-slychac.html" id="nWyd"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Najbliższe wydarzenie</span><span class="cnt"></span><span class="t">Wczytuję…</span><span class="m"></span></a>
-    <a href="smieci.html" id="nSm"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg>Wywóz śmieci</span><span class="t">Wczytuję…</span><span class="m"></span></a>
   </div>
 
   <section class="moje" id="moje" hidden aria-label="Moje notatki">
@@ -118,6 +151,7 @@
 </main>
 
 <script src="dane.js"></script>
+<script src="godziny.js"></script>
 <script>
 // Moje notatki na stronie głównej: przypomnienia, które nadeszły (podświetlone), i notatki przypięte „na stronie głównej”
 function mojeNotatki(){
@@ -138,8 +172,87 @@ mojeNotatki();
 setInterval(mojeNotatki,60e3);   // przypomnienie z godziną pojawi się samo, gdy apka jest otwarta
 addEventListener("pageshow",mojeNotatki);
 
+// ===== Karta „Dziś” =====
+const IK={
+  smieci:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
+  msza:'<path d="M12 2v4M10 4h4"/><path d="M12 6l-5 5v10h10V11z"/>',
+  wyd:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  apteka:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>'};
+const ik=n=>`<span class="i" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${IK[n]}</svg></span>`;
+const wiersz=(n,html,href,hot)=>`<a class="dz${hot?" hot pilne":""}" href="${href}">${ik(n)}<span class="x">${html}</span><span class="s" aria-hidden="true">›</span></a>`;
+const duza=s=>s.charAt(0).toUpperCase()+s.slice(1);
+document.getElementById("dzData").textContent=duza(DNI[new Date().getDay()])+", "+ladnaData(new Date());
+
+// Msze: „Msze w tygodniu” / „Msze w niedziele” z karty Parafia. Linia z nazwą miesiąca (np. „w listopadzie także 17:00”) liczy się tylko w tym miesiącu.
+const MIES_W=["styczni","lut","marc","kwietni","maj","czerwc","lipc","sierpni","wrześni","październik","listopad","grudni"];
+function mszeDnia(p,d){
+  const t=(d.getDay()===0?p["msze w niedziele"]:p["msze w tygodniu"])||""; const g=[];
+  t.split(/\n/).forEach(l=>{ const zMies=/maj|czerwc|lipc|sierp|wrześ|paźdz|listop|grud|stycz|lut|marc|kwiet/i.test(l);
+    if(zMies && !l.toLowerCase().includes(MIES_W[d.getMonth()])) return;
+    (l.match(/\b\d{1,2}[:.]\d{2}\b/g)||[]).forEach(x=>g.push(x.replace(".",":"))); });
+  return [...new Set(g)].sort((a,b)=>minuty(a)-minuty(b));
+}
+let DANE=null;
+function rysujDzis(){
+  if(!DANE) return; const {sm,wy,par,zd}=DANE, teraz=new Date(), out=[];
+  // Śmieci
+  if(sm.length){ const t=sm[0].d.getTime(), dz=sm.filter(x=>x.d.getTime()===t), n=dniDo(sm[0].d), r=dz.map(x=>x.r).join(", ");
+    const worki=`<span class="worki">${dz.map(x=>worek(x.r)).join("")}</span>`;
+    out.push(n===0?wiersz("smieci",`<strong>Dziś wywóz śmieci</strong> od 7:00<small>${worki} ${esc(r)}</small>`,"smieci.html",true)
+      :n===1?wiersz("smieci",`<strong>Wieczorem wystaw worki</strong>, wywóz jutro od 7:00<small>${worki} ${esc(r)}</small>`,"smieci.html",true)
+      :wiersz("smieci",`Wywóz śmieci: ${esc(kiedy(sm[0].d))}<small>${worki} ${esc(r)} · za ${n} dni</small>`,"smieci.html"));
+  }
+  // Msza: dziś pozostałe, a gdy już były — jutro
+  const t=teraz.getHours()*60+teraz.getMinutes(), dzisM=mszeDnia(par,teraz).filter(g=>minuty(g)>t-30);
+  if(dzisM.length) out.push(wiersz("msza",`Msza dziś: <strong>${dzisM.join(", ")}</strong><small>Kościół w Wirkowicach</small>`,"parafia.html"));
+  else { const j=new Date(dzis().getTime()+864e5), jm=mszeDnia(par,j);
+    if(jm.length) out.push(wiersz("msza",`Msza jutro: ${jm.join(", ")}<small>Kościół w Wirkowicach</small>`,"parafia.html")); }
+  // Wydarzenie dziś albo jutro
+  wy.filter(r=>dniDo(data(r.data))<=1).slice(0,2).forEach(r=>{ const n=dniDo(data(r.data));
+    out.push(wiersz("wyd",`<strong>${n===0?"Dziś":"Jutro"}: ${esc(r.nazwa)}</strong><small>${[r.godzina,r.miejsce].filter(Boolean).map(esc).join(" · ")}</small>`,"co-slychac.html",n===0)); });
+  // Najbliższa apteka czynna teraz
+  const apt=zd.filter(p=>p.k==="apteka"&&otwarte(p.godziny,teraz)===true)[0];
+  if(apt) out.push(wiersz("apteka",`Apteka czynna teraz: <strong>${esc(apt.nazwa)}</strong><small>${esc(apt.miejscowosc||"")}${apt.odl<999?", ok. "+kmTxt(apt.odl):""} · ${esc(doKtorej(apt.godziny,teraz))}</small>`,"zdrowie.html"));
+  document.getElementById("dzLista").innerHTML=out.join("")||'<p class="muted" style="margin:10px 0 0">Dziś nic szczególnego.</p>';
+}
+setInterval(rysujDzis,60e3);
+
+// Pogoda: Open-Meteo (darmowe, bez klucza). Ostatnia prognoza zapamiętana — bez internetu pokazujemy ją z godziną.
+const POGODA="https://api.open-meteo.com/v1/forecast?latitude=50.8722&longitude=23.0737&current=temperature_2m,weather_code,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,wind_gusts_10m_max&timezone=Europe%2FWarsaw&forecast_days=2";
+const OPIS=c=>c===0?["☀️","Bezchmurnie"]:c<=2?["🌤️","Niewielkie zachmurzenie"]:c===3?["☁️","Pochmurno"]:c<=48?["🌫️","Mgła"]:c<=57?["🌦️","Mżawka"]:c<=67?["🌧️","Deszcz"]:c<=77?["🌨️","Śnieg"]:c<=82?["🌧️","Przelotny deszcz"]:c<=86?["🌨️","Przelotny śnieg"]:["⛈️","Burza"];
+const st=x=>Math.round(x)+"°";
+async function pogoda(){
+  let p=null, stara=false;
+  try{ const r=await fetch(POGODA); if(!r.ok) throw 0; p=await r.json(); try{ localStorage.setItem("wirk-pogoda",JSON.stringify({t:Date.now(),p})); }catch(e){} }
+  catch(e){ try{ const z=JSON.parse(localStorage.getItem("wirk-pogoda")||"null"); if(z&&Date.now()-z.t<36e5*12){ p=z.p; stara=new Date(z.t); } }catch(e2){} }
+  if(!p) return;
+  const c=p.current, d=p.daily, [ikona,opis]=OPIS(c.weather_code);
+  document.getElementById("pog").hidden=false;
+  document.getElementById("pogIk").textContent=c.weather_code===0&&!c.is_day?"🌙":ikona;
+  document.getElementById("pogT").textContent=st(c.temperature_2m);
+  document.getElementById("pogOpis").textContent=`${c.weather_code===0&&!c.is_day?"Pogodna noc":opis} · dziś ${st(d.temperature_2m_min[0])} / ${st(d.temperature_2m_max[0])} · jutro ${st(d.temperature_2m_min[1])} / ${st(d.temperature_2m_max[1])}, ${OPIS(d.weather_code[1])[1].toLowerCase()}`+(stara?` (prognoza z ${stara.getHours()}:${String(stara.getMinutes()).padStart(2,"0")})`:"");
+  // Ostrzeżenia: przymrozek (najbliższa noc), burza, silny wiatr, duże opady, śnieg
+  const a=[], noc=new Date().getHours()>=12?1:0, kody=[d.weather_code[0],d.weather_code[1]];
+  if(d.temperature_2m_min[noc]<=0) a.push(["#5B9BD5","Przymrozek",`${noc?"w nocy":"dziś rano"} do ${st(d.temperature_2m_min[noc])}`]);
+  if(kody.some(k=>k>=95)) a.push(["#E0A030","Burza",kody[0]>=95?"dziś":"jutro"]);
+  const wi=Math.max(...d.wind_gusts_10m_max); if(wi>=60) a.push(["#E0A030","Silny wiatr",`porywy do ${Math.round(wi)} km/h`]);
+  const op=d.precipitation_sum.findIndex(x=>x>=10); if(op>=0) a.push(["#5B9BD5","Duże opady",`${op?"jutro":"dziś"} ok. ${Math.round(d.precipitation_sum[op])} mm`]);
+  if(kody.some(k=>(k>=71&&k<=77)||k===85||k===86)) a.push(["#A3ADA6","Śnieg",kody.findIndex(k=>(k>=71&&k<=77)||k===85||k===86)?"jutro":"dziś"]);
+  document.getElementById("pogAlert").innerHTML=a.map(([c,t,m])=>`<p class="alert" style="--c:${c}"><b>⚠ ${t}</b> ${m}</p>`).join("");
+  if(!document.querySelector(".zrodlo-pog")) document.querySelector(".dzis").insertAdjacentHTML("beforeend",'<p class="zrodlo-pog">Pogoda: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></p>');
+}
+pogoda(); setInterval(pogoda,30*60e3);
+
 const ustaw=(id,t,m)=>{ const a=document.getElementById(id); a.querySelector(".t").textContent=t; a.querySelector(".m").textContent=m; };
 (async()=>{
+  // Karta „Dziś”: śmieci, wydarzenia, msze (Parafia), apteki (Zdrowie) — wczytane równolegle
+  const [s0,w0,p0,z0]=await Promise.all(["Smieci","Wydarzenia","Parafia","Zdrowie"].map(k=>wczytaj(k).catch(()=>({wiersze:[]}))));
+  const par={}; p0.wiersze.forEach(r=>{ if(r.pole&&r.tresc) par[r.pole.trim().toLowerCase()]=r.tresc; });
+  DANE={sm:s0.wiersze.map(r=>({d:data(r.data),r:r.rodzaj})).filter(x=>x.d&&x.d>=dzis()).sort((a,b)=>a.d-b.d),
+        wy:w0.wiersze.filter(r=>r.nazwa&&data(r.data)&&data(r.data)>=dzis()).sort((a,b)=>data(a.data)-data(b.data)),
+        par, zd:z0.wiersze.filter(r=>r.nazwa).map(miejsceZdrowia).sort((a,b)=>a.odl-b.odl)};
+  rysujDzis();
+
   const o=await wczytaj("Ogloszenia");
   const ogl=o.wiersze.filter(r=>r.tytul).filter(r=>{ const w=data(r.wazne_do); return !w||w>=dzis(); }).sort((a,b)=>(data(b.data)||0)-(data(a.data)||0));
   if(ogl.length){ const d=data(ogl[0].data); ustaw("nOgl",ogl[0].tytul,d?kiedy(d):""); } else ustaw("nOgl","Brak nowych ogłoszeń","");
@@ -153,15 +266,6 @@ const ustaw=(id,t,m)=>{ const a=document.getElementById(id); a.querySelector(".t
     if(n<=1) aW.classList.add("hot","pilne");
   } else { aW.querySelector(".cnt").textContent=""; ustaw("nWyd","Nic nie zaplanowano",""); }
 
-  // Wywóz: worki w kolorach; dzień przed i w dniu wywozu — podświetlone „Jutro wystaw…”
-  const s=await wczytaj("Smieci");
-  const sm=s.wiersze.map(r=>({d:data(r.data),r:r.rodzaj})).filter(x=>x.d&&x.d>=dzis()).sort((a,b)=>a.d-b.d);
-  const aS=document.getElementById("nSm");
-  if(sm.length){ const t=sm[0].d.getTime(), dzien=sm.filter(x=>x.d.getTime()===t), n=dniDo(sm[0].d);
-    const rodzaje=dzien.map(x=>x.r).join(", ");    aS.querySelector(".t").innerHTML = n===1 ? `Jutro wystaw: ${esc(rodzaje)}` : n===0 ? `Dziś wywóz: ${esc(rodzaje)}` : esc(kiedy(sm[0].d));
-    aS.querySelector(".m").innerHTML = `<span class="worki">${dzien.map(x=>worek(x.r)).join("")}</span><span>${n>1?esc(rodzaje):""}${s.przyklad?" (przykład)":""}</span>`;
-    if(n<=1) aS.classList.add("hot","pilne");
-  } else ustaw("nSm","Brak terminów","");
 })();
 </script>
 
