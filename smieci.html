@@ -25,7 +25,9 @@
 .next{padding:18px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
 .next .big{font-family:var(--f-display);font-size:28px;font-weight:700;line-height:1.15;margin:2px 0}
 /* kolejne terminy: równe kolumny — data | worek | rodzaj (wspólna siatka dla wszystkich wierszy) */
-.terminy{display:grid;grid-template-columns:max-content 34px minmax(0,1fr);align-items:center}
+.terminy{display:grid;grid-template-columns:max-content max-content minmax(0,1fr);align-items:center}
+.terminy .ik{padding-right:10px!important}
+.terminy .ik .worki{gap:3px}
 .terminy .d{padding-right:14px!important}
 .terminy .row{display:contents}
 .terminy .row>*{padding:12px 0;border-bottom:1px solid var(--line);align-self:stretch;display:flex;align-items:center}
@@ -38,26 +40,28 @@
 <main class="wrap">
   <a class="back" href="o-wirkowicach.html">← O Wirkowicach</a>
   <h1>Wywóz śmieci</h1>
-  <p class="lead">Kiedy wystawić worki i pojemniki.</p>
+  <p class="lead">Kiedy wystawić worki i pojemniki. Harmonogram wspólny dla Wirkowic Pierwszych i Drugich.</p>
   <div id="out"><p class="muted">Wczytuję…</p></div>
 </main>
 
 <script src="dane.js"></script>
 <script>
 // Kolory i ikony worków są w dane.js (kolorSmieci, worek)
+// kilka rodzajów tego samego dnia → jeden wiersz z kilkoma workami
+const dni=l=>{ const m=new Map(); l.forEach(r=>{ const k=r.d.getTime(); if(!m.has(k)) m.set(k,{d:r.d,r:[]}); m.get(k).r.push(r.rodzaj); }); return [...m.values()]; };
 (async()=>{
   const s=await wczytaj("Smieci");
   const lista=s.wiersze.map(r=>({d:data(r.data),rodzaj:r.rodzaj||"odpady"})).filter(r=>r.d&&r.d>=dzis()).sort((a,b)=>a.d-b.d);
   const el=document.getElementById("out");
-  if(!lista.length){ el.innerHTML=(s.przyklad?notkaPrzyklad:"")+'<div class="card empty"><p style="margin:0">Brak dat w harmonogramie. Wpisz je w arkuszu, w karcie „Smieci”.</p></div>'; return; }
+  if(!lista.length){ el.innerHTML=(s.przyklad?notkaPrzyklad:"")+'<div class="card empty"><p style="margin:0">Brak kolejnych terminów. Harmonogram na nowy rok jeszcze nie jest wpisany.</p></div>'; return; }
   const pierwszy=lista[0].d.getTime(), dzien=lista.filter(r=>r.d.getTime()===pierwszy);
   el.innerHTML=(s.przyklad?notkaPrzyklad:"")+
     `<div class="next${dniDo(lista[0].d)<=1?" pilne":""}"><p class="eyebrow" style="margin:0">Najbliższy wywóz</p>
       <p class="big">${esc(kiedy(lista[0].d))}</p>
       <p style="margin:0;line-height:1.9">${dzien.map(r=>`${worek(r.rodzaj)}${esc(r.rodzaj)}`).join("<br>")}</p>
-      <p class="muted" style="margin:8px 0 0">${dniDo(lista[0].d)===1?"<strong>Wystaw dziś wieczorem.</strong>":dniDo(lista[0].d)===0?"<strong>Wywóz jest dziś.</strong>":"Wystaw pojemnik wieczorem dzień wcześniej."}</p></div>
+      <p class="muted" style="margin:8px 0 0">${dniDo(lista[0].d)===1?"<strong>Wystaw dziś wieczorem.</strong> Odbiór jutro od godz. 7:00.":dniDo(lista[0].d)===0?"<strong>Wywóz jest dziś</strong> od godz. 7:00.":"Odbiór od godz. 7:00, więc wystaw worki dzień wcześniej wieczorem albo rano przed 7:00."}</p></div>
     <section class="section"><h2>Kolejne terminy</h2><div class="card terminy">`+
-    lista.slice(dzien.length,dzien.length+20).map(r=>`<div class="row"><span class="d">${esc(kiedy(r.d))}</span><span class="ik">${worek(r.rodzaj)}</span><span class="r">${esc(r.rodzaj)}</span></div>`).join("")+
+    dni(lista.slice(dzien.length)).slice(0,12).map(g=>`<div class="row"><span class="d">${esc(kiedy(g.d))}</span><span class="ik"><span class="worki">${g.r.map(worek).join("")}</span></span><span class="r">${esc(g.r.join(", "))}</span></div>`).join("")+
     `</div></section>`;
 })();
 </script>
