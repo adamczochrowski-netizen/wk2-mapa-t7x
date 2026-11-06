@@ -29,6 +29,11 @@
 .news .t{font-weight:700;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .news .k{display:flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
 .na-skroty{margin:4px 0 8px}
+/* Moje notatki: szeroki pasek jak numery alarmowe, ale fioletowy; po prawej liczba notatek (albo +) */
+.tile.notatki{grid-template-columns:48px 1fr auto;background:#B9A2E8;border-color:#B9A2E8;color:#1B1430}
+.tile.notatki p{color:#1B1430;opacity:.8}
+.tile.notatki .ic{background:rgba(255,255,255,.35);color:#1B1430}
+.tile.notatki .big{grid-column:3;grid-row:1 / span 3;font-family:var(--f-display);font-weight:700;font-size:30px;font-variant-numeric:tabular-nums}
 /* Logo na górze: MOJE ♥ WIRKOWICE, na środku */
 .logo{text-align:center;margin:6px 0 14px}
 .logo h1{display:flex;justify-content:center;align-items:center;gap:.28em;font-size:clamp(26px,8.4vw,40px);letter-spacing:.06em;line-height:1.1;margin:0}
@@ -70,6 +75,8 @@
 .dz .i svg{width:18px;height:18px}
 .dz .x{min-width:0;line-height:1.3}
 .dz .x small{display:block;color:var(--muted);font-size:14px}
+.dz .x small.wk{display:flex;align-items:center;gap:8px;margin-top:3px}
+.dz .x small.wk .worek{margin:0;vertical-align:0}
 .dz .s{color:var(--muted);font-size:20px}
 .dz.hot .i{background:var(--accent);color:var(--on-accent)}
 .dz.hot .x strong{color:var(--accent)}
@@ -145,9 +152,15 @@
       <span><h2>Zdrowie</h2><p>Apteki, lekarze, weterynarz. Kto jest otwarty.</p></span>
     </a>
 
-    <a class="tile h-fiol" href="notatki.html">
+    <a class="tile h-stal" href="urzedowe.html">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9"/><path d="M3 21h18M3 18h18"/></svg></span>
+      <span><h2>Urzędowe</h2><p>Gmina, poczta, KRUS, ARiMR. Kto jest otwarty.</p></span>
+    </a>
+
+    <a class="tile wide notatki" href="notatki.html">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v4h4M8 12h8M8 16h5"/></svg></span>
-      <span><h2>Moje notatki</h2><p>Przypomnienia, tylko w tym telefonie.</p></span>
+      <span><h2>Moje notatki</h2><p id="notatkiOpis">Przypomnienia, tylko w tym telefonie.</p></span>
+      <span class="big" id="ileNotatek" aria-hidden="true">+</span>
     </a>
 
     <a class="tile wide alarm" href="alarmowe.html">
@@ -167,6 +180,10 @@
 function mojeNotatki(){
   const l=notatki(), due=l.filter(naCzasie), przyp=l.filter(n=>n.naGlownej&&!naCzasie(n)&&!n.zrobione);
   const pokaz=[...due,...przyp].slice(0,5);
+  // liczba niezrobionych notatek na fioletowym pasku
+  const ile=l.filter(n=>!n.zrobione).length;
+  document.getElementById("ileNotatek").textContent=ile||"+";
+  document.getElementById("notatkiOpis").textContent=ile?(due.length?`${due.length} ${due.length===1?"przypomnienie":"przypomnienia"} na teraz`:"Twoje notatki i przypomnienia"):"Dodaj notatkę albo przypomnienie";
   document.getElementById("moje").hidden=!pokaz.length;
   document.getElementById("mojeLista").innerHTML=pokaz.map(n=>{ const d=naCzasie(n);
     return `<label class="mn${d?" due pilne":""}" data-id="${n.id}"><input type="checkbox" aria-label="Zrobione">
@@ -209,9 +226,9 @@ function rysujDzis(){
   // Śmieci
   if(sm.length){ const t=sm[0].d.getTime(), dz=sm.filter(x=>x.d.getTime()===t), n=dniDo(sm[0].d), r=dz.map(x=>x.r).join(", ");
     const worki=`<span class="worki">${dz.map(x=>worek(x.r)).join("")}</span>`;
-    out.push(n===0?wiersz("smieci",`<strong>Dziś wywóz śmieci</strong> od 7:00<small>${worki} ${esc(r)}</small>`,"smieci.html",true)
-      :n===1?wiersz("smieci",`<strong>Wieczorem wystaw worki</strong>, wywóz jutro od 7:00<small>${worki} ${esc(r)}</small>`,"smieci.html",true)
-      :wiersz("smieci",`Wywóz śmieci: ${esc(kiedy(sm[0].d))}<small>${worki} ${esc(r)} · za ${n} dni</small>`,"smieci.html"));
+    out.push(n===0?wiersz("smieci",`<strong>Dziś wywóz śmieci</strong> od 7:00<small class="wk">${worki}<span>${esc(r)}</span></small>`,"smieci.html",true)
+      :n===1?wiersz("smieci",`<strong>Wieczorem wystaw worki</strong>, wywóz jutro od 7:00<small class="wk">${worki}<span>${esc(r)}</span></small>`,"smieci.html",true)
+      :wiersz("smieci",`Wywóz śmieci: ${esc(kiedy(sm[0].d))}<small class="wk">${worki}<span>${esc(r)} · za ${n} dni</span></small>`,"smieci.html"));
   }
   // Msza: dziś pozostałe, a gdy już były — jutro
   const t=teraz.getHours()*60+teraz.getMinutes(), dzisM=mszeDnia(par,teraz).filter(g=>minuty(g)>t-30);

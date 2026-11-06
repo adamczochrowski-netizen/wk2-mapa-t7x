@@ -14,6 +14,7 @@ const ARKUSZ_ID = "17PZredwe6qL9pj5gRm2CwunSbX48vEK2";
 //               zdjecia = link(i) do zdjęć z Dysku Google („Każda osoba mająca link”), kilka linków oddziel spacją
 //  Noclegi:     nazwa | miejscowosc | opis | telefon | strona | adres | wspolrzedne | zrodlo
 //  Zdrowie:     rodzaj | nazwa | miejscowosc | adres | telefon | godziny | wspolrzedne | opis | zrodlo
+//  Urzedowe:    (te same kolumny co Zdrowie; rodzaj: gmina, wewnetrzny, odpady, kultura, powiat, rolnictwo, poczta, bank, szkola)
 //               rodzaj = szpital / przychodnia / apteka / fizjoterapia; godziny np. „pn–pt 8:00–16:00, sob 8:00–13:00” albo „całodobowo”
 
 const PRZYKLADY = {
@@ -32,6 +33,7 @@ const PRZYKLADY = {
   Miejsca: [],
   Noclegi: [],
   Zdrowie: [],
+  Urzedowe: [],
   Kontakty: [],
   Parafia: [],
   Historia: [
@@ -64,13 +66,14 @@ function parseCSV(t, karta){
 
 // Kolumna, która musi być w nagłówku karty. Google przy braku karty o danej nazwie podaje PIERWSZĄ kartę,
 // więc bez tej kontroli apka pokazałaby cudze dane (np. śmieci jako ogłoszenia).
-const WYMAGANE={Ogloszenia:"tytul",Wydarzenia:"nazwa",Smieci:"rodzaj",Miejsca:"nazwa",Kontakty:"telefon",Parafia:"pole",Historia:"rok",Noclegi:"miejscowosc",Zdrowie:"rodzaj"};
+const WYMAGANE={Ogloszenia:"tytul",Wydarzenia:"nazwa",Smieci:"rodzaj",Miejsca:"nazwa",Kontakty:"telefon",Parafia:"pole",Historia:"rok",Noclegi:"miejscowosc",Zdrowie:"rodzaj",Urzedowe:"rodzaj"};
 // Kolejność kolumn w każdej karcie — gdy Google zgubi nazwę kolumny (zdarza się), bierzemy ją stąd po pozycji.
 const KOLUMNY={Ogloszenia:["data","tytul","tresc","wazne_do"],Wydarzenia:["data","godzina","nazwa","miejsce","opis"],
   Smieci:["data","rodzaj"],Miejsca:["nazwa","wies","opis","wspolrzedne"],Kontakty:["nazwa","telefon","opis"],
   Parafia:["pole","tresc"],Historia:["rok","tytul","tresc","zdjecia","podpis","autor","zrodlo"],
   Noclegi:["nazwa","miejscowosc","opis","telefon","strona","adres","wspolrzedne","zrodlo"],
-  Zdrowie:["rodzaj","nazwa","miejscowosc","adres","telefon","godziny","wspolrzedne","opis","zrodlo"]};
+  Zdrowie:["rodzaj","nazwa","miejscowosc","adres","telefon","godziny","wspolrzedne","opis","zrodlo"],
+  Urzedowe:["rodzaj","nazwa","miejscowosc","adres","telefon","godziny","wspolrzedne","opis","zrodlo"]};
 
 // Zwraca {wiersze, przyklad:true/false, zapisane:true/false}. Bez internetu: ostatnia zapisana kopia.
 async function wczytaj(karta){

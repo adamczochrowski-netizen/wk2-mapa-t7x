@@ -66,7 +66,7 @@ const dni=l=>{ const m=new Map(); l.forEach(r=>{ const k=r.d.getTime(); if(!m.ha
   el.innerHTML=(s.przyklad?notkaPrzyklad:"")+
     `<div class="next${dniDo(lista[0].d)<=1?" pilne":""}"><p class="eyebrow" style="margin:0">Najbliższy wywóz</p>
       <p class="big">${esc(kiedy(lista[0].d))}</p>
-      <p style="margin:0;line-height:1.9">${dzien.map(r=>`${worek(r.rodzaj)}${esc(r.rodzaj)}`).join("<br>")}</p>
+      <div style="display:flex;flex-direction:column;gap:6px;margin:4px 0 0">${dzien.map(r=>`<span style="display:flex;align-items:center;gap:8px">${worek(r.rodzaj).replace('class="worek"','class="worek" style="margin:0;vertical-align:0"')}${esc(r.rodzaj)}</span>`).join("")}</div>
       <p class="muted" style="margin:8px 0 0">${dniDo(lista[0].d)===1?"<strong>Wystaw dziś wieczorem.</strong> Odbiór jutro od godz. 7:00.":dniDo(lista[0].d)===0?"<strong>Wywóz jest dziś</strong> od godz. 7:00.":"Odbiór od godz. 7:00, więc wystaw worki dzień wcześniej wieczorem albo rano przed 7:00."}</p></div>
     <section class="section"><h2>Kolejne terminy</h2><div class="card terminy">`+
     dni(lista.slice(dzien.length)).slice(0,12).map(wiersz).join("")+
