@@ -156,7 +156,9 @@ function pokaz(){
   const ok=p=>!FILTR||(FILTR==="otwarte"?otwarte(p.godziny)===true:p.k===FILTR);
   const html=GRUPY.map(g=>{ const l=LISTA.filter(p=>p.k===g.r&&ok(p)); if(!l.length) return "";
     return `<section class="section"><h2${g.granat?' class="granat"':""}>${g.t}</h2>${g.pod?`<p class="muted" style="margin:-4px 0 10px">${g.pod}</p>`:""}<div class="list">${l.map(karta).join("")}</div></section>`; }).join("");
-  out.innerHTML=html||`<p class="muted" style="margin-top:20px">Teraz nic z tej listy nie jest otwarte. W nagłej sytuacji dzwoń 112.</p>`;
+  out.innerHTML=html||(FILTR==="otwarte"
+    ?`<p class="muted" style="margin-top:20px">Teraz nic z tej listy nie jest otwarte. W nagłej sytuacji dzwoń 112.</p>`
+    :`<div class="card empty" style="margin-top:16px"><p style="margin:0">Brak wpisów w tej kategorii. Dopisz je w arkuszu, w karcie „Zdrowie”.</p></div>`);
 }
 document.querySelector(".filtry").addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b) return; FILTR=b.dataset.f;
