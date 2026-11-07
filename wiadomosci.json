@@ -1,6 +1,12 @@
 {
-"zaktualizowano": "2026-11-07T05:43:54+00:00",
+"zaktualizowano": "2026-11-07T06:50:12+00:00",
 "polska": [
+{
+"t": "Kiedy jest niedziela handlowa w listopadzie? Sprawdź kalendarz zakupów do końca 2026 r.",
+"l": "https://wiadomosci.onet.pl/kraj/niedziela-handlowa-w-listopadzie-jest-wazna-wiadomosc-dla-klientow/lncpmln",
+"z": "Onet",
+"d": "2026-11-07T05:53:00+00:00"
+},
 {
 "t": "Sędzia Anna Korwin-Piotrowska wydała nowy komunikat. „To się zmieni”",
 "l": "https://www.rmf24.pl/fakty/polska/news-sedzia-anna-korwin-piotrowska-wydala-nowy-komunikat-to-sie-z,nIdn,1025218",
@@ -134,12 +140,6 @@
 "d": "2026-11-06T17:05:00+00:00"
 },
 {
-"t": "Dotychczasowa bitwa o TK to dopiero początek. Awantura może być naprawdę potężna [WNIOSKI Z DNIA]",
-"l": "https://wiadomosci.onet.pl/kraj/awantura-moze-byc-naprawde-potezna-mozliwy-precedens-w-sprawie-tk/p9hedph",
-"z": "Onet",
-"d": "2026-11-06T17:00:11+00:00"
-},
-{
 "t": "Przełom w szkoleniu młodzieży. Program Certyfikacji Akademii Siatkarskich napędza rozwój klubów",
 "l": "https://www.rmf24.pl/fakty/sport/news-przelom-w-szkoleniu-mlodziezy-program-certyfikacji-akademii-,nIdn,1025184",
 "z": "RMF24",
@@ -147,6 +147,18 @@
 }
 ],
 "swiat": [
+{
+"t": "Uzbrojony mężczyzna zatrzymany przy Białym Domu. \"Podwyższony poziom zagrożenia\"",
+"l": "https://wiadomosci.onet.pl/swiat/bron-i-amunicja-w-skradzionym-aucie-interwencja-secret-service-przed-bialym-domem/2rqvnv9",
+"z": "Onet",
+"d": "2026-11-07T05:47:47+00:00"
+},
+{
+"t": "Trump: Obie strony po raz pierwszy chcą zakończyć wojnę w Ukrainie",
+"l": "https://www.rmf24.pl/fakty/swiat/news-trump-obie-strony-po-raz-pierwszy-chca-zakonczyc-wojne-w-ukr,nIdn,1025219",
+"z": "RMF24",
+"d": "2026-11-07T05:39:00+00:00"
+},
 {
 "t": "Najbardziej zaufany sojusznik Trumpa awansuje. To sygnał zaostrzenia kursu [ANALIZA]",
 "l": "https://wiadomosci.onet.pl/swiat/donald-trump-awansuje-stephena-millera-to-wyrazny-sygnal-zaostrzenia-kursu/x17rss9",
@@ -250,12 +262,6 @@
 "d": "2026-11-06T18:45:55+00:00"
 },
 {
-"t": "200 lat więzienia za śmierć 190 dzieci. Przywódca sekty z Kenii usłyszał wyrok",
-"l": "https://wiadomosci.onet.pl/swiat/przywodca-sekty-z-kenii-uslyszal-wyrok-200-lat-wiezienia-za-smierc-prawie-200-osob/l6bnv9p",
-"z": "Onet",
-"d": "2026-11-06T18:37:20+00:00"
-},
-{
 "t": "Ucieczka po wyborach. Trumpa opuszczają urzędnicy - to nie są przypadkowe nazwiska",
 "l": "https://www.rmf24.pl/fakty/swiat/news-ucieczka-po-wyborach-trumpa-opuszczaja-urzednicy-to-nie-sa-p,nIdn,1025200",
 "z": "RMF24",
@@ -284,15 +290,15 @@
 "l": "https://www.rmf24.pl/fakty/swiat/news-iran-planuje-odwet-za-mozliwy-atak-usa-jest-lista-potencjaln,nIdn,1025195",
 "z": "RMF24",
 "d": "2026-11-06T17:42:00+00:00"
-},
-{
-"t": "Zostawił 17-latkę samą na niebezpiecznej górze. Poszli oglądać wschód słońca",
-"l": "https://www.rmf24.pl/fakty/swiat/news-zostawil-17-latke-sama-na-niebezpiecznej-gorze-poszli-oglada,nIdn,1025191",
-"z": "RMF24",
-"d": "2026-11-06T17:38:00+00:00"
 }
 ],
 "religia": [
+{
+"t": "Leon XIV w Urugwaju. Drugi dzień papieskiej wizyty",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/drugi-dzien-pielgrzymki-program-i-godziny-transmisji.html",
+"z": "Vatican News",
+"d": "2026-11-07T06:11:00+00:00"
+},
 {
 "t": "Leon XIV wzywa biskupów świata: post i modlitwa w intencji powołań",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-podroz-apostolska-urugwaj-montevideo-nieszpory-powolania.html",
@@ -372,12 +378,6 @@
 "d": "2026-11-06T13:54:30+00:00"
 },
 {
-"t": "Wizyta Papieża wiosną dla Kościoła Urugwaju",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/wizyta-podroz-apostolska-papieza-leon-xiv-wiosna-kosciol-urugwaj.html",
-"z": "Vatican News",
-"d": "2026-11-06T12:58:00+00:00"
-},
-{
 "t": "Cmentarz i co potem? SPOTKANIA Z WIARĄ w 32 Niedzielę zwykłą „A” (8.11.2026)",
 "l": "https://archidiecezjalubelska.pl/blog/cmentarz-i-co-potem-spotkania-z-wiara-w-32-niedziele-zwykla-a-8-11-2026/",
 "z": "Archidiecezja Lubelska",
@@ -445,6 +445,12 @@
 }
 ],
 "rolnicze": [
+{
+"t": "Mają 300 ha i 200 sztuk bydła. Dali dzieciom 10 lat, potem mogą wszystko sprzedać",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/maja-najwieksze-takie-stado-w-polsce-czy-18-letni-syn-przejmie-gospodarstwo-2694235",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-07T06:00:00+00:00"
+},
 {
 "t": "Była złotem regionu, potem zniknęła z pól. Mieli tylko 132 nasiona, dziś rośnie już na około 2 ha",
 "l": "https://www.tygodnik-rolniczy.pl/uprawa/zboza/znalezli-tylko-130-nasion-dzis-ta-legendarna-polska-pszenica-wraca-na-pola-2694526",
@@ -522,12 +528,6 @@
 "l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/rolnictwo-pod-presja-jak-innowacje-moga-pomoc-sprostac-wyzwaniom-klimatu-kosztow-i-oczekiwan-konsumentow-2694508",
 "z": "Tygodnik Poradnik Rolniczy",
 "d": "2026-11-06T14:40:00+00:00"
-},
-{
-"t": "Ceny kukurydzy znów ostro spadły, skupy stają. Rolnik: „Od północy mamy grobową ciszę”",
-"l": "https://www.tygodnik-rolniczy.pl/rynki-rolne/ceny-zboz-ceny-rzepaku/ceny-kukurydzy-znow-ostro-spadly-skupy-staja-rolnik-od-polnocy-mamy-grobowa-cisze-2694478",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-06T14:30:00+00:00"
 },
 {
 "t": "Ceny tuczników w Danii bez zmian. Warchlaki tanieją",
