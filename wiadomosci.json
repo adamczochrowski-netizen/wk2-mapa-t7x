@@ -1,6 +1,18 @@
 {
-"zaktualizowano": "2026-11-07T12:43:24+00:00",
+"zaktualizowano": "2026-11-07T13:47:07+00:00",
 "polska": [
+{
+"t": "Uwaga na gęste mgły. IMGW wydał alerty dla kilkunastu województw, będzie ślisko",
+"l": "https://www.rmf24.pl/fakty/polska/news-uwaga-na-geste-mgly-imgw-wydal-alerty-dla-kilkunastu-wojewod,nIdn,1025246",
+"z": "RMF24",
+"d": "2026-11-07T12:44:00+00:00"
+},
+{
+"t": "Zrobi się niebezpiecznie. IMGW wydał alerty dla 14 województw",
+"l": "https://wiadomosci.onet.pl/kraj/ostrzezenia-imgw-na-weekend-zagrozenie-w-niemal-calej-polsce/rpsms8c",
+"z": "Onet",
+"d": "2026-11-07T12:42:51+00:00"
+},
 {
 "t": "Prokuratura zdecydowała w sprawie \"afery Kołodziejczaka\". Chodzi o zawiadomienie Krzysztofa Rutkowskiego",
 "l": "https://wiadomosci.onet.pl/kraj/prokuratura-o-aferze-kolodziejczaka-rutkowski-nie-przekonal-sledczych/k1vvlr3",
@@ -132,21 +144,39 @@
 "l": "https://wiadomosci.onet.pl/kraj/danuta-holecka-reaguje-na-slowa-donalda-tuska-bezczelne-klamstwo/q7y9t4s",
 "z": "Onet",
 "d": "2026-11-06T21:18:19+00:00"
-},
-{
-"t": "Anna Korwin-Piotrowska wydała oświadczenie. Jest nagranie na stronie TK",
-"l": "https://wiadomosci.onet.pl/kraj/anna-korwin-piotrowska-wydala-oswiadczenie-jest-nagranie-na-stronie-tk/qtdbs5r",
-"z": "Onet",
-"d": "2026-11-06T20:54:53+00:00"
-},
-{
-"t": "„Stop brudnym centrom danych”. Protestuje i Piaseczno, i Amsterdam",
-"l": "https://www.rmf24.pl/regiony/warszawa/news-stop-brudnym-centrom-danych-protestuje-i-piaseczno-i-amsterd,nIdn,1025207",
-"z": "RMF24",
-"d": "2026-11-06T20:06:00+00:00"
 }
 ],
 "swiat": [
+{
+"t": "Kolejny tankowiec spłonął w cieśninie Ormuz. Znalazł się w \"strefie zakazanej\"",
+"l": "https://wiadomosci.onet.pl/swiat/kolejny-tankowiec-wplynal-na-mine-w-ciesninie-ormuz-doszlo-do-pozaru/lk930s5",
+"z": "Onet",
+"d": "2026-11-07T13:42:10+00:00"
+},
+{
+"t": "Tankowiec trafił na minę w „strefie zakazanej” w cieśninie Ormuz",
+"l": "https://www.rmf24.pl/fakty/swiat/news-tankowiec-trafil-na-mine-w-strefie-zakazanej-w-ciesninie-orm,nIdn,1025249",
+"z": "RMF24",
+"d": "2026-11-07T13:39:00+00:00"
+},
+{
+"t": "W nalotach na Jemen giną 22 osoby. Ratownicy pod ostrzałem podczas akcji",
+"l": "https://wiadomosci.onet.pl/swiat/saudyjskie-bombardowania-w-jemenie-wzrosla-liczba-ofiar-cywilnych/1j2eqkn",
+"z": "Onet",
+"d": "2026-11-07T13:26:27+00:00"
+},
+{
+"t": "Zełenski ostrzega przed \"Jałtą 2.0\". „Nie chcemy, żeby Rosja nas podzieliła”",
+"l": "https://www.rmf24.pl/fakty/swiat/news-zelenski-ostrzega-przed-jalta-20-nie-chcemy-zeby-rosja-nas-p,nIdn,1025248",
+"z": "RMF24",
+"d": "2026-11-07T12:56:00+00:00"
+},
+{
+"t": "To może być plan Putina dla Europy. \"Wielkie porozumienie\" z Trumpem zagraża Polsce. Rosja chce zmienić układ sił [ANALIZA]",
+"l": "https://wiadomosci.onet.pl/swiat/znamy-plan-putina-dla-europy-wielkie-porozumienie-z-trumpem-zagraza-polsce-rosja-chce/kz32pck",
+"z": "Onet",
+"d": "2026-11-07T12:45:30+00:00"
+},
 {
 "t": "Rosja i Ukraina wskazały składy delegacji na rozmowy w Abu Zabi. \"Bliski doradca Putina\"",
 "l": "https://wiadomosci.onet.pl/swiat/rosja-i-ukraina-wskazaly-sklady-delegacji-na-rozmowy-w-abu-zabi-bliski-doradca-putina/tel22c8",
@@ -244,28 +274,10 @@
 "d": "2026-11-07T06:36:49+00:00"
 },
 {
-"t": "Uzbrojony mężczyzna zatrzymany przy Białym Domu. \"Podwyższony poziom zagrożenia\"",
-"l": "https://wiadomosci.onet.pl/swiat/bron-i-amunicja-w-skradzionym-aucie-interwencja-secret-service-przed-bialym-domem/2rqvnv9",
-"z": "Onet",
-"d": "2026-11-07T05:47:47+00:00"
-},
-{
 "t": "Trump: Obie strony po raz pierwszy chcą zakończyć wojnę w Ukrainie",
 "l": "https://www.rmf24.pl/fakty/swiat/news-trump-obie-strony-po-raz-pierwszy-chca-zakonczyc-wojne-w-ukr,nIdn,1025219",
 "z": "RMF24",
 "d": "2026-11-07T05:39:00+00:00"
-},
-{
-"t": "Najbardziej zaufany sojusznik Trumpa awansuje. To sygnał zaostrzenia kursu [ANALIZA]",
-"l": "https://wiadomosci.onet.pl/swiat/donald-trump-awansuje-stephena-millera-to-wyrazny-sygnal-zaostrzenia-kursu/x17rss9",
-"z": "Onet",
-"d": "2026-11-07T05:20:16+00:00"
-},
-{
-"t": "Komunikat o wizycie ministra w USA. Trump kreśli scenariusz końca wojny w Ukrainie. Podsumowanie nocy",
-"l": "https://wiadomosci.onet.pl/swiat/szczegoly-wizyty-szefa-usa-w-pentagonie-podsumowanie-nocy/5yyvrem",
-"z": "Onet",
-"d": "2026-11-07T04:58:25+00:00"
 },
 {
 "t": "Wizyta Kosiniaka-Kamysza w Pentagonie. Znamy dokładną datę",
@@ -278,18 +290,6 @@
 "l": "https://www.rmf24.pl/fakty/swiat/news-republikanie-powinni-wziac-rozwod-z-prezydentem-trump-to-par,nIdn,1025213",
 "z": "RMF24",
 "d": "2026-11-06T20:54:00+00:00"
-},
-{
-"t": "J.D. Vance znalazł się w tarapatach. „Zszargana marka” i „równia pochyła”",
-"l": "https://www.rmf24.pl/fakty/swiat/news-jd-vance-znalazl-sie-w-tarapatach-zszargana-marka-i-rownia-p,nIdn,1025212",
-"z": "RMF24",
-"d": "2026-11-06T20:53:00+00:00"
-},
-{
-"t": "Papież już w Urugwaju, chwali się formą. Chorym na raka radzi: Nie bójcie się",
-"l": "https://www.rmf24.pl/fakty/swiat/news-papiez-juz-w-urugwaju-chwali-sie-forma-chorym-na-raka-radzi-,nIdn,1025210",
-"z": "RMF24",
-"d": "2026-11-06T20:27:00+00:00"
 }
 ],
 "religia": [
@@ -446,6 +446,12 @@
 ],
 "rolnicze": [
 {
+"t": "KGW dostaje dotację z ARiMR. Czy może za te pieniądze kupić samochód?",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/czy-kgw-moze-kupic-samochod-z-dotacji-to-zalezy-od-zrodla-pieniedzy-2694119",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-07T13:00:00+00:00"
+},
+{
 "t": "Rząd ogłasza sposób na brak gazu do suszenia kukurydzy. Rolnikowi właśnie stanęła suszarnia",
 "l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/rzad-oglasza-sposob-na-brak-gazu-do-suszenia-kukurydzy-rolnikowi-wlasnie-stanela-suszarnia-2694534",
 "z": "Tygodnik Poradnik Rolniczy",
@@ -522,12 +528,6 @@
 "l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-na-swiecie/byly-stolarz-przerobil-kurnik-na-koziarnie-dzis-ma-840-koz-mlecznych-2694118",
 "z": "Tygodnik Poradnik Rolniczy",
 "d": "2026-11-07T04:40:00+00:00"
-},
-{
-"t": "Stracił pół miliona zł na uprawach. Gdy zaczął walczyć o odszkodowanie, sam trafił pod lupę",
-"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/stracil-pol-miliona-zl-na-uprawach-gdy-zaczal-walczyc-o-odszkodowanie-sam-trafil-pod-lupe-2694489",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-06T19:00:00+00:00"
 },
 {
 "t": "Płonął jak pochodnia – strażacy gasili pożar ciągnika",
