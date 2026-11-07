@@ -1,6 +1,12 @@
 {
-"zaktualizowano": "2026-11-07T13:47:07+00:00",
+"zaktualizowano": "2026-11-07T14:37:44+00:00",
 "polska": [
+{
+"t": "„To obniża rangę Polski”. Miażdżąca opinia Polaków ws. kryzysu wokół TK [SONDAŻ]",
+"l": "https://www.rmf24.pl/fakty/polska/news-to-obniza-range-polski-miazdzaca-opinia-polakow-ws-kryzysu-w,nIdn,1025256",
+"z": "RMF24",
+"d": "2026-11-07T14:11:00+00:00"
+},
 {
 "t": "Uwaga na gęste mgły. IMGW wydał alerty dla kilkunastu województw, będzie ślisko",
 "l": "https://www.rmf24.pl/fakty/polska/news-uwaga-na-geste-mgly-imgw-wydal-alerty-dla-kilkunastu-wojewod,nIdn,1025246",
@@ -134,12 +140,6 @@
 "d": "2026-11-06T22:42:00+00:00"
 },
 {
-"t": "Agencja ratingowa S&P podjęła decyzję ws. Polski",
-"l": "https://www.rmf24.pl/fakty/ekonomia/news-agencja-ratingowa-sp-podjela-decyzje-ws-polski,nIdn,1025216",
-"z": "RMF24",
-"d": "2026-11-06T21:36:00+00:00"
-},
-{
 "t": "Danuta Holecka reaguje na słowa Donalda Tuska. \"Życzę długiego życia pańskiej rodzinie\"",
 "l": "https://wiadomosci.onet.pl/kraj/danuta-holecka-reaguje-na-slowa-donalda-tuska-bezczelne-klamstwo/q7y9t4s",
 "z": "Onet",
@@ -147,6 +147,12 @@
 }
 ],
 "swiat": [
+{
+"t": "Stała baza USA w Polsce? Kosiniak-Kamysz rusza do Pentagonu",
+"l": "https://www.rmf24.pl/fakty/swiat/news-stala-baza-usa-w-polsce-kosiniak-kamysz-rusza-do-pentagonu,nIdn,1025253",
+"z": "RMF24",
+"d": "2026-11-07T13:47:00+00:00"
+},
 {
 "t": "Kolejny tankowiec spłonął w cieśninie Ormuz. Znalazł się w \"strefie zakazanej\"",
 "l": "https://wiadomosci.onet.pl/swiat/kolejny-tankowiec-wplynal-na-mine-w-ciesninie-ormuz-doszlo-do-pozaru/lk930s5",
@@ -284,15 +290,15 @@
 "l": "https://www.rmf24.pl/fakty/polityka/news-wizyta-kosiniaka-kamysza-w-pentagonie-znamy-dokladna-date,nIdn,1025214",
 "z": "RMF24",
 "d": "2026-11-06T20:56:00+00:00"
-},
-{
-"t": "Republikanie powinni wziąć rozwód z prezydentem? „Trump to partia, Partia to Trump”",
-"l": "https://www.rmf24.pl/fakty/swiat/news-republikanie-powinni-wziac-rozwod-z-prezydentem-trump-to-par,nIdn,1025213",
-"z": "RMF24",
-"d": "2026-11-06T20:54:00+00:00"
 }
 ],
 "religia": [
+{
+"t": "Papież o skarbie wiary i kontynuowaniu misji siewców Ewangelii",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-o-skarbie-wiary-i-kontynuowaniu-misji-siewcow-ewangelii.html",
+"z": "Vatican News",
+"d": "2026-11-07T13:50:00+00:00"
+},
 {
 "t": "Święci Urugwaju wspomniani przez Papieża",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/jacinto-vera-leon-xiv-podroz-apostolska-urugwaj-swieci.html",
@@ -402,12 +408,6 @@
 "d": "2026-11-06T19:45:00+00:00"
 },
 {
-"t": "Papież w samolocie: nigdy nie wątpiłem, że pojadę, to moja misja",
-"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/leon-xiv-lot-do-urugwaju-podroz-apostolska-ameryka-lacinska.html",
-"z": "Vatican News",
-"d": "2026-11-06T19:30:00+00:00"
-},
-{
 "t": "Stanowisko Rady Stałej Biskupów w kontekście obecnej sytuacji w kraju",
 "l": "https://archidiecezjalubelska.pl/blog/stanowisko-rady-stalej-biskupow-w-kontekscie-obecnej-sytuacji-w-kraju/",
 "z": "Archidiecezja Lubelska",
@@ -445,6 +445,12 @@
 }
 ],
 "rolnicze": [
+{
+"t": "Rolnik dzierżawi ziemię, a właściciel ją sprzedaje. Czy może stracić pole?",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/dzierzawa-z-data-pewna-dlaczego-ten-jeden-element-moze-miec-duze-znaczenie-2694236",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-07T14:00:00+00:00"
+},
 {
 "t": "KGW dostaje dotację z ARiMR. Czy może za te pieniądze kupić samochód?",
 "l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/czy-kgw-moze-kupic-samochod-z-dotacji-to-zalezy-od-zrodla-pieniedzy-2694119",
@@ -522,12 +528,6 @@
 "l": "https://www.tygodnik-rolniczy.pl/uprawa/zboza/znalezli-tylko-130-nasion-dzis-ta-legendarna-polska-pszenica-wraca-na-pola-2694526",
 "z": "Tygodnik Poradnik Rolniczy",
 "d": "2026-11-07T05:05:00+00:00"
-},
-{
-"t": "Bank odmówił mu kredytu. Dziś w starym kurniku doi 840 zwierząt",
-"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-na-swiecie/byly-stolarz-przerobil-kurnik-na-koziarnie-dzis-ma-840-koz-mlecznych-2694118",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-07T04:40:00+00:00"
 },
 {
 "t": "Płonął jak pochodnia – strażacy gasili pożar ciągnika",
