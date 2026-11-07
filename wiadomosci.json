@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-07T01:54:00+00:00",
+"zaktualizowano": "2026-11-07T02:45:01+00:00",
 "polska": [
 {
 "t": "Wisła Kraków kontra Cracovia. Tak zakończyły się Wielkie Derby Krakowa",
@@ -148,6 +148,12 @@
 ],
 "swiat": [
 {
+"t": "W Sao Paulo zawalił się budynek handlowy. Dziesiątki rannych",
+"l": "https://wiadomosci.onet.pl/swiat/budynek-handlowy-runal-w-sao-paulo-rannych-zostalo-35-osob/jh976lv",
+"z": "Onet",
+"d": "2026-11-07T01:59:00+00:00"
+},
+{
 "t": "Prezydent Paragwaju aresztowany, zastąpił go wiceprezydent. W tle wielki skandal",
 "l": "https://wiadomosci.onet.pl/swiat/paragwaj-zdecydowal-o-zmianie-prezydenta-w-tle-skandal/bz7zbzv",
 "z": "Onet",
@@ -284,12 +290,6 @@
 "l": "https://wiadomosci.onet.pl/swiat/rosja-uznala-starlink-za-zagrozenie-chce-rozbudowac-wlasny-system/m1mz4hj",
 "z": "Onet",
 "d": "2026-11-06T17:30:47+00:00"
-},
-{
-"t": "Bomba z opóźnionym zapłonem w rosyjskich finansach. Banki w Rosji mogą ponieść gigantyczne straty",
-"l": "https://wiadomosci.onet.pl/swiat/stres-finansowy-rosja-ma-problem-z-kredytami-banki-moga-poniesc-duze-straty/1pc44yk",
-"z": "Onet",
-"d": "2026-11-06T16:49:05+00:00"
 }
 ],
 "religia": [
