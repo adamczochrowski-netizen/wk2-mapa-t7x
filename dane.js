@@ -5,7 +5,7 @@ const ARKUSZ_ID = "17PZredwe6qL9pj5gRm2CwunSbX48vEK2";
 
 // Karty arkusza i ich kolumny (pierwszy wiersz arkusza = nagłówki, dokładnie takie jak tu):
 //  Ogloszenia:  data | tytul | tresc | wazne_do | link (strona z informacjami, nieobowiązkowo)
-//  Wydarzenia:  data | godzina | nazwa | miejsce | opis | miejscowosc (puste albo Wirkowice = we wsi, inna = okolica)
+//  Wydarzenia:  data | godzina | nazwa | miejsce | opis | miejscowosc (puste albo Wirkowice = we wsi, inna = okolica) | link
 //  Smieci:      data | rodzaj
 //  Miejsca:     nazwa | wies | opis | wspolrzedne
 //  Kontakty:    nazwa | telefon | opis
@@ -68,7 +68,7 @@ function parseCSV(t, karta){
 // więc bez tej kontroli apka pokazałaby cudze dane (np. śmieci jako ogłoszenia).
 const WYMAGANE={Ogloszenia:"tytul",Wydarzenia:"nazwa",Smieci:"rodzaj",Miejsca:"nazwa",Kontakty:"telefon",Parafia:"pole",Historia:"rok",Noclegi:"miejscowosc",Zdrowie:"rodzaj",Urzedowe:"rodzaj"};
 // Kolejność kolumn w każdej karcie — gdy Google zgubi nazwę kolumny (zdarza się), bierzemy ją stąd po pozycji.
-const KOLUMNY={Ogloszenia:["data","tytul","tresc","wazne_do","link"],Wydarzenia:["data","godzina","nazwa","miejsce","opis","miejscowosc"],
+const KOLUMNY={Ogloszenia:["data","tytul","tresc","wazne_do","link"],Wydarzenia:["data","godzina","nazwa","miejsce","opis","miejscowosc","link"],
   Smieci:["data","rodzaj"],Miejsca:["nazwa","wies","opis","wspolrzedne"],Kontakty:["nazwa","telefon","opis"],
   Parafia:["pole","tresc"],Historia:["rok","tytul","tresc","zdjecia","podpis","autor","zrodlo"],
   Noclegi:["nazwa","miejscowosc","opis","telefon","strona","adres","wspolrzedne","zrodlo"],

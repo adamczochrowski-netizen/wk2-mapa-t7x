@@ -75,7 +75,7 @@
         <h2 style="margin:0">${esc(r.nazwa)}</h2>${gdzieWyd(r)?`<span class="m">${esc(gdzieWyd(r))}</span>`:""}
         ${r.opis?`<p style="margin:4px 0 0;white-space:pre-line">${esc(r.opis)}</p>`:""}
         ${przyszle&&n>1?`<span class="cnt">za ${n} dni</span>`:""}
-        ${przyszle?`<div class="btns"><a class="btn" href="${kalendarz(r,d)}" target="_blank" rel="noopener">Dodaj do kalendarza</a></div>`:""}</span></article>`; };
+        ${przyszle||/^https?:/.test(r.link||"")?`<div class="btns">${przyszle?`<a class="btn" href="${kalendarz(r,d)}" target="_blank" rel="noopener">Dodaj do kalendarza</a>`:""}${/^https?:/.test(r.link||"")?`<a class="btn" href="${esc(r.link)}" target="_blank" rel="noopener">Więcej informacji ↗</a>`:""}</div>`:""}</span></article>`; };
   // Dwie listy: we wsi i w okolicy; w każdej nadchodzące od najbliższego, minione zwinięte
   const lista=(el,wiersze,pusto)=>{
     const wyd=wiersze.filter(r=>data(r.data)>=dzis()).sort((a,b)=>data(a.data)-data(b.data));
@@ -96,7 +96,7 @@ function kalendarz(r,d){
   if(m){ const s=new Date(d); s.setHours(+m[1],+m[2]); const e=new Date(s.getTime()+2*3600e3);
     const t=x=>`${ymd(x)}T${p(x.getHours())}${p(x.getMinutes())}00`; dates=`${t(s)}/${t(e)}`; }
   else { const e=new Date(d); e.setDate(e.getDate()+1); dates=`${ymd(d)}/${ymd(e)}`; }
-  const q=new URLSearchParams({action:"TEMPLATE",text:r.nazwa,dates,details:r.opis||"",location:(r.miejsce?r.miejsce+", ":"")+"Wirkowice",ctz:"Europe/Warsaw"});
+  const q=new URLSearchParams({action:"TEMPLATE",text:r.nazwa,dates,details:r.opis||"",location:(r.miejsce?r.miejsce+", ":"")+(wOkolicy(r)?r.miejscowosc:"Wirkowice"),ctz:"Europe/Warsaw"});
   return "https://calendar.google.com/calendar/render?"+q.toString();
 }
 </script>
