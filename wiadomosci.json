@@ -1,6 +1,18 @@
 {
-"zaktualizowano": "2026-11-07T07:55:44+00:00",
+"zaktualizowano": "2026-11-07T08:47:40+00:00",
 "polska": [
+{
+"t": "Zabójstwo bliskich relacjonował w sieci. 18-latek oskarżony ws. zbrodni w Kadłubie chciał zyskać rozgłos medialny",
+"l": "https://www.rmf24.pl/regiony/news-zabojstwo-bliskich-relacjonowal-w-sieci-18-latek-oskarzony-w,nIdn,1025224",
+"z": "RMF24",
+"d": "2026-11-07T08:07:00+00:00"
+},
+{
+"t": "Jak zbudować życie warte przeżycia? Pomoże terapia DBT",
+"l": "https://www.rmf24.pl/radio-rmf24/news-dialektyczna-terapia-behawioralna-dbt-na-czym-polega-i-komu-,nIdn,1025149",
+"z": "RMF24",
+"d": "2026-11-07T08:00:00+00:00"
+},
 {
 "t": "Las, gitara i mundur ZHP. Dlaczego harcerstwo nadal przyciąga młodych?",
 "l": "https://wiadomosci.onet.pl/kraj/dlaczego-dzieci-wciaz-chca-byc-harcerzami-przychodza-dla-zabawy-zostaja-dla-ludzi/hkq12nm",
@@ -132,21 +144,15 @@
 "l": "https://www.rmf24.pl/regiony/trojmiasto/news-lodka-stala-z-wlaczonym-silnikiem-nikogo-na-niej-nie-bylo-tr,nIdn,1025201",
 "z": "RMF24",
 "d": "2026-11-06T18:46:00+00:00"
-},
-{
-"t": "Co z rachunkami za gaz w 2027 roku? Rząd chce wprowadzić maksymalną cenę",
-"l": "https://www.rmf24.pl/fakty/ekonomia/news-co-z-rachunkami-za-gaz-w-2027-roku-rzad-chce-wprowadzic-maks,nIdn,1025196",
-"z": "RMF24",
-"d": "2026-11-06T17:50:00+00:00"
-},
-{
-"t": "Pracodawca sprawdzi autentyczność dyplomu? Sejm podjął decyzję",
-"l": "https://www.rmf24.pl/fakty/polska/news-pracodawca-sprawdzi-autentycznosc-dyplomu-sejm-podjal-decyzj,nIdn,1025187",
-"z": "RMF24",
-"d": "2026-11-06T17:21:00+00:00"
 }
 ],
 "swiat": [
+{
+"t": "Trzy miliony ludzi bez dostępu do kont bankowych. Prezydent usunięty z urzędu i zatrzymany",
+"l": "https://www.rmf24.pl/fakty/swiat/news-trzy-miliony-ludzi-bez-dostepu-do-kont-bankowych-prezydent-u,nIdn,1025226",
+"z": "RMF24",
+"d": "2026-11-07T08:41:00+00:00"
+},
 {
 "t": "Rakiety spadły na Kijów. Pięć osób rannych, są problemy z prądem i wodą",
 "l": "https://wiadomosci.onet.pl/swiat/zmasowany-atak-rosji-na-kijow-zniszczone-przedszkole-sa-ranni/q4tv8s1",
@@ -284,15 +290,15 @@
 "l": "https://www.rmf24.pl/fakty/swiat/news-putin-chce-wiecej-ziemi-inaczej-zniszcze-cala-wasza-infrastr,nIdn,1025194",
 "z": "RMF24",
 "d": "2026-11-06T18:10:00+00:00"
-},
-{
-"t": "Wielki wyciek danych. Hakerzy przejęli informacje o tysiącach podróżnych",
-"l": "https://www.rmf24.pl/fakty/swiat/news-wielki-wyciek-danych-hakerzy-przejeli-informacje-o-tysiacach,nIdn,1025197",
-"z": "RMF24",
-"d": "2026-11-06T18:05:00+00:00"
 }
 ],
 "religia": [
+{
+"t": "Mały Maksymilian Kolbe, Jan Paweł II i 250 świętych powitało Leona XIV",
+"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/mali-swieci-przywitali-leona-xiv-w-montevideo.html",
+"z": "Vatican News",
+"d": "2026-11-07T08:24:00+00:00"
+},
 {
 "t": "Jan Paweł II z okna w Krakowie, Leon XIV z balkonu w Urugwaju",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-przemowil-z-balkonu-nuncjatury-w-urugwaju.html",
@@ -312,10 +318,22 @@
 "d": "2026-11-06T23:41:00+00:00"
 },
 {
+"t": "VI Chełmskie obchody Światowego Dnia Młodzieży 6-7.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/vi-chelmskie-obchody-swiatowego-dnia-mlodziezy-6-7-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-06T22:00:00+00:00"
+},
+{
 "t": "Leon XIV w Urugwaju: nikt nie powinien czuć się obcy wśród swoich",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/przemowienie-leona-xiv-do-wladz-w-urugwaju.html",
 "z": "Vatican News",
 "d": "2026-11-06T21:45:00+00:00"
+},
+{
+"t": "„Codzienne zwycięstwa” – wernisaż wystawy fotografii 6.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/codzienne-zwyciestwa-wernisaz-wystawy-fotografii/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-06T21:35:00+00:00"
 },
 {
 "t": "Leon XIV wylądował w Montevideo. Rozpoczyna najdłuższą pielgrzymkę swego pontyfikatu",
@@ -324,10 +342,22 @@
 "d": "2026-11-06T21:10:56+00:00"
 },
 {
+"t": "Cmentarz i co potem? SPOTKANIA Z WIARĄ w 32 Niedzielę zwykłą „A” (8.11.2026)",
+"l": "https://archidiecezjalubelska.pl/blog/cmentarz-i-co-potem-spotkania-z-wiara-w-32-niedziele-zwykla-a-8-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-06T21:04:39+00:00"
+},
+{
 "t": "Papież poruszony historią Pabla, którego spotkał w Madrycie",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/pablo-reneo-zmarl-movistar-blogoslawienstwo-leon-xiv.html",
 "z": "Vatican News",
 "d": "2026-11-06T20:18:00+00:00"
+},
+{
+"t": "Mądrze czekać. TV lectio divina – XXXII Niedziela zwykła „A” (Mt 25, 1-13)",
+"l": "https://archidiecezjalubelska.pl/blog/madrze-czekac-tv-lectio-divina-xxxii-niedziela-zwykla-a-mt-25-1-13/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-06T20:04:39+00:00"
 },
 {
 "t": "Leon XIV otrzymał list od polskiej młodzieży z regionu paryskiego",
@@ -348,10 +378,28 @@
 "d": "2026-11-06T19:21:00+00:00"
 },
 {
+"t": "Stanowisko Rady Stałej Biskupów w kontekście obecnej sytuacji w kraju",
+"l": "https://archidiecezjalubelska.pl/blog/stanowisko-rady-stalej-biskupow-w-kontekscie-obecnej-sytuacji-w-kraju/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-06T19:03:00+00:00"
+},
+{
+"t": "Zmarł ks. Józef Starszuk – kapłan diecezji zamojsko-lubaczowskiej",
+"l": "https://archidiecezjalubelska.pl/blog/zmarl-ks-jozef-starszuk-kaplan-diecezji-zamojsko-lubaczowskiej/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-06T18:05:00+00:00"
+},
+{
 "t": "Urugwaj: Leon XIV u Matki Bożej Trzydziestu Trzech",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/florida-oczekuje-na-leona-xiv.html",
 "z": "Vatican News",
 "d": "2026-11-06T17:33:37+00:00"
+},
+{
+"t": "XVIII Dnia Solidarności z Kościołem Prześladowanym – 8.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/xviii-dnia-solidarnosci-z-kosciolem-przesladowanym-8-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-06T17:04:00+00:00"
 },
 {
 "t": "Betlejem: nowy ośrodek pozwoli operować dzieci na miejscu",
@@ -370,24 +418,6 @@
 "l": "https://stacja7.pl/zwatykanu/papiez-w-ameryce-lacinskiej-jak-wyglada-program-podrozy/",
 "z": "Stacja7",
 "d": "2026-11-06T14:52:12+00:00"
-},
-{
-"t": "Watykan po wyborach w USA: liczymy na współpracę i pokój",
-"l": "https://www.vaticannews.va/pl/watykan/news/2026-11/watykan-po-wyborach-w-usa-liczymy-na-wspolpraca-i-pokoj.html",
-"z": "Vatican News",
-"d": "2026-11-06T14:50:00+00:00"
-},
-{
-"t": "Cmentarz i co potem? SPOTKANIA Z WIARĄ w 32 Niedzielę zwykłą „A” (8.11.2026)",
-"l": "https://archidiecezjalubelska.pl/blog/cmentarz-i-co-potem-spotkania-z-wiara-w-32-niedziele-zwykla-a-8-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-06T12:47:39+00:00"
-},
-{
-"t": "Mądrze czekać. TV lectio divina – XXXII Niedziela zwykła „A” (Mt 25, 1-13)",
-"l": "https://archidiecezjalubelska.pl/blog/madrze-czekac-tv-lectio-divina-xxxii-niedziela-zwykla-a-mt-25-1-13/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-06T12:44:39+00:00"
 },
 {
 "t": "Są pierwsze zdjęcia z planu filmu o św. siostrze Faustynie! „Nacieszcie oczy tymi kadrami!” [ZOBACZ]",
@@ -412,39 +442,21 @@
 "l": "https://stacja7.pl/zwatykanu/papiez-wyruszyl-w-podroz-apostolska-do-ameryki-lacinskiej/",
 "z": "Stacja7",
 "d": "2026-11-06T07:55:00+00:00"
-},
-{
-"t": "\"Kto mobilizuje nienawiść – przegrał!\" Co kard. Wyszyński powiedziałby o sporze wokół TK?",
-"l": "https://stacja7.pl/felietony/kto-mobilizuje-nienawisc-przegral-co-kard-wyszynski-powiedzialby-o-sporze-wokol-trybunalu-konstytucyjnego/",
-"z": "Stacja7",
-"d": "2026-11-05T15:45:15+00:00"
-},
-{
-"t": "„Dokonali schizmy”. Biskup kielecki wydał stanowczy komunikat do wiernych",
-"l": "https://stacja7.pl/z-kraju/dokonali-schizmy-biskup-kielecki-wydal-stanowczy-komunikat-do-wiernych/",
-"z": "Stacja7",
-"d": "2026-11-05T14:31:34+00:00"
-},
-{
-"t": "Danuta Stenka w poruszającym apelu: „Liczy się tylko jedno – żeby ukochana osoba była obok i była zdrowa…”",
-"l": "https://stacja7.pl/ludzie/danuta-stenka-w-poruszajacym-apelu-liczy-sie-tylko-jedno-zeby-ukochana-osoba-byla-obok-i-byla-zdrowa/",
-"z": "Stacja7",
-"d": "2026-11-05T11:30:05+00:00"
-},
-{
-"t": "Zmarł ks. Józef Starszuk – kapłan diecezji zamojsko-lubaczowskiej",
-"l": "https://archidiecezjalubelska.pl/blog/zmarl-ks-jozef-starszuk-kaplan-diecezji-zamojsko-lubaczowskiej/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-05T11:05:00+00:00"
-},
-{
-"t": "VI Chełmskie obchody Światowego Dnia Młodzieży 6-7.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/vi-chelmskie-obchody-swiatowego-dnia-mlodziezy-6-7-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-05T10:00:00+00:00"
 }
 ],
 "rolnicze": [
+{
+"t": "Ceny tuczników na początku listopada 2026. Zaledwie 3,70 zł/kg. Ile płacą w regionach?",
+"l": "https://www.agrofakt.pl/ceny-tucznikow-na-poczatku-listopada-2026-zaledwie-370-zl-kg-ile-placa-w-regionach/",
+"z": "Agrofakt",
+"d": "2026-11-07T08:00:50+00:00"
+},
+{
+"t": "Dzierżawa wygasła, właścicielka zmarła. Czy rolnik może przejąć pole?",
+"l": "https://www.tygodnik-rolniczy.pl/prawo/porady-prawne/dzierzawa-wygasla-wlascicielka-zmarla-czy-rolnik-moze-przejac-pole-2694362",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-07T08:00:00+00:00"
+},
 {
 "t": "Jakość siary dla cieląt. Czy 22% Brix wystarczy?",
 "l": "https://www.agropolska.pl/hodowla/bydlo/jakosc-siary-dla-cielat/",
@@ -518,12 +530,6 @@
 "d": "2026-11-06T15:30:00+00:00"
 },
 {
-"t": "Rolnicy pytają, co z dopłatami po 2027 roku. Ministerstwo ujawniło plan i kwoty",
-"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/rolnicy-pytaja-co-z-doplatami-po-2027-roku-ministerstwo-ujawnilo-plan-i-kwoty-2694452",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-06T15:00:00+00:00"
-},
-{
 "t": "Płonął jak pochodnia – strażacy gasili pożar ciągnika",
 "l": "https://www.agropolska.pl/aktualnosci/polska/plonal-jak-pochodnia-strazacy-gasili-pozar-ciagnika/",
 "z": "agroPolska",
@@ -588,12 +594,6 @@
 "l": "https://www.agrofakt.pl/zywnosc-z-mercosur-pod-lupa-ijhars-co-wykazaly-kontrole-ponad-2-tys-partii/",
 "z": "Agrofakt",
 "d": "2026-11-06T06:57:27+00:00"
-},
-{
-"t": "Import drobiu do Europy rośnie. Niepokojące dane UE",
-"l": "https://www.agropolska.pl/hodowla/drob/import-drobiu-do-europy-rosnie-niepokojace-dane-ue/",
-"z": "agroPolska",
-"d": "2026-11-05T14:15:52+00:00"
 }
 ]
 }
