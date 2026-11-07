@@ -4,8 +4,8 @@
 const ARKUSZ_ID = "17PZredwe6qL9pj5gRm2CwunSbX48vEK2";
 
 // Karty arkusza i ich kolumny (pierwszy wiersz arkusza = nagłówki, dokładnie takie jak tu):
-//  Ogloszenia:  data | tytul | tresc | wazne_do
-//  Wydarzenia:  data | godzina | nazwa | miejsce | opis
+//  Ogloszenia:  data | tytul | tresc | wazne_do | link (strona z informacjami, nieobowiązkowo)
+//  Wydarzenia:  data | godzina | nazwa | miejsce | opis | miejscowosc (puste albo Wirkowice = we wsi, inna = okolica)
 //  Smieci:      data | rodzaj
 //  Miejsca:     nazwa | wies | opis | wspolrzedne
 //  Kontakty:    nazwa | telefon | opis
@@ -68,7 +68,7 @@ function parseCSV(t, karta){
 // więc bez tej kontroli apka pokazałaby cudze dane (np. śmieci jako ogłoszenia).
 const WYMAGANE={Ogloszenia:"tytul",Wydarzenia:"nazwa",Smieci:"rodzaj",Miejsca:"nazwa",Kontakty:"telefon",Parafia:"pole",Historia:"rok",Noclegi:"miejscowosc",Zdrowie:"rodzaj",Urzedowe:"rodzaj"};
 // Kolejność kolumn w każdej karcie — gdy Google zgubi nazwę kolumny (zdarza się), bierzemy ją stąd po pozycji.
-const KOLUMNY={Ogloszenia:["data","tytul","tresc","wazne_do"],Wydarzenia:["data","godzina","nazwa","miejsce","opis"],
+const KOLUMNY={Ogloszenia:["data","tytul","tresc","wazne_do","link"],Wydarzenia:["data","godzina","nazwa","miejsce","opis","miejscowosc"],
   Smieci:["data","rodzaj"],Miejsca:["nazwa","wies","opis","wspolrzedne"],Kontakty:["nazwa","telefon","opis"],
   Parafia:["pole","tresc"],Historia:["rok","tytul","tresc","zdjecia","podpis","autor","zrodlo"],
   Noclegi:["nazwa","miejscowosc","opis","telefon","strona","adres","wspolrzedne","zrodlo"],
@@ -124,6 +124,11 @@ const worek=r=>{ const c=kolorSmieci(r); return `<svg class="worek" viewBox="0 0
   <rect x="7.2" y="5.6" width="5.6" height="1.6" rx=".8" fill="rgba(0,0,0,.4)"/>
   <path d="M6 11.5c.6 2.4 1.9 4.6 3.7 6.2M14.2 11.8c-.4 1.8-1.2 3.4-2.4 4.7" stroke="rgba(255,255,255,.35)" stroke-width=".9" fill="none" stroke-linecap="round"/></svg>`; };
 const dniDo=d=>Math.round((d-dzis())/864e5);
+// Wydarzenie w okolicy: wpisana miejscowość inna niż Wirkowice (puste = we wsi)
+const wOkolicy=r=>{ const m=(r.miejscowosc||"").trim(); return !!m&&!/wirkowic/i.test(m); };
+const gdzieWyd=r=>[wOkolicy(r)?r.miejscowosc:"",r.miejsce].filter(Boolean).join(", ");
+// Ogłoszenie jest aktualne do daty „wazne_do”; bez niej — 30 dni od swojej daty (stare nie wiszą w nieskończoność)
+const ogloszenieAktualne=r=>{ const w=data(r.wazne_do); if(w) return w>=dzis(); const d=data(r.data); return !d||dniDo(d)>=-30; };
 // „Minione” — zwinięta lista pod sekcją (ogłoszenia, wydarzenia, śmieci). n = ile, html = gotowe karty/wiersze
 const minione=(n,html,klasa="list")=>n?`<details class="minione"><summary>Minione (${n})</summary><div class="${klasa}">${html}</div></details>`:"";
 

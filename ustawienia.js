@@ -16,12 +16,19 @@
 
   const CSS=`
   html[data-duze] .wrap, html[data-duze] .top, html[data-duze] .card{zoom:1.22}
-  .ust-btn{position:fixed;z-index:60;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));
-    width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--fg);
-    font:700 17px/1 Georgia,serif;box-shadow:0 4px 14px rgba(0,0,0,.18);cursor:pointer}
-  .ust-btn:focus-visible,.ust-pan button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .ust-pan{position:fixed;z-index:61;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(72px + env(safe-area-inset-bottom,0px));
-    width:min(280px,calc(100vw - 28px));padding:14px;border-radius:14px;background:var(--panel);color:var(--fg);border:1px solid var(--line);
+  /* Dolny pasek: Wstecz, Dalej, Aa — w aplikacji na ekranie głównym telefon nie ma własnych strzałek */
+  body{padding-bottom:calc(66px + env(safe-area-inset-bottom,0px))}
+  .pasek{position:fixed;z-index:60;left:0;right:0;bottom:0;padding:8px calc(12px + env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) calc(12px + env(safe-area-inset-left,0px));
+    background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .pasek-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 56px;gap:8px}
+  .pasek button{height:46px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);
+    font:600 16px/1 "Source Sans 3","Segoe UI",system-ui,sans-serif;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer}
+  .pasek button svg{width:20px;height:20px}
+  .pasek button:disabled{opacity:.4;cursor:default}
+  .pasek .ust-btn{font:700 18px/1 Georgia,serif}
+  .pasek button:focus-visible,.ust-pan button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .ust-pan{position:fixed;z-index:61;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(72px + env(safe-area-inset-bottom,0px));
+    width:min(280px,calc(100vw - 24px));padding:14px;border-radius:14px;background:var(--panel);color:var(--fg);border:1px solid var(--line);
     box-shadow:0 10px 30px rgba(0,0,0,.22);font:15px/1.4 "Source Sans 3","Segoe UI",system-ui,sans-serif}
   .ust-pan h3{margin:0 0 10px;font:700 16px/1.2 Bitter,Georgia,serif}
   .ust-pan p{margin:12px 0 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
@@ -30,13 +37,22 @@
   .ust-seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}`;
   function ui(){
     const st=document.createElement("style"); st.textContent=CSS; document.head.appendChild(st);
+    const strz=d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+    const bar=document.createElement("nav"); bar.className="pasek"; bar.setAttribute("aria-label","Nawigacja");
+    bar.innerHTML=`<div class="pasek-in"><button type="button" class="wstecz">${strz("M15 5l-7 7 7 7")}Wstecz</button><button type="button" class="dalej">Dalej${strz("M9 5l7 7-7 7")}</button></div>`;
+    const glowna=/(^|\/)(index\.html)?$/.test(location.pathname);
+    const wst=bar.querySelector(".wstecz");
+    // Wstecz: poprzednia strona; gdy apka otwarta od razu na podstronie — strona główna; na głównej bez historii nieaktywne
+    if(glowna&&history.length<=1) wst.disabled=true;
+    wst.onclick=()=>{ if(history.length>1) history.back(); else if(!glowna) location.href="index.html"; };
+    bar.querySelector(".dalej").onclick=()=>history.forward();
     const b=document.createElement("button"); b.className="ust-btn"; b.type="button"; b.textContent="Aa";
     b.setAttribute("aria-label","Ustawienia widoku: duży tekst i motyw"); b.setAttribute("aria-expanded","false");
     const p=document.createElement("div"); p.className="ust-pan"; p.hidden=true; p.setAttribute("role","dialog"); p.setAttribute("aria-label","Ustawienia widoku");
     p.innerHTML=`<h3>Wygląd</h3>
       <p>Wielkość tekstu</p><div class="ust-seg" data-k="duze"><button type="button" data-v="0">Zwykły</button><button type="button" data-v="1">Duży</button></div>`+(TYLKO_CIEMNY?"":`
       <p>Motyw</p><div class="ust-seg" data-k="motyw"><button type="button" data-v="auto">Jak telefon</button><button type="button" data-v="light">Jasny</button><button type="button" data-v="dark">Ciemny</button></div>`);
-    document.body.append(b,p);
+    bar.querySelector(".pasek-in").append(b); document.body.append(bar,p);
     const odswiez=()=>{
       const d=get(K_DUZE)==="1"?"1":"0", m=get(K_MOTYW)||"auto";
       p.querySelectorAll('[data-k="duze"] button').forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.v===d)));

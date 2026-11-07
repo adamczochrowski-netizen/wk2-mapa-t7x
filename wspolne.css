@@ -163,3 +163,10 @@ footer{margin-top:36px;color:var(--muted);font-size:13px}
 .kal.hot{border-color:#7DB3E3;background:color-mix(in srgb,#7DB3E3 16%,var(--panel))}
 .kal.hot .cnt{background:#7DB3E3;color:#0E1A26}
 .list>.kartka:nth-child(even){transform:rotate(.6deg)}
+.kartka .op{margin:2px 0 0;white-space:pre-line}
+.kartka details summary{cursor:pointer;color:#9A4F10;font-weight:700;margin-top:6px;list-style:none}
+.kartka details summary::-webkit-details-marker{display:none}
+.kartka details summary::after{content:" ▾"}
+.kartka details[open] summary{display:none}
+.kartka .link{align-self:flex-start;margin-top:10px;padding:9px 14px;border-radius:10px;background:#2A2216;color:#F3EAD2;font-weight:700;text-decoration:none}
+.kartka .link:focus-visible,.kartka summary:focus-visible{outline:2px solid #9A4F10;outline-offset:2px}
