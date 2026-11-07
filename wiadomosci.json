@@ -1,6 +1,12 @@
 {
-"zaktualizowano": "2026-11-07T08:47:40+00:00",
+"zaktualizowano": "2026-11-07T09:42:59+00:00",
 "polska": [
+{
+"t": "Karambol w Oświęcimiu. Zderzyło się 12 samochodów",
+"l": "https://www.rmf24.pl/regiony/krakow/news-karambol-w-oswiecimiu-zderzylo-sie-12-samochodow,nIdn,1025230",
+"z": "RMF24",
+"d": "2026-11-07T09:20:00+00:00"
+},
 {
 "t": "Zabójstwo bliskich relacjonował w sieci. 18-latek oskarżony ws. zbrodni w Kadłubie chciał zyskać rozgłos medialny",
 "l": "https://www.rmf24.pl/regiony/news-zabojstwo-bliskich-relacjonowal-w-sieci-18-latek-oskarzony-w,nIdn,1025224",
@@ -138,15 +144,27 @@
 "l": "https://wiadomosci.onet.pl/kraj/waldemar-zurek-uderza-w-czlowieka-prezydenta-przekracza-granice/8y4nm75",
 "z": "Onet",
 "d": "2026-11-06T19:12:53+00:00"
-},
-{
-"t": "Łódka stała z włączonym silnikiem, nikogo na niej nie było. Tragedia na Martwej Wiśle",
-"l": "https://www.rmf24.pl/regiony/trojmiasto/news-lodka-stala-z-wlaczonym-silnikiem-nikogo-na-niej-nie-bylo-tr,nIdn,1025201",
-"z": "RMF24",
-"d": "2026-11-06T18:46:00+00:00"
 }
 ],
 "swiat": [
+{
+"t": "Trump mianuje nową \"prawą rękę\". Biały Dom zamienia się w oblężoną twierdzę. Na czele staje twardogłowy radykał",
+"l": "https://wiadomosci.onet.pl/swiat/trump-mianuje-nowa-prawa-reke-bialy-dom-zamienia-sie-w-oblezona-twierdze-twardoglowy/phz1e5t",
+"z": "Onet",
+"d": "2026-11-07T09:25:00+00:00"
+},
+{
+"t": "Ciekawy skład rosyjskiej delegacji. To oni będą rozmawiać z USA i Ukrainą w Abu Zabi",
+"l": "https://www.rmf24.pl/fakty/swiat/news-ciekawy-sklad-rosyjskiej-delegacji-to-oni-beda-rozmawiac-z-u,nIdn,1025225",
+"z": "RMF24",
+"d": "2026-11-07T09:06:00+00:00"
+},
+{
+"t": "Ponad 400 ukraińskich dronów zaatakowało Rosję. Rafineria i wojskowy zakład w ogniu",
+"l": "https://wiadomosci.onet.pl/swiat/400-ukrainskich-dronow-zaatakowalo-rosje-rafineria-i-wojskowy-zaklad-w-ogniu/wk7r3mm",
+"z": "Onet",
+"d": "2026-11-07T08:49:14+00:00"
+},
 {
 "t": "Trzy miliony ludzi bez dostępu do kont bankowych. Prezydent usunięty z urzędu i zatrzymany",
 "l": "https://www.rmf24.pl/fakty/swiat/news-trzy-miliony-ludzi-bez-dostepu-do-kont-bankowych-prezydent-u,nIdn,1025226",
@@ -232,12 +250,6 @@
 "d": "2026-11-06T23:46:33+00:00"
 },
 {
-"t": "Pentagon wydał komunikat. Chodzi o wizytę Władysława Kosiniaka-Kamysza w USA",
-"l": "https://wiadomosci.onet.pl/swiat/komunikat-pentagonu-chodzi-o-spotkanie-z-wladyslawem-kosiniakiem-kamyszem/cn5hzhr",
-"z": "Onet",
-"d": "2026-11-06T21:34:14+00:00"
-},
-{
 "t": "Wizyta Kosiniaka-Kamysza w Pentagonie. Znamy dokładną datę",
 "l": "https://www.rmf24.pl/fakty/polityka/news-wizyta-kosiniaka-kamysza-w-pentagonie-znamy-dokladna-date,nIdn,1025214",
 "z": "RMF24",
@@ -268,12 +280,6 @@
 "d": "2026-11-06T20:03:00+00:00"
 },
 {
-"t": "Donald Trump wymienia swoją \"prawą rękę\". Ważna decyzja w Białym Domu",
-"l": "https://wiadomosci.onet.pl/swiat/zmiana-w-najblizszym-otoczeniu-trumpa-odchodzi-kluczowa-postac-bialego-domu/b367g0l",
-"z": "Onet",
-"d": "2026-11-06T19:41:37+00:00"
-},
-{
 "t": "Niejasne powiązania finansowe zięcia Trumpa. Demokraci żądają wyjaśnień",
 "l": "https://www.rmf24.pl/fakty/polityka/news-niejasne-powiazania-finansowe-ziecia-trumpa-demokraci-zadaja,nIdn,1025203",
 "z": "RMF24",
@@ -284,15 +290,21 @@
 "l": "https://www.rmf24.pl/fakty/swiat/news-ucieczka-po-wyborach-trumpa-opuszczaja-urzednicy-to-nie-sa-p,nIdn,1025200",
 "z": "RMF24",
 "d": "2026-11-06T18:30:00+00:00"
-},
-{
-"t": "Putin chce więcej ziemi. Inaczej „zniszczę całą waszą infrastrukturę”",
-"l": "https://www.rmf24.pl/fakty/swiat/news-putin-chce-wiecej-ziemi-inaczej-zniszcze-cala-wasza-infrastr,nIdn,1025194",
-"z": "RMF24",
-"d": "2026-11-06T18:10:00+00:00"
 }
 ],
 "religia": [
+{
+"t": "Watykan: powraca wieczorna adoracja w Bazylice św. Piotra",
+"l": "https://www.vaticannews.va/pl/watykan/news/2026-11/zapowiedz-sobotniej-adoracji-w-bazylice-sw-piotra.html",
+"z": "Vatican News",
+"d": "2026-11-07T09:33:00+00:00"
+},
+{
+"t": "„Pragnąłbym, aby to doświadczenie Urugwaju znalazło oddźwięk w całym Kościele”. Papież przekazał szczególne wezwanie",
+"l": "https://stacja7.pl/ze-swiata/pragnalbym-aby-to-doswiadczenie-urugwaju-znalazlo-oddzwiek-w-calym-kosciele-papiez-przekazal-szczegolne-wezwanie/",
+"z": "Stacja7",
+"d": "2026-11-07T09:10:07+00:00"
+},
 {
 "t": "Mały Maksymilian Kolbe, Jan Paweł II i 250 świętych powitało Leona XIV",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/mali-swieci-przywitali-leona-xiv-w-montevideo.html",
@@ -396,8 +408,8 @@
 "d": "2026-11-06T17:33:37+00:00"
 },
 {
-"t": "XVIII Dnia Solidarności z Kościołem Prześladowanym – 8.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/xviii-dnia-solidarnosci-z-kosciolem-przesladowanym-8-11-2026/",
+"t": "XVIII Dzień Solidarności z Kościołem Prześladowanym – 8.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/xviii-dzien-solidarnosci-z-kosciolem-przesladowanym-8-11-2026/",
 "z": "Archidiecezja Lubelska",
 "d": "2026-11-06T17:04:00+00:00"
 },
@@ -408,10 +420,10 @@
 "d": "2026-11-06T16:37:00+00:00"
 },
 {
-"t": "Casavalle czeka na Papieża: niech nam pobłogosławi",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/leon-xiv-odwiedzi-uboga-dzielnice-montevideo-mieszkancy-czekaja.html",
-"z": "Vatican News",
-"d": "2026-11-06T15:34:00+00:00"
+"t": "„Dzieci moje!” – wystawa w Wąwolnicy 8-13.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/dzieci-moje-wystawa-w-wawolnicy-8-13-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-06T16:04:00+00:00"
 },
 {
 "t": "Papież w Ameryce Łacińskiej. Jak wygląda program podróży?",
@@ -430,21 +442,21 @@
 "l": "https://stacja7.pl/wiara/po-co-zmarlemu-msze-gregorianskie/",
 "z": "Stacja7",
 "d": "2026-11-06T11:00:00+00:00"
-},
-{
-"t": "Radosław Pazura zagra ks. Franciszka Blachnickiego. Rusza odliczanie do wielkiego widowiska",
-"l": "https://stacja7.pl/wydarzenia/radoslaw-pazura-zagra-ks-franciszka-blachnickiego-rusza-odliczanie-do-wielkiego-widowiska/",
-"z": "Stacja7",
-"d": "2026-11-06T10:41:57+00:00"
-},
-{
-"t": "Papież wyruszył w podróż apostolską do Ameryki Łacińskiej",
-"l": "https://stacja7.pl/zwatykanu/papiez-wyruszyl-w-podroz-apostolska-do-ameryki-lacinskiej/",
-"z": "Stacja7",
-"d": "2026-11-06T07:55:00+00:00"
 }
 ],
 "rolnicze": [
+{
+"t": "Posiejesz w listopadzie, zbierzesz nawet miesiąc wcześniej. Te warzywa warto wybrać",
+"l": "https://www.tygodnik-rolniczy.pl/wies-i-rodzina/ogrod/posiejesz-w-listopadzie-zbierzesz-nawet-miesiac-wczesniej-te-warzywa-warto-wybrac-2694516",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-07T09:00:00+00:00"
+},
+{
+"t": "Rolnik od 20 lat trzymał 50 świń. Nowi sąsiedzi chcieli 60 tys. zł, sędzia przyjechał sprawdzić, czy śmierdzi",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/interwencje-rolnicze/rolnik-od-20-lat-trzymal-50-swin-nowi-sasiedi-chcieli-60-tys-zl-sedzia-przyjechal-sprawdzic-czy-smierdzi-2694110",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-07T08:50:00+00:00"
+},
 {
 "t": "Ceny tuczników na początku listopada 2026. Zaledwie 3,70 zł/kg. Ile płacą w regionach?",
 "l": "https://www.agrofakt.pl/ceny-tucznikow-na-poczatku-listopada-2026-zaledwie-370-zl-kg-ile-placa-w-regionach/",
@@ -516,18 +528,6 @@
 "l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/ceny-wyslodkow-buraczanych-jesienia-2026-ile-rolnicy-zaplaca-za-25-ton-2694484",
 "z": "Tygodnik Poradnik Rolniczy",
 "d": "2026-11-06T16:30:00+00:00"
-},
-{
-"t": "Ceny świń spadają, a to może nie być koniec. Rolnicy boją się stawek sprzed wojny. Ile płacą skupy? [SONDA 6.11]",
-"l": "https://www.tygodnik-rolniczy.pl/rynki-rolne/ceny-tucznikow/ceny-swin-spadaja-a-najgorsze-moze-dopiero-nadejsc-ile-dzis-placa-za-tuczniki-sonda-30-10-2694519",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-06T16:00:00+00:00"
-},
-{
-"t": "Ciągnik traci GPS, ale nadal jedzie prosto. Chińczycy pokazali, jak to możliwe",
-"l": "https://www.tygodnik-rolniczy.pl/maszyny-rolnicze/rolnictwo-precyzyjne/kamera-ma-wspierac-nawigacje-ciagnika-gdy-slabnie-gnss-tak-dziala-hawksight-2694517",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-06T15:30:00+00:00"
 },
 {
 "t": "Płonął jak pochodnia – strażacy gasili pożar ciągnika",
