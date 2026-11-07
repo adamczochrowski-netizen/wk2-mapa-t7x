@@ -17,17 +17,20 @@
   const CSS=`
   html[data-duze] .wrap, html[data-duze] .top, html[data-duze] .card{zoom:1.22}
   /* Dolny pasek: Wstecz, Dalej, Aa — w aplikacji na ekranie głównym telefon nie ma własnych strzałek */
-  body{padding-bottom:calc(66px + env(safe-area-inset-bottom,0px))}
-  .pasek{position:fixed;z-index:60;left:0;right:0;bottom:0;padding:8px calc(12px + env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) calc(12px + env(safe-area-inset-left,0px));
+  body.z-paskiem{padding-bottom:calc(54px + env(safe-area-inset-bottom,0px))}
+  .ust-btn.plywa{position:fixed;z-index:60;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--fg);
+    font:700 16px/1 Georgia,serif;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  .pasek{position:fixed;z-index:60;left:0;right:0;bottom:0;padding:6px calc(10px + env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) calc(10px + env(safe-area-inset-left,0px));
     background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
-  .pasek-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 56px;gap:8px}
-  .pasek button{height:46px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);
-    font:600 16px/1 "Source Sans 3","Segoe UI",system-ui,sans-serif;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer}
-  .pasek button svg{width:20px;height:20px}
+  .pasek-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 48px;gap:6px}
+  .pasek button{height:38px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--fg);
+    font:600 15px/1 "Source Sans 3","Segoe UI",system-ui,sans-serif;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer}
+  .pasek button svg{width:17px;height:17px}
   .pasek button:disabled{opacity:.4;cursor:default}
-  .pasek .ust-btn{font:700 18px/1 Georgia,serif}
+  .pasek .ust-btn{font:700 16px/1 Georgia,serif}
   .pasek button:focus-visible,.ust-pan button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .ust-pan{position:fixed;z-index:61;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(72px + env(safe-area-inset-bottom,0px));
+  .ust-pan{position:fixed;z-index:61;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(62px + env(safe-area-inset-bottom,0px));
     width:min(280px,calc(100vw - 24px));padding:14px;border-radius:14px;background:var(--panel);color:var(--fg);border:1px solid var(--line);
     box-shadow:0 10px 30px rgba(0,0,0,.22);font:15px/1.4 "Source Sans 3","Segoe UI",system-ui,sans-serif}
   .ust-pan h3{margin:0 0 10px;font:700 16px/1.2 Bitter,Georgia,serif}
@@ -52,7 +55,9 @@
     p.innerHTML=`<h3>Wygląd</h3>
       <p>Wielkość tekstu</p><div class="ust-seg" data-k="duze"><button type="button" data-v="0">Zwykły</button><button type="button" data-v="1">Duży</button></div>`+(TYLKO_CIEMNY?"":`
       <p>Motyw</p><div class="ust-seg" data-k="motyw"><button type="button" data-v="auto">Jak telefon</button><button type="button" data-v="light">Jasny</button><button type="button" data-v="dark">Ciemny</button></div>`);
-    bar.querySelector(".pasek-in").append(b); document.body.append(bar,p);
+    // Na stronie głównej bez paska — tylko pływające „Aa”; na podstronach pasek Wstecz / Dalej / Aa
+    if(glowna){ b.classList.add("plywa"); document.body.append(b,p); }
+    else { bar.querySelector(".pasek-in").append(b); document.body.classList.add("z-paskiem"); document.body.append(bar,p); }
     const odswiez=()=>{
       const d=get(K_DUZE)==="1"?"1":"0", m=get(K_MOTYW)||"auto";
       p.querySelectorAll('[data-k="duze"] button').forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.v===d)));

@@ -89,6 +89,7 @@
 .dz .x small.wk{display:flex;align-items:center;gap:8px;margin-top:3px}
 .dz .x small.wk .worek{margin:0;vertical-align:0}
 .dz .s{color:var(--muted);font-size:20px}
+.dz.hot{margin:2px -10px;padding:11px 10px;border-radius:12px;border-bottom-color:transparent;background:color-mix(in srgb,var(--accent) 9%,transparent)}
 .dz.hot .i{background:var(--accent);color:var(--on-accent)}
 .dz.hot .x strong{color:var(--accent)}
 .zrodlo-pog{margin:0;padding:2px 16px 12px;font-size:12px;color:var(--muted)}
@@ -314,7 +315,7 @@ const ustaw=(id,t,m)=>{ const a=document.getElementById(id); a.querySelector(".t
   const [s0,w0,p0,z0]=await Promise.all(["Smieci","Wydarzenia","Parafia","Zdrowie"].map(k=>wczytaj(k).catch(()=>({wiersze:[]}))));
   const par={}; p0.wiersze.forEach(r=>{ if(r.pole&&r.tresc) par[r.pole.trim().toLowerCase()]=r.tresc; });
   DANE={sm:s0.wiersze.map(r=>({d:data(r.data),r:r.rodzaj})).filter(x=>x.d&&x.d>=dzis()).sort((a,b)=>a.d-b.d),
-        wy:w0.wiersze.filter(r=>r.nazwa&&data(r.data)&&data(r.data)>=dzis()).sort((a,b)=>data(a.data)-data(b.data)),
+        wy:w0.wiersze.filter(r=>r.nazwa&&!wOkolicy(r)&&data(r.data)&&data(r.data)>=dzis()).sort((a,b)=>data(a.data)-data(b.data)),
         par, zd:z0.wiersze.filter(r=>r.nazwa).map(miejsceZdrowia).sort((a,b)=>a.odl-b.odl)};
   rysujDzis();
 
