@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-07T02:45:01+00:00",
+"zaktualizowano": "2026-11-07T03:45:49+00:00",
 "polska": [
 {
 "t": "Wisła Kraków kontra Cracovia. Tak zakończyły się Wielkie Derby Krakowa",
@@ -148,6 +148,12 @@
 ],
 "swiat": [
 {
+"t": "Donald Trump mówi o końcu wojny w Ukrainie. \"To będzie duże porozumienie, obejmie Europę\"",
+"l": "https://wiadomosci.onet.pl/swiat/donald-trump-o-rozmowach-rosji-i-ukrainy-widzi-postepy-w-negocjacjach/2y8p6tl",
+"z": "Onet",
+"d": "2026-11-07T03:24:27+00:00"
+},
+{
 "t": "W Sao Paulo zawalił się budynek handlowy. Dziesiątki rannych",
 "l": "https://wiadomosci.onet.pl/swiat/budynek-handlowy-runal-w-sao-paulo-rannych-zostalo-35-osob/jh976lv",
 "z": "Onet",
@@ -284,12 +290,6 @@
 "l": "https://www.rmf24.pl/fakty/swiat/news-zostawil-17-latke-sama-na-niebezpiecznej-gorze-poszli-oglada,nIdn,1025191",
 "z": "RMF24",
 "d": "2026-11-06T17:38:00+00:00"
-},
-{
-"t": "Rosja uznała Starlink Elona Muska za zagrożenie dla reżimu Putina",
-"l": "https://wiadomosci.onet.pl/swiat/rosja-uznala-starlink-za-zagrozenie-chce-rozbudowac-wlasny-system/m1mz4hj",
-"z": "Onet",
-"d": "2026-11-06T17:30:47+00:00"
 }
 ],
 "religia": [
