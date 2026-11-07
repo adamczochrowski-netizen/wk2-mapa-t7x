@@ -90,6 +90,8 @@ const zrodloLink=u=>{ try{ const url=new URL(u), h=url.hostname.replace(/^www\./
   return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`; }catch(e){ return ""; } };
 // Filmy-ilustracje do wpisów (po tytule wpisu). Wygenerowane przez AI — zawsze z podpisem.
 const FILMY={
+  "Pierwsza wzmianka o Wirkowicach":{src:"historia-wies.mp4", poster:"historia-wies.jpg", opis:"Dawna wieś: kryte strzechą chaty wzdłuż drogi"},
+  "Kapliczka św. Jana Nepomucena nad Wieprzem":{src:"historia-figura.mp4", poster:"historia-figura.jpg", opis:"Według opowieści figura świętego wyłowiona z Wieprza"},
   "Młyn, dwór, browar i winnica":{src:"historia-mlyn.mp4", poster:"historia-mlyn.jpg", opis:"Młyn nad Wieprzem, dwór i winnica"},
   "Kościół zbudowany w jeden dzień":{src:"historia-kosciol.mp4", poster:"historia-kosciol.jpg", opis:"Mieszkańcy budują drewniany kościół w jeden dzień"},
 };
