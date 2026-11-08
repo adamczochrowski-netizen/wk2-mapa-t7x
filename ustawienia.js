@@ -32,6 +32,9 @@
   html[data-dalton] .stan.nie{background:#3D2A12;color:#F5B25B}
   html[data-dalton][data-theme="light"] .stan.nie{background:#FBE8CF;color:#8A4A00}
   html[data-dalton] .stan.nie::before{content:"✕ "}
+  .worek .wl{display:none}
+  html[data-dalton] .worek .wl{display:inline;font:700 9px/1 system-ui,sans-serif;fill:#fff;stroke:rgba(0,0,0,.75);stroke-width:1.6px;paint-order:stroke}
+  html[data-dalton] .worek .faldy{display:none}
   html[data-spokoj] *, html[data-spokoj] *::before, html[data-spokoj] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   html[data-spokoj]::view-transition-group(*), html[data-spokoj]::view-transition-old(*), html[data-spokoj]::view-transition-new(*){animation:none!important}`;
   document.head.appendChild(TRYBY);
@@ -99,7 +102,7 @@
       <p>Wielkość tekstu</p>${seg("duze",[["0","Zwykły"],["1","Duży"],["2","Bardzo duży"]])}
       <p>Motyw</p>${seg("motyw",[["0","Ciemny"],["light","Jasny"]])}<div class="opis">Jasny lepiej widać w słońcu, na dworze.</div>
       <p>Kontrast</p>${seg("kontrast",[["0","Zwykły"],["1","Wysoki"]])}<div class="opis">Jaśniejsze napisy i wyraźniejsze ramki.</div>
-      <p>Kolory</p>${seg("dalton",[["0","Zwykłe"],["1","Dla daltonistów"]])}<div class="opis">Zamiast zielonego i czerwonego: niebieski i pomarańczowy, ze znakami ✓ i ✕.</div>
+      <p>Kolory</p>${seg("dalton",[["0","Zwykłe"],["1","Dla daltonistów"]])}<div class="opis">„Otwarte / zamknięte” (Zdrowie, Urzędowe) w kolorze niebieskim i pomarańczowym ze znakami ✓ i ✕, a na workach na śmieci litery: S szkło, B bio, P papier, M plastik i metale, Z zmieszane.</div>
       <p>Animacje</p>${seg("spokoj",[["0","Włączone"],["1","Wyłączone"]])}<div class="opis">Nic się nie rusza na ekranie: mniej zawrotów głowy, mniej zużycia baterii.</div>
       <p>Dane</p><button type="button" class="ust-akcja" data-a="swieze">↻ Pobierz najświeższe dane</button>`+(zIkony?"":`
       <p>Apka na ekranie telefonu</p><div class="ust-inst">${iOS

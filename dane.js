@@ -140,11 +140,14 @@ const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 const KOLORY_SMIECI=[[/plast|metal/i,"#F2C230"],[/papier/i,"#2F6FD0"],[/szk/i,"#2E9E52"],[/bio/i,"#8B5A2B"],[/gabaryt|elektro/i,"#7A6FB3"],[/.*/,"#4A4A4A"]];
 const kolorSmieci=r=>KOLORY_SMIECI.find(([re])=>re.test(r||""))[1];
 // worek na śmieci: pękaty worek, zawiązany u góry, z dwoma „uszami” i kilkoma fałdami
+// litera na worku dla daltonistów: S szkło, B bio, P papier, M plastik i metale, G gabaryty, Z zmieszane
+const literaSmieci=r=>/szk/i.test(r)?"S":/bio/i.test(r)?"B":/papier/i.test(r)?"P":/plast|metal/i.test(r)?"M":/gabaryt|elektro/i.test(r)?"G":"Z";
 const worek=r=>{ const c=kolorSmieci(r); return `<svg class="worek" viewBox="0 0 20 22" aria-hidden="true">
   <path d="M7.4 6.2 4.6 1.8c1.8-.2 3.6.7 5.4 2.5 1.8-1.8 3.6-2.7 5.4-2.5l-2.8 4.4z" fill="${c}" stroke="rgba(0,0,0,.35)" stroke-width=".7" stroke-linejoin="round"/>
   <path d="M7.6 6.4c-3.6 1.4-6 4.6-6 8.4 0 3.9 3.4 5.9 8.4 5.9s8.4-2 8.4-5.9c0-3.8-2.4-7-6-8.4z" fill="${c}" stroke="rgba(0,0,0,.35)" stroke-width=".7"/>
   <rect x="7.2" y="5.6" width="5.6" height="1.6" rx=".8" fill="rgba(0,0,0,.4)"/>
-  <path d="M6 11.5c.6 2.4 1.9 4.6 3.7 6.2M14.2 11.8c-.4 1.8-1.2 3.4-2.4 4.7" stroke="rgba(255,255,255,.35)" stroke-width=".9" fill="none" stroke-linecap="round"/></svg>`; };
+  <path class="faldy" d="M6 11.5c.6 2.4 1.9 4.6 3.7 6.2M14.2 11.8c-.4 1.8-1.2 3.4-2.4 4.7" stroke="rgba(255,255,255,.35)" stroke-width=".9" fill="none" stroke-linecap="round"/>
+  <text class="wl" x="10" y="17.6" text-anchor="middle">${literaSmieci(r)}</text></svg>`; };
 const dniDo=d=>Math.round((d-dzis())/864e5);
 // --- Wyłączenia prądu (PGE) i komunikaty o wodzie (GPGK, gmina) — plik wylaczenia.json odświeża akcja GitHub co 30 min ---
 let _wyl=null;
