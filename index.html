@@ -269,7 +269,7 @@ function rysujDzis(){
 setInterval(rysujDzis,60e3);
 
 // Pogoda: Open-Meteo (darmowe, bez klucza). Ostatnia prognoza zapamiętana — bez internetu pokazujemy ją z godziną.
-const POGODA="https://api.open-meteo.com/v1/forecast?latitude=50.8722&longitude=23.0737&current=temperature_2m,weather_code,is_day&daily=weather_code,sunrise,sunset,temperature_2m_max,temperature_2m_min,precipitation_sum,wind_gusts_10m_max&timezone=Europe%2FWarsaw&forecast_days=2";
+const POGODA="https://api.open-meteo.com/v1/forecast?latitude=50.8722&longitude=23.0737&current=temperature_2m,weather_code,is_day&daily=weather_code,sunrise,sunset,temperature_2m_max,temperature_2m_min,precipitation_sum,wind_gusts_10m_max&models=icon_seamless&timezone=Europe%2FWarsaw&forecast_days=2";   // ICON (DWD): gęsta siatka ok. 2 km nad Polską, najbliżej pomiarów IMGW
 const OPIS=c=>c===0?["☀️","Bezchmurnie"]:c<=2?["🌤️","Niewielkie zachmurzenie"]:c===3?["☁️","Pochmurno"]:c<=48?["🌫️","Mgła"]:c<=57?["🌦️","Mżawka"]:c<=67?["🌧️","Deszcz"]:c<=77?["🌨️","Śnieg"]:c<=82?["🌧️","Przelotny deszcz"]:c<=86?["🌨️","Przelotny śnieg"]:["⛈️","Burza"];
 const st=x=>Math.round(x)+"°";
 async function pogoda(){
