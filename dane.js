@@ -124,6 +124,18 @@ const worek=r=>{ const c=kolorSmieci(r); return `<svg class="worek" viewBox="0 0
   <rect x="7.2" y="5.6" width="5.6" height="1.6" rx=".8" fill="rgba(0,0,0,.4)"/>
   <path d="M6 11.5c.6 2.4 1.9 4.6 3.7 6.2M14.2 11.8c-.4 1.8-1.2 3.4-2.4 4.7" stroke="rgba(255,255,255,.35)" stroke-width=".9" fill="none" stroke-linecap="round"/></svg>`; };
 const dniDo=d=>Math.round((d-dzis())/864e5);
+// --- Lokalizacja: czytelne podpowiedzi, gdy telefon jej nie daje ---
+// Przeglądarki wbudowane w Messengera, Facebooka i Instagrama zwykle blokują lokalizację — trzeba otworzyć stronę w Safari/Chrome.
+const wAplikacji=()=>/FBAN|FBAV|FB_IAB|Messenger|Instagram|Line\/|; wv\)/i.test(navigator.userAgent||"");
+const iPhone=()=>/iPhone|iPad|iPod/i.test(navigator.userAgent||"");
+function bladLokalizacji(e){
+  if(wAplikacji()) return "Ta strona jest otwarta wewnątrz Messengera albo Facebooka, a one nie dają dostępu do lokalizacji. Dotknij ⋯ (u góry) i wybierz „Otwórz w przeglądarce” (Safari albo Chrome), potem spróbuj jeszcze raz.";
+  if(e&&e.code===1) return iPhone()
+    ? "Telefon nie pozwala tej stronie na lokalizację. Otwórz Ustawienia → Prywatność i ochrona → Usługi lokalizacji: włącz je, a niżej przy „Witryny Safari” wybierz „Podczas używania”. Potem odśwież stronę i dotknij przycisku jeszcze raz."
+    : "Telefon nie pozwala tej stronie na lokalizację. Dotknij ikony obok adresu strony → Uprawnienia → Lokalizacja: Zezwól. Sprawdź też, czy w telefonie jest włączona Lokalizacja (szybkie ustawienia u góry ekranu).";
+  if(e&&e.code===3) return "Telefon za długo szuka pozycji. Wyjdź na otwartą przestrzeń albo włącz Wi-Fi i spróbuj jeszcze raz.";
+  return "Nie udało się ustalić pozycji. Sprawdź, czy lokalizacja w telefonie jest włączona, i spróbuj jeszcze raz.";
+}
 // Wydarzenie w okolicy: wpisana miejscowość inna niż Wirkowice (puste = we wsi)
 const wOkolicy=r=>{ const m=(r.miejscowosc||"").trim(); return !!m&&!/wirkowic/i.test(m); };
 const gdzieWyd=r=>[wOkolicy(r)?r.miejscowosc:"",r.miejsce].filter(Boolean).join(", ");

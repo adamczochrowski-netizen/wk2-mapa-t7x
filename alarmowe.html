@@ -94,8 +94,10 @@
 const bWhere=document.getElementById("bWhere"), bCopy=document.getElementById("bCopy"),
       out=document.getElementById("coords"), msg=document.getElementById("coordsMsg");
 const show=(t)=>{ msg.textContent=t; msg.hidden=false; };
+// Otwarte w Messengerze/Facebooku: od razu uprzedź, że lokalizacja tu nie zadziała
+if(wAplikacji()) show(bladLokalizacji());
 bWhere.onclick=()=>{
-  if(!("geolocation" in navigator)){ show("Ta przeglądarka nie udostępnia lokalizacji."); return; }
+  if(!("geolocation" in navigator)){ show(bladLokalizacji()); return; }
   show("Szukam pozycji…");
   try{
     navigator.geolocation.getCurrentPosition(p=>{
@@ -103,7 +105,7 @@ bWhere.onclick=()=>{
       out.textContent=la+", "+lo; out.hidden=false; bCopy.hidden=false;
       show("Dokładność ok. "+Math.round(p.coords.accuracy)+" m. Przeczytaj dyspozytorowi obie liczby.");
     }, e=>{
-      show(e.code===1 ? "Lokalizacja jest zablokowana. Zezwól tej stronie na dostęp do lokalizacji (ikona przy adresie strony)." : "Nie udało się ustalić pozycji. Spróbuj na otwartej przestrzeni.");
+      show(bladLokalizacji(e));
     }, {enableHighAccuracy:true, timeout:20000, maximumAge:0});
   }catch(e){ show("Lokalizacja jest niedostępna w tym podglądzie."); }
 };

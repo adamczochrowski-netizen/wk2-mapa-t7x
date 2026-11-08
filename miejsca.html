@@ -177,11 +177,11 @@ function renderNoclegi(){
 const dm=document.getElementById("distMsg");
 document.getElementById("bDist").onclick=()=>{
   dm.hidden=false;
-  if(!("geolocation" in navigator)){ dm.textContent="Ta przeglądarka nie udostępnia lokalizacji."; return; }
+  if(!("geolocation" in navigator)){ dm.textContent=bladLokalizacji(); return; }
   dm.textContent="Szukam pozycji…";
   try{
     navigator.geolocation.getCurrentPosition(p=>{ me={lat:p.coords.latitude,lon:p.coords.longitude}; dm.hidden=true; render(); renderNoclegi(); },
-      e=>{ dm.textContent=e.code===1?"Lokalizacja jest zablokowana. Zezwól tej stronie na dostęp do lokalizacji.":"Nie udało się ustalić pozycji."; },
+      e=>{ dm.textContent=bladLokalizacji(e); },
       {enableHighAccuracy:false, timeout:15000, maximumAge:60000});
   }catch(e){ dm.textContent="Lokalizacja jest niedostępna w tym podglądzie."; }
 };
