@@ -37,6 +37,10 @@
 .ev .who{color:var(--muted);font-size:13px;margin-top:6px}
 .film{position:relative;margin:10px 0 0;border-radius:12px;overflow:hidden;background:var(--line);aspect-ratio:16/9}
 .film video{display:block;width:100%;height:100%;object-fit:cover}
+.film .graj{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;border:2px solid rgba(255,255,255,.85);background:rgba(10,14,12,.55);color:#fff;display:grid;place-items:center;cursor:pointer;transition:opacity .2s}
+.film .graj svg{width:26px;height:26px;margin-left:4px}
+.film .graj:focus-visible{outline:3px solid var(--h);outline-offset:3px}
+.film.gra .graj{opacity:0;pointer-events:none}
 .film figcaption{position:absolute;left:8px;bottom:8px;font-size:11px;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:999px;background:rgba(10,14,12,.7);color:#E5EAE3}
 .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px}
 /* powiększenie */
@@ -96,7 +100,7 @@ const FILMY={
   "Kościół zbudowany w jeden dzień":{src:"historia-kosciol.mp4", poster:"historia-kosciol.jpg", opis:"Mieszkańcy budują drewniany kościół w jeden dzień"},
 };
 const film=r=>{ const f=FILMY[r.tytul]; if(!f) return "";
-  return `<figure class="film"><video src="${f.src}" poster="${f.poster}" muted loop playsinline preload="none" aria-label="${esc(f.opis)}: ilustracja wygenerowana przez AI"></video><figcaption>Ilustracja AI</figcaption></figure>`; };
+  return `<figure class="film"><video src="${f.src}" poster="${f.poster}" muted playsinline preload="none" aria-label="${esc(f.opis)}: ilustracja wygenerowana przez AI"></video><button type="button" class="graj" aria-label="Odtwórz ilustrację: ${esc(f.opis)}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button><figcaption>Ilustracja AI</figcaption></figure>`; };
 const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
 (async()=>{
   const h=await wczytaj("Historia");
@@ -117,12 +121,15 @@ const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
   if(FOTO.length>1){ document.getElementById("galSec").hidden=false;
     document.getElementById("gal").innerHTML=FOTO.map((f,i)=>`<div class="ph" style="margin:0;display:block"><button data-i="${i}" aria-label="Powiększ zdjęcie"><img src="${esc(f.mini)}" alt="${esc(f.podpis||f.tytul)}" loading="lazy"></button></div>`).join(""); }
   document.querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>pokaz(+b.dataset.i));
-  // filmik gra tylko, gdy jest widoczny (oszczędza baterię i internet); przy „ogranicz ruch” — tylko po dotknięciu
-  const spokoj=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  document.querySelectorAll(".film video").forEach(v=>{
-    v.addEventListener("click",()=>v.paused?v.play():v.pause());
-    if(spokoj||!("IntersectionObserver" in window)) return;
-    new IntersectionObserver(([e])=>{ if(e.isIntersecting) v.play().catch(()=>{}); else v.pause(); },{threshold:.5}).observe(v);
+  // filmik rusza dopiero po dotknięciu ▶ (nie sam); dotknięcie w trakcie — pauza; po przewinięciu poza ekran — pauza
+  document.querySelectorAll(".film").forEach(fig=>{
+    const v=fig.querySelector("video"), przelacz=()=>v.paused?v.play().catch(()=>{}):v.pause();
+    fig.querySelector(".graj").addEventListener("click",przelacz);
+    v.addEventListener("click",przelacz);
+    v.addEventListener("play",()=>fig.classList.add("gra"));
+    v.addEventListener("pause",()=>fig.classList.remove("gra"));
+    v.addEventListener("ended",()=>{ fig.classList.remove("gra"); v.currentTime=0; });
+    if("IntersectionObserver" in window) new IntersectionObserver(([e])=>{ if(!e.isIntersecting&&!v.paused) v.pause(); },{threshold:.2}).observe(v);
   });
 })();
 
