@@ -1780,6 +1780,16 @@ function startWalk(){
     raf=requestAnimationFrame(step);
   };
   renderCard(); raf=requestAnimationFrame(step);
+  // na telefonie mapa jest nad kartą — przewijamy, żeby plan cmentarza z trasą był na środku ekranu
+  // (chwilę później — po przerysowaniu karty, które samo potrafi przewinąć ekran)
+  // (własna animacja krok po kroku — wbudowane „smooth” przerywa się, bo mapa rysuje się w każdej klatce)
+  setTimeout(()=>{ const m=document.querySelector(".map"); if(!m) return; const r=m.getBoundingClientRect();
+    const y0=scrollY, y1=Math.max(0,scrollY+r.top-Math.max(0,(innerHeight-r.height)/2));
+    if(Math.abs(y1-y0)<4) return;
+    if(matchMedia("(prefers-reduced-motion: reduce)").matches){ window.scrollTo(0,y1); return; }
+    const t0=performance.now(), T=420, ease=x=>1-Math.pow(1-x,3);
+    const krok=t=>{ const f=Math.min(1,(t-t0)/T); window.scrollTo(0,y0+(y1-y0)*ease(f)); if(f<1) requestAnimationFrame(krok); };
+    requestAnimationFrame(krok); },60);
 }
 function stopWalk(silent){
   if(raf) cancelAnimationFrame(raf); raf=null;
