@@ -36,6 +36,12 @@
 .terminy .ik .worek{margin:0}
 .terminy .r{min-width:0}
 .minione .terminy{padding:4px 16px}
+/* Do kalendarza w telefonie */
+.dokal{padding:16px;border-radius:14px;background:color-mix(in srgb,var(--h) 10%,var(--panel));border:1px solid color-mix(in srgb,var(--h) 35%,var(--line))}
+.dokal h2{margin:0 0 4px;font-size:18px}
+.dokal p{margin:0}
+.dokal .btns{margin-top:12px}
+.dokal .uw{margin-top:10px;font-size:14px;color:var(--muted)}
 </style>
 
 <main class="wrap h-mor">
@@ -45,10 +51,23 @@
     <div><h1>Wywóz śmieci</h1><p class="lead">Kiedy wystawić worki i pojemniki. Harmonogram wspólny dla Wirkowic Pierwszych i Drugich.</p></div>
   </header>
   <div id="out"><p class="muted">Wczytuję…</p></div>
+  <section class="section"><div class="dokal" id="dokal"></div></section>
 </main>
 
 <script src="dane.js"></script>
 <script>
+// Wszystkie wywozy do kalendarza w telefonie: plik wywoz-smieci.ics (tworzy go zbuduj.sh z harmonogramu)
+(()=>{
+  const plik=new URL("wywoz-smieci.ics",location.href).href, webcal=plik.replace(/^https?:/,"webcal:");
+  const google="https://calendar.google.com/calendar/r?cid="+encodeURIComponent(webcal);
+  let h=`<h2>Wywozy w kalendarzu telefonu</h2><p>Wszystkie terminy jednym dotknięciem. Telefon przypomni dzień wcześniej o 18:00, żeby wystawić worki.</p>`;
+  if(iPhone()) h+=`<div class="btns"><a class="btn primary" href="wywoz-smieci.ics">Dodaj do Kalendarza iPhone'a</a></div>
+    <p class="uw">Telefon pokaże listę terminów: dotknij <b>Dodaj wszystkie</b>.</p>`;
+  else h+=`<div class="btns"><a class="btn primary" href="wywoz-smieci.ics" download="wywoz-smieci.ics">Dodaj do kalendarza</a><a class="btn" href="${google}" target="_blank" rel="noopener">Kalendarz Google</a></div>
+    <p class="uw">„Dodaj do kalendarza” pobiera plik: dotknij go w powiadomieniu albo w Pobranych i wybierz kalendarz. „Kalendarz Google” dodaje terminy jako osobny kalendarz na Twoim koncie Google, a nowe terminy pojawią się w nim same.</p>`;
+  if(wAplikacji()) h+=`<p class="uw"><strong>Otwierasz apkę w Messengerze albo Facebooku.</strong> One nie dodają do kalendarza. Dotknij <b>⋯</b> u góry → <b>Otwórz w przeglądarce</b> i spróbuj tam.</p>`;
+  document.getElementById("dokal").innerHTML=h;
+})();
 // Kolory i ikony worków są w dane.js (kolorSmieci, worek)
 // kilka rodzajów tego samego dnia → jeden wiersz z kilkoma workami
 const dni=l=>{ const m=new Map(); l.forEach(r=>{ const k=r.d.getTime(); if(!m.has(k)) m.set(k,{d:r.d,r:[]}); m.get(k).r.push(r.rodzaj); }); return [...m.values()]; };

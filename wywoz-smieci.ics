@@ -1,0 +1,70 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Moje Wirkowice//Wywoz smieci//PL
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Wywóz śmieci – Wirkowice
+X-WR-TIMEZONE:Europe/Warsaw
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:smieci-20261112@moje-wirkowice
+DTSTAMP:20261108T120832Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+SUMMARY:Wywóz śmieci: zmieszane\, bio
+DESCRIPTION:Odbiór od godz. 7:00. Wystaw worki dzień wcześniej wieczorem
+  albo rano przed 7:00.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Jutro wywóz: zmieszane\, bio. Wystaw worki.
+TRIGGER:-PT6H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:smieci-20261125@moje-wirkowice
+DTSTAMP:20261108T120832Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:Wywóz śmieci: plastik i metale\, papier\, szkło
+DESCRIPTION:Odbiór od godz. 7:00. Wystaw worki dzień wcześniej wieczorem
+  albo rano przed 7:00.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Jutro wywóz: plastik i metale\, papier\, szkło. Wystaw worki.
+TRIGGER:-PT6H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:smieci-20261210@moje-wirkowice
+DTSTAMP:20261108T120832Z
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
+SUMMARY:Wywóz śmieci: zmieszane\, bio
+DESCRIPTION:Odbiór od godz. 7:00. Wystaw worki dzień wcześniej wieczorem
+  albo rano przed 7:00.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Jutro wywóz: zmieszane\, bio. Wystaw worki.
+TRIGGER:-PT6H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:smieci-20261223@moje-wirkowice
+DTSTAMP:20261108T120832Z
+DTSTART;VALUE=DATE:20261223
+DTEND;VALUE=DATE:20261224
+SUMMARY:Wywóz śmieci: plastik i metale\, papier\, szkło
+DESCRIPTION:Odbiór od godz. 7:00. Wystaw worki dzień wcześniej wieczorem
+  albo rano przed 7:00.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Jutro wywóz: plastik i metale\, papier\, szkło. Wystaw worki.
+TRIGGER:-PT6H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
