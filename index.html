@@ -46,7 +46,37 @@
 .news .t{font-weight:700;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .news .k{display:flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
 .na-skroty{margin:4px 0 8px}
+/* ===== Tryb prosty: tylko duże przyciski ===== */
+html:not([data-prosty]) #prosty{display:none}
+html[data-prosty] main.wrap > *:not(.logo):not(#prosty):not(.opcje-dol):not(.gora):not(.szuk-nakl){display:none!important}
+#prosty{display:flex;flex-direction:column;gap:12px;margin:4px 0 0}
+#prosty .pr-dzis{font-size:20px;line-height:1.35;margin:0 0 4px;text-align:center}
+#prosty .pr-dzis b{font-family:var(--f-display)}
+.pr{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;min-height:92px;box-sizing:border-box;padding:14px 16px;border-radius:18px;
+  background:var(--panel);border:2px solid var(--line);color:var(--fg);text-decoration:none}
+.pr .e{font-size:38px;line-height:1;text-align:center}
+.pr b{display:block;font-family:var(--f-display);font-size:24px;line-height:1.15}
+.pr small{display:block;font-size:18px;color:var(--muted);margin-top:4px;line-height:1.3}
+.pr .s{font-size:28px;color:var(--muted)}
+.pr.alarm{background:var(--alarm);border-color:var(--alarm);color:var(--on-alarm)}
+.pr.alarm small,.pr.alarm .s{color:inherit;opacity:.85}
+.pr.hot{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--panel))}
+.pr-tel{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--green);color:var(--bg);font-size:26px;text-decoration:none}
+.pr:active{transform:scale(.98)}
 /* Szukaj w całej apce */
+/* Lupka nad logo i okno wyszukiwania na cały ekran */
+.gora{display:flex;justify-content:flex-end;margin:-6px 0 -2px}
+.lupka{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--fg);font:600 15px/1 var(--f-body);cursor:pointer}
+.lupka svg{width:18px;height:18px}
+.lupka:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.szuk-nakl{position:fixed;inset:0;z-index:90;background:var(--bg);overflow:auto;padding:calc(12px + env(safe-area-inset-top,0px)) calc(16px + env(safe-area-inset-right,0px)) 24px calc(16px + env(safe-area-inset-left,0px))}
+.szuk-nakl[hidden]{display:none}
+html[data-prosty] main.wrap > .szuk-nakl:not([hidden]){display:block!important}
+.szuk-gl{display:flex;gap:8px;align-items:center;max-width:720px;margin:0 auto}
+.szuk-gl .szukaj{flex:1;margin:0}
+.szuk-x{flex:none;height:48px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);font:600 15px/1 var(--f-body);cursor:pointer}
+.szuk-pod{max-width:720px;margin:10px auto 0;color:var(--muted);font-size:14px}
+.szuk-nakl .szuk-wyn{max-width:720px;margin:10px auto 0}
 .szukaj{position:relative;margin:0 0 18px}
 .szukaj input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;padding:13px 14px 13px 44px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--fg)}
 .szukaj input:focus{outline:2px solid var(--accent);outline-offset:1px}
@@ -169,11 +199,24 @@
 </style>
 
 <main class="wrap">
+  <div class="gora"><button type="button" class="lupka" id="lupka" aria-label="Szukaj w apce" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Szukaj</span></button></div>
   <header class="logo">
     <h1 aria-label="Moje Wirkowice">MOJE<svg class="serce" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8.5-5.3-8.5-11.2A4.8 4.8 0 0 1 12 6.6a4.8 4.8 0 0 1 8.5 3.2C20.5 15.7 12 21 12 21z"/></svg>WIRKOWICE</h1>
     <p class="eyebrow">Wirkowice Pierwsze · Wirkowice Drugie</p>
   </header>
   <p class="lead">Nasza wieś w jednym miejscu: historia, ciekawe miejsca, parafia i cmentarz, ważne numery.</p>
+  <section id="prosty" aria-label="Najważniejsze"></section>
+  <div class="szuk-nakl" id="szukNakl" hidden role="dialog" aria-modal="true" aria-label="Szukaj w apce">
+    <div class="szuk-gl">
+      <div class="szukaj" role="search">
+        <svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="szukaj" type="search" autocomplete="off" enterkeyhint="search" placeholder="gmina, weterynarz, msza, PSZOK…" aria-label="Czego szukasz?" aria-controls="szukWyn">
+      </div>
+      <button type="button" class="szuk-x" id="szukX">Zamknij</button>
+    </div>
+    <p class="szuk-pod">Wpisz, czego szukasz: urząd, aptekę, numer, mszę, wydarzenie…</p>
+    <div class="szuk-wyn" id="szukWyn" hidden aria-live="polite"></div>
+  </div>
   <div class="instaluj" id="instaluj" hidden role="note"></div>
 
   <section class="dzis" aria-labelledby="dzData">
@@ -215,13 +258,6 @@
     <div class="moje-gl"><h2>Moje notatki</h2><a href="notatki.html">Wszystkie →</a></div>
     <div class="moje-lista" id="mojeLista"></div>
   </section>
-
-  <div class="szukaj" role="search">
-    <svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-    <input id="szukaj" type="search" autocomplete="off" placeholder="Szukaj: gmina, weterynarz, msza, PSZOK…" aria-label="Szukaj w całej apce" aria-controls="szukWyn">
-    <div class="szuk-wyn" id="szukWyn" hidden aria-live="polite"></div>
-  </div>
-
   <p class="eyebrow na-skroty">Na skróty</p>
   <nav class="tiles kolor" aria-label="Działy">
     <a class="tile h-nieb" href="co-slychac.html">
@@ -315,6 +351,31 @@ function mszeDnia(p,d){
   return [...new Set(g)].sort((a,b)=>minuty(a)-minuty(b));
 }
 let DANE=null;
+// Tryb prosty (Opcje): kilka dużych przycisków — 112, śmieci, msza, apteka, cmentarz, ogłoszenia
+function rysujProsty(){
+  const el=document.getElementById("prosty"); if(!document.documentElement.hasAttribute("data-prosty")) return;
+  const teraz=new Date(), out=[];
+  const btn=(e,t,s,h,kl="",tel="")=>`<div class="pr ${kl}" style="padding-right:${tel?"10px":"16px"}"><span class="e" aria-hidden="true">${e}</span><a href="${h}" style="color:inherit;text-decoration:none"><b>${t}</b>${s?`<small>${s}</small>`:""}</a>${tel?`<a class="pr-tel" href="tel:${tel}" aria-label="Zadzwoń: ${esc(t)}">📞</a>`:`<span class="s" aria-hidden="true">›</span>`}</div>`;
+  const t=document.getElementById("pogT")?.textContent, d=document.getElementById("dzData")?.textContent;
+  out.push(`<p class="pr-dzis">${d?`<b>${esc(d)}</b>`:""}${t?` · ${esc(t)}`:""}</p>`);
+  out.push(`<a class="pr alarm" href="tel:112"><span class="e" aria-hidden="true">📞</span><span><b>112 – Pomoc</b><small>Wypadek, pożar, zagrożenie życia</small></span><span class="s" aria-hidden="true">›</span></a>`);
+  if(WYL){ const n=(WYL.prad||[]).filter(w=>!w.odwolane&&dataGodz(w.do)>teraz&&wWirkowicach(w)&&dniDo(dataGodz(w.od))<=7)[0];
+    if(n){ const od=dataGodz(n.od); out.push(btn("⚡",`Brak prądu: ${esc(kiedy(od))}`,`${godzMin(od)}–${godzMin(dataGodz(n.do))}`,"co-slychac.html#wylaczenia","hot")); } }
+  if(DANE){
+    const {sm,par,zd}=DANE;
+    if(sm.length){ const tt=sm[0].d.getTime(), r=sm.filter(x=>x.d.getTime()===tt).map(x=>x.r).join(", "), n=dniDo(sm[0].d);
+      out.push(btn("🗑️",n===0?"Dziś wywóz śmieci":n===1?"Jutro wywóz śmieci":`Śmieci: ${esc(kiedy(sm[0].d))}`,esc(r)+(n===1?" · wystaw wieczorem":""),"smieci.html",n<=1?"hot":"")); }
+    const m=minutyTeraz=>mszeDnia(par,teraz).filter(g=>minuty(g)>minutyTeraz-30);
+    const dz=m(teraz.getHours()*60+teraz.getMinutes()), jutro=mszeDnia(par,new Date(dzis().getTime()+864e5));
+    if(dz.length||jutro.length) out.push(btn("⛪",dz.length?`Msza dziś: ${dz.join(", ")}`:`Msza jutro: ${jutro.join(", ")}`,"Kościół w Wirkowicach","parafia.html"));
+    const apt=zd.filter(p=>p.k==="apteka"&&otwarte(p.godziny,teraz)===true)[0];
+    if(apt) out.push(btn("💊",`Apteka: ${esc(apt.nazwa.replace(/\s*\(.*\)$/,"").replace(/^apteka\s+/i,""))}`,`${esc(apt.miejscowosc||"")} · ${esc(doKtorej(apt.godziny,teraz))}`,"zdrowie.html","",String(apt.telefon||"").replace(/[^\d+]/g,"")));
+  }
+  out.push(btn("✝️","Cmentarz","Znajdź grób bliskiej osoby","cmentarz.html"));
+  out.push(btn("📢","Ogłoszenia","Co słychać we wsi","co-slychac.html"));
+  el.innerHTML=out.join("");
+}
+addEventListener("tryb-prosty",()=>{ rysujProsty(); scrollTo(0,0); });
 let WYL=null;
 wczytajWylaczenia().then(w=>{ WYL=w; rysujDzis(); });
 function rysujDzis(){
@@ -349,6 +410,7 @@ function rysujDzis(){
   const apt=zd.filter(p=>p.k==="apteka"&&otwarte(p.godziny,teraz)===true)[0];
   if(apt) out.push(wiersz("apteka",`Apteka czynna teraz: <strong>${esc(apt.nazwa)}</strong><small>${esc(apt.miejscowosc||"")}${apt.odl<999?", ok. "+kmTxt(apt.odl):""} · ${esc(doKtorej(apt.godziny,teraz))}</small>`,"zdrowie.html"));
   document.getElementById("dzLista").innerHTML=out.join("")||'<p class="muted" style="margin:10px 0 0">Dziś nic szczególnego.</p>';
+  rysujProsty();
 }
 setInterval(rysujDzis,60e3);
 
@@ -366,7 +428,7 @@ async function pogoda(){
 function pokazPogode(p, stara){
   const {wsch:_w,zach:_z}=slonce(new Date()), _t=Date.now();
   const c={...p.current, is_day:_t>_w&&_t<_z?1:0}, d=p.daily, [ikona,opis]=OPIS(c.weather_code);   // dzień/noc liczony na teraz (kopia mogła być sprzed zmroku)
-  document.getElementById("pog").hidden=false; document.getElementById("progBtn").hidden=false;
+  document.getElementById("pog").hidden=false; document.getElementById("progBtn").hidden=false; setTimeout(rysujProsty,0);
   niebo(c, d);
   document.getElementById("pogIk").textContent=c.weather_code===0&&!c.is_day?"🌙":ikona;
   document.getElementById("pogT").textContent=st(c.temperature_2m);
@@ -556,6 +618,16 @@ function szukajWApce(q,L){
       :`<p class="nic" style="margin:0">Nic nie znalazłem. Spróbuj innego słowa, np. „apteka”, „gmina”, „msza”.</p>`;
   };
   inp.addEventListener("input",rysuj);
+  const nakl=document.getElementById("szukNakl"), lupka=document.getElementById("lupka");
+  const otworz=()=>{ nakl.hidden=false; document.documentElement.style.overflow="hidden"; indeksSzukania(); setTimeout(()=>inp.focus(),30); };
+  const zamknij=(czysc=true)=>{ nakl.hidden=true; document.documentElement.style.overflow=""; if(czysc){ inp.value=""; wyn.hidden=true; wyn.innerHTML=""; } };
+  lupka.addEventListener("click",otworz);
+  document.getElementById("szukX").addEventListener("click",()=>{ zamknij(); lupka.focus(); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!nakl.hidden){ zamknij(); lupka.focus(); } });
+  // po powrocie „Wstecz” przeglądarka przywraca stronę z pamięci — wtedy zawsze czysta strona główna, bez starych wyników
+  addEventListener("pageshow",()=>zamknij());
+  // przejście w wynik: zamykamy okno (żeby po powrocie go nie było)
+  wyn.addEventListener("click",e=>{ if(e.target.closest("a")) setTimeout(()=>zamknij(),300); });
   inp.addEventListener("focus",()=>indeksSzukania());   // przygotuj dane, zanim ktoś skończy pisać
 })();
 </script>

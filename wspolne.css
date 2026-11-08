@@ -184,3 +184,31 @@ footer{margin-top:36px;color:var(--muted);font-size:13px}
 .kartka .link+.wyslij{margin-top:8px}
 .nowe-plak{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:999px;background:var(--alarm);color:#fff;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;vertical-align:1px}
 .kartka .link:focus-visible,.kartka summary:focus-visible{outline:2px solid #9A4F10;outline-offset:2px}
+
+/* ===== Jasny motyw (Opcje → Motyw: Jasny): ciemniejsze kolory działów, żeby napisy były czytelne na jasnym tle ===== */
+:root[data-theme="light"] .h-nieb{--h:#2F6AA0} :root[data-theme="light"] .h-burs{--h:#A85A14} :root[data-theme="light"] .h-mieta{--h:#1E7F66}
+:root[data-theme="light"] .h-fiol{--h:#6347AE} :root[data-theme="light"] .h-ziel{--h:#3B7A4C} :root[data-theme="light"] .h-ind{--h:#3F55B5}
+:root[data-theme="light"] .h-szary{--h:#56605A} :root[data-theme="light"] .h-stal{--h:#475C7C} :root[data-theme="light"] .h-sepia{--h:#8E6128}
+:root[data-theme="light"] .h-zlot{--h:#7E6208} :root[data-theme="light"] .h-mor{--h:#17768A}
+/* ikony na kolorowym tle: białe zamiast ciemnych */
+:root[data-theme="light"] .naglowek>.ic, :root[data-theme="light"] .tiles.kolor .ic, :root[data-theme="light"] .tile.wiad-tile .ic,
+:root[data-theme="light"] .tile.notatki .ic, :root[data-theme="light"] .filtry button[aria-pressed="true"], :root[data-theme="light"] .zakl button[aria-selected="true"]{color:#fff}
+/* kartki z kalendarza */
+:root[data-theme="light"] .kal .k{color:#2F6AA0}
+:root[data-theme="light"] .kal .cnt{background:#DCEAF7;color:#1E4C78}
+:root[data-theme="light"] .kal.hot{border-color:#2F6AA0;background:color-mix(in srgb,#2F6AA0 10%,var(--panel))}
+:root[data-theme="light"] .kal.hot .cnt{background:#2F6AA0;color:#fff}
+/* strona główna: notatki, prognoza */
+:root[data-theme="light"] .tile.notatki{--h:#56605A;background:#E3E8E4;border-color:#C5CDC7}
+:root[data-theme="light"] .godz-pas .g .op, :root[data-theme="light"] .dni-prog .d .x .op{color:#2F6AA0}
+:root[data-theme="light"] .dni-prog .d .x .wi{color:#7E6208}
+/* Co słychać: prąd i woda */
+:root[data-theme="light"] .wyl .i{background:#F3E9C6;color:#7E6208} :root[data-theme="light"] .wyl .i.w{background:#D3EEF3;color:#17768A}
+:root[data-theme="light"] .wyl.nasze{border-color:#B08A10;background:#FBF3D9}
+/* Ciekawe miejsca: Green Velo */
+:root[data-theme="light"] .gv-fakty b{color:#9A4A10}
+/* cienie lżejsze na jasnym tle */
+:root[data-theme="light"] .kartka{box-shadow:0 6px 14px rgba(0,0,0,.18)}
+/* jasny motyw: znaczniki w kolorze działu — tekst w ciemnym odcieniu koloru, żeby był wyraźny */
+:root[data-theme="light"] .wew b, :root[data-theme="light"] .gv-fakty b.z, :root[data-theme="light"] .podzakl button[aria-pressed="true"]{color:color-mix(in srgb,var(--h) 70%,#000)}
+:root[data-theme="light"] .pill{color:color-mix(in srgb,var(--accent) 70%,#000)}

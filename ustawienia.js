@@ -6,27 +6,31 @@
 //  • pobierz najświeższe dane, instrukcja dodania apki do ekranu.
 // Wczytywany w <head>, więc ustawienia działają od razu, bez mignięcia.
 (function(){
-  const K_DUZE="wirk-duze", K_MOTYW="wirk-motyw", K_KONTR="wirk-kontrast", K_DALT="wirk-dalton", K_SPOK="wirk-spokoj";
+  const K_DUZE="wirk-duze", K_MOTYW="wirk-motyw", K_KONTR="wirk-kontrast", K_DALT="wirk-dalton", K_SPOK="wirk-spokoj", K_PROSTY="wirk-prosty";
   const get=k=>{ try{ return localStorage.getItem(k); }catch(e){ return null; } };
   const set=(k,v)=>{ try{ v===null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} };
   const root=document.documentElement;
-  const TYLKO_CIEMNY=true;   // na razie apka ma tylko ciemny motyw; false = wraca wybór motywu w panelu „Aa”
+  // Motyw: domyślnie ciemny; w Opcjach można włączyć jasny (lepiej czytelny w słońcu, wygodny dla części starszych osób)
   function zastosuj(){
-    const m=TYLKO_CIEMNY?"dark":get(K_MOTYW); if(m==="light"||m==="dark") root.setAttribute("data-theme",m); else root.removeAttribute("data-theme");
+    const m=get(K_MOTYW)==="light"?"light":"dark"; root.setAttribute("data-theme",m);
+    const tc=document.querySelector('meta[name="theme-color"]'); if(tc) tc.setAttribute("content",m==="light"?"#EDF0EB":"#131915");
     const d=get(K_DUZE); if(d==="1"||d==="2") root.setAttribute("data-duze",d); else root.removeAttribute("data-duze");
-    [[K_KONTR,"data-kontrast"],[K_DALT,"data-dalton"],[K_SPOK,"data-spokoj"]].forEach(([k,a])=>{ if(get(k)==="1") root.setAttribute(a,""); else root.removeAttribute(a); });
+    [[K_KONTR,"data-kontrast"],[K_DALT,"data-dalton"],[K_SPOK,"data-spokoj"],[K_PROSTY,"data-prosty"]].forEach(([k,a])=>{ if(get(k)==="1") root.setAttribute(a,""); else root.removeAttribute(a); });
   }
   zastosuj();
   // Style trybów — od razu w <head>, żeby nie było mignięcia zwykłego wyglądu
   const TRYBY=document.createElement("style"); TRYBY.textContent=`
   html[data-duze="1"] .wrap, html[data-duze="1"] .top, html[data-duze="1"] .card{zoom:1.22}
   html[data-duze="2"] .wrap, html[data-duze="2"] .top, html[data-duze="2"] .card{zoom:1.42}
-  :root:root[data-kontrast]{--muted:#E2E8E4;--line:#8A988F;--fg:#FFFFFF}
+  :root:root[data-kontrast]:not([data-theme="light"]){--muted:#E2E8E4;--line:#8A988F;--fg:#FFFFFF}
+  :root:root[data-kontrast][data-theme="light"]{--muted:#2B342E;--line:#6F7C74;--fg:#000000;--panel:#FFFFFF}
   html[data-kontrast] .tile, html[data-kontrast] .card, html[data-kontrast] .kal{border-width:2px}
   html[data-kontrast] a{text-decoration-thickness:2px}
-  :root:root[data-dalton]{--green:#7FB2FF;--green-soft:#1A2B44}
+  :root:root[data-dalton]:not([data-theme="light"]){--green:#7FB2FF;--green-soft:#1A2B44}
+  :root:root[data-dalton][data-theme="light"]{--green:#1F5FBF;--green-soft:#DCE8FA}
   html[data-dalton] .stan.tak::before{content:"✓ "}
   html[data-dalton] .stan.nie{background:#3D2A12;color:#F5B25B}
+  html[data-dalton][data-theme="light"] .stan.nie{background:#FBE8CF;color:#8A4A00}
   html[data-dalton] .stan.nie::before{content:"✕ "}
   html[data-spokoj] *, html[data-spokoj] *::before, html[data-spokoj] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   html[data-spokoj]::view-transition-group(*), html[data-spokoj]::view-transition-old(*), html[data-spokoj]::view-transition-new(*){animation:none!important}`;
@@ -91,7 +95,9 @@
     const seg=(k,opcje)=>`<div class="ust-seg" data-k="${k}">${opcje.map(([v,t])=>`<button type="button" data-v="${v}">${t}</button>`).join("")}</div>`;
     const iOS=/iPhone|iPad|iPod/i.test(navigator.userAgent);
     p.innerHTML=`<div class="ust-gl"><h3>Opcje</h3><button type="button" class="x" aria-label="Zamknij">×</button></div>
+      <p>Tryb prosty</p>${seg("prosty",[["0","Wyłączony"],["1","Włączony"]])}<div class="opis">Strona główna z kilkoma dużymi przyciskami: 112, śmieci, msza, apteka, cmentarz. Wygodne dla babci i dziadka.</div>
       <p>Wielkość tekstu</p>${seg("duze",[["0","Zwykły"],["1","Duży"],["2","Bardzo duży"]])}
+      <p>Motyw</p>${seg("motyw",[["0","Ciemny"],["light","Jasny"]])}<div class="opis">Jasny lepiej widać w słońcu, na dworze.</div>
       <p>Kontrast</p>${seg("kontrast",[["0","Zwykły"],["1","Wysoki"]])}<div class="opis">Jaśniejsze napisy i wyraźniejsze ramki.</div>
       <p>Kolory</p>${seg("dalton",[["0","Zwykłe"],["1","Dla daltonistów"]])}<div class="opis">Zamiast zielonego i czerwonego: niebieski i pomarańczowy, ze znakami ✓ i ✕.</div>
       <p>Animacje</p>${seg("spokoj",[["0","Włączone"],["1","Wyłączone"]])}<div class="opis">Nic się nie rusza na ekranie: mniej zawrotów głowy, mniej zużycia baterii.</div>
@@ -102,7 +108,7 @@
     // Na stronie głównej — przycisk „Opcje” na samym dole strony; na podstronach — w dolnym pasku
     if(glowna){ (document.querySelector("main")||document.body).appendChild(b); document.body.append(tlo,p); }
     else { bar.querySelector(".pasek-in").append(b); document.body.classList.add("z-paskiem"); document.body.append(bar,tlo,p); }
-    const KLUCZE={duze:K_DUZE,kontrast:K_KONTR,dalton:K_DALT,spokoj:K_SPOK};
+    const KLUCZE={prosty:K_PROSTY,duze:K_DUZE,motyw:K_MOTYW,kontrast:K_KONTR,dalton:K_DALT,spokoj:K_SPOK};
     const odswiez=()=>{
       Object.entries(KLUCZE).forEach(([k,kl])=>{ const v=get(kl)||"0";
         p.querySelectorAll(`[data-k="${k}"] button`).forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.v===v))); });
@@ -113,6 +119,7 @@
       const x=e.target.closest("button[data-v]"); if(!x) return;
       const k=x.parentElement.dataset.k; set(KLUCZE[k],x.dataset.v==="0"?null:x.dataset.v);
       zastosuj(); odswiez();
+      if(k==="prosty") window.dispatchEvent(new Event("tryb-prosty"));
       window.dispatchEvent(new Event("resize"));   // mapa cmentarza przelicza wymiary
     });
     const otworz=v=>{ p.hidden=!v; tlo.hidden=!v; b.setAttribute("aria-expanded",String(v)); if(v){ odswiez(); p.querySelector(".x").focus(); } };
