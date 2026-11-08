@@ -26,7 +26,7 @@
   .pasek-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 48px;gap:6px}
   .pasek button{height:38px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--fg);
     font:600 15px/1 "Source Sans 3","Segoe UI",system-ui,sans-serif;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer}
-  .pasek button svg{width:17px;height:17px}
+  .pasek button svg{width:17px;height:17px;display:inline-block;background:none;cursor:inherit;touch-action:auto;flex:none}
   .pasek button:disabled{opacity:.4;cursor:default}
   .pasek .ust-btn{font:700 16px/1 Georgia,serif}
   .pasek button:focus-visible,.ust-pan button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
