@@ -185,6 +185,12 @@ footer{margin-top:36px;color:var(--muted);font-size:13px}
 .nowe-plak{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:999px;background:var(--alarm);color:#fff;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;vertical-align:1px}
 .kartka .link:focus-visible,.kartka summary:focus-visible{outline:2px solid #9A4F10;outline-offset:2px}
 
+/* Czytaj na głos */
+.czytaj{display:inline-flex;align-items:center;gap:4px;align-self:flex-start;margin:6px 0 2px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--fg);font:600 14px/1.2 var(--f-body);cursor:pointer}
+.czytaj.gra{border-color:var(--accent);color:var(--accent)}
+.kartka .czytaj{background:transparent;border:1.5px solid #2A2216;color:#2A2216}
+.kartka .czytaj.gra{background:#2A2216;color:#F3EAD2}
+.bez-mowy .czytaj{display:none!important}
 /* ===== Jasny motyw (Opcje → Motyw: Jasny): ciemniejsze kolory działów, żeby napisy były czytelne na jasnym tle ===== */
 :root[data-theme="light"] .h-nieb{--h:#2F6AA0} :root[data-theme="light"] .h-burs{--h:#A85A14} :root[data-theme="light"] .h-mieta{--h:#1E7F66}
 :root[data-theme="light"] .h-fiol{--h:#6347AE} :root[data-theme="light"] .h-ziel{--h:#3B7A4C} :root[data-theme="light"] .h-ind{--h:#3F55B5}

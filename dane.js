@@ -149,6 +149,30 @@ const worek=r=>{ const c=kolorSmieci(r); return `<svg class="worek" viewBox="0 0
   <path class="faldy" d="M6 11.5c.6 2.4 1.9 4.6 3.7 6.2M14.2 11.8c-.4 1.8-1.2 3.4-2.4 4.7" stroke="rgba(255,255,255,.35)" stroke-width=".9" fill="none" stroke-linecap="round"/>
   <text class="wl" x="10" y="17.6" text-anchor="middle">${literaSmieci(r)}</text></svg>`; };
 const dniDo=d=>Math.round((d-dzis())/864e5);
+// ===== Czytaj na głos: przycisk 🔊 przy ogłoszeniach, wydarzeniach i historii — polski głos telefonu =====
+// Przycisk: <button class="czytaj" data-czytaj="tekst">. Bez obsługi mowy w przeglądarce przyciski się nie pokazują.
+const MOWA="speechSynthesis" in window&&"SpeechSynthesisUtterance" in window;
+if(!MOWA) document.documentElement.classList.add("bez-mowy");
+const przyciskCzytaj=tekst=>MOWA&&tekst?`<button type="button" class="czytaj" data-czytaj="${esc(tekst)}" aria-label="Przeczytaj na głos">🔊 Posłuchaj</button>`:"";
+let _czyta=null;
+function glosPL(){ const v=speechSynthesis.getVoices(); return v.find(x=>/^pl/i.test(x.lang)&&/female|zosia|ewa|paulina|kobieta/i.test(x.name))||v.find(x=>/^pl/i.test(x.lang))||null; }
+function zatrzymajCzytanie(){ if(!MOWA) return; speechSynthesis.cancel(); if(_czyta){ _czyta.classList.remove("gra"); _czyta.textContent="🔊 Posłuchaj"; } _czyta=null; }
+function czytaj(tekst,btn){
+  if(_czyta===btn){ zatrzymajCzytanie(); return; }        // drugie dotknięcie = stop
+  zatrzymajCzytanie();
+  // dzielimy na zdania — długie wypowiedzi niektóre telefony urywają
+  const kawalki=(tekst.replace(/\s+/g," ").match(/[^.!?…]+[.!?…]*\s*/g)||[tekst]).reduce((a,z)=>{ if(a.length&&(a[a.length-1]+z).length<220) a[a.length-1]+=z; else a.push(z); return a; },[]);
+  const g=glosPL(); _czyta=btn; btn.classList.add("gra"); btn.textContent="⏹ Zatrzymaj";
+  kawalki.forEach((k,i)=>{ const u=new SpeechSynthesisUtterance(k.trim()); u.lang="pl-PL"; if(g) u.voice=g; u.rate=.95;
+    if(i===kawalki.length-1) u.onend=()=>{ if(_czyta===btn) zatrzymajCzytanie(); };
+    u.onerror=()=>{ if(_czyta===btn) zatrzymajCzytanie(); };
+    speechSynthesis.speak(u); });
+}
+if(MOWA){
+  speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>{};   // lista głosów ładuje się z opóźnieniem
+  document.addEventListener("click",e=>{ const b=e.target.closest(".czytaj"); if(b){ e.preventDefault(); czytaj(b.dataset.czytaj,b); } });
+  addEventListener("pagehide",zatrzymajCzytanie);              // wyjście ze strony = koniec czytania
+}
 // --- Wyłączenia prądu (PGE) i komunikaty o wodzie (GPGK, gmina) — plik wylaczenia.json odświeża akcja GitHub co 30 min ---
 let _wyl=null;
 function wczytajWylaczenia(){

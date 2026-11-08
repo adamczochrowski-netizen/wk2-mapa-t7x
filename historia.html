@@ -122,7 +122,7 @@ const FOTO=[];   // wszystkie zdjęcia: {src, mini, podpis, autor, tytul}
   out.innerHTML=(h.przyklad?notkaPrzyklad:"")+'<div class="tl">'+wpisy.map(r=>{
     const linki=String(r.zdjecia||"").split(/[\s,;]+/).map(l=>obrazek(l)).filter(Boolean);
     const idx=linki.map(src=>{ FOTO.push({src, mini:src.replace(/sz=w\d+/,"sz=w400"), podpis:r.podpis, autor:r.autor, tytul:r.tytul}); return FOTO.length-1; });
-    return `<article class="ev"><div class="yr">${esc(r.rok||"")}</div><h2>${esc(r.tytul)}</h2>
+    return `<article class="ev"><div class="yr">${esc(r.rok||"")}</div><h2>${esc(r.tytul)}</h2>${r.tresc?przyciskCzytaj(`${r.rok?r.rok+". ":""}${r.tytul}. ${r.tresc}`):""}
       ${r.tresc?`<p class="t">${esc(r.tresc)}</p>`:""}
       ${film(r)}
       ${idx.length?`<div class="ph">${idx.map(i=>`<button data-i="${i}" aria-label="Powiększ zdjęcie"><img src="${esc(FOTO[i].mini)}" alt="${esc(r.podpis||r.tytul)}" loading="lazy"></button>`).join("")}</div>`:""}
