@@ -75,22 +75,44 @@ const KOLUMNY={Ogloszenia:["data","tytul","tresc","wazne_do","link"],Wydarzenia:
   Zdrowie:["rodzaj","nazwa","miejscowosc","adres","telefon","godziny","wspolrzedne","opis","zrodlo"],
   Urzedowe:["rodzaj","nazwa","miejscowosc","adres","telefon","godziny","wspolrzedne","opis","zrodlo"]};
 
-// Zwraca {wiersze, przyklad:true/false, zapisane:true/false}. Bez internetu: ostatnia zapisana kopia.
-async function wczytaj(karta){
-  if(!ARKUSZ_ID) return {wiersze:PRZYKLADY[karta]||[], przyklad:true};
-  const klucz="wirk-"+karta;
+// Zwraca {wiersze, przyklad:true/false, zapisane:true/false}.
+// Szybko: jeśli w telefonie jest kopia młodsza niż 30 minut — pokazujemy ją od razu, a świeżą pobieramy w tle
+// (zobaczysz ją przy następnym wejściu). Starsza kopia albo brak — czekamy na internet (najwyżej 6 s, potem kopia).
+// Odświeżenie pociągnięciem w dół ustawia „wirk-swieze” — wtedy zawsze prosto z arkusza.
+const SWIEZE_MIN=30, _wczytane=new Map();
+// flagę czytamy raz, przy wczytaniu strony — dotyczy wszystkich kart na tej jednej stronie
+const _SWIEZE=(()=>{ try{ const v=sessionStorage.getItem("wirk-swieze")==="1"; sessionStorage.removeItem("wirk-swieze"); return v; }catch(e){ return false; } })();
+function wczytaj(karta){
+  if(!_wczytane.has(karta)) _wczytane.set(karta,_wczytaj(karta));   // ta sama karta na jednej stronie — jedno pobranie
+  return _wczytane.get(karta);
+}
+function _kopia(klucz){ try{ const z=JSON.parse(localStorage.getItem(klucz)||"null"); if(!z) return null;
+  return Array.isArray(z)?{t:0,w:z}:z; }catch(e){ return null; } }   // stary zapis (sama tablica) = bardzo stara kopia
+async function _zArkusza(karta, klucz, limitMs){
+  const url=`https://docs.google.com/spreadsheets/d/${ARKUSZ_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(karta)}`;
+  const ctrl=typeof AbortController!=="undefined"?new AbortController():null;
+  const stop=limitMs&&ctrl?setTimeout(()=>ctrl.abort(),limitMs):null;
   try{
-    const url=`https://docs.google.com/spreadsheets/d/${ARKUSZ_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(karta)}`;
-    const res=await fetch(url,{cache:"no-store"}); if(!res.ok) throw new Error(res.status);
+    const res=await fetch(url,{cache:"no-store",signal:ctrl?ctrl.signal:undefined}); if(!res.ok) throw new Error(res.status);
     const tekst=await res.text();
     const naglowki=(tekst.split("\n")[0]||"").toLowerCase();
     if(!naglowki.includes('"'+WYMAGANE[karta]+'"') && !naglowki.split(",").map(s=>s.trim()).includes(WYMAGANE[karta]))
       return {wiersze:PRZYKLADY[karta]||[], przyklad:true, brakKarty:true};   // karty jeszcze nie ma w arkuszu
     const wiersze=parseCSV(tekst, karta);
-    try{ localStorage.setItem(klucz,JSON.stringify(wiersze)); }catch(e){}
+    try{ localStorage.setItem(klucz,JSON.stringify({t:Date.now(),w:wiersze})); }catch(e){}
     return {wiersze, przyklad:false};
-  }catch(e){
-    try{ const z=JSON.parse(localStorage.getItem(klucz)||"null"); if(z) return {wiersze:z, przyklad:false, zapisane:true}; }catch(_){}
+  } finally { if(stop) clearTimeout(stop); }
+}
+async function _wczytaj(karta){
+  if(!ARKUSZ_ID) return {wiersze:PRZYKLADY[karta]||[], przyklad:true};
+  const klucz="wirk-"+karta, kopia=_kopia(klucz);
+  if(kopia&&!_SWIEZE&&Date.now()-kopia.t<SWIEZE_MIN*60e3){
+    _zArkusza(karta,klucz).catch(()=>{});            // w tle: świeża kopia na następny raz
+    return {wiersze:kopia.w, przyklad:false};
+  }
+  try{ return await _zArkusza(karta,klucz,kopia?6000:0); }
+  catch(e){
+    if(kopia) return {wiersze:kopia.w, przyklad:false, zapisane:true};
     return {wiersze:[], przyklad:false, blad:true};
   }
 }

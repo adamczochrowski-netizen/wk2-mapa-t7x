@@ -82,11 +82,22 @@ h2{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.25;
 .coords{font-family:ui-monospace,Consolas,monospace;font-size:18px;font-weight:700;user-select:all;margin:6px 0}
 footer{margin-top:36px;color:var(--muted);font-size:13px}
 
+/* ===== Płynne przejścia między stronami (Chrome/Android, nowsze iPhone'y; gdzie nie działa — zwykłe przejście) ===== */
+@view-transition{navigation:auto}
+@media (prefers-reduced-motion: no-preference){
+  ::view-transition-old(root){animation:vt-wyjscie .16s ease-in both}
+  ::view-transition-new(root){animation:vt-wejscie .24s ease-out both}
+}
+@media (prefers-reduced-motion: reduce){ ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important} }
+@keyframes vt-wyjscie{to{opacity:0}}
+@keyframes vt-wejscie{from{opacity:0;transform:translateY(10px)}}
+.pasek{view-transition-name:pasek}   /* dolny pasek stoi w miejscu, zmienia się tylko treść */
 /* ===== Ruch: wejście ekranu, reakcja na dotyk, podświetlenie pilnych rzeczy ===== */
 @keyframes wejscie{from{opacity:.55;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes pilne{0%,100%{box-shadow:0 0 0 0 var(--accent)}60%{box-shadow:0 0 0 7px transparent}}
 @media (prefers-reduced-motion: no-preference){
   .wrap{animation:wejscie .35s ease-out both}
+  @supports (view-transition-name:none){ .wrap{animation:none} }
   .tiles>*,.list>*,.news>*{animation:wejscie .45s ease-out both}
   .tiles>:nth-child(2),.list>:nth-child(2),.news>:nth-child(2){animation-delay:.05s}
   .tiles>:nth-child(3),.list>:nth-child(3),.news>:nth-child(3){animation-delay:.1s}

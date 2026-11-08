@@ -331,7 +331,8 @@ addEventListener("beforeinstallprompt",e=>{ e.preventDefault(); PROSBA_INSTALACJ
   const ud='<svg class="ik-ud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 11v9h14v-9"/></svg>';
   let h;
   if(wAplikacji()) h=`<b>Otwórz apkę w przeglądarce.</b> W Messengerze i na Facebooku nie działa lokalizacja ani kalendarz. Dotknij <b>⋯</b> u góry ekranu i wybierz <b>Otwórz w ${iPhone()?"Safari":"przeglądarce"}</b>.`;
-  else if(iPhone()) h=`<b>Dodaj Moje Wirkowice do ekranu.</b> Dotknij <b>Udostępnij</b> ${ud} (w nowszym Safari najpierw <b>⋯</b>), potem <b>Do ekranu początkowego</b>. Apka dostanie własną ikonę.`;
+  else if(iPhone()&&/FxiOS|CriOS|EdgiOS|OPiOS/.test(navigator.userAgent)) h=`<b>Dodaj Moje Wirkowice do ekranu.</b> Najlepiej działa z <b>Safari</b>: otwórz tę stronę w Safari i tam dotknij <b>Udostępnij</b> ${ud} → <b>Do ekranu głównego</b>, zostaw włączone <b>Otwórz jako aplikację www</b> i dotknij <b>Dodaj</b>.`;
+  else if(iPhone()) h=`<b>Dodaj Moje Wirkowice do ekranu.</b> Dotknij <b>Udostępnij</b> ${ud} (w nowszym Safari najpierw <b>⋯</b>), potem <b>Do ekranu głównego</b>, zostaw włączone <b>Otwórz jako aplikację www</b> i dotknij <b>Dodaj</b>. Apka dostanie własną ikonę.`;
   else h=`<b>Dodaj Moje Wirkowice do ekranu.</b> Dotknij <b>⋮</b> w prawym górnym rogu i wybierz <b>Dodaj do ekranu głównego</b> albo <b>Zainstaluj aplikację</b>.<br><button type="button" class="btn primary" id="bInstaluj"${PROSBA_INSTALACJI?"":" hidden"}>Zainstaluj</button>`;
   el.innerHTML=`<p>${h}</p><button type="button" class="x" aria-label="Zamknij podpowiedź">×</button>`; el.hidden=false;
   el.querySelector(".x").onclick=()=>{ el.hidden=true; try{ localStorage.setItem("wirk-instaluj-x","1"); }catch(e){} };

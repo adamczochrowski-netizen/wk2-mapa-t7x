@@ -42,8 +42,10 @@
   .ust-pan h3{margin:0 0 10px;font:700 16px/1.2 Bitter,Georgia,serif}
   .ust-pan p{margin:12px 0 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
   .ust-seg{display:flex;gap:6px}
+  .ust-inst{font-size:14px;line-height:1.45;color:var(--fg)}
   .ust-seg button{flex:1;padding:9px 6px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:600 14px/1.2 inherit;cursor:pointer}
   .ust-seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}`;
+  const zIkony=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;   // apka uruchomiona z ikony
   function ui(){
     const st=document.createElement("style"); st.textContent=CSS; document.head.appendChild(st);
     const strz=d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
@@ -59,7 +61,10 @@
     b.setAttribute("aria-label","Ustawienia widoku: duży tekst i motyw"); b.setAttribute("aria-expanded","false");
     const p=document.createElement("div"); p.className="ust-pan"; p.hidden=true; p.setAttribute("role","dialog"); p.setAttribute("aria-label","Ustawienia widoku");
     p.innerHTML=`<h3>Wygląd</h3>
-      <p>Wielkość tekstu</p><div class="ust-seg" data-k="duze"><button type="button" data-v="0">Zwykły</button><button type="button" data-v="1">Duży</button></div>`+(TYLKO_CIEMNY?"":`
+      <p>Wielkość tekstu</p><div class="ust-seg" data-k="duze"><button type="button" data-v="0">Zwykły</button><button type="button" data-v="1">Duży</button></div>`+(zIkony?"":`
+      <p>Apka na ekranie telefonu</p><div class="ust-inst">${/iPhone|iPad|iPod/i.test(navigator.userAgent)
+        ?"W Safari dotknij <b>Udostępnij</b> (kwadrat ze strzałką; w nowszym Safari najpierw <b>⋯</b> w prawym dolnym rogu), przewiń w dół i wybierz <b>Do ekranu głównego</b>, zostaw włączone <b>Otwórz jako aplikację www</b> i dotknij <b>Dodaj</b>. Z Firefoksa czy Chrome też się da, ale najlepiej działa z Safari."
+        :"Dotknij <b>⋮</b> w prawym górnym rogu przeglądarki i wybierz <b>Dodaj do ekranu głównego</b> albo <b>Zainstaluj aplikację</b>."}</div>`)+(TYLKO_CIEMNY?"":`
       <p>Motyw</p><div class="ust-seg" data-k="motyw"><button type="button" data-v="auto">Jak telefon</button><button type="button" data-v="light">Jasny</button><button type="button" data-v="dark">Ciemny</button></div>`);
     // Na stronie głównej bez paska — tylko pływające „Aa”; na podstronach pasek Wstecz / Dalej / Aa
     if(glowna){ b.classList.add("plywa"); document.body.append(b,p); }
@@ -94,7 +99,7 @@
     addEventListener("touchmove",e=>{ if(y0===null) return; dy=e.touches[0].clientY-y0;
       if(dy<=0||scrollY>0){ k.style.opacity=0; return; }
       const p=Math.min(dy,130); k.style.opacity=Math.min(1,p/70); k.style.transform=`translateY(${p*.45}px) rotate(${p*2.4}deg)`; k.classList.toggle("gotowe",dy>95); },{passive:true});
-    addEventListener("touchend",()=>{ if(y0!==null&&dy>95){ k.classList.add("kreci"); setTimeout(()=>location.reload(),150); } else { k.style.opacity=0; k.style.transform=""; } y0=null; dy=0; });
+    addEventListener("touchend",()=>{ if(y0!==null&&dy>95){ k.classList.add("kreci"); try{ sessionStorage.setItem("wirk-swieze","1"); }catch(e){} setTimeout(()=>location.reload(),150); } else { k.style.opacity=0; k.style.transform=""; } y0=null; dy=0; });
   }
   const start=()=>{ ui(); odswiezanie(); };
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",start); else start();
