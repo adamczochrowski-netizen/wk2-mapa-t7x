@@ -46,6 +46,7 @@
 .news .t{font-weight:700;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .news .k{display:flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
 .na-skroty{margin:4px 0 8px}
+.ukryte{display:none!important}
 /* ===== Tryb prosty: tylko duże przyciski ===== */
 html:not([data-prosty]) #prosty{display:none}
 html[data-prosty] main.wrap > *:not(.logo):not(#prosty):not(.opcje-dol):not(.gora):not(.szuk-nakl){display:none!important}
@@ -65,9 +66,9 @@ html[data-prosty] main.wrap > *:not(.logo):not(#prosty):not(.opcje-dol):not(.gor
 .pr:active{transform:scale(.98)}
 /* Szukaj w całej apce */
 /* Lupka nad logo i okno wyszukiwania na cały ekran */
-.gora{display:flex;justify-content:flex-end;margin:-6px 0 -2px}
-.lupka{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--fg);font:600 15px/1 var(--f-body);cursor:pointer}
-.lupka svg{width:18px;height:18px}
+.gora{margin:0 0 16px}
+.lupka{display:flex;align-items:center;gap:10px;width:100%;height:48px;padding:0 16px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font:500 16px/1 var(--f-body);cursor:pointer;text-align:left}
+.lupka svg{width:20px;height:20px;flex:none}
 .lupka:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .szuk-nakl{position:fixed;inset:0;z-index:90;background:var(--bg);overflow:auto;padding:calc(12px + env(safe-area-inset-top,0px)) calc(16px + env(safe-area-inset-right,0px)) 24px calc(16px + env(safe-area-inset-left,0px))}
 .szuk-nakl[hidden]{display:none}
@@ -199,12 +200,12 @@ html[data-prosty] main.wrap > .szuk-nakl:not([hidden]){display:block!important}
 </style>
 
 <main class="wrap">
-  <div class="gora"><button type="button" class="lupka" id="lupka" aria-label="Szukaj w apce" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Szukaj</span></button></div>
   <header class="logo">
     <h1 aria-label="Moje Wirkowice">MOJE<svg class="serce" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8.5-5.3-8.5-11.2A4.8 4.8 0 0 1 12 6.6a4.8 4.8 0 0 1 8.5 3.2C20.5 15.7 12 21 12 21z"/></svg>WIRKOWICE</h1>
     <p class="eyebrow">Wirkowice Pierwsze · Wirkowice Drugie</p>
   </header>
   <p class="lead">Nasza wieś w jednym miejscu: historia, ciekawe miejsca, parafia i cmentarz, ważne numery.</p>
+  <div class="gora"><button type="button" class="lupka" id="lupka" aria-label="Szukaj w apce" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Szukaj w apce: gmina, apteka, msza…</span></button></div>
   <section id="prosty" aria-label="Najważniejsze"></section>
   <div class="szuk-nakl" id="szukNakl" hidden role="dialog" aria-modal="true" aria-label="Szukaj w apce">
     <div class="szuk-gl">
@@ -254,7 +255,8 @@ html[data-prosty] main.wrap > .szuk-nakl:not([hidden]){display:block!important}
     </div>
   </div>
 
-  <section class="moje" id="moje" hidden aria-label="Moje notatki">
+  <!-- Moje notatki: na razie ukryte (decyzja z 2026-11-08); żeby wróciły — usuń klasę „ukryte” tutaj i przy kafelku -->
+  <section class="moje ukryte" id="moje" hidden aria-label="Moje notatki">
     <div class="moje-gl"><h2>Moje notatki</h2><a href="notatki.html">Wszystkie →</a></div>
     <div class="moje-lista" id="mojeLista"></div>
   </section>
@@ -286,7 +288,7 @@ html[data-prosty] main.wrap > .szuk-nakl:not([hidden]){display:block!important}
       <span class="big" aria-hidden="true">›</span>
     </a>
 
-    <a class="tile wide notatki" href="notatki.html">
+    <a class="tile wide notatki ukryte" href="notatki.html">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v4h4M8 12h8M8 16h5"/></svg></span>
       <span><h2>Moje notatki</h2><p id="notatkiOpis">Przypomnienia, tylko w tym telefonie.</p></span>
       <span class="big" id="ileNotatek" aria-hidden="true">+</span>
@@ -580,7 +582,6 @@ const STALE=[
  ["Historia Wirkowic","dzieje wsi, zdjęcia","historia.html","historia dzieje zdjecia stare wies",""],
  ["Ciekawe miejsca i noclegi","Green Velo, kapliczki, noclegi","miejsca.html","miejsca green velo rower szlak kapliczka nocleg agroturystyka",""],
  ["Wiadomości","Polska, świat, religia, rolnicze","wiadomosci.html","wiadomosci news polska swiat rolnicze religia",""],
- ["Moje notatki","przypomnienia","notatki.html","notatki notatka przypomnienie",""],
 ];
 let SZUK=null;
 async function indeksSzukania(){
