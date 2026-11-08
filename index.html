@@ -372,6 +372,14 @@ const ustaw=(id,t,m)=>{ const a=document.getElementById(id); a.querySelector(".t
   if(ogl.length&&NOWE.has(kluczWpisu(ogl[0]))) document.querySelector("#nOgl .k").insertAdjacentHTML("beforeend",'<span class="nowe-plak">Nowe</span>');
 
 })();
+// „Rozgrzewanie”: gdy strona główna już stoi, po cichu pobieramy dane wszystkich działów,
+// żeby po wejściu w Zdrowie, Historię, Parafię… treść była od razu (bez „Wczytuję…”).
+(()=>{
+  const KARTY=["Zdrowie","Urzedowe","Historia","Parafia","Noclegi","Miejsca","Kontakty","Smieci","Ogloszenia","Wydarzenia"];
+  const start=()=>KARTY.reduce((p,k)=>p.then(()=>wczytaj(k).catch(()=>{})),Promise.resolve());   // po kolei, żeby nie zatkać łącza
+  const poZaladowaniu=()=>("requestIdleCallback" in window)?requestIdleCallback(start,{timeout:3000}):setTimeout(start,1500);
+  if(document.readyState==="complete") poZaladowaniu(); else addEventListener("load",poZaladowaniu);
+})();
 </script>
 
 </body>
