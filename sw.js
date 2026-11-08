@@ -3,7 +3,7 @@
 // Nowe wydanie apki i tak dociera od razu: zmienia się WERSJA, więc telefon pobiera cały komplet od nowa.
 // Czcionki i ikony: z pamięci (rzadko się zmieniają).
 // WERSJA zmienia się automatycznie przy każdym budowaniu (zbuduj.sh), co odświeża pamięć w telefonach.
-const WERSJA = "262071526a";
+const WERSJA = "c6a37ba4d2";
 const CACHE = "wirkowice-" + WERSJA;
 const PLIKI = ["./", "index.html", "historia.html", "miejsca.html", "kosciol.html", "parafia.html",
   "cmentarz.html", "alarmowe.html", "co-slychac.html", "smieci.html", "notatki.html", "zdrowie.html", "o-wirkowicach.html", "urzedowe.html", "wiadomosci.html", "wspolne.css", "dane.js", "godziny.js", "ustawienia.js", "manifest.json", "ikona-192.png", "ikona-512.png", "ikona-180.png"];
