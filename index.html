@@ -282,11 +282,14 @@ setInterval(rysujDzis,60e3);
 const POGODA="https://api.open-meteo.com/v1/forecast?latitude=50.8722&longitude=23.0737&current=temperature_2m,weather_code,is_day&daily=weather_code,sunrise,sunset,temperature_2m_max,temperature_2m_min,precipitation_sum,wind_gusts_10m_max&models=icon_seamless&timezone=Europe%2FWarsaw&forecast_days=2";   // ICON (DWD): gęsta siatka ok. 2 km nad Polską, najbliżej pomiarów IMGW
 const OPIS=c=>c===0?["☀️","Bezchmurnie"]:c<=2?["🌤️","Niewielkie zachmurzenie"]:c===3?["☁️","Pochmurno"]:c<=48?["🌫️","Mgła"]:c<=57?["🌦️","Mżawka"]:c<=67?["🌧️","Deszcz"]:c<=77?["🌨️","Śnieg"]:c<=82?["🌧️","Przelotny deszcz"]:c<=86?["🌨️","Przelotny śnieg"]:["⛈️","Burza"];
 const st=x=>Math.round(x)+"°";
+// Najpierw od razu ostatnia zapisana prognoza (bez mignięcia innego nieba), potem świeża z sieci
+function pogodaZPamieci(){ try{ const z=JSON.parse(localStorage.getItem("wirk-pogoda")||"null"); if(z&&Date.now()-z.t<36e5*12) return z; }catch(e){} return null; }
 async function pogoda(){
-  let p=null, stara=false;
-  try{ const r=await fetch(POGODA); if(!r.ok) throw 0; p=await r.json(); try{ localStorage.setItem("wirk-pogoda",JSON.stringify({t:Date.now(),p})); }catch(e){} }
-  catch(e){ try{ const z=JSON.parse(localStorage.getItem("wirk-pogoda")||"null"); if(z&&Date.now()-z.t<36e5*12){ p=z.p; stara=new Date(z.t); } }catch(e2){} }
-  if(!p) return;
+  const z=pogodaZPamieci(); if(z) pokazPogode(z.p, Date.now()-z.t>36e5?new Date(z.t):false);
+  try{ const r=await fetch(POGODA); if(!r.ok) throw 0; const p=await r.json(); try{ localStorage.setItem("wirk-pogoda",JSON.stringify({t:Date.now(),p})); }catch(e){} pokazPogode(p,false); }
+  catch(e){ if(z) pokazPogode(z.p,new Date(z.t)); }
+}
+function pokazPogode(p, stara){
   const c=p.current, d=p.daily, [ikona,opis]=OPIS(c.weather_code);
   document.getElementById("pog").hidden=false;
   niebo(c, d);
@@ -304,11 +307,22 @@ async function pogoda(){
   if(!document.querySelector(".zrodlo-pog")) document.querySelector(".dzis").insertAdjacentHTML("beforeend",'<p class="zrodlo-pog">Pogoda: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></p>');
 }
 // Kolor nieba: noc / świt i zmierzch / pochmurno / deszcz / pogodnie. Bez prognozy — z samej godziny.
+// Wschód i zachód słońca w Wirkowicach policzone z daty (wzór astronomiczny, dokładność ok. 1–2 min)
+function slonce(dt){
+  const rad=Math.PI/180, lat=50.8722, lon=23.0737, d0=Date.UTC(dt.getFullYear(),dt.getMonth(),dt.getDate());
+  const n=Math.ceil(d0/864e5+2440587.5-2451545.0+0.0008), J=n-lon/360, M=(357.5291+0.98560028*J)%360;
+  const C=1.9148*Math.sin(M*rad)+0.02*Math.sin(2*M*rad)+0.0003*Math.sin(3*M*rad), L=(M+C+180+102.9372)%360;
+  const Jt=2451545+J+0.0053*Math.sin(M*rad)-0.0069*Math.sin(2*L*rad), dek=Math.asin(Math.sin(L*rad)*Math.sin(23.44*rad));
+  const w=Math.acos((Math.sin(-0.833*rad)-Math.sin(lat*rad)*Math.sin(dek))/(Math.cos(lat*rad)*Math.cos(dek)))/rad;
+  const ms=j=>(j-2440587.5)*864e5; return {wsch:ms(Jt-w/360), zach:ms(Jt+w/360)};
+}
 function niebo(c,d){
-  const el=document.getElementById("niebo"), t=Date.now(), h=new Date().getHours();
-  let k = h>=7&&h<16 ? "" : "noc";
-  if(d&&d.sunrise){ const wsch=new Date(d.sunrise[0]).getTime(), zach=new Date(d.sunset[0]).getTime(), m=45*60e3;
-    k = Math.abs(t-wsch)<m||Math.abs(t-zach)<m ? "zmierzch" : (t<wsch||t>zach) ? "noc" : ""; }
+  const el=document.getElementById("niebo"), t=Date.now();
+  let wsch, zach;
+  if(d&&d.sunrise&&new Date(d.sunrise[0]).toDateString()===new Date().toDateString()){ wsch=new Date(d.sunrise[0]).getTime(); zach=new Date(d.sunset[0]).getTime(); }
+  else ({wsch,zach}=slonce(new Date()));
+  const m=45*60e3;
+  let k = Math.abs(t-wsch)<m||Math.abs(t-zach)<m ? "zmierzch" : (t<wsch||t>zach) ? "noc" : "";
   if(c&&k===""){ const w=c.weather_code; k = w>=51 ? "deszcz" : w>=3 ? "chmury" : ""; }
   el.className="niebo"+(k?" "+k:"");
 }
