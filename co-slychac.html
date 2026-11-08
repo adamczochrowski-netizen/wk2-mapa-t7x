@@ -22,6 +22,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="wspolne.css">
 
+<style>
+/* Filtry „Wydarzeń w okolicy”: kiedy i gdzie */
+.filtry{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px}
+.filtry button{font:inherit;font-weight:600;font-size:15px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+.filtry button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.filtry button:focus-visible{outline:2px solid var(--h);outline-offset:2px}
+.filtry.gdzie button{font-size:14px;padding:5px 11px}
+.filtry .ile{opacity:.65;font-weight:400;margin-left:4px}
+.ile-wyd{font-size:14px;color:var(--muted);margin:0 0 10px}
+</style>
 <main class="wrap h-nieb">
   <a class="back" href="index.html">← Moje Wirkowice</a>
   <header class="naglowek">
@@ -95,7 +105,32 @@
       minione(wydMin.length,wydMin.slice(0,30).map(r=>kartaW(r,false)).join(""));
   };
   lista("wydW",zData.filter(r=>!wOkolicy(r)),"Brak zaplanowanych wydarzeń w Wirkowicach.");
-  lista("wydO",zData.filter(wOkolicy),"Brak zaplanowanych wydarzeń w okolicy.");
+  // Okolica: dużo pozycji — filtry „kiedy” (tydzień / miesiąc / wszystko) i „gdzie” (miejscowość)
+  const okol=zData.filter(wOkolicy), okolPrzysz=okol.filter(r=>data(r.data)>=dzis());
+  let KIEDY="miesiac", GDZIE="";
+  try{ KIEDY=sessionStorage.getItem("wirk-wyd-kiedy")||KIEDY; GDZIE=sessionStorage.getItem("wirk-wyd-gdzie")||""; }catch(e){}
+  const wZakresie=r=>{ const n=dniDo(data(r.data)); return KIEDY==="tydzien"?n<=7:KIEDY==="miesiac"?n<=31:true; };
+  const miejsc=[...new Set(okolPrzysz.map(r=>r.miejscowosc.trim()))].sort((a,b)=>a.localeCompare(b,"pl"));
+  if(GDZIE&&!miejsc.includes(GDZIE)) GDZIE="";
+  const rysujOkolice=()=>{
+    const pas=okolPrzysz.filter(r=>wZakresie(r)&&(!GDZIE||r.miejscowosc.trim()===GDZIE));
+    const ileW=m=>okolPrzysz.filter(r=>wZakresie(r)&&r.miejscowosc.trim()===m).length;
+    const btn=(k,v,t)=>`<button type="button" data-${k}="${esc(v)}" aria-pressed="${String((k==="kiedy"?KIEDY:GDZIE)===v)}">${t}</button>`;
+    const filtry=okolPrzysz.length>4?`<div class="filtry" role="group" aria-label="Kiedy">${btn("kiedy","tydzien","Ten tydzień")}${btn("kiedy","miesiac","Ten miesiąc")}${btn("kiedy","wszystko","Wszystko")}</div>
+      <div class="filtry gdzie" role="group" aria-label="Gdzie">${btn("gdzie","","Wszędzie")}${miejsc.map(m=>btn("gdzie",m,esc(m)+`<span class="ile">${ileW(m)}</span>`)).join("")}</div>
+      <p class="ile-wyd">${pas.length?`Pokazuję ${pas.length} z ${okolPrzysz.length} nadchodzących.`:""}</p>`:"";
+    const el=document.getElementById("wydO");
+    lista("wydO",okol.filter(r=>data(r.data)<dzis()||(wZakresie(r)&&(!GDZIE||r.miejscowosc.trim()===GDZIE))),
+      okolPrzysz.length?"Nic w tym czasie i miejscu. Wybierz „Wszystko” albo inną miejscowość.":"Brak zaplanowanych wydarzeń w okolicy.");
+    el.insertAdjacentHTML("afterbegin",filtry);
+  };
+  rysujOkolice();
+  document.getElementById("wydO").addEventListener("click",e=>{
+    const b=e.target.closest("[data-kiedy],[data-gdzie]"); if(!b) return;
+    if(b.dataset.kiedy!==undefined) KIEDY=b.dataset.kiedy; else GDZIE=b.dataset.gdzie;
+    try{ sessionStorage.setItem("wirk-wyd-kiedy",KIEDY); sessionStorage.setItem("wirk-wyd-gdzie",GDZIE); }catch(_){}
+    rysujOkolice();
+  });
   oznaczWidziane([...ogl,...przyszle].map(kluczWpisu));   // obejrzane — przy następnej wizycie już nie „nowe”
   document.querySelector("main").addEventListener("click",e=>{ const b=e.target.closest("[data-wyslij]"); if(!b) return;
     const [t,txt]=DO_WYSLANIA[+b.dataset.wyslij]; wyslij(t,txt,b); });

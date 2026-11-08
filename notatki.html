@@ -102,6 +102,18 @@ html[data-duze] .row2{grid-template-columns:minmax(0,1fr)}
     <div class="list" id="lista"></div>
   </section>
 
+  <section class="section" id="przenies">
+    <h2>Przenieś notatki</h2>
+    <div class="card">
+      <p style="margin:0" id="przeniesOpis"></p>
+      <div class="btns">
+        <button class="btn primary" type="button" id="bPrzenKopiuj">1. Skopiuj notatki</button>
+        <button class="btn" type="button" id="bPrzenWklej">2. Wklej przeniesione notatki</button>
+      </div>
+      <p id="przenMsg" style="margin:10px 0 0;font-weight:600" hidden></p>
+    </div>
+  </section>
+
   <section class="section">
     <h2>Kopia zapasowa</h2>
     <div class="card">
@@ -311,6 +323,27 @@ function wczytajKopie(tekst){
   if(!zapiszNotatki(l)){ kMsg("Nie udało się zapisać notatek w tej przeglądarce.",true); return; }
   render(); kMsg(nowe?`Wczytano ${nowe} ${nowe===1?"notatkę":nowe<5?"notatki":"notatek"}.`:"Wszystkie notatki z kopii już tu są.");
 }
+// ===== Przeniesienie: przeglądarka ↔ apka z ikony (na iPhonie mają osobną pamięć) =====
+(()=>{
+  const zIkony=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+  $("przeniesOpis").innerHTML=zIkony
+    ? "Notatki zapisane wcześniej w przeglądarce (Safari, Chrome) <b>nie przechodzą same</b> do apki z ikony, bo telefon trzyma je osobno. Otwórz Moje Wirkowice w przeglądarce, wejdź w Moje notatki i dotknij <b>„1. Skopiuj notatki”</b>. Potem wróć tutaj i dotknij <b>„2. Wklej przeniesione notatki”</b>."
+    : "Notatki zapisane tutaj, w przeglądarce, <b>nie pojawią się same</b> w apce z ikony na ekranie, bo telefon trzyma je osobno. Dotknij <b>„1. Skopiuj notatki”</b>, otwórz apkę z ikony, wejdź w Moje notatki i dotknij <b>„2. Wklej przeniesione notatki”</b>.";
+  const pMsg=(t,blad)=>{ const m=$("przenMsg"); m.hidden=false; m.textContent=t; m.style.color=blad?"var(--alarm)":"var(--green)"; };
+  $("bPrzenKopiuj").onclick=async()=>{
+    const l=notatki(); if(!l.length){ pMsg("Tu nie ma jeszcze żadnych notatek do przeniesienia.",true); return; }
+    try{ await navigator.clipboard.writeText(tekstKopii()); pMsg(`Skopiowano ${l.length} ${l.length===1?"notatkę":l.length<5?"notatki":"notatek"}. Teraz otwórz ${zIkony?"apkę w przeglądarce":"apkę z ikony"} i dotknij „2. Wklej przeniesione notatki”.`); }
+    catch(e){ pMsg("Telefon nie pozwolił skopiować. Użyj „Kopia zapasowa” poniżej.",true); }
+  };
+  $("bPrzenWklej").onclick=async()=>{
+    let t=""; try{ t=await navigator.clipboard.readText(); }catch(e){}
+    if(t&&t.includes('"notatki"')){ wczytajKopie(t); const m=$("kopiaMsg"); pMsg(m.textContent, m.style.color==="var(--alarm)"); return; }
+    // brak dostępu do schowka albo w nim coś innego — pole do ręcznego wklejenia
+    const d=document.querySelector("#wklej").closest("details"); d.open=true; $("wklej").focus();
+    pMsg("Przytrzymaj palec w polu poniżej, wybierz „Wklej”, a potem „Wczytaj z tekstu”.",false);
+    d.scrollIntoView({block:"center"});
+  };
+})();
 $("bWczytaj").onclick=()=>$("plikKopii").click();
 $("plikKopii").onchange=e=>{ const f=e.target.files[0]; if(!f) return; f.text().then(wczytajKopie); e.target.value=""; };
 $("bWklej").onclick=()=>{ const t=$("wklej").value.trim(); if(t) wczytajKopie(t); };

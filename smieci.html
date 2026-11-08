@@ -36,6 +36,23 @@
 .terminy .ik .worek{margin:0}
 .terminy .r{min-width:0}
 .minione .terminy{padding:4px 16px}
+/* Gdzie to wyrzucić? */
+.gdzie-sz{position:relative}
+.gdzie-sz input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;padding:13px 14px 13px 44px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--fg)}
+.gdzie-sz input:focus{outline:2px solid var(--h);outline-offset:1px}
+.gdzie-sz svg.lupa{position:absolute;left:14px;top:50%;width:20px;height:20px;margin-top:-10px;color:var(--muted)}
+.podp{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.podp button{font:inherit;font-size:14px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.wyn{display:flex;flex-direction:column;gap:8px;margin:12px 0 0}
+.wyn .poz{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:12px;border-radius:12px;background:var(--panel);border:1px solid var(--line)}
+.wyn .poz .worek{width:30px;height:33px;margin:0}
+.wyn .poz .ik{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:18px;background:color-mix(in srgb,var(--h) 18%,var(--panel))}
+.wyn .poz b{display:block;font-size:16px}
+.wyn .poz .gdzie{font-weight:700;color:var(--h)}
+.wyn .poz small{display:block;color:var(--muted);font-size:14px;margin-top:2px;line-height:1.4}
+.wyn .poz a{color:var(--h)}
+.zr-gdzie{font-size:12px;color:var(--muted);margin:10px 0 0}
+.zr-gdzie a{color:var(--muted)}
 /* Do kalendarza w telefonie */
 .dokal{padding:16px;border-radius:14px;background:color-mix(in srgb,var(--h) 10%,var(--panel));border:1px solid color-mix(in srgb,var(--h) 35%,var(--line))}
 .dokal h2{margin:0 0 4px;font-size:18px}
@@ -51,6 +68,14 @@
     <div><h1>Wywóz śmieci</h1><p class="lead">Kiedy wystawić worki i pojemniki. Harmonogram wspólny dla Wirkowic Pierwszych i Drugich.</p></div>
   </header>
   <div id="out"><p class="muted">Wczytuję…</p></div>
+  <section class="section" id="gdzie">
+    <h2>Gdzie to wyrzucić?</h2>
+    <div class="gdzie-sz"><svg class="lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="gdzieQ" type="search" autocomplete="off" placeholder="np. karton po mleku, baterie, popiół" aria-label="Czego szukasz? Wpisz rzecz, którą chcesz wyrzucić"></div>
+    <div class="podp" id="gdziePodp"></div>
+    <div class="wyn" id="gdzieWyn" aria-live="polite"></div>
+    <p class="zr-gdzie">Zasady według ogólnopolskiego systemu segregacji (<a href="https://www.gov.pl/web/klimat/segregacja-odpadow" target="_blank" rel="noopener">gov.pl</a>) i listy odpadów przyjmowanych w <a href="https://www.gminaizbica.pl/punkt-selektywnej-zbiorki-odpadow-komunalnych/" target="_blank" rel="noopener">PSZOK gminy Izbica</a>. W razie wątpliwości zadzwoń do Urzędu: 84 618 30 34.</p>
+  </section>
   <section class="section"><div class="dokal" id="dokal"></div></section>
 </main>
 
@@ -67,6 +92,101 @@
     <p class="uw">„Dodaj do kalendarza” pobiera plik: dotknij go w powiadomieniu albo w Pobranych i wybierz kalendarz. „Kalendarz Google” dodaje terminy jako osobny kalendarz na Twoim koncie Google, a nowe terminy pojawią się w nim same.</p>`;
   if(wAplikacji()) h+=`<p class="uw"><strong>Otwierasz apkę w Messengerze albo Facebooku.</strong> One nie dodają do kalendarza. Dotknij <b>⋯</b> u góry → <b>Otwórz w przeglądarce</b> i spróbuj tam.</p>`;
   document.getElementById("dokal").innerHTML=h;
+})();
+// ===== Gdzie to wyrzucić? =====
+// Słownik: [hasła oddzielone „|”, gdzie, wskazówka]. gdzie: zolty / niebieski / zielony / brazowy / zmieszane / pszok / apteka / kaucja
+const GDZIE={
+  zolty:{n:"Żółty worek",r:"plastik i metale"}, niebieski:{n:"Niebieski worek",r:"papier"}, zielony:{n:"Zielony worek",r:"szkło"},
+  brazowy:{n:"Brązowy worek",r:"bio"}, zmieszane:{n:"Zmieszane (czarny worek / pojemnik)",r:"zmieszane"},
+  pszok:{n:"PSZOK w Ostrzycy",ik:"🏭",o:'Ostrzyca 144: czwartek 12:00–17:00, piątek 7:00–12:00. <a href="https://www.google.com/maps/dir/?api=1&destination=50.90129,23.11653" target="_blank" rel="noopener">Dojazd</a>'},
+  apteka:{n:"Apteka albo PSZOK",ik:"💊",o:"Przeterminowane leki przyjmuje PSZOK w Ostrzycy; wiele aptek ma też pojemnik na leki."},
+};
+const SLOWNIK=[
+ ["butelka plastikowa|butelka po wodzie|butelka po napoju|pet","zolty","Zgnieć i zakręć. Jeśli ma znak kaucji, możesz ją oddać w sklepie i odzyskać pieniądze."],
+ ["puszka|puszka po napoju|puszka po piwie","zolty","Jeśli ma znak kaucji, oddaj w sklepie i odzyskaj kaucję."],
+ ["puszka po konserwie|konserwa","zolty","Wystarczy opróżnić, nie trzeba myć do czysta."],
+ ["karton po mleku|karton po soku|mleko|sok|tetrapak|opakowanie wielomateriałowe","zolty","Kartony po mleku i sokach to nie papier: idą do żółtego."],
+ ["folia|reklamówka|torebka foliowa|folia stretch|torba plastikowa","zolty",""],
+ ["kubek po jogurcie|jogurt|opakowanie po serku|plastikowe opakowanie","zolty","Opróżnij z resztek."],
+ ["nakrętka|zakrętka|kapsel","zolty",""],
+ ["opakowanie po kosmetykach|butelka po szamponie|płyn do naczyń|opakowanie po chemii","zolty","Puste opakowania po chemii domowej: do żółtego. Pełne albo po środkach niebezpiecznych: do PSZOK."],
+ ["styropian opakowaniowy|tacka styropianowa","zolty","Czysty styropian z opakowań. Styropian budowlany: do PSZOK."],
+ ["aluminium|folia aluminiowa|tacka aluminiowa","zolty",""],
+ ["metal|drobny złom|garnek|pokrywka|sztućce","zolty","Drobne metalowe rzeczy. Duży złom: do PSZOK albo skupu."],
+ ["doniczka plastikowa|wiadro plastikowe|zabawka plastikowa","zolty","Duże albo z elektroniką: do PSZOK."],
+ ["gazeta|czasopismo|ulotka|katalog|książka|zeszyt","niebieski","Książki bez twardej okładki."],
+ ["karton|tektura|pudełko kartonowe|karton po butach","niebieski","Złóż albo potnij, żeby zajmował mniej miejsca."],
+ ["papier|kartka|koperta|torba papierowa","niebieski",""],
+ ["paragon|papier termiczny","zmieszane","Paragony to papier termiczny: nie do niebieskiego."],
+ ["papier tłusty|papier po maśle|karton po pizzy|serwetka|chusteczka|ręcznik papierowy","zmieszane","Zabrudzony albo tłusty papier: do zmieszanych."],
+ ["tapeta","zmieszane",""],
+ ["butelka szklana|butelka po piwie|butelka po wódce|butelka po winie|butelka po oleju","zielony","Bez nakrętki (nakrętka do żółtego)."],
+ ["słoik|słoik szklany","zielony","Opróżnij. Metalowa zakrętka do żółtego."],
+ ["szkło|szklane opakowanie","zielony","Tylko opakowania szklane."],
+ ["szyba|szkło okienne|lustro","pszok","Szyby i lustra to nie opakowania: oddaj w PSZOK."],
+ ["porcelana|ceramika|talerz|kubek ceramiczny|fajans","zmieszane","Porcelana i ceramika nie idą do szkła."],
+ ["szklanka|kieliszek|szkło żaroodporne|naczynie żaroodporne","zmieszane","To nie opakowania: do zmieszanych."],
+ ["żarówka|świetlówka|żarówka energooszczędna|led","pszok","Świetlówki i żarówki LED/energooszczędne: PSZOK albo sklep z elektroniką."],
+ ["obierki|skórki|resztki warzyw|resztki owoców|owoce|warzywa","brazowy",""],
+ ["fusy|fusy z kawy|herbata|torebka po herbacie","brazowy",""],
+ ["skorupki jajek|skorupka","brazowy",""],
+ ["trawa|liście|gałęzie|chwasty|kwiaty|odpady z ogrodu","brazowy","Większe ilości gałęzi: PSZOK."],
+ ["chleb|pieczywo","brazowy",""],
+ ["mięso|kości|ości|resztki mięsa","zmieszane","Mięso i kości nie idą do bio."],
+ ["olej|olej spożywczy|tłuszcz","zmieszane","Małe ilości wsiąknięte np. w ręcznik: do zmieszanych. Nie wylewaj do zlewu."],
+ ["popiół|popiół z pieca|popiół z kominka","pszok","Popiół z domowych palenisk przyjmuje PSZOK. Wystudzony!"],
+ ["pieluchy|pieluchomajtki|podpaski","zmieszane",""],
+ ["niedopałki|pety|papierosy","zmieszane",""],
+ ["worek z odkurzacza|kurz","zmieszane",""],
+ ["żwirek|żwirek dla kota|odchody","zmieszane",""],
+ ["gąbka|zmywak|szczoteczka do zębów","zmieszane",""],
+ ["zabawka|długopis|kredki","zmieszane","Zabawki z baterią albo elektroniką: do PSZOK."],
+ ["ubrania|odzież|tekstylia|buty|pościel|ręczniki","pszok","Tekstylia przyjmuje PSZOK. Ubrania w dobrym stanie można oddać potrzebującym."],
+ ["baterie|bateria|akumulator|akumulatorek","pszok","Też pojemniki w wielu sklepach i szkołach."],
+ ["akumulator samochodowy","pszok",""],
+ ["elektronika|telefon|ładowarka|kabel|czajnik|suszarka|sprzęt|rtv|agd|telewizor|lodówka|pralka|komputer","pszok","Duży sprzęt sklep zabiera przy zakupie nowego."],
+ ["meble|wersalka|kanapa|szafa|materac|dywan|gabaryty","pszok","Meble i duże rzeczy (gabaryty)."],
+ ["opony|opona","pszok",""],
+ ["gruz|cegły|płytki|odpady budowlane|remont","pszok","Odpady z remontu w gospodarstwie domowym."],
+ ["styropian budowlany|wełna mineralna","pszok",""],
+ ["farba|lakier|puszka po farbie|rozpuszczalnik|klej","pszok","Pozostałości farb i chemii to odpady niebezpieczne."],
+ ["olej silnikowy|smar|filtr oleju","pszok",""],
+ ["środki ochrony roślin|opryski|pestycydy|nawozy","pszok","Puste opakowania po środkach ochrony roślin często odbiera też sklep, w którym je kupiono."],
+ ["termometr|termometr rtęciowy","pszok",""],
+ ["igły|strzykawki|insulina|pen","pszok","Zużyte igły i strzykawki z domu przyjmuje PSZOK."],
+ ["leki|lekarstwa|tabletki|syrop|przeterminowane leki","apteka","Bez kartonika i ulotki (te do niebieskiego)."],
+ ["butelka z kaucją|kaucja|zwrot butelek","kaucja",""],
+];
+GDZIE.kaucja={n:"Zwrot w sklepie (kaucja)",ik:"🔁",o:"Butelki plastikowe do 3 l, puszki i butelki szklane wielorazowe ze znakiem kaucji oddajesz w sklepie i odzyskujesz pieniądze. Bez znaku: do zwykłego worka."};
+const bezOgonkow=t=>t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ł/g,"l").trim();
+const INDEKS=SLOWNIK.map(([h,g,w])=>({h:h.split("|"),hh:h.split("|").map(bezOgonkow),g,w}));
+function szukajGdzie(q){
+  const s=bezOgonkow(q); if(s.length<2) return [];
+  const slowa=s.split(/\s+/);
+  const wyn=[];
+  for(const e of INDEKS){
+    let pkt=0, naz=e.h[0];
+    e.hh.forEach((h,i)=>{ const p=h===s?100:h.startsWith(s)?60:slowa.every(w=>h.split(/\s+/).some(x=>x.startsWith(w)))?40:h.includes(s)?20:0;
+      if(p>pkt){ pkt=p; naz=e.h[i]; } });
+    if(pkt) wyn.push([pkt,{...e,naz}]);
+  }
+  return wyn.sort((a,b)=>b[0]-a[0]).slice(0,5).map(x=>x[1]);
+}
+function rysujGdzie(){
+  const q=document.getElementById("gdzieQ").value, el=document.getElementById("gdzieWyn");
+  if(!q.trim()){ el.innerHTML=""; return; }
+  const l=szukajGdzie(q);
+  if(!l.length){ el.innerHTML=`<div class="poz"><span class="ik">❓</span><span><b>Nie mam tego w słowniku</b><small>Spróbuj innego słowa (np. „karton”, „słoik”). Jeśli to coś dużego, z baterią albo z chemią, najpewniej <span class="gdzie">PSZOK w Ostrzycy</span>. W razie wątpliwości: zmieszane.</small></span></div>`; return; }
+  el.innerHTML=l.map(e=>{ const g=GDZIE[e.g];
+    const ik=g.r?worek(g.r):`<span class="ik" aria-hidden="true">${g.ik}</span>`;
+    return `<div class="poz">${ik}<span><b>${esc(e.naz[0].toUpperCase()+e.naz.slice(1))}${e.naz!==e.h[0]?` <span style="font-weight:400;color:var(--muted)">(${esc(e.h[0])})</span>`:""}</b><span class="gdzie">${g.n}</span>${e.w?`<small>${esc(e.w)}</small>`:""}${g.o?`<small>${g.o}</small>`:""}</span></div>`; }).join("");
+}
+(()=>{
+  const inp=document.getElementById("gdzieQ");
+  inp.addEventListener("input",rysujGdzie);
+  const POP=["karton po mleku","baterie","popiół","kości","paragon","słoik","leki","meble","szyba"];
+  document.getElementById("gdziePodp").innerHTML=POP.map(t=>`<button type="button">${t}</button>`).join("");
+  document.getElementById("gdziePodp").addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b) return; inp.value=b.textContent; rysujGdzie(); });
 })();
 // Kolory i ikony worków są w dane.js (kolorSmieci, worek)
 // kilka rodzajów tego samego dnia → jeden wiersz z kilkoma workami
