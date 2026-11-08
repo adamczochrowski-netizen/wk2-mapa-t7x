@@ -20,7 +20,7 @@
   // Motyw: domyślnie ciemny; w Opcjach można włączyć jasny (lepiej czytelny w słońcu, wygodny dla części starszych osób)
   function zastosuj(){
     const m=get(K_MOTYW)==="light"?"light":"dark"; root.setAttribute("data-theme",m);
-    const tc=document.querySelector('meta[name="theme-color"]'); if(tc) tc.setAttribute("content",m==="light"?"#EDF0EB":"#131915");
+    const tc=document.querySelector('meta[name="theme-color"]'); if(tc) tc.setAttribute("content",m==="light"?"#D8DBD3":"#131915");
     const d=get(K_DUZE); if(d==="1"||d==="2") root.setAttribute("data-duze",d); else root.removeAttribute("data-duze");
     [[K_KONTR,"data-kontrast"],[K_DALT,"data-dalton"],[K_SPOK,"data-spokoj"],[K_PROSTY,"data-prosty"]].forEach(([k,a])=>{ if(get(k)==="1") root.setAttribute(a,""); else root.removeAttribute(a); });
   }
@@ -30,7 +30,7 @@
   html[data-duze="1"] .wrap, html[data-duze="1"] .top, html[data-duze="1"] .card{zoom:1.22}
   html[data-duze="2"] .wrap, html[data-duze="2"] .top, html[data-duze="2"] .card{zoom:1.42}
   :root:root[data-kontrast]:not([data-theme="light"]){--muted:#E2E8E4;--line:#8A988F;--fg:#FFFFFF}
-  :root:root[data-kontrast][data-theme="light"]{--muted:#2B342E;--line:#6F7C74;--fg:#000000;--panel:#FFFFFF}
+  :root:root[data-kontrast][data-theme="light"]{--muted:#2B342E;--line:#6F7C74;--fg:#000000;--panel:#F1F2EE}
   html[data-kontrast] .tile, html[data-kontrast] .card, html[data-kontrast] .kal{border-width:2px}
   html[data-kontrast] a{text-decoration-thickness:2px}
   :root:root[data-dalton]:not([data-theme="light"]){--green:#7FB2FF;--green-soft:#1A2B44}

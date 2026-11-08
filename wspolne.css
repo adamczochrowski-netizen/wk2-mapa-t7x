@@ -1,7 +1,7 @@
 /* Moje Wirkowice — wspólny wygląd modułów (ten sam styl co plan cmentarza) */
 :root{
-  --bg:#EDF0EB; --panel:#FBFCFA; --fg:#1D2520; --muted:#5B685F; --line:#D2D9D1;
-  --accent:#B9661A; --accent-soft:#F6E3CC; --on-accent:#FFFFFF;
+  --bg:#D8DBD3; --panel:#E7E9E2; --fg:#1C231F; --muted:#4D5650; --line:#BEC4BA;   /* jasny motyw: łagodna, ciepła szarość zamiast bieli */
+  --accent:#B9661A; --accent-soft:#EAD6BC; --on-accent:#FFFFFF;
   --green:#3E6B4A; --green-soft:#DCE8DD;
   --alarm:#B3261E; --alarm-soft:#FBE4E2; --on-alarm:#FFFFFF;
   --f-display:"Bitter", Georgia, "Times New Roman", serif;
