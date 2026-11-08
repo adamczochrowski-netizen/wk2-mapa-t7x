@@ -1,4 +1,4 @@
-# Moje Wirkowice — co 30 minut pobiera nagłówki (Polska i Świat) z RSS i zapisuje wiadomosci.json obok aplikacji.
+# Moje Wirkowice — co 30 minut pobiera nagłówki z RSS (wiadomosci.json) oraz wyłączenia prądu i wody (wylaczenia.json).
 # Telefony czytają ten plik z tego samego adresu co aplikacja, więc nie trzeba żadnego serwera.
 # W repozytorium ten plik leży w: .github/workflows/wiadomosci.yml
 name: Wiadomości
@@ -67,9 +67,12 @@ jobs:
           if any(wynik[k] for k in ZRODLA):
               open("wiadomosci.json", "w", encoding="utf-8").write(json.dumps(wynik, ensure_ascii=False, indent=0))
           print({k: len(v) for k, v in wynik.items() if isinstance(v, list)})
+      - name: Wyłączenia prądu (PGE) i komunikaty o wodzie
+        continue-on-error: true
+        run: python3 .github/skrypty/wylaczenia.py .
       - name: Zapisz zmiany
         run: |
           git config user.name "wiadomosci-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add wiadomosci.json
-          git diff --cached --quiet || (git commit -m "Wiadomości: odświeżenie" && git push)
+          git add wiadomosci.json wylaczenia.json
+          git diff --cached --quiet || (git commit -m "Wiadomości i wyłączenia: odświeżenie" && git push)

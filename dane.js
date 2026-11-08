@@ -146,6 +146,26 @@ const worek=r=>{ const c=kolorSmieci(r); return `<svg class="worek" viewBox="0 0
   <rect x="7.2" y="5.6" width="5.6" height="1.6" rx=".8" fill="rgba(0,0,0,.4)"/>
   <path d="M6 11.5c.6 2.4 1.9 4.6 3.7 6.2M14.2 11.8c-.4 1.8-1.2 3.4-2.4 4.7" stroke="rgba(255,255,255,.35)" stroke-width=".9" fill="none" stroke-linecap="round"/></svg>`; };
 const dniDo=d=>Math.round((d-dzis())/864e5);
+// --- Wyłączenia prądu (PGE) i komunikaty o wodzie (GPGK, gmina) — plik wylaczenia.json odświeża akcja GitHub co 30 min ---
+let _wyl=null;
+function wczytajWylaczenia(){
+  if(_wyl) return _wyl;
+  _wyl=(async()=>{
+    let z=null; try{ z=JSON.parse(localStorage.getItem("wirk-wylaczenia")||"null"); }catch(e){}
+    if(z&&Date.now()-z.t<30*60e3) return z.w;
+    try{ const r=await fetch("wylaczenia.json?t="+Date.now(),{cache:"no-store"}); if(!r.ok) throw 0; const w=await r.json();
+      try{ localStorage.setItem("wirk-wylaczenia",JSON.stringify({t:Date.now(),w})); }catch(e){} return w; }
+    catch(e){ return z?z.w:null; }
+  })();
+  return _wyl;
+}
+const dataGodz=s=>{ const m=/^(\d{4})-(\d\d)-(\d\d)[ T](\d\d):(\d\d)/.exec(s||""); return m?new Date(+m[1],+m[2]-1,+m[3],+m[4],+m[5]):null; };
+const godzMin=d=>d.getHours()+":"+String(d.getMinutes()).padStart(2,"0");
+const wWirkowicach=w=>w.miejsca.some(m=>/wirkowice/i.test(m));
+// Tytuły komunikatów pisane WIELKIMI literami → zwykłe zdanie, z wielką literą w nazwach miejscowości
+const zdanie=t=>{ if(!t||t!==t.toUpperCase()) return t; let z=t.toLowerCase();
+  z=z.replace(/(^|[\s(„"-])(wirkowic|tarnog|izbic|ostrzyc|ostrówk|orłów|zalesi|bobl|dworzyska|stryjów|kryniczk|grabow|chłopk|majdan|wólk|romanów|krasnyst|zamoś|gpgk)/gu,(m,a,b)=>a+(b==="gpgk"?"GPGK":b[0].toUpperCase()+b.slice(1)));
+  return z.charAt(0).toUpperCase()+z.slice(1); };
 // --- Lokalizacja: czytelne podpowiedzi, gdy telefon jej nie daje ---
 // Przeglądarki wbudowane w Messengera, Facebooka i Instagrama zwykle blokują lokalizację — trzeba otworzyć stronę w Safari/Chrome.
 const wAplikacji=()=>/FBAN|FBAV|FB_IAB|Messenger|Instagram|Line\/|; wv\)/i.test(navigator.userAgent||"");

@@ -10,6 +10,18 @@
 <link rel="apple-touch-icon" href="ikona-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Wirkowice">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1320x2868.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1206x2622.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1290x2796.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1179x2556.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1170x2532.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1284x2778.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1125x2436.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash-828x1792.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1242x2688.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash-750x1334.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1242x2208.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash-1260x2736.png">
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <script src="ustawienia.js"></script>
 <script>if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
@@ -50,6 +62,12 @@ body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15
 .pill{font-size:11px;letter-spacing:.06em;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:700}
 h1{font-family:var(--f-display);font-weight:700;font-size:22px;line-height:1.2;margin:0;text-wrap:balance}
 .search{position:relative}
+/* Moi bliscy: zapamiętane groby — jedno dotknięcie i prowadzi */
+.bliscy{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.bliscy[hidden]{display:none}
+.bliscy .lab{width:100%;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.bliscy button{font:inherit;font-size:15px;font-weight:600;padding:7px 12px;border-radius:999px;border:1px solid var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--panel));color:var(--fg);cursor:pointer}
+.bliscy button[aria-current="true"]{background:var(--accent);color:var(--on-accent,#10160F)}
 .search input{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
 .search input:focus{outline:2px solid var(--accent);outline-offset:1px}
 .results{list-style:none;margin:0;padding:0;max-height:38vh;overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
@@ -153,6 +171,7 @@ h1{font-family:var(--f-display);font-weight:700;font-size:22px;line-height:1.2;m
       <input id="q" type="search" placeholder="Nazwisko, imię albo nr grobu, np. Repeć" autocomplete="off">
     </div>
     <ul class="results" id="results" hidden></ul>
+    <div class="bliscy" id="bliscy" hidden role="group" aria-label="Moi bliscy"></div>
   </section>
 
   <section class="card" id="card" aria-live="polite"></section>
@@ -1742,6 +1761,7 @@ function renderCard(){
     if(state.mode==="none") h+=`<button class="btn primary" id="bGps2">Włącz GPS</button>`;
     if(state.mode==="manual"&&!state.arrived) h+=state.walk?`<button class="btn primary" id="bStop">Zatrzymaj</button>`:`<button class="btn primary" id="bWalk">Symuluj trasę</button>`;
     if(state.arrived&&state.mode==="manual") h+=`<button class="btn primary" id="bReset">Wróć do bramy</button>`;
+    h+=`<button class="btn" id="bBliski" aria-pressed="${jestBliski(g)}">${jestBliski(g)?"★ W moich bliskich":"☆ Dodaj do moich bliskich"}</button>`;
     if(g.code) h+=`<button class="btn" id="bShare">Udostępnij</button>`;
     h+=`<button class="btn" id="bClear">Wyczyść</button></div>`;
     if(state.shareMsg) h+=`<p class="muted" style="margin:8px 0 0">${state.shareMsg}</p>`;
@@ -1760,14 +1780,30 @@ function renderCard(){
   card.innerHTML=h;
   const on=(id,fn)=>{const b=document.getElementById(id); if(b) b.onclick=fn;};
   on("bWalk",startWalk); on("bStop",()=>stopWalk()); on("bClear",()=>select(null));
+  on("bBliski",()=>{ przelaczBliskiego(state.sel); renderCard(); });
   on("bShare",shareGrave);
   on("bReset",()=>{state.me={...START}; state.arriveSide=""; camSet(false); vb={...FIT}; setVB(); recompute(); update();});
   on("bGps",startGps); on("bGps2",startGps); on("bManual",startManual);
 }
 function update(){ drawDynamic(); renderCard(); }
+// ===== Moi bliscy: groby zapamiętane w tym telefonie (lista id grobów) =====
+const BL_KLUCZ="wirk-bliscy";
+const bliscy=()=>{ try{ const v=JSON.parse(localStorage.getItem(BL_KLUCZ)||"[]"); return Array.isArray(v)?v.filter(id=>byId.has(id)):[]; }catch(e){ return []; } };
+const jestBliski=g=>!!g&&bliscy().includes(g.id);
+function przelaczBliskiego(g){ if(!g) return; let l=bliscy();
+  l=l.includes(g.id)?l.filter(x=>x!==g.id):[...l,g.id];
+  try{ localStorage.setItem(BL_KLUCZ,JSON.stringify(l)); }catch(e){}
+  rysujBliskich(); }
+const opisGrobu=g=>g.persons.length?g.persons.map(p=>`${p.first} ${p.last}`).join(", "):(g.code?"Grób "+g.code:"Grób bez danych");
+function rysujBliskich(){
+  const el=document.getElementById("bliscy"), l=bliscy().map(id=>byId.get(id));
+  el.hidden=!l.length;
+  el.innerHTML=l.length?`<span class="lab">★ Moi bliscy</span>`+l.map(g=>`<button type="button" data-bl="${g.id}" aria-current="${String(state.sel===g)}">${esc(opisGrobu(g))}</button>`).join(""):"";
+}
+document.getElementById("bliscy").addEventListener("click",e=>{ const b=e.target.closest("[data-bl]"); if(!b) return; const g=byId.get(b.dataset.bl); if(g){ select(g); rysujBliskich(); } });
 function select(g){ stopWalk(true); state.sel=g; state.arriveSide=""; state.shareMsg="";
   if(!g&&cam.on){ camSet(false); vb={...FIT}; setVB(); }
-  recompute(); update(); if(g&&!cam.on) ensureVisible(g); }
+  recompute(); update(); if(g&&!cam.on) ensureVisible(g); if(typeof rysujBliskich==="function") rysujBliskich(); }
 
 // ===== Symulacja spaceru =====
 let raf=null;
@@ -1989,7 +2025,8 @@ async function shareGrave(){
 }
 window.addEventListener("hashchange",()=>{ const g=hashToGrave(); if(g) select(g); });
 
-state.sel=hashToGrave()||byCode.get("B/IV/97")||graves.find(g=>g.persons.length);
+state.sel=hashToGrave()||(bliscy().length?byId.get(bliscy()[0]):null)||byCode.get("B/IV/97")||graves.find(g=>g.persons.length);
+rysujBliskich();
 recompute(); update();
 </script>
 
