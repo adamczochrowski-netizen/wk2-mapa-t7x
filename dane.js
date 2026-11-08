@@ -128,6 +128,22 @@ const dniDo=d=>Math.round((d-dzis())/864e5);
 // Przeglądarki wbudowane w Messengera, Facebooka i Instagrama zwykle blokują lokalizację — trzeba otworzyć stronę w Safari/Chrome.
 const wAplikacji=()=>/FBAN|FBAV|FB_IAB|Messenger|Instagram|Line\/|; wv\)/i.test(navigator.userAgent||"");
 const iPhone=()=>/iPhone|iPad|iPod/i.test(navigator.userAgent||"");
+// --- „Nowe od ostatniej wizyty”: klucze ogłoszeń i wydarzeń obejrzanych w „Co słychać” (pamięć telefonu) ---
+const kluczWpisu=r=>(r.tytul?"o|":"w|")+(r.data||"")+"|"+(r.tytul||r.nazwa||"");
+const K_WIDZ="wirk-widziane";
+function widziane(){ try{ const v=JSON.parse(localStorage.getItem(K_WIDZ)||"null"); return Array.isArray(v)?new Set(v):null; }catch(e){ return null; } }
+function oznaczWidziane(klucze){ try{ const s=widziane()||new Set(); klucze.forEach(k=>s.add(k)); localStorage.setItem(K_WIDZ,JSON.stringify([...s].slice(-400))); }catch(e){} }
+// Zwraca zbiór kluczy, których jeszcze nie widziano. Przy pierwszym uruchomieniu wszystko uznajemy za widziane.
+function nowe(klucze){ const s=widziane(); if(!s){ oznaczWidziane(klucze); return new Set(); } return new Set(klucze.filter(k=>!s.has(k))); }
+// --- Wyślij komuś (Messenger, SMS, WhatsApp…) — okno udostępniania telefonu; na komputerze kopiuje do schowka ---
+// Link do apki dołączamy dopiero, gdy apka będzie publiczna (zgoda parafii) — do tego czasu sam tekst.
+const LINK_W_UDOSTEPNIANIU=false;
+async function wyslij(tytul, tekst, przycisk){
+  const url=new URL("co-slychac.html",location.href).href;
+  const dane={title:tytul, text:tekst}; if(LINK_W_UDOSTEPNIANIU) dane.url=url;
+  try{ if(navigator.share){ await navigator.share(dane); return; } }catch(e){ if(e&&e.name==="AbortError") return; }
+  try{ await navigator.clipboard.writeText(tekst+(LINK_W_UDOSTEPNIANIU?"\n"+url:"")); if(przycisk){ const t=przycisk.textContent; przycisk.textContent="Skopiowano ✓"; setTimeout(()=>przycisk.textContent=t,2000); } }catch(e){}
+}
 function bladLokalizacji(e){
   if(wAplikacji()) return "Ta strona jest otwarta wewnątrz Messengera albo Facebooka, a one nie dają dostępu do lokalizacji. Dotknij ⋯ (u góry) i wybierz „Otwórz w przeglądarce” (Safari albo Chrome), potem spróbuj jeszcze raz.";
   if(e&&e.code===1) return iPhone()

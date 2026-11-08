@@ -51,6 +51,15 @@
 .logo .serce{width:.9em;height:.9em;fill:var(--alarm);flex:none}
 .logo .eyebrow{margin:6px 0 0;letter-spacing:.14em}
 .logo + .lead{text-align:center;margin-inline:auto}
+/* Podpowiedź „Dodaj do ekranu” — tylko w telefonie, gdy apka nie jest zainstalowana */
+.instaluj{position:relative;margin:0 0 16px;padding:12px 44px 12px 14px;border-radius:14px;background:color-mix(in srgb,var(--accent) 12%,var(--panel));border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));font-size:15px;line-height:1.45}
+.instaluj p{margin:0}
+.instaluj b{color:var(--fg)}
+.instaluj .ik-ud{display:inline-block;width:17px;height:17px;vertical-align:-3px;color:var(--accent)}
+.instaluj .x{position:absolute;top:6px;right:6px;width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:var(--muted);font-size:22px;line-height:1;cursor:pointer}
+.instaluj .btn{margin-top:10px}
+/* Znacznik „nowe” na kafelku Co słychać */
+.tile .nowe-plak{grid-column:2;justify-self:start;margin:4px 0 0}
 @media (prefers-reduced-motion: no-preference){ .logo .serce{animation:bicie 2.4s ease-in-out infinite} }
 @keyframes bicie{0%,60%,100%{transform:scale(1)}15%{transform:scale(1.14)}30%{transform:scale(1)}45%{transform:scale(1.08)}}
 /* Karta „Dziś”: na górze niebo w kolorze pory dnia i pogody, z sylwetką wsi; pod spodem to, co dziś ważne */
@@ -114,6 +123,7 @@
     <p class="eyebrow">Wirkowice Pierwsze · Wirkowice Drugie</p>
   </header>
   <p class="lead">Nasza wieś w jednym miejscu: historia, ciekawe miejsca, parafia i cmentarz, ważne numery.</p>
+  <div class="instaluj" id="instaluj" hidden role="note"></div>
 
   <section class="dzis" aria-labelledby="dzData">
     <div class="niebo" id="niebo">
@@ -157,7 +167,7 @@
   <nav class="tiles kolor" aria-label="Działy">
     <a class="tile h-nieb" href="co-slychac.html">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l5 4V6L7 10z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span>
-      <span><h2>Co słychać</h2><p>Ogłoszenia i wydarzenia w okolicy.</p></span>
+      <span><h2>Co słychać</h2><p>Ogłoszenia i wydarzenia w okolicy.</p><span class="nowe-plak" id="ileNowych" hidden></span></span>
     </a>
 
     <a class="tile h-burs" href="o-wirkowicach.html">
@@ -309,6 +319,25 @@ fetch("wiadomosci.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():
   const n=w&&w.polska&&w.polska[0]; if(n) document.getElementById("wiadNaj").textContent="Polska: "+n.t;
 }).catch(()=>{});
 
+// Podpowiedź instalacji: telefon + otwarte w przeglądarce (nie z ikony) + nie zamknięta wcześniej
+let PROSBA_INSTALACJI=null;
+addEventListener("beforeinstallprompt",e=>{ e.preventDefault(); PROSBA_INSTALACJI=e; const b=document.getElementById("bInstaluj"); if(b) b.hidden=false; });
+(()=>{
+  const el=document.getElementById("instaluj");
+  const zainstalowana=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+  const telefon=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  let zamknieta=false; try{ zamknieta=localStorage.getItem("wirk-instaluj-x")==="1"; }catch(e){}
+  if(zainstalowana||!telefon||(zamknieta&&!wAplikacji())) return;
+  const ud='<svg class="ik-ud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 11v9h14v-9"/></svg>';
+  let h;
+  if(wAplikacji()) h=`<b>Otwórz apkę w przeglądarce.</b> W Messengerze i na Facebooku nie działa lokalizacja ani kalendarz. Dotknij <b>⋯</b> u góry ekranu i wybierz <b>Otwórz w ${iPhone()?"Safari":"przeglądarce"}</b>.`;
+  else if(iPhone()) h=`<b>Dodaj Moje Wirkowice do ekranu.</b> Dotknij <b>Udostępnij</b> ${ud} (w nowszym Safari najpierw <b>⋯</b>), potem <b>Do ekranu początkowego</b>. Apka dostanie własną ikonę.`;
+  else h=`<b>Dodaj Moje Wirkowice do ekranu.</b> Dotknij <b>⋮</b> w prawym górnym rogu i wybierz <b>Dodaj do ekranu głównego</b> albo <b>Zainstaluj aplikację</b>.<br><button type="button" class="btn primary" id="bInstaluj"${PROSBA_INSTALACJI?"":" hidden"}>Zainstaluj</button>`;
+  el.innerHTML=`<p>${h}</p><button type="button" class="x" aria-label="Zamknij podpowiedź">×</button>`; el.hidden=false;
+  el.querySelector(".x").onclick=()=>{ el.hidden=true; try{ localStorage.setItem("wirk-instaluj-x","1"); }catch(e){} };
+  el.addEventListener("click",async e=>{ if(!e.target.closest("#bInstaluj")||!PROSBA_INSTALACJI) return;
+    PROSBA_INSTALACJI.prompt(); const w=await PROSBA_INSTALACJI.userChoice.catch(()=>null); if(w&&w.outcome==="accepted") el.hidden=true; PROSBA_INSTALACJI=null; });
+})();
 const ustaw=(id,t,m)=>{ const a=document.getElementById(id); a.querySelector(".t").textContent=t; a.querySelector(".m").textContent=m; };
 (async()=>{
   // Karta „Dziś”: śmieci, wydarzenia, msze (Parafia), apteki (Zdrowie) — wczytane równolegle
@@ -336,6 +365,10 @@ const ustaw=(id,t,m)=>{ const a=document.getElementById(id); a.querySelector(".t
   };
   pokazWyd("nWydW",wy.find(r=>!wOkolicy(r)));
   pokazWyd("nWydO",wy.find(wOkolicy));
+  // Co przybyło od ostatniej wizyty w „Co słychać”: znacznik na kafelku i przy ogłoszeniu
+  const NOWE=nowe([...ogl,...wy].map(kluczWpisu));
+  if(NOWE.size){ const b=document.getElementById("ileNowych"); b.hidden=false; b.textContent=NOWE.size===1?"1 nowe":NOWE.size+" nowe"; }
+  if(ogl.length&&NOWE.has(kluczWpisu(ogl[0]))) document.querySelector("#nOgl .k").insertAdjacentHTML("beforeend",'<span class="nowe-plak">Nowe</span>');
 
 })();
 </script>

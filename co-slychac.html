@@ -48,34 +48,43 @@
 <script src="dane.js"></script>
 <script>
 (async()=>{
+  const DO_WYSLANIA=[];   // teksty do przycisków „Wyślij”
+  let NOWE=new Set();
   // Ogłoszenia: najnowsze na górze, bez tych, którym minęła data „ważne do”
   const o=await wczytaj("Ogloszenia");
   const wszystkie=o.wiersze.filter(r=>r.tytul||r.tresc).sort((a,b)=>(data(b.data)||0)-(data(a.data)||0));
   const aktualne=ogloszenieAktualne;
   const ogl=wszystkie.filter(aktualne), oglMin=wszystkie.filter(r=>!aktualne(r));
+  const w=await wczytaj("Wydarzenia");
+  const zData=w.wiersze.filter(r=>r.nazwa&&data(r.data));
+  const przyszle=zData.filter(r=>data(r.data)>=dzis());
+  NOWE=nowe([...ogl,...przyszle].map(kluczWpisu));   // co przybyło od ostatniej wizyty
+  const plakNowe=r=>NOWE.has(kluczWpisu(r))?'<span class="nowe-plak">Nowe</span>':"";
+  const btnWyslij=(r,cls)=>{ const d=data(r.data);
+    const t=r.tytul?[r.tytul, d?ladnaData(d)+" "+d.getFullYear():"", r.tresc].filter(Boolean).join("\n")
+      :[r.nazwa, [d?DNI[d.getDay()]+", "+ladnaData(d):"", r.godzina].filter(Boolean).join(", "), gdzieWyd(r), r.opis].filter(Boolean).join("\n");
+    DO_WYSLANIA.push([r.tytul||r.nazwa, t]); return `<button type="button" class="${cls}" data-wyslij="${DO_WYSLANIA.length-1}">Wyślij</button>`; };
   // Długi opis: pierwsze zdanie widać od razu, reszta po dotknięciu „Czytaj więcej”
   const opisO=t=>{ if(!t) return ""; const i=t.search(/[.!?]\s/);
     if(t.length<=160||i<0||i>200) return `<p class="op">${esc(t)}</p>`;
     return `<p class="op">${esc(t.slice(0,i+1))}</p><details><summary>Czytaj więcej</summary><p class="op">${esc(t.slice(i+2))}</p></details>`; };
   const kartaO=r=>{ const d=data(r.data);
-    return `<article class="kartka"><span class="k">${d?esc(kiedy(d)):"Ogłoszenie"}</span><h2 class="t">${esc(r.tytul)}</h2>${opisO(r.tresc)}${/^https?:\/\//.test(r.link||"")?`<a class="link" href="${esc(r.link)}" target="_blank" rel="noopener">Więcej informacji ↗</a>`:""}</article>`; };
+    return `<article class="kartka"><span class="k">${d?esc(kiedy(d)):"Ogłoszenie"}${plakNowe(r)}</span><h2 class="t">${esc(r.tytul)}</h2>${opisO(r.tresc)}${/^https?:\/\//.test(r.link||"")?`<a class="link" href="${esc(r.link)}" target="_blank" rel="noopener">Więcej informacji ↗</a>`:""}${aktualne(r)?btnWyslij(r,"wyslij"):""}</article>`; };
   document.getElementById("ogl").innerHTML=(o.przyklad?notkaPrzyklad:"")+(o.zapisane?'<p class="muted">Brak internetu — pokazuję ostatnio zapisane.</p>':"")+
     (ogl.length?'<div class="list">'+ogl.map(kartaO).join("")+'</div>'
       :'<div class="card empty"><p style="margin:0">Brak aktualnych ogłoszeń.</p></div>')+
     minione(oglMin.length,oglMin.slice(0,30).map(kartaO).join(""));
 
   // Wydarzenia: nadchodzące od najbliższego; minione zwinięte, od najświeższego
-  const w=await wczytaj("Wydarzenia");
-  const zData=w.wiersze.filter(r=>r.nazwa&&data(r.data));
   const MS=["STY","LUT","MAR","KWI","MAJ","CZE","LIP","SIE","WRZ","PAŹ","LIS","GRU"], DS=["niedz.","pon.","wt.","śr.","czw.","pt.","sob."];
   const kartaW=(r,przyszle)=>{ const d=data(r.data), n=dniDo(d);
     return `<article class="kal${przyszle&&n<=1?" hot":""}" style="align-items:start">
       <span class="kal-k" aria-hidden="true"><span class="kal-m">${MS[d.getMonth()]}</span><span class="kal-d">${d.getDate()}</span><span class="kal-w">${DS[d.getDay()]}</span></span>
-      <span class="kal-x"><span class="k" style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700">${esc(kiedy(d))}${r.godzina?" · "+esc(r.godzina):""}</span>
+      <span class="kal-x"><span class="k" style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700">${esc(kiedy(d))}${r.godzina?" · "+esc(r.godzina):""}${przyszle?plakNowe(r):""}</span>
         <h2 style="margin:0">${esc(r.nazwa)}</h2>${gdzieWyd(r)?`<span class="m">${esc(gdzieWyd(r))}</span>`:""}
         ${r.opis?`<p style="margin:4px 0 0;white-space:pre-line">${esc(r.opis)}</p>`:""}
         ${przyszle&&n>1?`<span class="cnt">za ${n} dni</span>`:""}
-        ${przyszle||/^https?:/.test(r.link||"")?`<div class="btns">${przyszle?`<a class="btn" href="${kalendarz(r,d)}" target="_blank" rel="noopener">Dodaj do kalendarza</a>`:""}${/^https?:/.test(r.link||"")?`<a class="btn" href="${esc(r.link)}" target="_blank" rel="noopener">Więcej informacji ↗</a>`:""}</div>`:""}</span></article>`; };
+        ${przyszle||/^https?:/.test(r.link||"")?`<div class="btns">${przyszle?`<a class="btn" href="${kalendarz(r,d)}" target="_blank" rel="noopener">Dodaj do kalendarza</a>`+btnWyslij(r,"btn"):""}${/^https?:/.test(r.link||"")?`<a class="btn" href="${esc(r.link)}" target="_blank" rel="noopener">Więcej informacji ↗</a>`:""}</div>`:""}</span></article>`; };
   // Dwie listy: we wsi i w okolicy; w każdej nadchodzące od najbliższego, minione zwinięte
   const lista=(el,wiersze,pusto)=>{
     const wyd=wiersze.filter(r=>data(r.data)>=dzis()).sort((a,b)=>data(a.data)-data(b.data));
@@ -87,6 +96,9 @@
   };
   lista("wydW",zData.filter(r=>!wOkolicy(r)),"Brak zaplanowanych wydarzeń w Wirkowicach.");
   lista("wydO",zData.filter(wOkolicy),"Brak zaplanowanych wydarzeń w okolicy.");
+  oznaczWidziane([...ogl,...przyszle].map(kluczWpisu));   // obejrzane — przy następnej wizycie już nie „nowe”
+  document.querySelector("main").addEventListener("click",e=>{ const b=e.target.closest("[data-wyslij]"); if(!b) return;
+    const [t,txt]=DO_WYSLANIA[+b.dataset.wyslij]; wyslij(t,txt,b); });
 })();
 // Link do Kalendarza Google z wypełnionym wydarzeniem (2 godziny albo cały dzień)
 function kalendarz(r,d){

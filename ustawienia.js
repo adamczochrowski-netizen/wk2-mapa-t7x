@@ -33,6 +33,12 @@
   .ust-pan{position:fixed;z-index:61;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(62px + env(safe-area-inset-bottom,0px));
     width:min(280px,calc(100vw - 24px));padding:14px;border-radius:14px;background:var(--panel);color:var(--fg);border:1px solid var(--line);
     box-shadow:0 10px 30px rgba(0,0,0,.22);font:15px/1.4 "Source Sans 3","Segoe UI",system-ui,sans-serif}
+  .odsw{position:fixed;z-index:70;left:50%;top:calc(6px + env(safe-area-inset-top,0px));width:38px;height:38px;margin-left:-19px;border-radius:50%;
+    display:grid;place-items:center;background:var(--panel);color:var(--muted);border:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.3);
+    font:700 20px/1 system-ui,sans-serif;opacity:0;pointer-events:none;transition:opacity .15s}
+  .odsw.gotowe{color:var(--accent);border-color:var(--accent)}
+  .odsw.kreci{animation:odswKrec .8s linear infinite}
+  @keyframes odswKrec{to{transform:translateY(50px) rotate(360deg)}}
   .ust-pan h3{margin:0 0 10px;font:700 16px/1.2 Bitter,Georgia,serif}
   .ust-pan p{margin:12px 0 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
   .ust-seg{display:flex;gap:6px}
@@ -76,5 +82,20 @@
     document.addEventListener("click",e=>{ if(!p.hidden&&!p.contains(e.target)&&e.target!==b) otworz(false); });
     document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!p.hidden){ otworz(false); b.focus(); } });
   }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",ui); else ui();
+  // Apka z ikony nie ma odświeżania pociągnięciem w dół (Safari i Chrome mają je tylko w przeglądarce) — dodajemy własne
+  function odswiezanie(){
+    const zIkony=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+    if(!zIkony) return;
+    const k=document.createElement("div"); k.className="odsw"; k.setAttribute("aria-hidden","true"); k.textContent="↻"; document.body.appendChild(k);
+    let y0=null, dy=0;
+    addEventListener("touchstart",e=>{ y0=null;
+      if(scrollY>0||e.touches.length>1||e.target.closest("svg#svg,.map,.lb,input,textarea,select,[contenteditable]")) return;
+      y0=e.touches[0].clientY; dy=0; },{passive:true});
+    addEventListener("touchmove",e=>{ if(y0===null) return; dy=e.touches[0].clientY-y0;
+      if(dy<=0||scrollY>0){ k.style.opacity=0; return; }
+      const p=Math.min(dy,130); k.style.opacity=Math.min(1,p/70); k.style.transform=`translateY(${p*.45}px) rotate(${p*2.4}deg)`; k.classList.toggle("gotowe",dy>95); },{passive:true});
+    addEventListener("touchend",()=>{ if(y0!==null&&dy>95){ k.classList.add("kreci"); setTimeout(()=>location.reload(),150); } else { k.style.opacity=0; k.style.transform=""; } y0=null; dy=0; });
+  }
+  const start=()=>{ ui(); odswiezanie(); };
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",start); else start();
 })();

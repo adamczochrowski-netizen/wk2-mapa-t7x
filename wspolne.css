@@ -169,4 +169,7 @@ footer{margin-top:36px;color:var(--muted);font-size:13px}
 .kartka details summary::after{content:" ▾"}
 .kartka details[open] summary{display:none}
 .kartka .link{align-self:flex-start;margin-top:10px;padding:9px 14px;border-radius:10px;background:#2A2216;color:#F3EAD2;font-weight:700;text-decoration:none}
+.kartka .wyslij{align-self:flex-start;margin-top:8px;padding:8px 14px;border-radius:10px;border:1.5px solid #2A2216;background:transparent;color:#2A2216;font:inherit;font-weight:700;cursor:pointer}
+.kartka .link+.wyslij{margin-top:8px}
+.nowe-plak{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:999px;background:var(--alarm);color:#fff;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;vertical-align:1px}
 .kartka .link:focus-visible,.kartka summary:focus-visible{outline:2px solid #9A4F10;outline-offset:2px}
