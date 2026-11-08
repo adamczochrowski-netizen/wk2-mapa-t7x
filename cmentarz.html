@@ -86,6 +86,12 @@ h1{font-family:var(--f-display);font-weight:700;font-size:22px;line-height:1.2;m
 #svg:active{cursor:grabbing}
 .ctrls{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:6px}
 .ctrls button{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--fg);font-size:20px;line-height:1;cursor:pointer}
+.walkctl{position:absolute;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;gap:8px;z-index:5}
+.walkctl[hidden]{display:none}
+.walkctl button{height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--fg);font:700 15px/1 var(--f-body,system-ui);white-space:nowrap;display:flex;align-items:center;gap:8px;box-shadow:0 6px 18px rgba(0,0,0,.35);cursor:pointer}
+.walkctl .stop{background:var(--accent);border-color:var(--accent);color:var(--on-accent,#10160F)}
+.walkctl .stop i{display:inline-block;width:12px;height:12px;border-radius:2px;background:currentColor}
+.walkctl button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .legend{position:absolute;left:calc(12px + env(safe-area-inset-left,0px));bottom:12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:4px;max-width:60%}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 
@@ -158,6 +164,10 @@ h1{font-family:var(--f-display);font-weight:700;font-size:22px;line-height:1.2;m
       <button id="zout" aria-label="Oddal">−</button>
       <button id="zfit" aria-label="Pokaż cały cmentarz" style="font-size:15px">⤢</button>
       <button id="zhead" aria-label="Widok na wprost (kierunek marszu w górę)" title="Widok na wprost (kierunek marszu w górę)" style="font-size:18px;font-weight:700">⇧</button>
+    </div>
+    <div class="walkctl" id="walkctl" hidden>
+      <button type="button" class="stop" id="wStop" aria-label="Zatrzymaj symulację"><i aria-hidden="true"></i>Zatrzymaj</button>
+      <button type="button" id="wTempo" aria-label="Zmień tempo symulacji">Tempo 1×</button>
     </div>
     <div class="legend">
       <span><i style="background:var(--stone)"></i>grób z wpisanymi osobami</span>
@@ -1761,17 +1771,23 @@ function select(g){ stopWalk(true); state.sel=g; state.arriveSide=""; state.shar
 
 // ===== Symulacja spaceru =====
 let raf=null;
+let TEMPO=(()=>{ try{ const v=+localStorage.getItem("wirk-tempo"); return [1,2,4].includes(v)?v:2; }catch(e){ return 2; } })();
+// przyciski na samej mapie: Zatrzymaj i Tempo — widoczne tylko w czasie symulacji
+function walkUI(){ const box=document.getElementById("walkctl"); if(!box) return;
+  box.hidden=!state.walk; document.getElementById("wTempo").textContent="Tempo "+TEMPO+"×"; }
+document.getElementById("wStop").addEventListener("click",()=>stopWalk());
+document.getElementById("wTempo").addEventListener("click",()=>{ TEMPO=TEMPO===1?2:TEMPO===2?4:1; try{ localStorage.setItem("wirk-tempo",TEMPO); }catch(e){} walkUI(); });
 function startWalk(){
   if(!state.route) return;
   state.walk={s:0,seg:0,last:performance.now()}; state.arriveSide="";
   if(!cam.on) camSet(true);   // w czasie dojścia mapa obraca się w kierunku marszu
   const pts=state.route.pts, cum=[0]; for(let i=1;i<pts.length;i++) cum.push(cum[i-1]+dst(pts[i-1],pts[i]));
-  const speed=1.3*4; // m/s, przyspieszone x4
+  // tempo spaceru: 1× = zwykły krok (ok. 1,3 m/s); przycisk na mapie przełącza 1× / 2× / 4×
   const step=t=>{
     const w=state.walk; if(!w) return;
-    w.s+=speed*Math.min(.1,(t-w.last)/1000); w.last=t;
+    w.s+=1.3*TEMPO*Math.min(.1,(t-w.last)/1000); w.last=t;
     if(w.s>=state.route.len){ state.arriveSide=pts.length>1?graveSide(pts[pts.length-2],pts[pts.length-1]):"";
-      state.me={...pts[pts.length-1]}; state.walk=null; state.arrived=true; state.route=route(state.me,{x:state.sel.ax,y:state.sel.ay}); update(); return; }
+      state.me={...pts[pts.length-1]}; state.walk=null; state.arrived=true; state.route=route(state.me,{x:state.sel.ax,y:state.sel.ay}); update(); walkUI(); return; }
     while(w.seg<pts.length-2&&cum[w.seg+1]<w.s) w.seg++;
     const a=pts[w.seg], b=pts[w.seg+1], f=(w.s-cum[w.seg])/(cum[w.seg+1]-cum[w.seg]||1);
     state.me={x:a.x+(b.x-a.x)*f, y:a.y+(b.y-a.y)*f};
@@ -1779,7 +1795,7 @@ function startWalk(){
     const d=card.querySelector(".dist b"); if(d) d.textContent=Math.round(remaining())+" m";
     raf=requestAnimationFrame(step);
   };
-  renderCard(); raf=requestAnimationFrame(step);
+  renderCard(); walkUI(); raf=requestAnimationFrame(step);
   // na telefonie mapa jest nad kartą — przewijamy, żeby plan cmentarza z trasą był na środku ekranu
   // (chwilę później — po przerysowaniu karty, które samo potrafi przewinąć ekran)
   // (własna animacja krok po kroku — wbudowane „smooth” przerywa się, bo mapa rysuje się w każdej klatce)
@@ -1793,6 +1809,7 @@ function startWalk(){
 }
 function stopWalk(silent){
   if(raf) cancelAnimationFrame(raf); raf=null;
+  setTimeout(walkUI,0);
   if(state.walk){ state.walk=null; recompute(); if(!silent) update(); }
 }
 

@@ -1,49 +1,74 @@
-// Moje Wirkowice — ustawienia widoku (zapamiętywane w telefonie):
-//  • „Duży tekst” — powiększa teksty i przyciski (wygodniej dla seniorów),
-//  • „Motyw” — jak w telefonie / jasny / ciemny.
+// Moje Wirkowice — „Opcje” (zapamiętywane w telefonie):
+//  • wielkość tekstu: zwykły / duży / bardzo duży,
+//  • wysoki kontrast: jaśniejsze napisy i wyraźniejsze ramki,
+//  • kolory dla daltonistów: zamiast zielone/czerwone — niebieskie/pomarańczowe, plus znaki ✓ i ✕,
+//  • bez animacji: nic się nie rusza (mniej zawrotów głowy, oszczędza baterię),
+//  • pobierz najświeższe dane, instrukcja dodania apki do ekranu.
 // Wczytywany w <head>, więc ustawienia działają od razu, bez mignięcia.
 (function(){
-  const K_DUZE="wirk-duze", K_MOTYW="wirk-motyw";
+  const K_DUZE="wirk-duze", K_MOTYW="wirk-motyw", K_KONTR="wirk-kontrast", K_DALT="wirk-dalton", K_SPOK="wirk-spokoj";
   const get=k=>{ try{ return localStorage.getItem(k); }catch(e){ return null; } };
   const set=(k,v)=>{ try{ v===null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} };
   const root=document.documentElement;
   const TYLKO_CIEMNY=true;   // na razie apka ma tylko ciemny motyw; false = wraca wybór motywu w panelu „Aa”
   function zastosuj(){
     const m=TYLKO_CIEMNY?"dark":get(K_MOTYW); if(m==="light"||m==="dark") root.setAttribute("data-theme",m); else root.removeAttribute("data-theme");
-    if(get(K_DUZE)==="1") root.setAttribute("data-duze","1"); else root.removeAttribute("data-duze");
+    const d=get(K_DUZE); if(d==="1"||d==="2") root.setAttribute("data-duze",d); else root.removeAttribute("data-duze");
+    [[K_KONTR,"data-kontrast"],[K_DALT,"data-dalton"],[K_SPOK,"data-spokoj"]].forEach(([k,a])=>{ if(get(k)==="1") root.setAttribute(a,""); else root.removeAttribute(a); });
   }
   zastosuj();
+  // Style trybów — od razu w <head>, żeby nie było mignięcia zwykłego wyglądu
+  const TRYBY=document.createElement("style"); TRYBY.textContent=`
+  html[data-duze="1"] .wrap, html[data-duze="1"] .top, html[data-duze="1"] .card{zoom:1.22}
+  html[data-duze="2"] .wrap, html[data-duze="2"] .top, html[data-duze="2"] .card{zoom:1.42}
+  :root:root[data-kontrast]{--muted:#E2E8E4;--line:#8A988F;--fg:#FFFFFF}
+  html[data-kontrast] .tile, html[data-kontrast] .card, html[data-kontrast] .kal{border-width:2px}
+  html[data-kontrast] a{text-decoration-thickness:2px}
+  :root:root[data-dalton]{--green:#7FB2FF;--green-soft:#1A2B44}
+  html[data-dalton] .stan.tak::before{content:"✓ "}
+  html[data-dalton] .stan.nie{background:#3D2A12;color:#F5B25B}
+  html[data-dalton] .stan.nie::before{content:"✕ "}
+  html[data-spokoj] *, html[data-spokoj] *::before, html[data-spokoj] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  html[data-spokoj]::view-transition-group(*), html[data-spokoj]::view-transition-old(*), html[data-spokoj]::view-transition-new(*){animation:none!important}`;
+  document.head.appendChild(TRYBY);
 
   const CSS=`
-  html[data-duze] .wrap, html[data-duze] .top, html[data-duze] .card{zoom:1.22}
   /* Dolny pasek: Wstecz, Dalej, Aa — w aplikacji na ekranie głównym telefon nie ma własnych strzałek */
   body.z-paskiem{padding-bottom:calc(54px + env(safe-area-inset-bottom,0px))}
-  .ust-btn.plywa{position:fixed;z-index:60;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));
-    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--fg);
-    font:700 16px/1 Georgia,serif;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
   .pasek{position:fixed;z-index:60;left:0;right:0;bottom:0;padding:6px calc(10px + env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) calc(10px + env(safe-area-inset-left,0px));
     background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
-  .pasek-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 48px;gap:6px}
+  .pasek-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr auto;gap:6px}
   .pasek button{height:38px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--fg);
     font:600 15px/1 "Source Sans 3","Segoe UI",system-ui,sans-serif;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer}
   .pasek button svg{width:17px;height:17px;display:inline-block;background:none;cursor:inherit;touch-action:auto;flex:none}
   .pasek button:disabled{opacity:.4;cursor:default}
-  .pasek .ust-btn{font:700 16px/1 Georgia,serif}
+  .pasek .ust-btn{padding:0 14px}
+  .opcje-dol{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:22px 0 4px;padding:12px;border-radius:12px;border:1px dashed var(--line);background:transparent;color:var(--muted);font:600 15px/1.2 "Source Sans 3","Segoe UI",system-ui,sans-serif;cursor:pointer}
+  .opcje-dol svg,.pasek .ust-btn svg{width:18px;height:18px}
   .pasek button:focus-visible,.ust-pan button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .ust-pan{position:fixed;z-index:61;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(62px + env(safe-area-inset-bottom,0px));
-    width:min(280px,calc(100vw - 24px));padding:14px;border-radius:14px;background:var(--panel);color:var(--fg);border:1px solid var(--line);
-    box-shadow:0 10px 30px rgba(0,0,0,.22);font:15px/1.4 "Source Sans 3","Segoe UI",system-ui,sans-serif}
+  /* Panel „Opcje” wysuwany od dołu */
+  .ust-tlo{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.5)}
+  .ust-tlo[hidden],.ust-pan[hidden]{display:none}
+  .ust-pan{position:fixed;z-index:81;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,100vw);max-height:86vh;overflow:auto;box-sizing:border-box;
+    padding:16px calc(16px + env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) calc(16px + env(safe-area-inset-left,0px));
+    border-radius:18px 18px 0 0;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-bottom:0;
+    box-shadow:0 -10px 30px rgba(0,0,0,.35);font:15px/1.4 "Source Sans 3","Segoe UI",system-ui,sans-serif;animation:ustWjazd .22s ease-out}
+  @keyframes ustWjazd{from{transform:translate(-50%,40px);opacity:0}}
+  .ust-gl{display:flex;justify-content:space-between;align-items:center}
+  .ust-gl .x{width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--muted);font-size:24px;cursor:pointer}
+  .ust-pan .opis{margin:5px 0 0;font-size:13px;color:var(--muted)}
+  .ust-akcja{width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:600 15px/1.2 "Source Sans 3","Segoe UI",system-ui,sans-serif;cursor:pointer}
   .odsw{position:fixed;z-index:70;left:50%;top:calc(6px + env(safe-area-inset-top,0px));width:38px;height:38px;margin-left:-19px;border-radius:50%;
     display:grid;place-items:center;background:var(--panel);color:var(--muted);border:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.3);
     font:700 20px/1 system-ui,sans-serif;opacity:0;pointer-events:none;transition:opacity .15s}
   .odsw.gotowe{color:var(--accent);border-color:var(--accent)}
   .odsw.kreci{animation:odswKrec .8s linear infinite}
   @keyframes odswKrec{to{transform:translateY(50px) rotate(360deg)}}
-  .ust-pan h3{margin:0 0 10px;font:700 16px/1.2 Bitter,Georgia,serif}
-  .ust-pan p{margin:12px 0 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .ust-pan h3{margin:0;font:700 19px/1.2 Bitter,Georgia,serif}
+  .ust-pan p{margin:16px 0 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
   .ust-seg{display:flex;gap:6px}
   .ust-inst{font-size:14px;line-height:1.45;color:var(--fg)}
-  .ust-seg button{flex:1;padding:9px 6px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:600 14px/1.2 inherit;cursor:pointer}
+  .ust-seg button{flex:1;padding:9px 6px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:600 14px/1.2 "Source Sans 3","Segoe UI",system-ui,sans-serif;cursor:pointer}
   .ust-seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}`;
   const zIkony=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;   // apka uruchomiona z ikony
   function ui(){
@@ -57,34 +82,42 @@
     if(glowna&&history.length<=1) wst.disabled=true;
     wst.onclick=()=>{ if(history.length>1) history.back(); else if(!glowna) location.href="index.html"; };
     bar.querySelector(".dalej").onclick=()=>history.forward();
-    const b=document.createElement("button"); b.className="ust-btn"; b.type="button"; b.textContent="Aa";
-    b.setAttribute("aria-label","Ustawienia widoku: duży tekst i motyw"); b.setAttribute("aria-expanded","false");
-    const p=document.createElement("div"); p.className="ust-pan"; p.hidden=true; p.setAttribute("role","dialog"); p.setAttribute("aria-label","Ustawienia widoku");
-    p.innerHTML=`<h3>Wygląd</h3>
-      <p>Wielkość tekstu</p><div class="ust-seg" data-k="duze"><button type="button" data-v="0">Zwykły</button><button type="button" data-v="1">Duży</button></div>`+(zIkony?"":`
-      <p>Apka na ekranie telefonu</p><div class="ust-inst">${/iPhone|iPad|iPod/i.test(navigator.userAgent)
+    const ikOpcje='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>';
+    const b=document.createElement("button"); b.className=glowna?"opcje-dol":"ust-btn"; b.type="button";
+    b.innerHTML=ikOpcje+(glowna?"Opcje: wielkość tekstu, kontrast, kolory":"Opcje");
+    b.setAttribute("aria-label","Opcje: wielkość tekstu, kontrast, kolory, animacje"); b.setAttribute("aria-expanded","false");
+    const tlo=document.createElement("div"); tlo.className="ust-tlo"; tlo.hidden=true;
+    const p=document.createElement("div"); p.className="ust-pan"; p.hidden=true; p.setAttribute("role","dialog"); p.setAttribute("aria-modal","true"); p.setAttribute("aria-label","Opcje");
+    const seg=(k,opcje)=>`<div class="ust-seg" data-k="${k}">${opcje.map(([v,t])=>`<button type="button" data-v="${v}">${t}</button>`).join("")}</div>`;
+    const iOS=/iPhone|iPad|iPod/i.test(navigator.userAgent);
+    p.innerHTML=`<div class="ust-gl"><h3>Opcje</h3><button type="button" class="x" aria-label="Zamknij">×</button></div>
+      <p>Wielkość tekstu</p>${seg("duze",[["0","Zwykły"],["1","Duży"],["2","Bardzo duży"]])}
+      <p>Kontrast</p>${seg("kontrast",[["0","Zwykły"],["1","Wysoki"]])}<div class="opis">Jaśniejsze napisy i wyraźniejsze ramki.</div>
+      <p>Kolory</p>${seg("dalton",[["0","Zwykłe"],["1","Dla daltonistów"]])}<div class="opis">Zamiast zielonego i czerwonego: niebieski i pomarańczowy, ze znakami ✓ i ✕.</div>
+      <p>Animacje</p>${seg("spokoj",[["0","Włączone"],["1","Wyłączone"]])}<div class="opis">Nic się nie rusza na ekranie: mniej zawrotów głowy, mniej zużycia baterii.</div>
+      <p>Dane</p><button type="button" class="ust-akcja" data-a="swieze">↻ Pobierz najświeższe dane</button>`+(zIkony?"":`
+      <p>Apka na ekranie telefonu</p><div class="ust-inst">${iOS
         ?"W Safari dotknij <b>Udostępnij</b> (kwadrat ze strzałką; w nowszym Safari najpierw <b>⋯</b> w prawym dolnym rogu), przewiń w dół i wybierz <b>Do ekranu głównego</b>, zostaw włączone <b>Otwórz jako aplikację www</b> i dotknij <b>Dodaj</b>. Z Firefoksa czy Chrome też się da, ale najlepiej działa z Safari."
-        :"Dotknij <b>⋮</b> w prawym górnym rogu przeglądarki i wybierz <b>Dodaj do ekranu głównego</b> albo <b>Zainstaluj aplikację</b>."}</div>`)+(TYLKO_CIEMNY?"":`
-      <p>Motyw</p><div class="ust-seg" data-k="motyw"><button type="button" data-v="auto">Jak telefon</button><button type="button" data-v="light">Jasny</button><button type="button" data-v="dark">Ciemny</button></div>`);
-    // Na stronie głównej bez paska — tylko pływające „Aa”; na podstronach pasek Wstecz / Dalej / Aa
-    if(glowna){ b.classList.add("plywa"); document.body.append(b,p); }
-    else { bar.querySelector(".pasek-in").append(b); document.body.classList.add("z-paskiem"); document.body.append(bar,p); }
+        :"Dotknij <b>⋮</b> w prawym górnym rogu przeglądarki i wybierz <b>Dodaj do ekranu głównego</b> albo <b>Zainstaluj aplikację</b>."}</div>`);
+    // Na stronie głównej — przycisk „Opcje” na samym dole strony; na podstronach — w dolnym pasku
+    if(glowna){ (document.querySelector("main")||document.body).appendChild(b); document.body.append(tlo,p); }
+    else { bar.querySelector(".pasek-in").append(b); document.body.classList.add("z-paskiem"); document.body.append(bar,tlo,p); }
+    const KLUCZE={duze:K_DUZE,kontrast:K_KONTR,dalton:K_DALT,spokoj:K_SPOK};
     const odswiez=()=>{
-      const d=get(K_DUZE)==="1"?"1":"0", m=get(K_MOTYW)||"auto";
-      p.querySelectorAll('[data-k="duze"] button').forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.v===d)));
-      p.querySelectorAll('[data-k="motyw"] button').forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.v===m)));
+      Object.entries(KLUCZE).forEach(([k,kl])=>{ const v=get(kl)||"0";
+        p.querySelectorAll(`[data-k="${k}"] button`).forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.v===v))); });
     };
     p.addEventListener("click",e=>{
+      if(e.target.closest(".x")){ otworz(false); return; }
+      if(e.target.closest('[data-a="swieze"]')){ try{ sessionStorage.setItem("wirk-swieze","1"); }catch(_){} location.reload(); return; }
       const x=e.target.closest("button[data-v]"); if(!x) return;
-      const k=x.parentElement.dataset.k;
-      if(k==="duze") set(K_DUZE,x.dataset.v==="1"?"1":null);
-      if(k==="motyw") set(K_MOTYW,x.dataset.v==="auto"?null:x.dataset.v);
+      const k=x.parentElement.dataset.k; set(KLUCZE[k],x.dataset.v==="0"?null:x.dataset.v);
       zastosuj(); odswiez();
       window.dispatchEvent(new Event("resize"));   // mapa cmentarza przelicza wymiary
     });
-    const otworz=v=>{ p.hidden=!v; b.setAttribute("aria-expanded",String(v)); if(v) odswiez(); };
+    const otworz=v=>{ p.hidden=!v; tlo.hidden=!v; b.setAttribute("aria-expanded",String(v)); if(v){ odswiez(); p.querySelector(".x").focus(); } };
     b.onclick=()=>otworz(p.hidden);
-    document.addEventListener("click",e=>{ if(!p.hidden&&!p.contains(e.target)&&e.target!==b) otworz(false); });
+    tlo.onclick=()=>otworz(false);
     document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!p.hidden){ otworz(false); b.focus(); } });
   }
   // Apka z ikony nie ma odświeżania pociągnięciem w dół (Safari i Chrome mają je tylko w przeglądarce) — dodajemy własne
