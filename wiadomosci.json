@@ -1,6 +1,30 @@
 {
-"zaktualizowano": "2026-11-07T22:55:48+00:00",
+"zaktualizowano": "2026-11-08T02:16:53+00:00",
 "polska": [
+{
+"t": "Akcja służb w Ostrowcu Świętokrzyskim. Nowe informacje",
+"l": "https://wiadomosci.onet.pl/kraj/strzelanina-w-krakowie-nowe-informacje-z-ostrowca-swietokrzyskiego/8l087xe",
+"z": "Onet",
+"d": "2026-11-08T00:02:13+00:00"
+},
+{
+"t": "Świat solidaryzuje się z Polską po strzelaninie w Krakowie. Kondolencje płyną z wielu stron",
+"l": "https://wiadomosci.onet.pl/kraj/strzelanina-w-krakowie-swiat-solidaryzuje-sie-z-polska/h6yrxvy",
+"z": "Onet",
+"d": "2026-11-07T23:38:30+00:00"
+},
+{
+"t": "Rozpoczęła się żałoba narodowa po strzelaninie w Krakowie",
+"l": "https://wiadomosci.onet.pl/kraj/strzelanina-na-rynku-glownym-w-krakowie-o-polnocy-rozpoczela-sie-zaloba/y3mfmme",
+"z": "Onet",
+"d": "2026-11-07T23:20:34+00:00"
+},
+{
+"t": "Ranny policjant z Krakowa pilnie potrzebuje krwi. Jak można pomóc?",
+"l": "https://www.rmf24.pl/regiony/krakow/news-ranny-policjant-z-krakowa-pilnie-potrzebuje-krwi-jak-mozna-p,nIdn,1025288",
+"z": "RMF24",
+"d": "2026-11-07T23:10:00+00:00"
+},
 {
 "t": "Pilny apel strażaków. Potrzebna krew dla rannego policjanta z Krakowa",
 "l": "https://wiadomosci.onet.pl/kraj/strzelanina-na-rynku-glownym-w-krakowie-strazacy-apeluja-o-pomoc/jwwh9fl",
@@ -86,7 +110,7 @@
 "d": "2026-11-07T19:49:00+00:00"
 },
 {
-"t": "Kontrterroryści w domu zamachowca. Nowe informacje",
+"t": "Kontrterroryści w domu zamachowca z Krakowa. Nadal trwają czynności",
 "l": "https://wiadomosci.onet.pl/kraj/kontrterrorysci-w-domu-zamachowca-trwaja-czynnosci/69sh5z5",
 "z": "Onet",
 "d": "2026-11-07T19:48:38+00:00"
@@ -102,12 +126,6 @@
 "l": "https://www.rmf24.pl/regiony/news-lukasz-gibala-po-strzelaninie-w-krakowie-przemoc-nie-zmieni-,nIdn,1025268",
 "z": "RMF24",
 "d": "2026-11-07T19:23:00+00:00"
-},
-{
-"t": "Żałoba narodowa po strzelaninie w Krakowie. Prezydent zdecydował",
-"l": "https://www.rmf24.pl/fakty/polska/news-zaloba-narodowa-po-strzelaninie-w-krakowie-prezydent-zdecydo,nIdn,1025276",
-"z": "RMF24",
-"d": "2026-11-07T19:21:00+00:00"
 },
 {
 "t": "Tragedia w Krakowie. Ministrowie: bądźmy w tych chwilach zjednoczeni",
@@ -126,24 +144,6 @@
 "l": "https://wiadomosci.onet.pl/kraj/zaloba-narodowa-po-tragedii-w-krakowie-karol-nawrocki-rozpoczal-procedure/pysjjzd",
 "z": "Onet",
 "d": "2026-11-07T19:06:59+00:00"
-},
-{
-"t": "Politycy z Polski i ze świata reagują na tragedię w Krakowie. \"Podły i niedopuszczalny akt przemocy\"",
-"l": "https://wiadomosci.onet.pl/kraj/politycy-z-polski-i-ze-swiata-reaguja-na-tragedie-w-krakowie-podly-i-niedopuszczalny/e63pysy",
-"z": "Onet",
-"d": "2026-11-07T19:04:05+00:00"
-},
-{
-"t": "Tragiczna sobota w Krakowie. Prymas Polski modli się za ofiary",
-"l": "https://wiadomosci.onet.pl/kraj/tragiczna-sobota-w-krakowie-prymas-polski-modli-sie-za-ofiary/6vxjvn4",
-"z": "Onet",
-"d": "2026-11-07T18:57:46+00:00"
-},
-{
-"t": "Policjant: nagrania i zdjęcia ze strzelaniny w Krakowie powinny trafić do policji",
-"l": "https://wiadomosci.onet.pl/kraj/policjant-nagrania-i-zdjecia-ze-strzelaniny-w-krakowie-powinny-trafic-do-policji/k5wbw8n",
-"z": "Onet",
-"d": "2026-11-07T18:49:49+00:00"
 }
 ],
 "swiat": [
@@ -294,6 +294,30 @@
 ],
 "religia": [
 {
+"t": "Potrzebna krew dla bohaterskiego policjanta z Krakowa Jakuba Kulika",
+"l": "https://stacja7.pl/z-kraju/potrzebna-krew-dla-bohaterskiego-policjanta-z-krakowa-jakuba-kulika/",
+"z": "Stacja7",
+"d": "2026-11-08T01:56:22+00:00"
+},
+{
+"t": "Papież do studentów: życie ludzkie jest cenne",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-do-studentow-zycie-jest-cenne-podroz-ameryka.html",
+"z": "Vatican News",
+"d": "2026-11-08T00:24:00+00:00"
+},
+{
+"t": "Żałoba narodowa w Polsce po strzelaninie w Krakowie",
+"l": "https://www.vaticannews.va/pl/swiat/news/2026-11/zaloba-narodowa-polska-strzelanina-krakow.html",
+"z": "Vatican News",
+"d": "2026-11-08T00:02:00+00:00"
+},
+{
+"t": "Leon XIV: Młodzi, miejcie odwagę do małżeństwa. Nie bójcie się!",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-leon-xiv-urugwaj-mlodzi-miejcie-odwaga-do-malzenstwo.html",
+"z": "Vatican News",
+"d": "2026-11-07T23:28:00+00:00"
+},
+{
 "t": "Papież pobłogosławił domy dla rodzin w trudnej sytuacji",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-poblogoslawil-domy-dla-rodzin-w-trudnej-sytuacji.html",
 "z": "Vatican News",
@@ -360,46 +384,16 @@
 "d": "2026-11-07T15:55:00+00:00"
 },
 {
-"t": "Papież o skarbie wiary i kontynuowaniu misji siewców Ewangelii",
-"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-o-skarbie-wiary-i-kontynuowaniu-misji-siewcow-ewangelii.html",
-"z": "Vatican News",
-"d": "2026-11-07T13:50:00+00:00"
-},
-{
-"t": "Święci Urugwaju wspomniani przez Papieża",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/jacinto-vera-leon-xiv-podroz-apostolska-urugwaj-swieci.html",
-"z": "Vatican News",
-"d": "2026-11-07T12:21:00+00:00"
-},
-{
 "t": "Ocalał pod Grenoble, by przez lata służyć innym. Nie żyje ks. Łukasz Urbaniak",
 "l": "https://stacja7.pl/z-kraju/ocalal-pod-grenoble-by-przez-lata-sluzyc-innym-nie-zyje-ks-lukasz-urbaniak/",
 "z": "Stacja7",
 "d": "2026-11-07T11:39:05+00:00"
 },
 {
-"t": "Hiszpania: Beatyfikacja 80 męczenników z Santander",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/beatyfikacja-80-meczennikow-w-hiszpanii.html",
-"z": "Vatican News",
-"d": "2026-11-07T11:16:00+00:00"
-},
-{
 "t": "„Pragnąłbym, aby to doświadczenie Urugwaju znalazło oddźwięk w całym Kościele”. Papież przekazał szczególne wezwanie",
 "l": "https://stacja7.pl/ze-swiata/pragnalbym-aby-to-doswiadczenie-urugwaju-znalazlo-oddzwiek-w-calym-kosciele-papiez-przekazal-szczegolne-wezwanie/",
 "z": "Stacja7",
 "d": "2026-11-07T09:10:07+00:00"
-},
-{
-"t": "VI Chełmskie obchody Światowego Dnia Młodzieży 6-7.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/vi-chelmskie-obchody-swiatowego-dnia-mlodziezy-6-7-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-06T22:00:00+00:00"
-},
-{
-"t": "„Codzienne zwycięstwa” – wernisaż wystawy fotografii 6.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/codzienne-zwyciestwa-wernisaz-wystawy-fotografii/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-06T21:35:00+00:00"
 },
 {
 "t": "Leon XIV wylądował w Montevideo. Rozpoczyna najdłuższą pielgrzymkę swego pontyfikatu",
@@ -442,6 +436,12 @@
 "l": "https://archidiecezjalubelska.pl/blog/dzieci-moje-wystawa-w-wawolnicy-8-13-11-2026/",
 "z": "Archidiecezja Lubelska",
 "d": "2026-11-06T16:04:00+00:00"
+},
+{
+"t": "Papież w Ameryce Łacińskiej. Jak wygląda program podróży?",
+"l": "https://stacja7.pl/zwatykanu/papiez-w-ameryce-lacinskiej-jak-wyglada-program-podrozy/",
+"z": "Stacja7",
+"d": "2026-11-06T14:52:12+00:00"
 }
 ],
 "rolnicze": [
