@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-09T00:42:04+00:00",
+"zaktualizowano": "2026-11-09T07:49:28+00:00",
 "prad": [
 {
 "od": "2026-11-09 08:00:00",
@@ -291,6 +291,13 @@
 }
 ],
 "woda": [
+{
+"t": "INFORMACJA O PRZERWIE W DOSTAWIE WODY W IZBICY",
+"opis": "",
+"l": "https://www.gpgkizbica.pl/informacja-o-przerwie-w-dostawie-wody-w-izbicy/",
+"d": "2026-11-09T06:46+00:00",
+"z": "GPGK Izbica"
+},
 {
 "t": "INFORMACJA O PRZERWACH W DOSTAWIE WODY W TARNOGÓRZE",
 "opis": "",
