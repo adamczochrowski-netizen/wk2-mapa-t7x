@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-10T23:05:24+00:00",
+"zaktualizowano": "2026-11-11T02:56:59+00:00",
 "polska": [
 {
 "t": "19-letni Brytyjczyk ranny w zamachu w Krakowie. Jego rodzina zwraca się do Polaków",
@@ -148,6 +148,24 @@
 ],
 "swiat": [
 {
+"t": "Brat byłego premiera Węgier zatrzymany. Prokuratura domaga się aresztu",
+"l": "https://wiadomosci.onet.pl/swiat/brat-viktora-orbana-zatrzymany-na-wegrzech-prokuratura-chce-aresztu/ycyeetp",
+"z": "Onet",
+"d": "2026-11-11T02:39:10+00:00"
+},
+{
+"t": "Dron z Litwy wleciał do Polski? DORSZ: nie potwierdzamy",
+"l": "https://wiadomosci.onet.pl/swiat/litewskie-media-dron-przelecial-przez-nasz-kraj-i-wkroczyl-na-teren-polski/2jcb1w3",
+"z": "Onet",
+"d": "2026-11-10T23:57:53+00:00"
+},
+{
+"t": "Szef Pentagonu straci stanowisko? Izba Reprezentantów zagłosowała",
+"l": "https://wiadomosci.onet.pl/swiat/pete-hegseth-straci-stanowisko-izba-reprezentantow-zaglosowala/nq8cn3b",
+"z": "Onet",
+"d": "2026-11-10T23:33:51+00:00"
+},
+{
 "t": "Rosja wykorzystała Ołeszki i odbudowała pozycje. „Nie ma podstaw do ewakuacji Chersonia”",
 "l": "https://www.rmf24.pl/fakty/swiat/news-rosja-wykorzystala-oleszki-i-odbudowala-pozycje-nie-ma-podst,nIdn,1025694",
 "z": "RMF24",
@@ -256,28 +274,10 @@
 "d": "2026-11-10T16:06:55+00:00"
 },
 {
-"t": "Ukraińskie drony znów paraliżują rosyjskie rafinerie. Tracą 30 proc. mocy przerobowych",
-"l": "https://wiadomosci.onet.pl/swiat/ukrainskie-drony-znow-paralizuja-rosyjskie-rafinerie-traca-30-proc-mocy-przerobowych/sxd247z",
-"z": "Onet",
-"d": "2026-11-10T16:03:43+00:00"
-},
-{
 "t": "Abu Zabi: 4,5 godziny rozmów, agent FSB na sali i zmiana granic Ukrainy. Co jeszcze?",
 "l": "https://www.rmf24.pl/fakty/swiat/news-abu-zabi-45-godziny-rozmow-agent-fsb-na-sali-i-zmiana-granic,nIdn,1025662",
 "z": "RMF24",
 "d": "2026-11-10T15:49:00+00:00"
-},
-{
-"t": "Brytyjczycy chcą lepiej śledzić okręty podwodne Rosji. Na stole pół miliarda złotych",
-"l": "https://wiadomosci.onet.pl/swiat/brytyjczycy-chca-lepiej-sledzic-okrety-podwodne-rosji-na-stole-pol-miliarda/prnt5n3",
-"z": "Onet",
-"d": "2026-11-10T15:08:53+00:00"
-},
-{
-"t": "Bezprecedensowa operacja rosyjskiego lotnictwa. Tak Moskwa chroni swoje bombowce",
-"l": "https://wiadomosci.onet.pl/swiat/bezprecedensowa-operacja-rosyjskiego-lotnictwa-tak-moskwa-chroni-swoje-bombowce/nywhz95",
-"z": "Onet",
-"d": "2026-11-10T14:47:55+00:00"
 },
 {
 "t": "Premierzy Czech i Słowacji odrzucają „typowy szantaż” kanclerza Niemiec",
@@ -293,6 +293,18 @@
 }
 ],
 "religia": [
+{
+"t": "Leon XIV do młodych: Nie ulegajcie bożkom naszych czasów",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-leon-xiv-mlodzi-nie-ulegajcie-bozkom-naszych-czasow.html",
+"z": "Vatican News",
+"d": "2026-11-11T00:58:00+00:00"
+},
+{
+"t": "Leon XIV odpowiedział na pytania młodych: Naprzód, zawsze naprzód!",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/leon-xiv-odpowiedzial-na-pytania-mlodych-naprzod-zawsze-naprzod.html",
+"z": "Vatican News",
+"d": "2026-11-10T23:57:00+00:00"
+},
 {
 "t": "Młodzi w Argentynie: z ubogich dzielnic na spotkanie z Papieżem",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/mlodzi-argentyna-z-ubogich-dzielnic-na-spotkanie-papiez-leon.html",
@@ -420,22 +432,10 @@
 "d": "2026-11-10T11:49:34+00:00"
 },
 {
-"t": "Radość 2,5 mln wiernych na papieskiej Mszy św. w Buenos Aires",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/radosc-2-5-mln-wiernych-ze-spotania-z-leonem-xiv.html",
-"z": "Vatican News",
-"d": "2026-11-10T11:14:00+00:00"
-},
-{
 "t": "To w ich samochód uderzył zamachowiec. „Tomek zasłonił Kingę własnym ciałem”. Teraz sam potrzebuje pomocy",
 "l": "https://stacja7.pl/z-kraju/to-w-ich-samochod-uderzyl-zamachowiec-tomek-zaslonil-kinge-wlasnym-cialem-teraz-sam-potrzebuje-pomocy/",
 "z": "Stacja7",
 "d": "2026-11-10T10:29:21+00:00"
-},
-{
-"t": "Leon XIV w Ameryce Łacińskiej: Chrystus czyni świat prawdziwym i wolnym",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/edytorial-massimiliano-menichetti-leon-xiv-w-ameryce-poludniowej.html",
-"z": "Vatican News",
-"d": "2026-11-10T09:38:00+00:00"
 },
 {
 "t": "Ranni w strzelaninie policjanci chcieli się zobaczyć. Zorganizowano im wideorozmowę",
