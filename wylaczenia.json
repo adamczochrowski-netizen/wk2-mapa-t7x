@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-12T01:25:10+00:00",
+"zaktualizowano": "2026-11-12T08:46:44+00:00",
 "prad": [
 {
 "od": "2026-11-12 08:00:00",
@@ -149,6 +149,31 @@
 "Wysokie"
 ],
 "opis": "Sitaniec; Sitaniec-Wolica; Wysokie",
+"odwolane": false
+},
+{
+"od": "2026-11-18 08:00:00",
+"do": "2026-11-18 15:00:00",
+"gminy": [
+"Łopiennik Górny"
+],
+"miejsca": [
+"Dobryniów-Kolonia",
+"Łopiennik Dolny"
+],
+"opis": "Łopiennik Dolny; Dobryniów-Kolonia",
+"odwolane": false
+},
+{
+"od": "2026-11-19 08:00:00",
+"do": "2026-11-19 15:00:00",
+"gminy": [
+"Izbica"
+],
+"miejsca": [
+"Wirkowice Drugie"
+],
+"opis": "Wirkowice Drugie",
 "odwolane": false
 },
 {
