@@ -1,44 +1,6 @@
 {
-"zaktualizowano": "2026-11-12T08:46:44+00:00",
+"zaktualizowano": "2026-11-12T17:29:47+00:00",
 "prad": [
-{
-"od": "2026-11-12 08:00:00",
-"do": "2026-11-12 15:00:00",
-"gminy": [
-"Izbica"
-],
-"miejsca": [
-"Ostrówek",
-"Tarnogóra-Kolonia"
-],
-"opis": "Ostrówek; Tarnogóra-Kolonia",
-"odwolane": false
-},
-{
-"od": "2026-11-12 08:00:00",
-"do": "2026-11-12 16:00:00",
-"gminy": [
-"Skierbieszów"
-],
-"miejsca": [
-"Huszczka Duża"
-],
-"opis": "Huszczka Duża",
-"odwolane": false
-},
-{
-"od": "2026-11-12 09:00:00",
-"do": "2026-11-12 13:00:00",
-"gminy": [
-"Sułów"
-],
-"miejsca": [
-"Kulików",
-"Rozłopy-Kolonia"
-],
-"opis": "Rozłopy-Kolonia; Kulików",
-"odwolane": false
-},
 {
 "od": "2026-11-13 08:00:00",
 "do": "2026-11-13 14:30:00",
@@ -191,16 +153,45 @@
 ],
 "opis": "Majdan Sitaniecki; Majdan Skierbieszowski; Borowina Sitaniecka",
 "odwolane": false
+},
+{
+"od": "2026-11-24 08:00:00",
+"do": "2026-11-24 16:00:00",
+"gminy": [
+"Skierbieszów"
+],
+"miejsca": [
+"Sady"
+],
+"opis": "Sady",
+"odwolane": false
+},
+{
+"od": "2026-11-25 08:00:00",
+"do": "2026-11-25 16:00:00",
+"gminy": [
+"Skierbieszów"
+],
+"miejsca": [
+"Lipina Nowa"
+],
+"opis": "Lipina Nowa",
+"odwolane": false
+},
+{
+"od": "2026-11-26 08:00:00",
+"do": "2026-11-26 16:00:00",
+"gminy": [
+"Skierbieszów"
+],
+"miejsca": [
+"Lipina Stara"
+],
+"opis": "Lipina Stara",
+"odwolane": false
 }
 ],
 "woda": [
-{
-"t": "INFORMACJA O PRZERWIE W DOSTAWIE WODY W IZBICY",
-"opis": "",
-"l": "https://www.gpgkizbica.pl/informacja-o-przerwie-w-dostawie-wody-w-izbicy/",
-"d": "2026-11-09T06:46+00:00",
-"z": "GPGK Izbica"
-},
 {
 "t": "INFORMACJA O PRZERWACH W DOSTAWIE WODY W TARNOGÓRZE",
 "opis": "",
