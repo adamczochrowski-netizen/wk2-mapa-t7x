@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-13T03:20:29+00:00",
+"zaktualizowano": "2026-11-13T11:26:52+00:00",
 "prad": [
 {
 "od": "2026-11-13 08:00:00",
@@ -11,7 +11,7 @@
 "Sulmice"
 ],
 "opis": "Sulmice",
-"odwolane": false
+"odwolane": true
 },
 {
 "od": "2026-11-13 08:00:00",
@@ -24,7 +24,7 @@
 "Wierzba"
 ],
 "opis": "Wierzba; Stary Zamość",
-"odwolane": false
+"odwolane": true
 },
 {
 "od": "2026-11-13 08:00:00",
@@ -36,7 +36,7 @@
 "Sady"
 ],
 "opis": "Sady",
-"odwolane": false
+"odwolane": true
 },
 {
 "od": "2026-11-16 08:00:00",
@@ -127,6 +127,18 @@
 "odwolane": false
 },
 {
+"od": "2026-11-18 08:00:00",
+"do": "2026-11-18 15:00:00",
+"gminy": [
+"Zamość"
+],
+"miejsca": [
+"Zamość"
+],
+"opis": "Biłgoraj: ul. Batalionów Chłopskich, ul. Mickiewicza, ul. Marii Konopnickiej, ul. Wiejska, ul. Rożnówka Stawy, ul. gen. Komorowskiego, ul. Lazurowa, ul. Puszcza Solska, ul. Długa, ul. gen. Władysława Andersa, ul. Tarnogrodzka, ul. Stefana Żeromskiego, ul. Cegielniana, ul. Nadstawna, ul. Cicha, ul. Antoniego \"Orkisza\" Radzika, ul. gen. Maczka, ul. Cypriana Godebskiego, ul. Mikołaja Kopernika, ul. B",
+"odwolane": true
+},
+{
 "od": "2026-11-19 08:00:00",
 "do": "2026-11-19 15:00:00",
 "gminy": [
@@ -136,6 +148,45 @@
 "Wirkowice Drugie"
 ],
 "opis": "Wirkowice Drugie",
+"odwolane": false
+},
+{
+"od": "2026-11-20 08:00:00",
+"do": "2026-11-20 12:00:00",
+"gminy": [
+"Izbica"
+],
+"miejsca": [
+"Topola"
+],
+"opis": "Topola",
+"odwolane": false
+},
+{
+"od": "2026-11-20 08:00:00",
+"do": "2026-11-20 15:00:00",
+"gminy": [
+"Stary Zamość"
+],
+"miejsca": [
+"Stary Zamość",
+"Wierzba"
+],
+"opis": "Stary Zamość; Wierzba",
+"odwolane": false
+},
+{
+"od": "2026-11-20 11:00:00",
+"do": "2026-11-20 15:00:00",
+"gminy": [
+"Rudnik",
+"Sułów"
+],
+"miejsca": [
+"Bzowiec",
+"Tworyczów"
+],
+"opis": "Tworyczów; Bzowiec",
 "odwolane": false
 },
 {
