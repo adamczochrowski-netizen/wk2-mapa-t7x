@@ -1,6 +1,12 @@
 {
-"zaktualizowano": "2026-11-12T22:51:21+00:00",
+"zaktualizowano": "2026-11-13T03:20:15+00:00",
 "polska": [
+{
+"t": "86-latka trafiła na SOR i powstał problem. Lekarz apeluje do rodzin",
+"l": "https://wiadomosci.onet.pl/kraj/86-latka-trafila-na-sor-i-powstal-problem-lekarz-apeluje-do-rodzin/wb7fcwd",
+"z": "Onet",
+"d": "2026-11-13T01:09:07+00:00"
+},
 {
 "t": "„Czarny tydzień w handlu”. Przedświąteczny protest sparaliżuje sklepy?",
 "l": "https://www.rmf24.pl/fakty/polska/news-czarny-tydzien-w-handlu-przedswiateczny-protest-sparalizuje-,nIdn,1025913",
@@ -128,12 +134,6 @@
 "d": "2026-11-12T16:57:24+00:00"
 },
 {
-"t": "Kard. Grzegorz Ryś po zamachu w Krakowie: Każdy z nas mógł być na ulicy [WYWIAD]",
-"l": "https://wiadomosci.onet.pl/kraj/kardynal-rys-po-zamachu-w-krakowie-dozylismy-czasow-zalegalizowanego-egoizmu/6hsjvqp",
-"z": "Onet",
-"d": "2026-11-12T16:53:56+00:00"
-},
-{
 "t": "Szpital w Bartoszycach bez ważnego oddziału",
 "l": "https://www.rmf24.pl/regiony/olsztyn/news-szpital-w-bartoszycach-bez-waznego-oddzialu,nIdn,1025891",
 "z": "RMF24",
@@ -147,6 +147,24 @@
 }
 ],
 "swiat": [
+{
+"t": "Szczyt NATO nie dla Tirany. Premier Albanii Edi Rama zabrał głos",
+"l": "https://wiadomosci.onet.pl/swiat/szczyt-nato-nie-dla-tirany-premier-albanii-edi-rama-zabral-glos/7ltn6e0",
+"z": "Onet",
+"d": "2026-11-13T03:17:21+00:00"
+},
+{
+"t": "Rosja w obliczu epidemii HIV. Kraj Putina mierzy się z niedoborem leków",
+"l": "https://wiadomosci.onet.pl/swiat/rosja-w-obliczu-epidemii-wirusa-hiv-wojna-w-ukrainie-pogarsza-sytuacje/lmm58qh",
+"z": "Onet",
+"d": "2026-11-13T02:11:13+00:00"
+},
+{
+"t": "Donald Trump ostrzega Kubę. Prezydent USA rozważa użycie siły",
+"l": "https://wiadomosci.onet.pl/swiat/donald-trump-ostrzega-kube-prezydent-usa-rozwaza-uzycie-sily/mvczllh",
+"z": "Onet",
+"d": "2026-11-12T23:14:50+00:00"
+},
 {
 "t": "Trump mówi o użyciu siły wobec Kuby. „Chcę załatwić tę sprawę”",
 "l": "https://www.rmf24.pl/fakty/swiat/news-trump-mowi-o-uzyciu-sily-wobec-kuby-chce-zalatwic-te-sprawe,nIdn,1025919",
@@ -268,24 +286,6 @@
 "d": "2026-11-12T17:44:00+00:00"
 },
 {
-"t": "Ponad milion Europejczyków podpisało petycję. KE przyjrzy się umowie z Izraelem",
-"l": "https://wiadomosci.onet.pl/swiat/ponad-milion-europejczykow-podpisalo-petycje-ke-przyjrzy-sie-umowie-z-izraelem/q8kb9eq",
-"z": "Onet",
-"d": "2026-11-12T17:32:30+00:00"
-},
-{
-"t": "Witold Jurasz: rozmowy pokojowe w Abu Zabi pokazały, że USA są dziś Europie mniej życzliwe niż Chiny",
-"l": "https://wiadomosci.onet.pl/swiat/jurasz-oto-kluczowe-wnioski-z-rozmow-pokojowych-w-abu-zabi/qxc52d9",
-"z": "Onet",
-"d": "2026-11-12T17:26:17+00:00"
-},
-{
-"t": "Wysłannik Donalda Trumpa zapowiada po wizycie w Moskwie. \"Europa będzie uczestniczyć w rozmowach\"",
-"l": "https://wiadomosci.onet.pl/swiat/rozmowy-pokojowe-w-sprawie-ukrainy-europa-bedzie-uczestniczyc-w-rozmowach/z7j48tf",
-"z": "Onet",
-"d": "2026-11-12T17:13:21+00:00"
-},
-{
 "t": "Litwa szykuje specjalny podatek. Popsuje to stosunki z Polską?",
 "l": "https://www.rmf24.pl/fakty/ekonomia/news-litwa-szykuje-specjalny-podatek-popsuje-to-stosunki-z-polska,nIdn,1025893",
 "z": "RMF24",
@@ -293,6 +293,18 @@
 }
 ],
 "religia": [
+{
+"t": "Leon XIV do młodych: trzy słowa, które mogą zmienić życie",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/spotkanie-papieza-z-mlodymi-w-limie-3-wskazowki-na-zycie.html",
+"z": "Vatican News",
+"d": "2026-11-13T00:42:14+00:00"
+},
+{
+"t": "Peru: Leon XIV spotkał się z osobami skrzywdzonymi w Kościele",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/peru-spotkanie-leona-xiv-sie-z-osobami-skrzywdzonymi-w-kosciele.html",
+"z": "Vatican News",
+"d": "2026-11-12T23:04:00+00:00"
+},
 {
 "t": "Skarb Kościoła Ameryki Łacińskiej",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/leon-xiv-przypomnial-swietych-urugwaju.html",
@@ -306,10 +318,34 @@
 "d": "2026-11-12T21:40:00+00:00"
 },
 {
+"t": "Dzień modlitwy o uświęcenie kapłanów – 14.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/dzien-modlitwy-o-uswiecenie-kaplanow-14-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-12T21:02:00+00:00"
+},
+{
 "t": "Kościół w Peru, czyli Papież-misjonarz wrócił do domu",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/kosciol-w-peru-czyli-papiez-misjonarz-wraca-do-domu.html",
 "z": "Vatican News",
 "d": "2026-11-12T20:23:52+00:00"
+},
+{
+"t": "Obchody 41. Światowego Dnia Młodzieży w Archidiecezji Lubelskiej 14.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/obchody-41-swiatowego-dnia-mlodziezy-w-archidiecezji-lubelskiej/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-12T20:03:00+00:00"
+},
+{
+"t": "Odkrywamy piękno Kościoła: Tradycja święta i nieświęta – 14.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/odkrywamy-piekno-kosciola-tradycja-swieta-i-nieswieta-14-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-12T19:04:00+00:00"
+},
+{
+"t": "X Światowy Dzień Ubogich: 15.11.2026 – Orędzie papieskie",
+"l": "https://archidiecezjalubelska.pl/blog/x-swiatowy-dzien-ubogich-15-11-2026-oredzie-papieskie/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-12T18:04:00+00:00"
 },
 {
 "t": "Papież do Peruwiańczyków: Doceniajcie kobiety!",
@@ -330,10 +366,22 @@
 "d": "2026-11-12T17:05:00+00:00"
 },
 {
+"t": "Caritas zaprasza na wspólny obiad z okazji Światowego Dnia Ubogich – 15.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/caritas-zaprasza-na-wspolny-obiad-z-okazji-swiatowego-dnia-ubogich-15-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-12T17:01:00+00:00"
+},
+{
 "t": "Klęka po golu i „oddaje koronę” Chrystusowi. Piłkarz teraz musi się z tego tłumaczyć",
 "l": "https://stacja7.pl/ludzie/kleka-po-golu-i-oddaje-korone-chrystusowi-pilkarz-teraz-musi-sie-z-tego-tlumaczyc/",
 "z": "Stacja7",
 "d": "2026-11-12T16:08:56+00:00"
+},
+{
+"t": "Zmarł śp. Antoni Herman",
+"l": "https://archidiecezjalubelska.pl/blog/zmarl-sp-antoni-herman/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-12T16:03:00+00:00"
 },
 {
 "t": "Papież do duchownych Peru: Potrzeba Kościoła, który buduje mosty",
@@ -354,6 +402,18 @@
 "d": "2026-11-12T15:05:00+00:00"
 },
 {
+"t": "Rekolekcje nadzwyczajnych szafarzy Komunii Świętej 2026",
+"l": "https://archidiecezjalubelska.pl/blog/rekolekcje-nadzwyczajnych-szafarzy-komunii-swietej-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-12T15:05:00+00:00"
+},
+{
+"t": "Rekolekcje kapłańskie w Nałęczowie i w Lublinie – listopad 2026",
+"l": "https://archidiecezjalubelska.pl/blog/rekolekcje-kaplanskie-w-naleczowie-i-w-lublinie-listopad-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-12T14:03:00+00:00"
+},
+{
 "t": "W Krakowie padły kolejne strzały. Zatrzymano mężczyznę",
 "l": "https://stacja7.pl/z-kraju/w-krakowie-padly-kolejne-strzaly-zatrzymano-mezczyzne/",
 "z": "Stacja7",
@@ -366,6 +426,12 @@
 "d": "2026-11-12T13:15:00+00:00"
 },
 {
+"t": "Słowo Metropolity Lubelskiego po wydarzeniach w Krakowie",
+"l": "https://archidiecezjalubelska.pl/blog/slowo-metropolity-lubelskiego-po-wydarzeniach-w-krakowie/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-12T13:02:00+00:00"
+},
+{
 "t": "Kapłaństwo potrzebuje odnowy. 62 księży na rekolekcjach w Rzymie",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/kaplanstwo-potrzebuje-odnowy-ksieza-rekolekcje-rzym-watykan.html",
 "z": "Vatican News",
@@ -376,72 +442,6 @@
 "l": "https://stacja7.pl/z-kraju/wraz-z-jej-odejsciem-czesc-naszego-swiata-przestala-istniec-poruszajace-pozegnanie-jednej-z-ofiar-tragedii-na-krakowskim-rynku/",
 "z": "Stacja7",
 "d": "2026-11-12T12:21:44+00:00"
-},
-{
-"t": "Św. Jozafat Kuncewicz - zdobywca ludzkich dusz",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/sw-jozafat-kuncewicz-zdobywca-ludzkich-dusz.html",
-"z": "Vatican News",
-"d": "2026-11-12T12:01:00+00:00"
-},
-{
-"t": "Wspomnienie św. Jozafata: pielęgnować jedność poprzez miłość",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/wspomnienie-sw-jozafat-kuncewicz-pielegnowac-jednosc-milosc.html",
-"z": "Vatican News",
-"d": "2026-11-12T11:16:00+00:00"
-},
-{
-"t": "Kiedy ktoś walczy o życie, ktoś inny wyciąga telefon. Dlaczego nagrywamy nawet w obliczu tragedii?",
-"l": "https://stacja7.pl/wywiad-stacji7/kiedy-ktos-walczy-o-zycie-ktos-inny-wyciaga-telefon-dlaczego-nie-potrafimy-przestac-nagrywac-nawet-w-obliczu-tragedii/",
-"z": "Stacja7",
-"d": "2026-11-12T11:00:00+00:00"
-},
-{
-"t": "Leon XIV w Limie. Papież znów przemówi do młodych",
-"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/leon-xiv-lima-peru-papiez-znow-przemowi-do-mlodzi-mlodziez.html",
-"z": "Vatican News",
-"d": "2026-11-12T10:28:00+00:00"
-},
-{
-"t": "„Powracam do mojej ojczyzny”. Trzymilionowy tłum witał Leona XIV w Peru",
-"l": "https://stacja7.pl/ze-swiata/powracam-do-mojej-ojczyzny-trzymilionowy-tlum-wital-leona-xiv-w-peru/",
-"z": "Stacja7",
-"d": "2026-11-12T08:31:32+00:00"
-},
-{
-"t": "Artur Morański przeszedł kolejną operację. Są nowe informacje o jego stanie zdrowia",
-"l": "https://stacja7.pl/z-kraju/artur-moranski-przeszedl-kolejna-operacje-sa-nowe-informacje-o-jego-stanie-zdrowia/",
-"z": "Stacja7",
-"d": "2026-11-12T08:09:27+00:00"
-},
-{
-"t": "Wydarzenia biblijne – 10 i 12 listopad 2026",
-"l": "https://archidiecezjalubelska.pl/blog/wydarzenia-biblijne-10-i-12-listopad-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-11T21:04:00+00:00"
-},
-{
-"t": "Polska świętuje Niepodległość. Tysiące ludzi na Marszu Niepodległości. Msze za Ojczyznę. Pamięć o bohaterach",
-"l": "https://stacja7.pl/z-kraju/polska-swietuje-niepodleglosc-tysiace-ludzi-na-marszu-niepodleglosci-msze-za-ojczyzne-pamiec-o-bohaterach/",
-"z": "Stacja7",
-"d": "2026-11-11T15:38:40+00:00"
-},
-{
-"t": "„Gdy Niepodległość ma twarz kogoś, kto o nią naprawdę walczył”",
-"l": "https://stacja7.pl/ludzie/mial-niespelna-13-lat-gdy-walczyl-w-powstaniu-dzieci-przywitaly-jana-witkowskiego-jasia-jak-gwiazde-rocka/",
-"z": "Stacja7",
-"d": "2026-11-11T12:07:22+00:00"
-},
-{
-"t": "Bp Lechowicz: „Wierzymy, że płynące do Boga modlitwy za ofiary zamachu zostaną wysłuchane”",
-"l": "https://stacja7.pl/z-kraju/bp-lechowicz-wierzymy-ze-plynace-do-boga-modlitwy-za-ofiary-zamachu-zostana-wysluchane/",
-"z": "Stacja7",
-"d": "2026-11-11T10:54:34+00:00"
-},
-{
-"t": "Prezydent zapalił Świecę Niepodległości. Dar od Piusa IX dla wolnej Polski",
-"l": "https://stacja7.pl/z-kraju/prezydent-zapalil-swiece-niepodleglosci-dar-od-piusa-ix-dla-wolnej-polski/",
-"z": "Stacja7",
-"d": "2026-11-11T10:25:03+00:00"
 }
 ],
 "rolnicze": [
