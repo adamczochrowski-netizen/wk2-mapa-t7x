@@ -1,6 +1,24 @@
 {
-"zaktualizowano": "2026-11-14T00:17:17+00:00",
+"zaktualizowano": "2026-11-14T06:55:58+00:00",
 "polska": [
+{
+"t": "Czy stała baza wojsk USA w Polsce to już fakt? O to zapytamy Michała Dworczyka i Piotra Stracha",
+"l": "https://www.rmf24.pl/rozmowy/sprawdzam/news-czy-stala-baza-wojsk-usa-w-polsce-to-juz-fakt-o-to-zapytamy-,nIdn,1026022",
+"z": "RMF24",
+"d": "2026-11-14T05:44:00+00:00"
+},
+{
+"t": "Ludzie z cienia, fundamentalny sprawdzian i zagrożenie ze strony Rosji. Dziennikarze odpowiadają na kluczowe pytania",
+"l": "https://wiadomosci.onet.pl/kraj/kto-naprawde-ma-wplyw-na-bezpieczenstwo-polski-padaja-nieoczywiste-nazwiska/j7eycsg",
+"z": "Onet",
+"d": "2026-11-14T04:15:00+00:00"
+},
+{
+"t": "Politycy potrafią współpracować ponad podziałami? Zdecydowana odpowiedź Polaków [SONDAŻ]",
+"l": "https://wiadomosci.onet.pl/kraj/polacy-o-wspolpracy-politykow-ponad-podzialami-zdecydowana-odpowiedz/cvreqmz",
+"z": "Onet",
+"d": "2026-11-14T04:05:00+00:00"
+},
 {
 "t": "Jarosław Olechowski z TV Republika z zarzutem prokuratorskim",
 "l": "https://wiadomosci.onet.pl/kraj/jaroslaw-olechowski-z-tv-republika-z-zarzutem-prokuratorskim/rhl0d8f",
@@ -98,12 +116,6 @@
 "d": "2026-11-13T17:19:00+00:00"
 },
 {
-"t": "„Stawiam prezydentowi publiczny akt oskarżenia”. Gawkowski zapowiada kolejną ustawę",
-"l": "https://www.rmf24.pl/fakty/polska/news-stawiam-prezydentowi-publiczny-akt-oskarzenia-gawkowski-zapo,nIdn,1026045",
-"z": "RMF24",
-"d": "2026-11-13T17:14:00+00:00"
-},
-{
 "t": "Minister oburzony po decyzji prezydenta. \"Publiczny akt oskarżenia\"",
 "l": "https://wiadomosci.onet.pl/kraj/prezydent-zawetowal-ustawe-o-bezpieczenstwie-w-sieci-gawkowski-komentuje/e6z0130",
 "z": "Onet",
@@ -132,21 +144,99 @@
 "l": "https://wiadomosci.onet.pl/kraj/karol-nawrocki-zdecydowal-jest-kolejne-weto/75hsqlc",
 "z": "Onet",
 "d": "2026-11-13T15:20:03+00:00"
-},
-{
-"t": "Proces Grzegorza Brauna o wyrzucenie choinki do kosza. Sąd przeprowadził oględziny drzewka",
-"l": "https://wiadomosci.onet.pl/kraj/proces-grzegorza-brauna-sad-przeprowadzil-ogledziny-wyrzuconej-choinki/0ylcdp7",
-"z": "Onet",
-"d": "2026-11-13T15:08:21+00:00"
-},
-{
-"t": "Nowe oświadczenie Anny Korwin-Piotrowskiej. Odmówiła przyjęcia wniosku prokuratury",
-"l": "https://wiadomosci.onet.pl/kraj/nowe-oswiadczenie-anny-korwin-piotrowskiej-przekazala-czym-zajmuja-sie-sedziowie/7hwjme7",
-"z": "Onet",
-"d": "2026-11-13T14:38:15+00:00"
 }
 ],
 "swiat": [
+{
+"t": "Tankowiec uderzył w statek wycieczkowy. Już mówią o „cudzie na Missisipi”",
+"l": "https://www.rmf24.pl/fakty/swiat/news-tankowiec-uderzyl-w-statek-wycieczkowy-juz-mowia-o-cudzie-na,nIdn,1026078",
+"z": "RMF24",
+"d": "2026-11-14T06:52:00+00:00"
+},
+{
+"t": "Afera na Węgrzech. Minister Orbana miał sprowadzać z Rosji fałszywe haki na konkurencję",
+"l": "https://www.rmf24.pl/fakty/swiat/news-afera-na-wegrzech-minister-orbana-mial-sprowadzac-z-rosji-fa,nIdn,1026079",
+"z": "RMF24",
+"d": "2026-11-14T06:50:00+00:00"
+},
+{
+"t": "Nowe doniesienia o liście żądań Rosji. Jedno z nich dotyczy Polski",
+"l": "https://wiadomosci.onet.pl/swiat/lista-zadan-rosji-po-negocjacjach-w-abu-zabi-putin-chce-granic-nato-z-1997-r/06t4rtz",
+"z": "Onet",
+"d": "2026-11-14T06:40:29+00:00"
+},
+{
+"t": "Wielka awaria Microsoftu. Nowe informacje o przyczynach",
+"l": "https://www.rmf24.pl/fakty/swiat/news-wielka-awaria-microsoftu-nowe-informacje-o-przyczynach,nIdn,1026076",
+"z": "RMF24",
+"d": "2026-11-14T06:28:00+00:00"
+},
+{
+"t": "Starship znów na orbicie. Nie wszystko pójdzie zgodnie z planem",
+"l": "https://www.rmf24.pl/fakty/swiat/news-starship-znow-na-orbicie-nie-wszystko-pojdzie-zgodnie-z-plan,nIdn,1026077",
+"z": "RMF24",
+"d": "2026-11-14T06:25:00+00:00"
+},
+{
+"t": "Marine Le Pen gotowa na spotkanie z Zełenskim, jeśli wygra wybory. Wskazała miejsce",
+"l": "https://wiadomosci.onet.pl/swiat/marine-le-pen-gotowa-na-spotkanie-z-zelenskim-jesli-wygra-wybory-wskazala-miejsce/8gemch2",
+"z": "Onet",
+"d": "2026-11-14T06:10:23+00:00"
+},
+{
+"t": "Rosja przedstawiła dokument „non-paper” z listą żądań",
+"l": "https://www.rmf24.pl/fakty/swiat/news-rosja-przedstawila-dokument-non-paper-z-lista-zadan,nIdn,1026075",
+"z": "RMF24",
+"d": "2026-11-14T05:53:00+00:00"
+},
+{
+"t": "Trump spotka się z Putinem i Xi Jinpingiem. Jest data i miejsce rozmów USA-Rosja-Chiny",
+"l": "https://www.rmf24.pl/fakty/swiat/news-trump-spotka-sie-z-putinem-i-xi-jinpingiem-jest-data-i-miejs,nIdn,1026074",
+"z": "RMF24",
+"d": "2026-11-14T05:23:00+00:00"
+},
+{
+"t": "Tysiące lotów odwołano, chaos na lotniskach w USA. Jest nowy komunikat",
+"l": "https://www.rmf24.pl/fakty/swiat/news-tysiace-lotow-odwolano-chaos-na-lotniskach-w-usa-jest-nowy-k,nIdn,1026073",
+"z": "RMF24",
+"d": "2026-11-14T04:52:00+00:00"
+},
+{
+"t": "Paraliż ruchu lotniczego w USA. Podsumowanie nocy",
+"l": "https://wiadomosci.onet.pl/swiat/paraliz-ruchu-lotniczego-w-usa-podsumowanie-nocy/vmqtxxt",
+"z": "Onet",
+"d": "2026-11-14T04:40:58+00:00"
+},
+{
+"t": "Minister u Orbana miał przywozić z Rosji materiały kompromitujące opozycję",
+"l": "https://wiadomosci.onet.pl/swiat/minister-u-orbana-mial-przywozic-z-rosji-materialy-kompromitujace-opozycje/nbw0brh",
+"z": "Onet",
+"d": "2026-11-14T04:28:08+00:00"
+},
+{
+"t": "Ruch lotniczy zamarł w USA. Młody pilot był zdezorientowany",
+"l": "https://wiadomosci.onet.pl/swiat/ruch-lotniczy-zamarl-w-usa-mlody-pilot-byl-zdezorientowany/9kvc8yk",
+"z": "Onet",
+"d": "2026-11-14T04:25:05+00:00"
+},
+{
+"t": "Alert \"ATC Zero\" uziemił samoloty w USA. Tak przebiegał paraliż lotniczy",
+"l": "https://wiadomosci.onet.pl/swiat/co-oznacza-alert-atc-zero-ktory-uziemil-samoloty-w-usa/re1nqdc",
+"z": "Onet",
+"d": "2026-11-14T03:27:31+00:00"
+},
+{
+"t": "Starship dotarł na orbitę okołoziemską. Będzie w kosmosie przez 22 godziny",
+"l": "https://wiadomosci.onet.pl/swiat/starship-dotarl-na-orbite-okoloziemska-bedzie-w-kosmosie-przez-22-godziny/vst2v81",
+"z": "Onet",
+"d": "2026-11-14T03:03:45+00:00"
+},
+{
+"t": "Kuba wprowadza zakaz Starlink. Dyplomaci i obywatele tracą dostęp do internetu",
+"l": "https://wiadomosci.onet.pl/swiat/starlink-zablokowany-na-kubie-zakaz-obejmuje-tez-placowki-dyplomatyczne/t59247l",
+"z": "Onet",
+"d": "2026-11-14T02:02:31+00:00"
+},
 {
 "t": "Spotkanie przywódców USA, Rosji i Chin. Biały Dom podał datę i miejsce",
 "l": "https://wiadomosci.onet.pl/swiat/donald-trump-spotka-sie-z-wladimirem-putinem-i-xi-jinpingiem-znamy-date/ls2zc2q",
@@ -166,7 +256,7 @@
 "d": "2026-11-13T21:25:00+00:00"
 },
 {
-"t": "Lotniska w USA zamknięte. Nie działa system ATC",
+"t": "Chaos na lotniskach w USA. Nie działał system ATC",
 "l": "https://wiadomosci.onet.pl/swiat/lotniska-w-usa-zamkniete-nie-dziala-system-atc/zde1ke2",
 "z": "Onet",
 "d": "2026-11-13T21:23:51+00:00"
@@ -196,103 +286,19 @@
 "d": "2026-11-13T20:39:00+00:00"
 },
 {
-"t": "Akcja ratunkowa w porcie w Nowym Orleanie. Tonie statek z prawie 150 osobami",
-"l": "https://wiadomosci.onet.pl/swiat/akcja-ratunkowa-w-porcie-w-nowym-orleanie-tonie-statek-z-prawie-150-pasazerami/9z3d6r7",
-"z": "Onet",
-"d": "2026-11-13T20:09:46+00:00"
-},
-{
 "t": "Miecz świetlny Dartha Vadera sprzedany. Kupił go ktoś, kto ma dużo pieniędzy",
 "l": "https://www.rmf24.pl/fakty/kultura/news-miecz-swietlny-dartha-vadera-sprzedany-kupil-go-ktos-kto-ma-,nIdn,1026062",
 "z": "RMF24",
 "d": "2026-11-13T19:51:00+00:00"
-},
-{
-"t": "Witold Jurasz: O czym świadczą żądania Rosji. Moskwa jest jak narkoman na głodzie",
-"l": "https://wiadomosci.onet.pl/swiat/jurasz-o-zadaniach-rosji-moskwa-oczekuje-tylko-jednej-reakcji/qhxhdlb",
-"z": "Onet",
-"d": "2026-11-13T19:16:38+00:00"
-},
-{
-"t": "FSB twierdzi, że zatrzymała polskich agentów. Tak działa rosyjska dezinformacja",
-"l": "https://wiadomosci.onet.pl/swiat/fsb-poinformowala-o-zatrzymaniu-dwoch-polakow-podstawowe-bledy-jezykowe/hd882bv",
-"z": "Onet",
-"d": "2026-11-13T18:20:02+00:00"
-},
-{
-"t": "Msza w upale. Papież wrócił do swojej dawnej diecezji",
-"l": "https://www.rmf24.pl/fakty/swiat/news-msza-w-upale-papiez-wrocil-do-swojej-dawnej-diecezji,nIdn,1026048",
-"z": "RMF24",
-"d": "2026-11-13T17:53:00+00:00"
-},
-{
-"t": "Polska wśród państw negocjujących z Rosją ws. Ukrainy",
-"l": "https://www.rmf24.pl/fakty/swiat/news-polska-wsrod-panstw-negocjujacych-z-rosja-ws-ukrainy,nIdn,1026050",
-"z": "RMF24",
-"d": "2026-11-13T17:51:00+00:00"
-},
-{
-"t": "Polska wśród państw negocjujących z Rosją w sprawie Ukrainy. Jest decyzja",
-"l": "https://wiadomosci.onet.pl/swiat/polska-wsrod-panstw-negocjujacych-z-rosja-w-sprawie-ukrainy-jest-decyzja/5s1fwm0",
-"z": "Onet",
-"d": "2026-11-13T17:40:57+00:00"
-},
-{
-"t": "\"Prosimy, bez niespodzianek\". Merz apeluje do Trumpa",
-"l": "https://www.rmf24.pl/fakty/swiat/news-prosimy-bez-niespodzianek-merz-apeluje-do-trumpa,nIdn,1026043",
-"z": "RMF24",
-"d": "2026-11-13T16:54:00+00:00"
-},
-{
-"t": "Szef Mosadu w Waszyngtonie. Izrael chce przekonać USA do wznowienia wojny",
-"l": "https://www.rmf24.pl/fakty/swiat/news-szef-mosadu-w-waszyngtonie-izrael-chce-przekonac-usa-do-wzno,nIdn,1026041",
-"z": "RMF24",
-"d": "2026-11-13T16:35:00+00:00"
-},
-{
-"t": "Dyrektor Mosadu w Waszyngtonie. Chce przekonać USA do wznowienia ataków na Iran",
-"l": "https://wiadomosci.onet.pl/swiat/izraelski-wywiad-zabiega-o-wznowienie-wojny-z-iranem-chce-przekonac-usa/cmqgbsz",
-"z": "Onet",
-"d": "2026-11-13T16:21:36+00:00"
-},
-{
-"t": "Miliardy euro oszczędności dla przemysłu. UE zwiększa pulę uprawnień ETS",
-"l": "https://www.rmf24.pl/fakty/ekonomia/news-miliardy-euro-oszczednosci-dla-przemyslu-ue-zwieksza-pule-up,nIdn,1026042",
-"z": "RMF24",
-"d": "2026-11-13T16:19:00+00:00"
-},
-{
-"t": "„Bild”: Rosja miała postawić warunki dotyczące Finlandii, krajów bałtyckich i NATO",
-"l": "https://www.rmf24.pl/fakty/swiat/news-bild-rosja-miala-postawic-warunki-dotyczace-finlandii-krajow,nIdn,1026036",
-"z": "RMF24",
-"d": "2026-11-13T15:58:00+00:00"
-},
-{
-"t": "Wewnątrzpartyjna wojna. Wśród Demokratów znów pojawiają się pęknięcia. \"Nie powinni zbytnio zadzierać nosa\"",
-"l": "https://wiadomosci.onet.pl/swiat/demokraci-szykuja-sie-na-zaciete-walki-wieloletni-spor-ozywa-na-nowo/4gr163s",
-"z": "Onet",
-"d": "2026-11-13T15:16:05+00:00"
-},
-{
-"t": "Ponad 20 osób nie żyje, w tym dzieci. Ciężarówka zderzyła się z mikrobusem w Indiach",
-"l": "https://www.rmf24.pl/fakty/swiat/news-ponad-20-osob-nie-zyje-w-tym-dzieci-ciezarowka-zderzyla-sie-,nIdn,1026033",
-"z": "RMF24",
-"d": "2026-11-13T15:13:00+00:00"
-},
-{
-"t": "Kreml opracowuje hierarchię \"tradycyjnych wartości\". Patriotyzm wartością fundamentalną",
-"l": "https://wiadomosci.onet.pl/swiat/kreml-chce-uczyc-rosjan-tradycyjnych-wartosci-projekt-coraz-blizej/fyyhq69",
-"z": "Onet",
-"d": "2026-11-13T14:17:29+00:00"
-},
-{
-"t": "Prawdziwa stawka negocjacji pokojowych. Tak Trump może przez przypadek spełnić marzenia Putina [OPINIA]",
-"l": "https://wiadomosci.onet.pl/swiat/prawdziwa-stawka-negocjacji-z-rosja-tak-moze-runac-dotychczasowy-porzadek-opinia/205cgj6",
-"z": "Onet",
-"d": "2026-11-13T13:43:23+00:00"
 }
 ],
 "religia": [
+{
+"t": "Leon XIV w Chiclayo i Santa Cruz. Program dnia i transmisje",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/program-dnia-i-transmisji-kolejnego-dnia-podrozy-apostolskiej.html",
+"z": "Vatican News",
+"d": "2026-11-14T06:01:02+00:00"
+},
 {
 "t": "Papież: uniwersytet kuźnią talentów i laboratorium sensu",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-do-srodowiska-naukowego-na-uniwersytecie-w-chiclayo.html",
@@ -436,15 +442,21 @@
 "l": "https://www.vaticannews.va/pl/swiat/news/2026-11/dialog-katolicko-zydowski-centrum-heschela-kul.html",
 "z": "Vatican News",
 "d": "2026-11-13T11:10:00+00:00"
-},
-{
-"t": "Zmarł śp. Antoni Herman",
-"l": "https://archidiecezjalubelska.pl/blog/zmarl-sp-antoni-herman/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-13T11:03:00+00:00"
 }
 ],
 "rolnicze": [
+{
+"t": "Silnik z Malucha, pompa z Cyklopa i części z Bizona. Rolnik sam zbudował miniładowarkę",
+"l": "https://www.tygodnik-rolniczy.pl/maszyny-rolnicze/silnik-z-malucha-pompa-z-cyklopa-rolnik-sam-zbudowal-miniladowarke-2695010",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-14T05:15:00+00:00"
+},
+{
+"t": "Znany aktor pracuje w gospodarstwie. To, co robił przy oborniku, dało mu do myślenia",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/ten-aktor-pracuje-w-spoldzielni-rolniczej-nabralem-szacunku-do-pracy-rolnika-2694736",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-14T04:45:00+00:00"
+},
 {
 "t": "Filipiny ograniczają import wieprzowiny, również z Polski",
 "l": "https://www.agropolska.pl/hodowla/trzoda-chlewna/filipiny-ograniczaja-import-wieprzowiny-rowniez-z-polski/",
@@ -530,12 +542,6 @@
 "d": "2026-11-13T13:30:00+00:00"
 },
 {
-"t": "Dopłaty do bydła i krów 2026. Ministerstwo podało nowe stawki. Ile za sztukę?",
-"l": "https://www.tygodnik-rolniczy.pl/pieniadze/doplaty-bezposrednie/doplaty-do-bydla-i-krow-2026-ministerstwo-podalo-nowe-stawki-ile-za-sztuke-2694969",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-13T13:00:00+00:00"
-},
-{
 "t": "Strategia dla polskiego sektora wieprzowiny do 2035 roku",
 "l": "https://www.agropolska.pl/hodowla/trzoda-chlewna/strategia-dla-polskiego-sektora-wieprzowiny-do-2035-roku/",
 "z": "agroPolska",
@@ -546,12 +552,6 @@
 "l": "https://www.agropolska.pl/aktualnosci/polska/pozary-suszarni-zboz-strazacy-mieli-pelne-rece-roboty/",
 "z": "agroPolska",
 "d": "2026-11-13T12:20:48+00:00"
-},
-{
-"t": "Rolnicy kupili drony, ale nie mogą nimi normalnie pryskać pól. Ministerstwo szykuje zmianę",
-"l": "https://www.tygodnik-rolniczy.pl/uprawa/srodki-ochrony-roslin/drony-rolnicze-2694980",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-13T12:00:00+00:00"
 },
 {
 "t": "Cztery nabory z ARiMR do 16 listopada. KRIR zaapelowała o przedłużenie. Co na to MRiRW?",
