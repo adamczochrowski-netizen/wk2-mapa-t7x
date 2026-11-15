@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-14T23:18:04+00:00",
+"zaktualizowano": "2026-11-15T02:58:54+00:00",
 "polska": [
 {
 "t": "Porażka Polaków w Bukareszcie. Dwa gole w cztery minuty",
@@ -148,6 +148,12 @@
 ],
 "swiat": [
 {
+"t": "Dwa tankowce wpadły na miny w cieśninie Ormuz",
+"l": "https://wiadomosci.onet.pl/swiat/dwa-tankowce-wpadly-na-miny-w-ciesninie-ormuz/3sn93r7",
+"z": "Onet",
+"d": "2026-11-15T00:37:58+00:00"
+},
+{
 "t": "Krwawe starcie policji z lokalnym gangiem w Nigerii. Nie żyje ponad 50 osób",
 "l": "https://wiadomosci.onet.pl/swiat/krwawe-starcie-policji-z-lokalnym-gangiem-w-nigerii-nie-zyje-ponad-50-osob/qwffvzl",
 "z": "Onet",
@@ -268,12 +274,6 @@
 "d": "2026-11-14T15:42:57+00:00"
 },
 {
-"t": "Włochy nakładają na Metę karę 805 mln euro za naruszenie ochrony prywatności",
-"l": "https://wiadomosci.onet.pl/swiat/wlochy-nakladaja-na-mete-kare-805-mln-euro/h89rxgb",
-"z": "Onet",
-"d": "2026-11-14T15:07:12+00:00"
-},
-{
 "t": "Negocjacje Europa-Rosja. Mnogość interesów nie pozwala wybrać jednego przedstawiciela",
 "l": "https://www.rmf24.pl/fakty/swiat/news-negocjacje-europa-rosja-mnogosc-interesow-nie-pozwala-wybrac,nIdn,1026115",
 "z": "RMF24",
@@ -293,6 +293,12 @@
 }
 ],
 "religia": [
+{
+"t": "Papież w Zaña: „Powróciło do mnie wiele wspomnień”",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-leon-xiv-w-zana-powrocilo-do-mnie-wiele-wspomnien.html",
+"z": "Vatican News",
+"d": "2026-11-14T23:21:00+00:00"
+},
 {
 "t": "Jasna Góra: Pielgrzymka Muzyków Kościelnych",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/jasna-gora-pielgrzymka-muzykow-koscielnych.html",
@@ -388,12 +394,6 @@
 "l": "https://archidiecezjalubelska.pl/blog/caritas-zaprasza-na-wspolny-obiad-z-okazji-swiatowego-dnia-ubogich-15-11-2026/",
 "z": "Archidiecezja Lubelska",
 "d": "2026-11-14T11:01:00+00:00"
-},
-{
-"t": "„Od domu do domu, od serca do serca”. Opowiedzieli Papieżowi, jak rodzi się nadzieja",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/swiadectwa-wygloszone-podczas-spotkania-w-sanktuarium-w-chiclayo.html",
-"z": "Vatican News",
-"d": "2026-11-14T10:32:00+00:00"
 },
 {
 "t": "Relikwie św. Gerarda Majelli w Lublinie – 19.11.2026",
