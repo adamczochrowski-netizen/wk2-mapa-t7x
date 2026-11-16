@@ -1,6 +1,12 @@
 {
-"zaktualizowano": "2026-11-15T22:41:02+00:00",
+"zaktualizowano": "2026-11-16T02:39:26+00:00",
 "polska": [
+{
+"t": "„Najpierw człowiek, potem procedury”. Jak wygląda nowoczesne zarządzanie zielonym Żoliborzem?",
+"l": "https://wiadomosci.onet.pl/kraj/najpierw-czlowiek-potem-procedury-jak-wyglada-nowoczesne-zarzadzanie-zielonym/64m8f66",
+"z": "Onet",
+"d": "2026-11-15T23:00:00+00:00"
+},
 {
 "t": "Lawina w Tatrach porwała turystę. Dramat na Żółtej Turni",
 "l": "https://www.rmf24.pl/regiony/zakopane/news-lawina-w-tatrach-porwala-turyste-dramat-na-zoltej-turni,nIdn,1026206",
@@ -138,15 +144,21 @@
 "l": "https://wiadomosci.onet.pl/kraj/emocje-w-studiu-wokol-weta-karola-nawrockiego-ma-chore-podejscie-do-wolnosci/q21my8q",
 "z": "Onet",
 "d": "2026-11-15T09:45:51+00:00"
-},
-{
-"t": "Duża część Polaków źle ocenia relację TV Republika po zamachu w Krakowie [SONDAŻ]",
-"l": "https://wiadomosci.onet.pl/kraj/ponad-polowa-badanych-zle-ocenia-tv-republike-chodzi-o-zamach-w-krakowie/n8dpnhr",
-"z": "Onet",
-"d": "2026-11-15T08:24:51+00:00"
 }
 ],
 "swiat": [
+{
+"t": "Format E5+UE. Ursula von der Leyen: Europa weźmie udział w negocjacjach między Rosją a Ukrainą",
+"l": "https://wiadomosci.onet.pl/swiat/ursula-von-der-leyen-europa-wezmie-udzial-w-rozmowach-o-ukrainie-w-formacie-e5ue/f0933cg",
+"z": "Onet",
+"d": "2026-11-16T01:17:04+00:00"
+},
+{
+"t": "Wołodymyr Zełenski: Ukraina unieruchomiła ponad połowę mocy przerobowych rosyjskich rafinerii",
+"l": "https://wiadomosci.onet.pl/swiat/wolodymyr-zelenski-ukraina-unieruchomila-ponad-polowe-mocy-przerobowych-rosyjskich/88spbp6",
+"z": "Onet",
+"d": "2026-11-15T22:43:24+00:00"
+},
 {
 "t": "Awaria rakiety Vulcan Centaur. Miała wynieść na orbitę satelity konkurenta Starlinka",
 "l": "https://wiadomosci.onet.pl/swiat/rakieta-vulcan-centaur-ulegla-awarii-stracono-40-satelitow-amazon-leo/hrzg4t5",
@@ -262,22 +274,10 @@
 "d": "2026-11-15T13:46:00+00:00"
 },
 {
-"t": "Ukraina ma problem przez Amerykanów? \"Nasze drony tracą łączność\"",
-"l": "https://wiadomosci.onet.pl/swiat/problemy-z-systemem-starshield-w-ukrainie-wolodymyr-zelenski-alarmuje/lnf3rdx",
-"z": "Onet",
-"d": "2026-11-15T12:43:40+00:00"
-},
-{
 "t": "Kary śmierci dla sprawców ataku na kościół",
 "l": "https://www.rmf24.pl/fakty/swiat/news-kary-smierci-dla-sprawcow-ataku-na-kosciol,nIdn,1026179",
 "z": "RMF24",
 "d": "2026-11-15T12:34:00+00:00"
-},
-{
-"t": "\"Kapryśny i uparty\". Joe Biden wspomina Wołodymyra Zełenskiego",
-"l": "https://wiadomosci.onet.pl/swiat/kaprysny-i-uparty-joe-biden-wspomina-wolodymyra-zelenskiego/qemk8l0",
-"z": "Onet",
-"d": "2026-11-15T11:53:22+00:00"
 },
 {
 "t": "Rekord na Wyspach Kanaryjskich. Prawie 1,5 tys. migrantów przypłynęło z Afryki",
@@ -294,10 +294,22 @@
 ],
 "religia": [
 {
+"t": "Leon XIV: troska o godność człowieka i piękno ziemi są nierozłączne",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/msza-sw-w-pucallpie-homilia-leona-xiv-troska-o-stworzenie.html",
+"z": "Vatican News",
+"d": "2026-11-15T22:44:00+00:00"
+},
+{
 "t": "Norwegia: komisja parlamentarna przeciw legalizacji eutanazji",
 "l": "https://www.vaticannews.va/pl/swiat/news/2026-11/w-norwegiiparlamentarna-komisja-przeciw-legalizacji-eutanazji.html",
 "z": "Vatican News",
 "d": "2026-11-15T21:53:00+00:00"
+},
+{
+"t": "Zmarł śp. Antoni Herman",
+"l": "https://archidiecezjalubelska.pl/blog/zmarl-sp-antoni-herman/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-15T21:03:00+00:00"
 },
 {
 "t": "Papież do ludów Amazonii: „Nie jesteście sami”",
@@ -306,10 +318,22 @@
 "d": "2026-11-15T20:51:44+00:00"
 },
 {
+"t": "Relikwie św. Gerarda Majelli w Lublinie – 19.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/relikwie-sw-gerarda-majelli-w-lublinie-19-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-15T20:02:00+00:00"
+},
+{
 "t": "Prefekt Dykasterii ds. Kościołów Wschodnich wyrusza do Ziemi Świętej",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/kard-gugerotti-pojedzie-do-ziemi-swietej-misja-pokojowa.html",
 "z": "Vatican News",
 "d": "2026-11-15T19:38:52+00:00"
+},
+{
+"t": "Co mówi Duch do Kościoła dzisiaj? – wykład kard. Gerharda Muellera 19.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/co-mowi-duch-do-kosciola-dzisiaj-wyklad-kard-gerharda-muellera-19-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-15T19:03:00+00:00"
 },
 {
 "t": "Papież na pożegnanie: niech Chiclayo będzie ziemią wiary",
@@ -324,10 +348,28 @@
 "d": "2026-11-15T17:06:00+00:00"
 },
 {
+"t": "Eucharystia w intencji muzyków kościelnych – 21.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/eucharystia-w-intencji-muzykow-koscielnych-21-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-15T17:02:00+00:00"
+},
+{
 "t": "Wiara nie oddziela, lecz jednoczy z innymi – mówi Papież",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/cusco-papiez-w-krainie-inkow-mowi-o-poboznosci-ludowej.html",
 "z": "Vatican News",
 "d": "2026-11-15T16:14:00+00:00"
+},
+{
+"t": "Dzień Muzyki Chrześcijańskiej „Cecylianka 2026” w lubelskim seminarium 21.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/dzien-muzyki-chrzescijanskiej-cecylianka-2026-w-lubelskim-seminarium-21-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-15T16:04:00+00:00"
+},
+{
+"t": "„10 Słów Boga – Dekalog życia” Dzień skupienia dla młodych (18+) – 21.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/10-slow-boga-dekalog-zycia-dzien-skupienia-dla-mlodych-18-21-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-15T15:03:00+00:00"
 },
 {
 "t": "Cusco – miasto ludowej pobożności czeka na Leona XIV",
@@ -342,10 +384,28 @@
 "d": "2026-11-15T14:10:00+00:00"
 },
 {
+"t": "Spotkanie kandydatów do bierzmowania – Rozpaleni – 28.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/spotkanie-kandydatow-do-bierzmowania-rozpaleni-28-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-15T14:04:00+00:00"
+},
+{
+"t": "Rekolekcje nadzwyczajnych szafarzy Komunii Świętej 2026",
+"l": "https://archidiecezjalubelska.pl/blog/rekolekcje-nadzwyczajnych-szafarzy-komunii-swietej-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-15T13:05:00+00:00"
+},
+{
 "t": "Na Jasnej Górze modliły się osoby doświadczające bezdomności",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/na-jasnej-gorze-modlily-sie-osoby-doswiadczajace-bezdomnosci.html",
 "z": "Vatican News",
 "d": "2026-11-15T13:01:00+00:00"
+},
+{
+"t": "Rekolekcje kapłańskie w Nałęczowie i w Lublinie – listopad 2026",
+"l": "https://archidiecezjalubelska.pl/blog/rekolekcje-kaplanskie-w-naleczowie-i-w-lublinie-listopad-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-15T12:03:00+00:00"
 },
 {
 "t": "Polonia pielgrzymowała do katedry Notre-Dame w Paryżu",
@@ -360,22 +420,10 @@
 "d": "2026-11-15T11:24:00+00:00"
 },
 {
-"t": "Dziś wspomnienie bł. Marii od Męki Pańskiej – misjonarki i założycielki",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/dzis-wspomnienie-bl-marii-od-meki-panskiej-misjonarki.html",
-"z": "Vatican News",
-"d": "2026-11-15T10:42:00+00:00"
-},
-{
-"t": "Odkrycie camino. SPOTKANIA Z WIARĄ w 33 Niedzielę zwykłą „A” (15.11.2026)",
-"l": "https://archidiecezjalubelska.pl/blog/odkrycie-camino-spotkania-z-wiara-w-33-niedziele-zwykla-a-15-11-2026/",
+"t": "„Idź, odbuduj mój Kościół!” – rekolekcje weekendowe dla dziewcząt: 11-13.12.2026",
+"l": "https://archidiecezjalubelska.pl/blog/idz-odbuduj-moj-kosciol-rekolekcje-weekendowe-dla-dziewczat-11-13-12-2026/",
 "z": "Archidiecezja Lubelska",
-"d": "2026-11-14T14:02:32+00:00"
-},
-{
-"t": "Mam talent. TV lectio divina – XXXIII Niedziela zwykła „A” (Mt 25, 14-30)",
-"l": "https://archidiecezjalubelska.pl/blog/mam-talent-tv-lectio-divina-xxxiii-niedziela-zwykla-a-mt-25-14-30/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-14T13:02:25+00:00"
+"d": "2026-11-15T11:02:00+00:00"
 },
 {
 "t": "Na początku było małżeństwo, czyli jak nie stracić bliskości w domowym kieracie. Anna Hazuka o rodzicielstwie, zmęczeniu i bliskości",
@@ -384,58 +432,10 @@
 "d": "2026-11-14T12:32:45+00:00"
 },
 {
-"t": "X Światowy Dzień Ubogich: 15.11.2026 – Orędzie papieskie",
-"l": "https://archidiecezjalubelska.pl/blog/x-swiatowy-dzien-ubogich-15-11-2026-oredzie-papieskie/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-14T12:04:00+00:00"
-},
-{
-"t": "Caritas zaprasza na wspólny obiad z okazji Światowego Dnia Ubogich – 15.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/caritas-zaprasza-na-wspolny-obiad-z-okazji-swiatowego-dnia-ubogich-15-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-14T11:01:00+00:00"
-},
-{
-"t": "Relikwie św. Gerarda Majelli w Lublinie – 19.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/relikwie-sw-gerarda-majelli-w-lublinie-19-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-14T10:02:00+00:00"
-},
-{
-"t": "Co mówi Duch do Kościoła dzisiaj? – wykład kard. Gerharda Muellera 19.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/co-mowi-duch-do-kosciola-dzisiaj-wyklad-kard-gerharda-muellera-19-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-14T09:03:00+00:00"
-},
-{
-"t": "Zmarł śp. Antoni Herman",
-"l": "https://archidiecezjalubelska.pl/blog/zmarl-sp-antoni-herman/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-14T08:03:00+00:00"
-},
-{
-"t": "Eucharystia w intencji muzyków kościelnych – 21.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/eucharystia-w-intencji-muzykow-koscielnych-21-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-13T21:02:00+00:00"
-},
-{
 "t": "Bóg działa przez nas. Musimy odbudować ideały Szlachetnej Paczki",
 "l": "https://stacja7.pl/wywiad-stacji7/bog-dziala-przez-nas-musimy-odbudowac-idealy-szlachetnej-paczki/",
 "z": "Stacja7",
 "d": "2026-11-13T20:10:41+00:00"
-},
-{
-"t": "Dzień Muzyki Chrześcijańskiej „Cecylianka 2026” w lubelskim seminarium 21.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/dzien-muzyki-chrzescijanskiej-cecylianka-2026-w-lubelskim-seminarium-21-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-13T20:04:00+00:00"
-},
-{
-"t": "„10 Słów Boga – Dekalog życia” Dzień skupienia dla młodych (18+) – 21.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/10-slow-boga-dekalog-zycia-dzien-skupienia-dla-mlodych-18-21-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-13T19:03:00+00:00"
 },
 {
 "t": "Zerwali Jezusa z krzyża i rozbili figurę. Wstrząsająca profanacja w wileńskim sanktuarium",
