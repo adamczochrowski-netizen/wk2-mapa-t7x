@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-17T03:37:22+00:00",
+"zaktualizowano": "2026-11-17T12:59:28+00:00",
 "prad": [
 {
 "od": "2026-11-17 08:00:00",
@@ -142,6 +142,22 @@
 },
 {
 "od": "2026-11-23 08:00:00",
+"do": "2026-11-23 16:00:00",
+"gminy": [
+"Skierbieszów",
+"Stary Zamość",
+"Zamość"
+],
+"miejsca": [
+"Borowina Sitaniecka",
+"Majdan Sitaniecki",
+"Majdan Skierbieszowski"
+],
+"opis": "Majdan Sitaniecki; Majdan Skierbieszowski; Borowina Sitaniecka",
+"odwolane": false
+},
+{
+"od": "2026-11-23 08:00:00",
 "do": "2026-11-23 14:00:00",
 "gminy": [
 "Izbica"
@@ -167,22 +183,6 @@
 "odwolane": false
 },
 {
-"od": "2026-11-23 08:00:00",
-"do": "2026-11-23 16:00:00",
-"gminy": [
-"Skierbieszów",
-"Stary Zamość",
-"Zamość"
-],
-"miejsca": [
-"Borowina Sitaniecka",
-"Majdan Sitaniecki",
-"Majdan Skierbieszowski"
-],
-"opis": "Majdan Sitaniecki; Majdan Skierbieszowski; Borowina Sitaniecka",
-"odwolane": false
-},
-{
 "od": "2026-11-23 10:00:00",
 "do": "2026-11-23 13:00:00",
 "gminy": [
@@ -192,6 +192,30 @@
 "Sitaniec"
 ],
 "opis": "Sitaniec",
+"odwolane": false
+},
+{
+"od": "2026-11-24 07:15:00",
+"do": "2026-11-24 14:00:00",
+"gminy": [
+"Zamość"
+],
+"miejsca": [
+"Pniówek"
+],
+"opis": "Pniówek",
+"odwolane": false
+},
+{
+"od": "2026-11-24 08:00:00",
+"do": "2026-11-24 16:00:00",
+"gminy": [
+"Skierbieszów"
+],
+"miejsca": [
+"Sady"
+],
+"opis": "Sady",
 "odwolane": false
 },
 {
@@ -221,7 +245,7 @@
 "odwolane": false
 },
 {
-"od": "2026-11-24 08:00:00",
+"od": "2026-11-24 13:00:00",
 "do": "2026-11-24 16:00:00",
 "gminy": [
 "Skierbieszów"
@@ -230,18 +254,6 @@
 "Sady"
 ],
 "opis": "Sady",
-"odwolane": false
-},
-{
-"od": "2026-11-25 08:00:00",
-"do": "2026-11-25 15:00:00",
-"gminy": [
-"Skierbieszów"
-],
-"miejsca": [
-"Majdan Skierbieszowski"
-],
-"opis": "Majdan Skierbieszowski",
 "odwolane": false
 },
 {
@@ -257,15 +269,15 @@
 "odwolane": false
 },
 {
-"od": "2026-11-26 08:00:00",
-"do": "2026-11-26 12:30:00",
+"od": "2026-11-25 08:00:00",
+"do": "2026-11-25 15:00:00",
 "gminy": [
 "Skierbieszów"
 ],
 "miejsca": [
-"Marcinówka"
+"Majdan Skierbieszowski"
 ],
-"opis": "Marcinówka",
+"opis": "Majdan Skierbieszowski",
 "odwolane": false
 },
 {
@@ -278,6 +290,18 @@
 "Lipina Stara"
 ],
 "opis": "Lipina Stara",
+"odwolane": false
+},
+{
+"od": "2026-11-26 08:00:00",
+"do": "2026-11-26 12:30:00",
+"gminy": [
+"Skierbieszów"
+],
+"miejsca": [
+"Marcinówka"
+],
+"opis": "Marcinówka",
 "odwolane": false
 },
 {
