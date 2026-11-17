@@ -1,6 +1,12 @@
 {
-"zaktualizowano": "2026-11-16T20:53:22+00:00",
+"zaktualizowano": "2026-11-17T03:37:06+00:00",
 "polska": [
+{
+"t": "Czy grozi nam wojna? Polacy podzieleni w ocenie ryzyka",
+"l": "https://www.rmf24.pl/fakty/polska/news-czy-grozi-nam-wojna-polacy-podzieleni-w-ocenie-ryzyka,nIdn,1026380",
+"z": "RMF24",
+"d": "2026-11-16T22:08:00+00:00"
+},
 {
 "t": "„Przecież pan też ma dzieci”. Tusk z apelem do Nawrockiego",
 "l": "https://www.rmf24.pl/fakty/polityka/news-przeciez-pan-tez-ma-dzieci-tusk-z-apelem-do-nawrockiego,nIdn,1026376",
@@ -138,15 +144,69 @@
 "l": "https://wiadomosci.onet.pl/kraj/najglosniejsze-romanse-politykow-i-weto-prezydenta-nawrockiego/w5836rg",
 "z": "Onet",
 "d": "2026-11-16T15:04:43+00:00"
-},
-{
-"t": "Jak upamiętnić ofiary zamachu w Krakowie? Są trzy pomysły",
-"l": "https://www.rmf24.pl/regiony/krakow/news-jak-upamietnic-ofiary-zamachu-w-krakowie-sa-trzy-pomysly,nIdn,1026336",
-"z": "RMF24",
-"d": "2026-11-16T14:42:00+00:00"
 }
 ],
 "swiat": [
+{
+"t": "Jensen Huang znów na czele Nvidii? Zarząd przedstawił twarde stanowisko",
+"l": "https://wiadomosci.onet.pl/swiat/donald-trump-wspiera-jensena-huanga-zarzad-pozostaje-nieugiety/rs6t0kc",
+"z": "Onet",
+"d": "2026-11-17T02:39:20+00:00"
+},
+{
+"t": "Drugi atak na most Krymski w trakcie doby. Sieć obiegły nagrania",
+"l": "https://wiadomosci.onet.pl/swiat/most-krymski-znow-celem-ataku-ruch-zostal-wstrzymany-wideo/9hxhm3r",
+"z": "Onet",
+"d": "2026-11-17T02:06:48+00:00"
+},
+{
+"t": "Opozycja oskarża Binjamina Netanjahu o próbę zamachu stanu. Izrael stoi przed kryzysem politycznym",
+"l": "https://wiadomosci.onet.pl/swiat/opozycja-uderza-w-binjamina-netanjahu-oskarza-go-o-probe-zamachu-stanu/e7m5t5h",
+"z": "Onet",
+"d": "2026-11-17T01:18:19+00:00"
+},
+{
+"t": "Putin \"jak nastolatek\", Zełenski \"humorzasty i uparty\". Tak Joe Biden postrzegał światowych przywódców",
+"l": "https://wiadomosci.onet.pl/swiat/ksiazka-joego-bidena-zaskakuje-putin-jak-nastolatek-zelenski-uparty/y5fdm4v",
+"z": "Onet",
+"d": "2026-11-17T00:41:16+00:00"
+},
+{
+"t": "Doradca Putina stawia warunek udziału Europejczyków w negocjacjach. \"Kiedy otrzymamy jasny sygnał\"",
+"l": "https://wiadomosci.onet.pl/swiat/rosja-stawia-warunki-europie-jurij-uszakow-o-negocjacjach-w-sprawie-ukrainy/2x7ehfj",
+"z": "Onet",
+"d": "2026-11-16T23:32:52+00:00"
+},
+{
+"t": "Wołodymyr Zełenski o negocjacjach z udziałem Polski. \"Po raz pierwszy\"",
+"l": "https://wiadomosci.onet.pl/swiat/wolodymyr-zelenski-potwierdza-polska-jest-wsrod-europejskich-negocjatorow/bn96ep2",
+"z": "Onet",
+"d": "2026-11-16T22:47:20+00:00"
+},
+{
+"t": "Wiadomo, co zatopiło statek handlowy u wybrzeży Bułgarii. To dron morski",
+"l": "https://www.rmf24.pl/fakty/swiat/news-wiadomo-co-zatopilo-statek-handlowy-u-wybrzezy-bulgarii-to-d,nIdn,1026382",
+"z": "RMF24",
+"d": "2026-11-16T22:33:00+00:00"
+},
+{
+"t": "Pięć największych banków w USA z problemami. Klienci zgłaszają trudności z dostępem do kont",
+"l": "https://wiadomosci.onet.pl/swiat/awaria-bankowosci-internetowej-w-usa-tysiace-klientow-bez-dostepu-do-kont/x64s3fn",
+"z": "Onet",
+"d": "2026-11-16T22:13:32+00:00"
+},
+{
+"t": "Incydent na trasie przejazdu Leona XIV. Papież nagle złapał się za twarz [WIDEO]",
+"l": "https://wiadomosci.onet.pl/swiat/papiez-leon-xiv-trafiony-podczas-przejazdu-w-limie-siec-obiegly-nagrania/n25rjym",
+"z": "Onet",
+"d": "2026-11-16T21:29:28+00:00"
+},
+{
+"t": "Dyplomacja – tak, nowe środki – nie. Co dalej z francuskim wsparciem dla Kijowa?",
+"l": "https://www.rmf24.pl/fakty/swiat/news-dyplomacja-tak-nowe-srodki-nie-co-dalej-z-francuskim-wsparci,nIdn,1026379",
+"z": "RMF24",
+"d": "2026-11-16T21:23:00+00:00"
+},
 {
 "t": "Domniemana córka Putina miała zmienić nazwisko. Nowe ustalenia dziennikarza śledczego",
 "l": "https://wiadomosci.onet.pl/swiat/domniemana-corka-putina-miala-zmienic-nazwisko-nowe-ustalenia/ms5yxb7",
@@ -230,69 +290,15 @@
 "l": "https://www.rmf24.pl/fakty/swiat/news-rosja-jednak-nie-zgadza-sie-na-udzial-europy-w-rozmowach-pok,nIdn,1026359",
 "z": "RMF24",
 "d": "2026-11-16T17:58:00+00:00"
-},
-{
-"t": "Donbas za NATO? Putin może szykować kolejną pułapkę. Ukraina ma powody do obaw [OPINIA]",
-"l": "https://wiadomosci.onet.pl/swiat/donbas-za-nato-putin-moze-szykowac-kolejna-pulapke-ukraina-ma-powody-do-obaw-opinia/7kbm6hq",
-"z": "Onet",
-"d": "2026-11-16T17:52:11+00:00"
-},
-{
-"t": "Revolut pod lupą. W tle zarzuty o pranie pieniędzy mafii kalabryjskiej",
-"l": "https://www.rmf24.pl/fakty/swiat/news-revolut-pod-lupa-w-tle-zarzuty-o-pranie-pieniedzy-mafii-kala,nIdn,1026357",
-"z": "RMF24",
-"d": "2026-11-16T17:24:00+00:00"
-},
-{
-"t": "Putin, Trump i Xi przy jednym stole. O czym będą rozmawiać w Shenzen?",
-"l": "https://www.rmf24.pl/fakty/swiat/news-putin-trump-i-xi-przy-jednym-stole-o-czym-beda-rozmawiac-w-s,nIdn,1026353",
-"z": "RMF24",
-"d": "2026-11-16T16:41:00+00:00"
-},
-{
-"t": "Rozmowy o Ukrainie? Donald Trump zdradza, czy poruszy ten wątek z Xi i Putinem",
-"l": "https://wiadomosci.onet.pl/swiat/donald-trump-planuje-rozmowy-z-xi-i-putinem-tematem-bedzie-ukraina/413ml1x",
-"z": "Onet",
-"d": "2026-11-16T16:40:24+00:00"
-},
-{
-"t": "Urzędnicy UE przechodzą nietypowe szkolenia. Uczą się rozpoznawać szpiegowskie pułapki",
-"l": "https://wiadomosci.onet.pl/swiat/urzednicy-ue-przechodza-nietypowe-szkolenia-ucza-sie-rozpoznawac-szpiegowskie-pulapki/q0j6les",
-"z": "Onet",
-"d": "2026-11-16T16:35:48+00:00"
-},
-{
-"t": "Historyczne spotkanie Trumpa, Xi i Putina. Nie ma pewności, o czym będą rozmawiać. \"To nietypowe\"",
-"l": "https://wiadomosci.onet.pl/swiat/zbliza-sie-spotkanie-trumpa-xi-i-putina-nie-beda-rozmawiac-o-ukrainie/c35nt4w",
-"z": "Onet",
-"d": "2026-11-16T16:05:46+00:00"
-},
-{
-"t": "Estonia zamyka przejścia graniczne z Rosją. Litwa nie wyklucza podobnego ruchu",
-"l": "https://wiadomosci.onet.pl/swiat/estonia-zamyka-przejscia-graniczne-z-rosja-litwa-nie-wyklucza-podobnego-ruchu/mtjr6sd",
-"z": "Onet",
-"d": "2026-11-16T15:20:32+00:00"
-},
-{
-"t": "93-letnia Polka dostała wysokie odznaczenie. Przeżyła koszmar Sybiru",
-"l": "https://wiadomosci.onet.pl/swiat/93-letnia-polka-dostala-odznaczenie-panstwowe-przezyla-koszmar-sybiru/nyj11eq",
-"z": "Onet",
-"d": "2026-11-16T14:55:39+00:00"
-},
-{
-"t": "Marine Le Pen zmienia zdanie w sprawie małżeństw jednopłciowych. \"Popełniłam błąd\"",
-"l": "https://wiadomosci.onet.pl/swiat/marine-le-pen-zmienia-zdanie-w-sprawie-malzenstw-jednoplciowych-popelnilam-blad/433p2t1",
-"z": "Onet",
-"d": "2026-11-16T14:39:53+00:00"
-},
-{
-"t": "Wielkie pieniądze za sterowanie dronem. Kreml mami poborowych wizją bezpiecznej wojny",
-"l": "https://wiadomosci.onet.pl/swiat/rozpaczliwe-braki-w-armii-tak-moskwa-wciaga-poborowych-w-pulapke/vn7r7d8",
-"z": "Onet",
-"d": "2026-11-16T13:54:43+00:00"
 }
 ],
 "religia": [
+{
+"t": "Leon XIV trafiony w twarz. Sieć obiega nagranie niebezpiecznego incydentu [ZOBACZ]",
+"l": "https://stacja7.pl/ze-swiata/leon-xiv-trafiony-w-twarz-siec-obiega-nagranie-niebezpiecznego-incydentu-zobacz/",
+"z": "Stacja7",
+"d": "2026-11-16T22:18:28+00:00"
+},
 {
 "t": "Papież-misjonarz wraca z Ameryki Łacińskiej do Rzymu",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/koniec-podrozy-ameryka-lacinska-leon-xiv-powrot-do-rzymu.html",
@@ -436,12 +442,6 @@
 "l": "https://archidiecezjalubelska.pl/blog/dzien-muzyki-chrzescijanskiej-cecylianka-2026-w-lubelskim-seminarium-21-11-2026/",
 "z": "Archidiecezja Lubelska",
 "d": "2026-11-15T16:04:00+00:00"
-},
-{
-"t": "„10 Słów Boga – Dekalog życia” Dzień skupienia dla młodych (18+) – 21.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/10-slow-boga-dekalog-zycia-dzien-skupienia-dla-mlodych-18-21-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-15T15:03:00+00:00"
 }
 ],
 "rolnicze": [
