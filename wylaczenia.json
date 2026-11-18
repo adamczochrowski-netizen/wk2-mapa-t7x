@@ -1,45 +1,6 @@
 {
-"zaktualizowano": "2026-11-18T12:53:17+00:00",
+"zaktualizowano": "2026-11-18T21:16:25+00:00",
 "prad": [
-{
-"od": "2026-11-18 08:00:00",
-"do": "2026-11-18 15:00:00",
-"gminy": [
-"Zamość"
-],
-"miejsca": [
-"Sitaniec",
-"Sitaniec-Wolica",
-"Wysokie"
-],
-"opis": "Sitaniec; Sitaniec-Wolica; Wysokie",
-"odwolane": false
-},
-{
-"od": "2026-11-18 08:00:00",
-"do": "2026-11-18 15:00:00",
-"gminy": [
-"Łopiennik Górny"
-],
-"miejsca": [
-"Dobryniów-Kolonia",
-"Łopiennik Dolny"
-],
-"opis": "Łopiennik Dolny; Dobryniów-Kolonia",
-"odwolane": false
-},
-{
-"od": "2026-11-18 08:00:00",
-"do": "2026-11-18 15:00:00",
-"gminy": [
-"Zamość"
-],
-"miejsca": [
-"Zamość"
-],
-"opis": "Biłgoraj: ul. Batalionów Chłopskich, ul. Mickiewicza, ul. Marii Konopnickiej, ul. Wiejska, ul. Rożnówka Stawy, ul. gen. Komorowskiego, ul. Lazurowa, ul. Puszcza Solska, ul. Długa, ul. gen. Władysława Andersa, ul. Tarnogrodzka, ul. Stefana Żeromskiego, ul. Cegielniana, ul. Nadstawna, ul. Cicha, ul. Antoniego \"Orkisza\" Radzika, ul. gen. Maczka, ul. Cypriana Godebskiego, ul. Mikołaja Kopernika, ul. B",
-"odwolane": true
-},
 {
 "od": "2026-11-19 08:00:00",
 "do": "2026-11-19 15:00:00",
