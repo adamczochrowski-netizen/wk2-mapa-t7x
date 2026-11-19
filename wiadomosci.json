@@ -1,6 +1,12 @@
 {
-"zaktualizowano": "2026-11-18T21:16:14+00:00",
+"zaktualizowano": "2026-11-19T02:44:27+00:00",
 "polska": [
+{
+"t": "Radosław Sikorski mówi o \"praniu mózgu\" na Węgrzech. Mocny wywiad przed wizytą w Budapeszcie",
+"l": "https://wiadomosci.onet.pl/kraj/radoslaw-sikorski-mowi-o-praniu-mozgu-na-wegrzech-uderza-w-viktora-orbana/xxm2znn",
+"z": "Onet",
+"d": "2026-11-18T23:13:22+00:00"
+},
 {
 "t": "Kiedy spotkanie Tusk-Nawrocki? Rzecznik rządu wskazał okazję",
 "l": "https://wiadomosci.onet.pl/kraj/donald-tusk-i-karol-nawrocki-spotkaja-sie-w-piatek-to-moze-byc-okazja/getqm52",
@@ -128,12 +134,6 @@
 "d": "2026-11-18T16:12:00+00:00"
 },
 {
-"t": "Afera Zondacrypto. Prokuratura: trzy osoby usłyszały zarzuty",
-"l": "https://wiadomosci.onet.pl/kraj/afera-zondacrypto-prokuratura-trzy-osoby-uslyszaly-zarzuty/9zr165f",
-"z": "Onet",
-"d": "2026-11-18T15:54:47+00:00"
-},
-{
 "t": "Gala bokserska w Łodzi reklamuje się filmem z Nawrockim. Sprawa w ABW",
 "l": "https://www.rmf24.pl/fakty/polska/news-gala-bokserska-w-lodzi-reklamuje-sie-filmem-z-nawrockim-spra,nIdn,1026698",
 "z": "RMF24",
@@ -147,6 +147,54 @@
 }
 ],
 "swiat": [
+{
+"t": "Kulisy kolacji u Xi. Premierka Japonii miała przedstawić Putinowi żądania",
+"l": "https://wiadomosci.onet.pl/swiat/pol-godziny-z-putinem-na-kolacji-u-xi-japonia-miala-wysunac-zadania/plyqv5d",
+"z": "Onet",
+"d": "2026-11-19T02:28:43+00:00"
+},
+{
+"t": "Zrugał Ukraińców i zniknął. Przedstawiciel Pentagonu namieszał w Brukseli",
+"l": "https://wiadomosci.onet.pl/swiat/glowny-strateg-pentagonu-opuscil-rozmowy-w-brukseli-spor-o-ataki-na-rosje/34ey8d9",
+"z": "Onet",
+"d": "2026-11-19T02:04:30+00:00"
+},
+{
+"t": "Odizolowany kurort u podnóża góry. To tam spotkają się Trump, Putin i Xi",
+"l": "https://wiadomosci.onet.pl/swiat/kylin-villa-w-shenzen-w-tym-kurorcie-spotkaja-sie-trump-putin-i-xi/rp02xq9",
+"z": "Onet",
+"d": "2026-11-19T01:14:54+00:00"
+},
+{
+"t": "Artyleria już huczy, armie kopią okopy. Wystarczy iskra, by wybuchła nowa wojna",
+"l": "https://wiadomosci.onet.pl/swiat/walka-o-dostep-do-morza-czerwonego-dwa-panstwa-na-skraju-pelnoskalowej-wojny/xsc7xnr",
+"z": "Onet",
+"d": "2026-11-19T00:42:20+00:00"
+},
+{
+"t": "Most Krymski ponownie zaatakowany. Natychmiastowa reakcja Rosjan",
+"l": "https://wiadomosci.onet.pl/swiat/nocny-atak-na-most-krymski-swiadkowie-mowia-o-kilkunastu-eksplozjach/dp74vwq",
+"z": "Onet",
+"d": "2026-11-18T23:57:08+00:00"
+},
+{
+"t": "Izrael naciska na USA. Ostatnia szansa na uderzenie w Iran",
+"l": "https://www.rmf24.pl/fakty/swiat/news-izrael-naciska-na-usa-ostatnia-szansa-na-uderzenie-w-iran,nIdn,1026724",
+"z": "RMF24",
+"d": "2026-11-18T22:32:00+00:00"
+},
+{
+"t": "Wysłannicy Donalda Trumpa ostrzegają. Chodzi o pokój w Ukrainie",
+"l": "https://wiadomosci.onet.pl/swiat/waszyngton-szuka-sposobu-na-putina-media-ujawniaja-co-jest-na-stole/s3m5j6s",
+"z": "Onet",
+"d": "2026-11-18T21:41:18+00:00"
+},
+{
+"t": "Premiera, na którą czekały miliony. Wolne na granie oferuje nawet amerykańskie wojsko",
+"l": "https://www.rmf24.pl/fakty/swiat/news-premiera-na-ktora-czekaly-miliony-wolne-na-granie-oferuje-na,nIdn,1026723",
+"z": "RMF24",
+"d": "2026-11-18T21:41:00+00:00"
+},
 {
 "t": "Rosyjskie władze dokręcają śrubę. Chcą karać za \"dyskredytowanie tradycyjnych wartości\"",
 "l": "https://wiadomosci.onet.pl/swiat/rosyjskie-wladze-dokrecaja-srube-chca-karac-za-dyskredytowanie-tradycyjnych-wartosci/hdrcp51",
@@ -232,42 +280,6 @@
 "d": "2026-11-18T17:04:55+00:00"
 },
 {
-"t": "Administracja Trumpa wszczyna dochodzenie w sprawie COVID-19. Chodzi o znany artykuł naukowy",
-"l": "https://wiadomosci.onet.pl/swiat/administracja-trumpa-wszczyna-dochodzenie-w-sprawie-covid-19-chodzi-o-znany-artykul/zwrlsys",
-"z": "Onet",
-"d": "2026-11-18T16:52:16+00:00"
-},
-{
-"t": "Witold Jurasz: Dlaczego spotkanie w Shenzhen to nie druga Jałta? Są cztery powody",
-"l": "https://wiadomosci.onet.pl/swiat/witold-jurasz-dlaczego-spotkanie-w-shenzhen-to-nie-druga-jalta-sa-konkretne-powody/jlxd2td",
-"z": "Onet",
-"d": "2026-11-18T16:43:31+00:00"
-},
-{
-"t": "Kolejny region Rosji wprowadził ograniczenia w sprzedaży paliwa",
-"l": "https://wiadomosci.onet.pl/swiat/kolejny-region-rosji-wprowadzil-ograniczenia-w-sprzedazy-paliwa/0ydqx9m",
-"z": "Onet",
-"d": "2026-11-18T16:38:48+00:00"
-},
-{
-"t": "Brutalna kampania wyborcza we Francji. Padają poważne oskarżenia",
-"l": "https://wiadomosci.onet.pl/swiat/brutalna-kampania-wyborcza-we-francji-padaja-powazne-oskarzenia/ery341l",
-"z": "Onet",
-"d": "2026-11-18T16:15:12+00:00"
-},
-{
-"t": "Donald Trump planuje osobne spotkanie z Władimirem Putinem",
-"l": "https://wiadomosci.onet.pl/swiat/media-trump-planuje-osobne-spotkanie-z-putinem-kreml-odpowiada/73nt162",
-"z": "Onet",
-"d": "2026-11-18T16:12:17+00:00"
-},
-{
-"t": "Ukraina apeluje do Trumpa i Xi przed rozmową z Putinem. \"Tego oczekujemy\"",
-"l": "https://wiadomosci.onet.pl/swiat/ukraina-apeluje-do-trumpa-i-xi-przed-rozmowa-z-putinem-tego-oczekujemy/zb64nzs",
-"z": "Onet",
-"d": "2026-11-18T16:03:21+00:00"
-},
-{
 "t": "Odsetki od pożyczek dla Ukrainy mają kosztować 40 mld euro w ciągu 7 lat. Ile zapłaci Polska?",
 "l": "https://www.rmf24.pl/fakty/swiat/news-odsetki-od-pozyczek-dla-ukrainy-maja-kosztowac-40-mld-euro-w,nIdn,1026696",
 "z": "RMF24",
@@ -278,18 +290,6 @@
 "l": "https://www.rmf24.pl/fakty/swiat/news-na-to-liczyl-kreml-ten-moment-ze-spotkania-putina-trumpa-i-x,nIdn,1026694",
 "z": "RMF24",
 "d": "2026-11-18T15:10:00+00:00"
-},
-{
-"t": "Putin nie zamierza zawierać pokoju przed końcem zimy",
-"l": "https://www.rmf24.pl/fakty/swiat/news-putin-nie-zamierza-zawierac-pokoju-przed-koncem-zimy,nIdn,1026685",
-"z": "RMF24",
-"d": "2026-11-18T14:39:00+00:00"
-},
-{
-"t": "Luksusowy pałacyk w Paryżu przejęty przez służby. Należy do ukraińskiego oligarchy",
-"l": "https://www.rmf24.pl/fakty/swiat/news-luksusowy-palacyk-w-paryzu-przejety-przez-sluzby-nalezy-do-u,nIdn,1026656",
-"z": "RMF24",
-"d": "2026-11-18T12:14:00+00:00"
 }
 ],
 "religia": [
@@ -446,6 +446,12 @@
 ],
 "rolnicze": [
 {
+"t": "Wyciął jabłonie, wiśnie i śliwy. Dziś za kilogram innych owoców dostaje 20 zł",
+"l": "https://www.tygodnik-rolniczy.pl/uprawa/wycial-jablonie-wisnie-i-sliwy-dzis-za-kilogram-innych-owocow-dostaje-20-zl-2695365",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-18T21:15:00+00:00"
+},
+{
 "t": "Zaczynali od 150 owiec, dziś mają ich około 750. Wypasają je w miejscu, które może zaskoczyć",
 "l": "https://www.tygodnik-rolniczy.pl/zwierzeta/tesc-mowil-ze-owce-zadepcza-ziemie-gospodarstwa-nie-przepisal-a-oni-dzis-maja-ich-750-2695363",
 "z": "Tygodnik Poradnik Rolniczy",
@@ -516,12 +522,6 @@
 "l": "https://www.tygodnik-rolniczy.pl/pieniadze/doplaty-bezposrednie/nowy-ekoschemat-dla-bydla-szacowana-stawka-to-82-euro-za-djp-2695350",
 "z": "Tygodnik Poradnik Rolniczy",
 "d": "2026-11-18T15:15:00+00:00"
-},
-{
-"t": "Pieniądze rolników pod lupą. Minister chce zlikwidować zasadę 150 tys. zł",
-"l": "https://www.tygodnik-rolniczy.pl/pieniadze/pieniadze-rolnikow-pod-lupa-minister-chce-zlikwidowac-zasade-150-tys-zl-2695058",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-18T15:00:00+00:00"
 },
 {
 "t": "147 mln zł do rozdysponowania przez ARiMR. Grupy producentów wciąż mogą składać wnioski",
