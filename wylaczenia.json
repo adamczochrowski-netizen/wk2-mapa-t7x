@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-19T02:44:37+00:00",
+"zaktualizowano": "2026-11-19T11:23:58+00:00",
 "prad": [
 {
 "od": "2026-11-19 08:00:00",
@@ -194,6 +194,21 @@
 },
 {
 "od": "2026-11-25 08:00:00",
+"do": "2026-11-25 15:00:00",
+"gminy": [
+"Gorzków",
+"Izbica"
+],
+"miejsca": [
+"Mchy",
+"Piaski Szlacheckie",
+"Tarnogóra-Kolonia"
+],
+"opis": "Piaski Szlacheckie; Tarnogóra-Kolonia; Mchy",
+"odwolane": false
+},
+{
+"od": "2026-11-25 08:00:00",
 "do": "2026-11-25 16:00:00",
 "gminy": [
 "Skierbieszów"
@@ -226,6 +241,18 @@
 "Lipina Stara"
 ],
 "opis": "Lipina Stara",
+"odwolane": false
+},
+{
+"od": "2026-11-26 08:30:00",
+"do": "2026-11-26 14:00:00",
+"gminy": [
+"Siennica Różana"
+],
+"miejsca": [
+"Siennica Różana"
+],
+"opis": "Siennica Różana",
 "odwolane": false
 },
 {
