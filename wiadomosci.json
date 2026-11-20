@@ -1,303 +1,393 @@
 {
-"zaktualizowano": "2026-11-20T09:53:17+00:00",
+"zaktualizowano": "2026-11-20T18:27:31+00:00",
 "polska": [
 {
-"t": "W tych polskich miastach oddycha się najgorzej. Nowy ranking smogowych rekordzistów",
-"l": "https://www.rmf24.pl/fakty/polska/news-w-tych-polskich-miastach-oddycha-sie-najgorzej-nowy-ranking-,nIdn,1026952",
+"t": "Dziennikarz RMF FM Michał Dobrołowicz z nagrodą Skrzydła Prewencji",
+"l": "https://www.rmf24.pl/fakty/polska/news-dziennikarz-rmf-fm-michal-dobrolowicz-z-nagroda-skrzydla-pre,nIdn,1027052",
 "z": "RMF24",
-"d": "2026-11-20T09:41:00+00:00"
+"d": "2026-11-20T18:26:00+00:00"
 },
 {
-"t": "Trzy obiekty naruszyły przestrzeń w Polsce. Minister spraw wewnętrznych potwierdza",
-"l": "https://wiadomosci.onet.pl/kraj/trzy-obiekty-naruszyly-przestrzen-w-polsce-minister-spraw-wewnetrznych-potwierdza/r3wftwz",
+"t": "Drony czy rakiety? Najnowsze ustalenia po porannych incydentach",
+"l": "https://www.rmf24.pl/regiony/rzeszow/news-drony-czy-rakiety-najnowsze-ustalenia-po-porannych-incydenta,nIdn,1027051",
+"z": "RMF24",
+"d": "2026-11-20T18:09:00+00:00"
+},
+{
+"t": "Rosyjskie obiekty nad Polską. Szwedzkie wojsko ujawnia kulisy nocnej misji Gripenów",
+"l": "https://wiadomosci.onet.pl/kraj/nocna-akcja-gripenow-nad-polska-szwedzkie-wojsko-ujawnia-szczegoly/9nz5qvl",
 "z": "Onet",
-"d": "2026-11-20T09:37:25+00:00"
+"d": "2026-11-20T17:39:29+00:00"
 },
 {
-"t": "Tragedia w łódzkim aquaparku. Nowe fakty ws. śmierci 7-latka i zarzuty dla ratowników",
-"l": "https://www.rmf24.pl/regiony/lodz/news-tragedia-w-lodzkim-aquaparku-nowe-fakty-ws-smierci-7-latka-i,nIdn,1026945",
-"z": "RMF24",
-"d": "2026-11-20T09:36:00+00:00"
-},
-{
-"t": "25 proc. drugiego świadczenia. Tak zmieni się renta wdowia",
-"l": "https://www.rmf24.pl/fakty/polska/news-25-proc-drugiego-swiadczenia-tak-zmieni-sie-renta-wdowia,nIdn,1026949",
-"z": "RMF24",
-"d": "2026-11-20T09:35:00+00:00"
-},
-{
-"t": "Rudnik nad Sanem: Znaleziono metalowe elementy niezidentyfikowanego obiektu",
-"l": "https://www.rmf24.pl/regiony/rzeszow/news-rudnik-nad-sanem-znaleziono-metalowe-elementy-niezidentyfiko,nIdn,1026947",
-"z": "RMF24",
-"d": "2026-11-20T09:25:00+00:00"
-},
-{
-"t": "Obiekty naruszyły polską przestrzeń. Jest reakcja MSZ Ukrainy [RELACJA NA ŻYWO]",
+"t": "Biały Dom zabiera głos po nocnym ataku Rosji. \"Prezydent wierzy\" [RELACJA NA ŻYWO]",
 "l": "https://wiadomosci.onet.pl/kraj/obiekty-naruszyly-polska-przestrzen-jest-reakcja-msz-ukrainy-relacja-na-zywo/snk07c8",
 "z": "Onet",
-"d": "2026-11-20T09:23:43+00:00"
+"d": "2026-11-20T17:32:43+00:00"
 },
 {
-"t": "Te zawody będą na topie w 2027 roku. Na liście m.in. spawacz",
-"l": "https://www.rmf24.pl/fakty/polska/news-te-zawody-beda-na-topie-w-2027-roku-na-liscie-min-spawacz,nIdn,1026944",
+"t": "Dawna \"wice\" Ziobry zawieszona. Dlaczego minister Żurek odsuwa prok. Beatę Marczak",
+"l": "https://wiadomosci.onet.pl/kraj/dawna-wice-ziobry-zawieszona-minister-zurek-odsuwa-prok-beate-marczak/jexlqgs",
+"z": "Onet",
+"d": "2026-11-20T17:22:35+00:00"
+},
+{
+"t": "Tragiczny wypadek w przepompowni ścieków. Dwie osoby skazane",
+"l": "https://www.rmf24.pl/regiony/bialystok/news-tragiczny-wypadek-w-przepompowni-sciekow-dwie-osoby-skazane,nIdn,1027039",
 "z": "RMF24",
-"d": "2026-11-20T09:07:00+00:00"
+"d": "2026-11-20T17:09:00+00:00"
 },
 {
-"t": "Od soboty surowsze kary dla kierowców. Chodzi o przejazdy kolejowe",
-"l": "https://www.rmf24.pl/fakty/polska/news-od-soboty-surowsze-kary-dla-kierowcow-chodzi-o-przejazdy-kol,nIdn,1026940",
+"t": "Waldemar Żurek wygrał proces. \"Kłamstwo w sieci ma swoją cenę\"",
+"l": "https://wiadomosci.onet.pl/kraj/michal-ostrowski-ma-przeprosic-waldemara-zurka-klamstwo-w-sieci-ma-swoja-cene/besjws7",
+"z": "Onet",
+"d": "2026-11-20T16:51:57+00:00"
+},
+{
+"t": "Black Week to nie tylko okazja do zakupów. Tu rabaty zostają na dłużej, a do wygrania jest nawet Volvo",
+"l": "https://wiadomosci.onet.pl/kraj/black-week-w-kuchni-vikinga-loteria-z-volvo-i-nagrodami-dla-klientow/tccch2d",
+"z": "Onet",
+"d": "2026-11-20T16:50:00+00:00"
+},
+{
+"t": "Fotopułapka uchwyciła watahę wilków. Leśnicy apelują do spacerowiczów",
+"l": "https://www.rmf24.pl/regiony/slaskie/news-fotopulapka-uchwycila-watahe-wilkow-lesnicy-apeluja-do-space,nIdn,1027040",
 "z": "RMF24",
-"d": "2026-11-20T09:00:00+00:00"
+"d": "2026-11-20T16:41:00+00:00"
 },
 {
-"t": "Premier Tusk zwołuje pilną naradę z wojskiem, ministrami i szefami służb",
-"l": "https://www.rmf24.pl/fakty/polska/news-premier-tusk-zwoluje-pilna-narade-z-wojskiem-ministrami-i-sz,nIdn,1026941",
+"t": "Fala komentarzy po upadku rosyjskich obiektów w Polsce. Opozycja krytykuje rząd",
+"l": "https://wiadomosci.onet.pl/kraj/fala-komentarzy-po-naruszeniu-polskiej-przestrzeni-opozycja-krytykuje-rzad/x4dn56d",
+"z": "Onet",
+"d": "2026-11-20T16:16:34+00:00"
+},
+{
+"t": "\"Putin stawia na konfrontację\". Fala reakcji po naruszeniu polskiej przestrzeni powietrznej",
+"l": "https://wiadomosci.onet.pl/kraj/fala-reakcji-w-europie-po-naruszeniu-polskiej-przestrzeni-powietrznej/8s02ste",
+"z": "Onet",
+"d": "2026-11-20T16:08:46+00:00"
+},
+{
+"t": "Ruszyli na zamachowca, sprzęt musieli kupić sobie sami. Wyjaśniamy, o co chodzi z policyjnymi kamizelkami",
+"l": "https://wiadomosci.onet.pl/kraj/zamach-w-krakowie-policjanci-mieli-prywatne-kamizelki-kuloodporne-wyjasniamy/s9pc64w",
+"z": "Onet",
+"d": "2026-11-20T15:44:28+00:00"
+},
+{
+"t": "Media: w czasie nocnych alarmów w Jasionce był premier Ukrainy",
+"l": "https://wiadomosci.onet.pl/kraj/media-w-czasie-nocnych-alarmow-w-jasionce-byl-premier-ukrainy/5zhsqnt",
+"z": "Onet",
+"d": "2026-11-20T15:39:40+00:00"
+},
+{
+"t": "Kosiniak-Kamysz: Potrzebujemy waszego wsparcia",
+"l": "https://www.rmf24.pl/fakty/polska/news-kosiniak-kamysz-potrzebujemy-waszego-wsparcia,nIdn,1027033",
 "z": "RMF24",
-"d": "2026-11-20T08:54:00+00:00"
+"d": "2026-11-20T15:36:00+00:00"
 },
 {
-"t": "Wojskowy o propozycji Kremla w sprawie Królewca: \"Odbieram to jako prognostyk przyszłej eskalacji Rosji\"",
-"l": "https://wiadomosci.onet.pl/kraj/plk-korowaj-o-propozycji-kremla-odbieram-to-jako-prognostyk-przyszlej-eskalacji-rosji/cvb49rj",
+"t": "Jest decyzja w prawie ostatniej transzy z KPO dla Polski",
+"l": "https://wiadomosci.onet.pl/kraj/komisja-europejska-zdecydowala-chodzi-o-miliardy-euro-dla-polski/35bw1zm",
 "z": "Onet",
-"d": "2026-11-20T08:51:20+00:00"
+"d": "2026-11-20T15:20:07+00:00"
 },
 {
-"t": "Spłonęły auta używane przez inspektor nadzoru. Komu nie spodobała się kontrola?",
-"l": "https://www.rmf24.pl/regiony/wroclaw/news-splonely-auta-uzywane-przez-inspektor-nadzoru-komu-nie-spodo,nIdn,1026936",
+"t": "Żurek zawiesił swoja zastępczynię. Podejrzenie „rażącej obrazy przepisów”",
+"l": "https://www.rmf24.pl/fakty/polska/news-zurek-zawiesil-swoja-zastepczynie-podejrzenie-razacej-obrazy,nIdn,1027029",
 "z": "RMF24",
-"d": "2026-11-20T08:51:00+00:00"
+"d": "2026-11-20T15:12:00+00:00"
 },
 {
-"t": "Obiekt naruszył polską przestrzeń. Premier zwołał specjalną naradę",
-"l": "https://wiadomosci.onet.pl/kraj/obiekty-naruszyly-polska-przestrzen-premier-zwolal-specjalna-narade/wx9h7t2",
-"z": "Onet",
-"d": "2026-11-20T08:46:37+00:00"
-},
-{
-"t": "Black Friday bez polowania w ciemno. Jak złapać prawdziwe okazje?",
-"l": "https://www.rmf24.pl/fakty/polska/news-black-friday-bez-polowania-w-ciemno-jak-zlapac-prawdziwe-oka,nIdn,1026627",
+"t": "„Dopiero ofiary przełamią niechęć polityków”. Ekspert o rosyjskich rakietach nad Polską",
+"l": "https://www.rmf24.pl/fakty/polska/news-dopiero-ofiary-przelamia-niechec-politykow-ekspert-o-rosyjsk,nIdn,1027027",
 "z": "RMF24",
-"d": "2026-11-20T08:37:00+00:00"
+"d": "2026-11-20T15:00:00+00:00"
 },
 {
-"t": "Rusza sezon na pierwszych stokach narciarskich. Gdzie już można jeździć?",
-"l": "https://www.rmf24.pl/regiony/zakopane/news-rusza-sezon-na-pierwszych-stokach-narciarskich-gdzie-juz-moz,nIdn,1026934",
+"t": "Pilot miał zgodę, rosyjska rakieta nie została zestrzelona. Wojsko wyjaśnia, dlaczego",
+"l": "https://wiadomosci.onet.pl/kraj/rosyjskie-rakiety-nie-zostaly-zestrzelone-nad-polska-wojsko-wyjasnia-dlaczego/dgmczt2",
+"z": "Onet",
+"d": "2026-11-20T14:55:03+00:00"
+},
+{
+"t": "Pierwsze akcenty zimy. Tak będzie wyglądał weekend",
+"l": "https://www.rmf24.pl/fakty/pogoda/news-pierwsze-akcenty-zimy-tak-bedzie-wygladal-weekend,nIdn,1027024",
 "z": "RMF24",
-"d": "2026-11-20T08:37:00+00:00"
+"d": "2026-11-20T14:39:00+00:00"
 },
 {
-"t": "Szczątki obiektu mogą wyglądać niegroźnie, ale wojsko ostrzega: Nie podchodź, nie publikuj lokalizacji",
-"l": "https://www.rmf24.pl/fakty/polska/news-co-zrobic-po-znalezieniu-drona-rakiety-lub-niewybuchu-wazny-,nIdn,1026927",
+"t": "Kreml: NATO szykuje się na konflikt z Rosją. Radosław Sikorski odpowiada jednym zdaniem",
+"l": "https://wiadomosci.onet.pl/kraj/szybka-riposta-radoslawa-sikorskiego-reaguje-na-slowa-marii-zacharowej/evfyz4e",
+"z": "Onet",
+"d": "2026-11-20T14:28:07+00:00"
+},
+{
+"t": "Prokuratura rozpoczęła oględziny w Nowym Lipowcu. Szczegóły działań służb",
+"l": "https://www.rmf24.pl/regiony/lublin/news-prokuratura-rozpoczela-ogledziny-w-nowym-lipowcu-szczegoly-d,nIdn,1027023",
 "z": "RMF24",
-"d": "2026-11-20T08:27:00+00:00"
+"d": "2026-11-20T14:11:00+00:00"
 },
 {
-"t": "Metalowe elementy na polu i wyrwa w ziemi. Kolejne zgłoszenie z Podkarpacia",
-"l": "https://www.rmf24.pl/regiony/rzeszow/news-metalowe-elementy-na-polu-i-wyrwa-w-ziemi-kolejne-zgloszenie,nIdn,1026930",
+"t": "Nowe informacje ws. obiektów które spadły na Polskę. Pierwsze uderzenie o godz. 6:36",
+"l": "https://www.rmf24.pl/fakty/polska/news-nowe-informacje-ws-obiektow-ktore-spadly-na-polske-pierwsze-,nIdn,1027019",
 "z": "RMF24",
-"d": "2026-11-20T08:23:00+00:00"
+"d": "2026-11-20T14:04:00+00:00"
 },
 {
-"t": "Nowy alert RCB. \"Brak zagrożenia na terenie Polski\"",
-"l": "https://wiadomosci.onet.pl/kraj/nowy-alert-rcb-podniesiono-gotowosc-systemu-obrony-powietrznej/7gplpqf",
-"z": "Onet",
-"d": "2026-11-20T08:10:55+00:00"
+"t": "„Ciekawy świata bezustannie”. Grzegorz Lindenberg nie żyje",
+"l": "https://www.rmf24.pl/fakty/polska/news-ciekawy-swiata-bezustannie-grzegorz-lindenberg-nie-zyje,nIdn,1027014",
+"z": "RMF24",
+"d": "2026-11-20T13:31:00+00:00"
 },
 {
-"t": "Polska przestrzeń powietrzna naruszona. Pilna narada w MON",
-"l": "https://wiadomosci.onet.pl/kraj/polska-przestrzen-powietrzna-naruszona-pilna-narada-w-mon/jjxkrqv",
-"z": "Onet",
-"d": "2026-11-20T08:02:56+00:00"
-},
-{
-"t": "Naruszenie polskiej przestrzeni powietrznej. Szef BBN zabrał głos",
-"l": "https://wiadomosci.onet.pl/kraj/naruszenie-polskiej-przestrzeni-powietrznej-szef-bbn-zabral-glos/ej4xgkr",
-"z": "Onet",
-"d": "2026-11-20T07:24:39+00:00"
-},
-{
-"t": "Polska przestrzeń powietrzna została naruszona. Donald Tusk zabrał głos",
-"l": "https://wiadomosci.onet.pl/kraj/polska-przestrzen-powietrzna-zostala-naruszona-donald-tusk-zabral-glos/b0l61ld",
-"z": "Onet",
-"d": "2026-11-20T06:55:33+00:00"
-},
-{
-"t": "Wiceszef MSZ o upadku rosyjskiego obiektu. \"Mamy jeszcze jedną informację od Ukraińców\"",
-"l": "https://wiadomosci.onet.pl/kraj/wiceminister-bosacki-o-mozliwym-upadku-rosyjskiego-obiektu-mamy-informacje-w-msz/jfmpj98",
-"z": "Onet",
-"d": "2026-11-20T06:46:45+00:00"
-},
-{
-"t": "Obiekt naruszył polską przestrzeń i upadł. Mamy nowe informacje",
-"l": "https://wiadomosci.onet.pl/kraj/nowy-komunikat-polskiego-wojska-podejrzenie-naruszenia-przestrzeni-powietrznej/m0nygs6",
-"z": "Onet",
-"d": "2026-11-20T06:12:08+00:00"
-},
-{
-"t": "Stała baza wojsk USA w Polsce. Wiceszef MON wskazał kluczową datę",
-"l": "https://wiadomosci.onet.pl/kraj/stala-baza-wojsk-usa-w-polsce-cezary-tomczyk-wskazal-kluczowa-date/fn9e779",
-"z": "Onet",
-"d": "2026-11-20T06:07:07+00:00"
-},
-{
-"t": "Jarosław Kaczyński miał zdecydować w sprawie Michała Moskala. W tle afera Zondacrypto",
-"l": "https://wiadomosci.onet.pl/kraj/jaroslaw-kaczynski-mial-sam-zdecydowac-chodzi-o-michala-moskala-w-partii/3xfl6dd",
-"z": "Onet",
-"d": "2026-11-20T05:57:08+00:00"
+"t": "Nie żyje Zbigniew Grochowski ps. Kamil – bohater Powstania Warszawskiego",
+"l": "https://www.rmf24.pl/regiony/warszawa/news-nie-zyje-zbigniew-grochowski-ps-kamil-bohater-powstania-wars,nIdn,1027016",
+"z": "RMF24",
+"d": "2026-11-20T13:30:00+00:00"
 }
 ],
 "swiat": [
 {
-"t": "Ukraina: Jedna z rakiet prawdopodobnie przekroczyła granicę z Polską",
-"l": "https://www.rmf24.pl/fakty/swiat/news-ukraina-jedna-z-rakiet-prawdopodobnie-przekroczyla-granice-z,nIdn,1026948",
-"z": "RMF24",
-"d": "2026-11-20T09:43:00+00:00"
-},
-{
-"t": "Niemcy chcieli deportować Syryjkę do Polski. Łomem wyważyli drzwi do azylu kościelnego",
-"l": "https://www.rmf24.pl/fakty/swiat/news-niemcy-chcieli-deportowac-syryjke-do-polski-lomem-wywazyli-d,nIdn,1026950",
-"z": "RMF24",
-"d": "2026-11-20T09:35:00+00:00"
-},
-{
-"t": "Jedyny taki zespół rajdowy na świecie. Ladies Rally Team w RMF FM",
-"l": "https://www.rmf24.pl/fakty/swiat/news-jedyny-taki-zespol-rajdowy-na-swiecie-ladies-rally-team-w-rm,nIdn,1026946",
-"z": "RMF24",
-"d": "2026-11-20T09:24:00+00:00"
-},
-{
-"t": "Artykuł 5. i wojska sojusznicze na Ukrainie? Stanowcze słowa Zełenskiego",
-"l": "https://www.rmf24.pl/fakty/swiat/news-artykul-5-i-wojska-sojusznicze-na-ukrainie-stanowcze-slowa-z,nIdn,1026943",
-"z": "RMF24",
-"d": "2026-11-20T09:19:00+00:00"
-},
-{
-"t": "Ekspert podsumowuje szczyt liderów USA, Chin i Rosji. Wskazał zwycięzcę",
-"l": "https://wiadomosci.onet.pl/swiat/radoslaw-pyffel-podsumowuje-szczyt-w-chinach-wskazal-wygrana-strone/j7w2my0",
+"t": "\"Popełniłem błędy\". Pedro Sanchez przeprasza Hiszpanów tuż przed wyborami",
+"l": "https://wiadomosci.onet.pl/swiat/popelnilem-bledy-pedro-sanchez-przeprasza-hiszpanow-tuz-przed-wyborami/p9rl6qs",
 "z": "Onet",
-"d": "2026-11-20T09:01:09+00:00"
+"d": "2026-11-20T18:11:23+00:00"
 },
 {
-"t": "\"Zagrożenie gorsze niż terroryzm\". Mikrobiolog z Cambridge mówi o dużym niebezpieczeństwie związanym z antybiotykami. Medycyna ma problem",
-"l": "https://wiadomosci.onet.pl/swiat/mikrobiolog-z-cambridge-mowi-o-zagrozeniu-zwiazanym-z-antybiotykami-tykajaca-bomba/8zml3my",
-"z": "Onet",
-"d": "2026-11-20T09:00:06+00:00"
-},
-{
-"t": "Kolejna ciężka noc w Kijowie. Są zabici i ranni, część miasta nie ma prądu",
-"l": "https://wiadomosci.onet.pl/swiat/kolejna-ciezka-noc-w-kijowie-sa-zabici-i-ranni-czesc-miasta-nie-ma-pradu/ce4r0ye",
-"z": "Onet",
-"d": "2026-11-20T08:57:38+00:00"
-},
-{
-"t": "Sąd podjął decyzję ws. ojca księżnej Meghan. Odpowie za poważne zarzuty",
-"l": "https://www.rmf24.pl/fakty/swiat/news-sad-podjal-decyzje-ws-ojca-ksieznej-meghan-odpowie-za-powazn,nIdn,1026933",
+"t": "Tomczyk po rozmowach w Pentagonie: Polska chce wzmocnienia ochrony nieba",
+"l": "https://www.rmf24.pl/fakty/swiat/news-tomczyk-po-rozmowach-w-pentagonie-polska-chce-wzmocnienia-oc,nIdn,1027046",
 "z": "RMF24",
-"d": "2026-11-20T08:41:00+00:00"
+"d": "2026-11-20T18:09:00+00:00"
 },
 {
-"t": "Złoto traci na wartości. Najgorszy tydzień dla kruszcu od marca",
-"l": "https://www.rmf24.pl/fakty/ekonomia/news-zloto-traci-na-wartosci-najgorszy-tydzien-dla-kruszcu-od-mar,nIdn,1026932",
+"t": "Usunięto jeden punkt z deklaracji Trumpa, Xi i Putina. Dotyczył Ukrainy",
+"l": "https://www.rmf24.pl/fakty/swiat/news-usunieto-jeden-punkt-z-deklaracji-trumpa-xi-i-putina-dotyczy,nIdn,1027045",
 "z": "RMF24",
-"d": "2026-11-20T08:27:00+00:00"
+"d": "2026-11-20T17:42:00+00:00"
 },
 {
-"t": "Europa wzywa do zawieszenia broni między Ukrainą i Rosją. Chodzi o energetykę i Morze Czarne",
-"l": "https://wiadomosci.onet.pl/swiat/dwa-zawieszenia-broni-w-ukrainie-europa-domaga-sie-pokoju-na-zime/xyjnh6j",
-"z": "Onet",
-"d": "2026-11-20T08:01:33+00:00"
-},
-{
-"t": "Lwów pod zmasowanym rosyjskim ostrzałem. Są zabici i ranni",
-"l": "https://www.rmf24.pl/fakty/swiat/news-lwow-pod-zmasowanym-rosyjskim-ostrzalem-sa-zabici-i-ranni,nIdn,1026922",
+"t": "Mistrz judo prezydentem Francji? Fala polemik wokół zaskakującej kandydatury",
+"l": "https://www.rmf24.pl/fakty/swiat/news-mistrz-judo-prezydentem-francji-fala-polemik-wokol-zaskakuja,nIdn,1027043",
 "z": "RMF24",
-"d": "2026-11-20T07:49:00+00:00"
+"d": "2026-11-20T17:22:00+00:00"
 },
 {
-"t": "Bakterie jelitowe sekretem dobrego zdrowia. Eksperci wskazują najlepszy sposób picia czerwonego wina dla zdrowszego serca",
-"l": "https://wiadomosci.onet.pl/swiat/bakterie-jelitowe-sekretem-dobrego-zdrowia-eksperci-wskazuja-najlepszy-sposob-picia/k0y7g2g",
-"z": "Onet",
-"d": "2026-11-20T07:22:56+00:00"
-},
-{
-"t": "„Wojna elektroniczna” coraz większym zagrożeniem. ONZ ostrzega",
-"l": "https://www.rmf24.pl/fakty/swiat/news-wojna-elektroniczna-coraz-wiekszym-zagrozeniem-onz-ostrzega,nIdn,1026904",
+"t": "Pokój przed styczniem. Administracja Trumpa poinformowała Europę i Ukrainę",
+"l": "https://www.rmf24.pl/fakty/swiat/news-pokoj-przed-styczniem-administracja-trumpa-poinformowala-eur,nIdn,1027038",
 "z": "RMF24",
-"d": "2026-11-20T06:04:00+00:00"
+"d": "2026-11-20T17:21:00+00:00"
 },
 {
-"t": "Wet za wet. Rosyjski atak rakietowy na trzy mosty w Kijowie, są zabici",
-"l": "https://www.rmf24.pl/fakty/swiat/news-wet-za-wet-rosyjski-atak-rakietowy-na-trzy-mosty-w-kijowie-s,nIdn,1026899",
+"t": "217 dni pod wodą. Rekord Brytyjczyków to wcale nie powód do dumy",
+"l": "https://www.rmf24.pl/fakty/swiat/news-217-dni-pod-woda-rekord-brytyjczykow-to-wcale-nie-powod-do-d,nIdn,1027042",
 "z": "RMF24",
-"d": "2026-11-20T06:00:00+00:00"
+"d": "2026-11-20T17:09:00+00:00"
 },
 {
-"t": "Hipopotamica celebrytka nie żyje. „Fiona walczyła do samego końca”",
-"l": "https://www.rmf24.pl/fakty/swiat/news-hipopotamica-celebrytka-nie-zyje-fiona-walczyla-do-samego-ko,nIdn,1026903",
+"t": "Duchy przeszłości brexitu nawiedzają szczyt UE–Wielka Brytania [ANALIZA]",
+"l": "https://wiadomosci.onet.pl/swiat/duchy-przeszlosci-brexitu-nawiedzaja-szczyt-ue-wielka-brytania-analiza/bm7h7z5",
+"z": "Onet",
+"d": "2026-11-20T17:06:59+00:00"
+},
+{
+"t": "Polska skorzysta z artykułu 4. NATO? Nowe doniesienia po upadku rosyjskich rakiet",
+"l": "https://wiadomosci.onet.pl/swiat/polska-skorzysta-z-artykulu-4-nato-nowe-doniesienia-po-upadku-rosyjskich-rakiet/jkpkjw0",
+"z": "Onet",
+"d": "2026-11-20T16:55:55+00:00"
+},
+{
+"t": "Zderzenie na Morzu Północnym. Rosyjska fregata i rosyjski tankowiec w rolach głównych",
+"l": "https://www.rmf24.pl/fakty/swiat/news-zderzenie-na-morzu-polnocnym-rosyjska-fregata-i-rosyjski-tan,nIdn,1027035",
 "z": "RMF24",
-"d": "2026-11-20T06:00:00+00:00"
+"d": "2026-11-20T16:23:00+00:00"
 },
 {
-"t": "Nóż w plecy Kijowa. Gniewna tyrada Trumpa w samolocie zwiastuje problemy. Europa ma powody do obaw",
-"l": "https://wiadomosci.onet.pl/swiat/noz-w-plecy-kijowa-gniewna-tyrada-trumpa-w-samolocie-domaga-sie-od-europy-zeby/hq3jtnk",
-"z": "Onet",
-"d": "2026-11-20T05:57:18+00:00"
-},
-{
-"t": "Rosja bierze odwet za Most Krymski. Na Kijów spadły pociski",
-"l": "https://wiadomosci.onet.pl/swiat/rosja-bierze-odwet-za-most-krymski-na-kijow-spadly-pociski/qqr5jpg",
-"z": "Onet",
-"d": "2026-11-20T05:40:48+00:00"
-},
-{
-"t": "Trump ogłasza sukces, Putin wygrywa wizerunkowo. A Ukraina? Bez konkretów",
-"l": "https://www.rmf24.pl/fakty/swiat/news-trump-oglasza-sukces-putin-wygrywa-wizerunkowo-a-ukraina-bez,nIdn,1026895",
+"t": "Amerykański arsenał na wyczerpaniu. Raport ujawnia poważne braki w zapasach amunicji",
+"l": "https://www.rmf24.pl/fakty/swiat/news-amerykanski-arsenal-na-wyczerpaniu-raport-ujawnia-powazne-br,nIdn,1027034",
 "z": "RMF24",
-"d": "2026-11-20T05:28:00+00:00"
+"d": "2026-11-20T15:46:00+00:00"
 },
 {
-"t": "Budżet UE. Będą cięcia w polityce spójności?",
-"l": "https://www.rmf24.pl/fakty/swiat/news-budzet-ue-beda-ciecia-w-polityce-spojnosci,nIdn,1026891",
+"t": "Niechęć Japończyków do Rosji coraz większa. Sondaż nie pozostawia wątpliwości",
+"l": "https://wiadomosci.onet.pl/swiat/niechec-japonczykow-do-rosji-coraz-wieksza-sondaz-nie-pozostawia-watpliwosci/8lkdmwc",
+"z": "Onet",
+"d": "2026-11-20T15:33:56+00:00"
+},
+{
+"t": "„Putin stawia na konfrontację”. Niemcy reagują na naruszenie polskiej przestrzeni powietrznej",
+"l": "https://www.rmf24.pl/fakty/swiat/news-putin-stawia-na-konfrontacje-niemcy-reaguja-na-naruszenie-po,nIdn,1027030",
 "z": "RMF24",
-"d": "2026-11-20T05:17:00+00:00"
+"d": "2026-11-20T15:29:00+00:00"
 },
 {
-"t": "ONZ ostrzega przed wojną elektroniczną. Mówi o zagrożeniu dla cywili",
-"l": "https://wiadomosci.onet.pl/swiat/onz-ostrzega-przed-spoofingiem-i-jammingiem-zagrozenie-dla-cywili/3wfhb3b",
+"t": "\"Przejdźcie na naszą stronę\". Władimir Putin zwrócił się do Ukraińców",
+"l": "https://wiadomosci.onet.pl/swiat/przejdzcie-na-nasza-strone-wladimir-putin-zwrocil-sie-do-ukraincow/w3qrf0e",
 "z": "Onet",
-"d": "2026-11-20T04:54:23+00:00"
+"d": "2026-11-20T15:18:29+00:00"
 },
 {
-"t": "Trump komentuje słowa Tuska. Wspomniał o Putinie. Podsumowanie nocy",
-"l": "https://wiadomosci.onet.pl/swiat/donald-trump-zbywa-krytyke-donalda-tuska-podsumowanie-nocy/xnfjk7l",
+"t": "Tajne operacje brytyjskich sił w cyberprzestrzeni. Cztery kraje na celowniku",
+"l": "https://wiadomosci.onet.pl/swiat/tajne-operacje-brytyjskich-sil-w-cyberprzestrzeni-cztery-kraje-na-celowniku/dzjez8f",
 "z": "Onet",
-"d": "2026-11-20T04:39:28+00:00"
+"d": "2026-11-20T14:42:08+00:00"
 },
 {
-"t": "Włoskie lotnisko zamknięte z powodu potencjalnego zagrożenia. To pierwsza taka sytuacja w kraju",
-"l": "https://wiadomosci.onet.pl/swiat/wloskie-lotnisko-zamkniete-z-powodu-dronow-pierwsza-taka-sytuacja/4zp3wcw",
+"t": "23-letnia Rosjanka skazana za pomoc Ukrainie. Ponad 20 lat kolonii karnej",
+"l": "https://wiadomosci.onet.pl/swiat/23-letnia-rosjanka-skazana-za-pomoc-ukrainie-ponad-20-lat-kolonii-karnej/7w6y94y",
 "z": "Onet",
-"d": "2026-11-20T03:02:00+00:00"
+"d": "2026-11-20T13:45:44+00:00"
 },
 {
-"t": "Alert RCB dla mieszkańców dwóch województw. Powodem ataki w Ukrainie",
-"l": "https://wiadomosci.onet.pl/swiat/rcb-wyslalo-nocne-alerty-dotycza-rosyjskiego-ataku-w-ukrainie/cr2kyc4",
-"z": "Onet",
-"d": "2026-11-20T01:54:49+00:00"
+"t": "Bunt przeciwko drożyźnie i wydatkom na wojsko. Wielki strajk we Włoszech",
+"l": "https://www.rmf24.pl/fakty/swiat/news-bunt-przeciwko-drozyznie-i-wydatkom-na-wojsko-wielki-strajk-,nIdn,1027017",
+"z": "RMF24",
+"d": "2026-11-20T13:41:00+00:00"
 },
 {
-"t": "Prezydent Ukrainy usłyszał wypowiedź wysłannika Trumpa. \"Nie wiem, czy rozumiemy to tak samo\"",
-"l": "https://wiadomosci.onet.pl/swiat/jared-kushner-mowi-o-gwarancjach-dla-ukrainy-zelenski-ma-watpliwosci/mjglm48",
+"t": "Zmasowany atak Rosji. Francja chce pilnego posiedzenia Rady Bezpieczeństwa ONZ",
+"l": "https://wiadomosci.onet.pl/swiat/francja-reaguje-po-ataku-rosji-wladimir-putin-sadzi-ze-jest-ponad-regulami/e9eb5zs",
 "z": "Onet",
-"d": "2026-11-20T01:28:54+00:00"
+"d": "2026-11-20T13:34:27+00:00"
+},
+{
+"t": "Putin ograł Trumpa w Shenzhen. Jego triumf może być jednak krótkotrwały [OPINIA]",
+"l": "https://wiadomosci.onet.pl/swiat/putin-ogral-trumpa-w-shenzhen-jego-triumf-moze-byc-jednak-krotkotrwaly-opinia/2mmwvbs",
+"z": "Onet",
+"d": "2026-11-20T13:26:28+00:00"
+},
+{
+"t": "Atak na kwaterę główną Rosjan w Berdiańsku. Nie żyje syn rosyjskiego podpułkownika",
+"l": "https://wiadomosci.onet.pl/swiat/atak-na-kwatere-glowna-rosjan-w-berdiansku-co-najmniej-siedmiu-zabitych/rynfkkw",
+"z": "Onet",
+"d": "2026-11-20T13:12:02+00:00"
+},
+{
+"t": "Patrick Stewart poddany kremacji wodnej. Ujawniono przyczynę śmierci gwiazdora „Star Treka”",
+"l": "https://www.rmf24.pl/fakty/kultura/news-patrick-stewart-poddany-kremacji-wodnej-ujawniono-przyczyne-,nIdn,1027011",
+"z": "RMF24",
+"d": "2026-11-20T13:06:00+00:00"
+},
+{
+"t": "„Solidaryzujemy się z Polską”. Sekretarz NATO reaguje na naruszenie polskiej przestrzeni",
+"l": "https://www.rmf24.pl/fakty/swiat/news-solidaryzujemy-sie-z-polska-sekretarz-nato-reaguje-na-narusz,nIdn,1027012",
+"z": "RMF24",
+"d": "2026-11-20T13:01:00+00:00"
+},
+{
+"t": "Skandal we Francji. Wysoki rangą urzędnik przekazywał informacje państwowe partii Marine Le Pen",
+"l": "https://wiadomosci.onet.pl/swiat/skandal-we-francji-wysoki-ranga-urzednik-ujawnial-tajne-informacje-partii-le-pen/y67xn24",
+"z": "Onet",
+"d": "2026-11-20T12:56:36+00:00"
+},
+{
+"t": "Szwajcarzy przenoszą produkcję do Polski. \"Atmosfera jak na pogrzebie\". Pracownicy firmy oburzeni",
+"l": "https://wiadomosci.onet.pl/swiat/szwajcarzy-przenosza-produkcje-do-polski-atmosfera-jak-na-pogrzebie-pracownicy-firmy/j0xc669",
+"z": "Onet",
+"d": "2026-11-20T12:46:49+00:00"
+},
+{
+"t": "„Etyczni hakerzy” pomogli służbom. Kulisy tajnej operacji w Wielkiej Brytanii",
+"l": "https://www.rmf24.pl/fakty/swiat/news-etyczni-hakerzy-pomogli-sluzbom-kulisy-tajnej-operacji-w-wie,nIdn,1027005",
+"z": "RMF24",
+"d": "2026-11-20T12:33:00+00:00"
 }
 ],
 "religia": [
 {
-"t": "Niepokojący poranek w Polsce. Alert RCB i szczątki niezidentyfikowanego obiektu",
+"t": "Leon XIV: teraz biskupi muszą zadbać o owoce pielgrzymki",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/leon-xiv-teraz-biskupi-musza-zadbac-o-owoce-pielgrzymki.html",
+"z": "Vatican News",
+"d": "2026-11-20T17:36:28+00:00"
+},
+{
+"t": "Rodzina odebrała ciało sprawcy zamachu w Krakowie. Prokuratura zakończyła dodatkowe badania",
+"l": "https://stacja7.pl/z-kraju/rodzina-odebrala-cialo-sprawcy-zamachu-w-krakowie-prokuratura-zakonczyla-dodatkowe-badania/",
+"z": "Stacja7",
+"d": "2026-11-20T16:53:18+00:00"
+},
+{
+"t": "Monety z Fontanny di Trevi nadal pomogą ubogim w Rzymie",
+"l": "https://www.vaticannews.va/pl/swiat/news/2026-11/monety-z-fontanny-di-trevi-nadal-przeznaczone-na-pomoc-ubogim.html",
+"z": "Vatican News",
+"d": "2026-11-20T16:34:00+00:00"
+},
+{
+"t": "Ruszył nabór do służby liturgicznej w Bazylice św. Piotra",
+"l": "https://www.vaticannews.va/pl/watykan/news/2026-11/ruszyl-nabor-do-sluzby-liturgicznej-w-bazylice-sw-piotra.html",
+"z": "Vatican News",
+"d": "2026-11-20T15:35:00+00:00"
+},
+{
+"t": "Dziesięć orszaków w dziesięciu miastach! Tak uczczą rocznicę przyjęcia Jezusa Chrystusa za Króla i Pana",
+"l": "https://stacja7.pl/z-kraju/dziesiec-orszakow-w-dziesieciu-miastach-tak-uczcza-rocznice-przyjecia-jezusa-chrystusa-za-krola-i-pana/",
+"z": "Stacja7",
+"d": "2026-11-20T14:48:05+00:00"
+},
+{
+"t": "Kard. Pizzaballa o dramatycznej sytuacji i szkole w Gazie dla tysiąca dzieci",
+"l": "https://www.vaticannews.va/pl/watykan/news/2026-11/kard-pizzaballa-o-wizycie-kard-gugerotti-w-ziemi-swietej.html",
+"z": "Vatican News",
+"d": "2026-11-20T14:40:00+00:00"
+},
+{
+"t": "Jutro Niedziela – Uroczystość Chrystusa Króla Wszechświata",
+"l": "https://stacja7.pl/jutro-niedziela/jutro-niedziela-uroczystosc-chrystusa-krola-wszechswiata/",
+"z": "Stacja7",
+"d": "2026-11-20T14:36:17+00:00"
+},
+{
+"t": "Nowenna w intencji Ojczyzny za wstawiennictwem św. Andrzeja Boboli – treść intencji [ZOBACZ]",
+"l": "https://stacja7.pl/modlitwa/nowenna-w-intencji-ojczyzny-za-wstawiennictwem-sw-andrzeja-boboli-tresc-intencji-zobacz/",
+"z": "Stacja7",
+"d": "2026-11-20T14:19:21+00:00"
+},
+{
+"t": "Francja: Chrystus przyciąga młodych i powołuje",
+"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/wzrost-powolan-we-francji-wywiad-z-ks-matthieu-williamsonem.html",
+"z": "Vatican News",
+"d": "2026-11-20T13:38:38+00:00"
+},
+{
+"t": "Leon XIV o Franciszku: pozostawmy miejsce na tajemnicę",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/leon-xiv-papiez-franciszek-tajemnica-argentyna-javier-milei.html",
+"z": "Vatican News",
+"d": "2026-11-20T12:54:19+00:00"
+},
+{
+"t": "„Prawo do bycia zapomnianym” w Kościele? Przed TSUE trwa spór o księgi chrztów",
+"l": "https://stacja7.pl/ze-swiata/prawo-do-bycia-zapomnianym-takze-w-kosciele-spor-o-ksiegi-chrztow-przed-tsue/",
+"z": "Stacja7",
+"d": "2026-11-20T12:05:50+00:00"
+},
+{
+"t": "Leon XIV o świeckim Urugwaju: mała wspólnota może wiele",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/leon-xiv-swiecki-urugwaj-kosciol-mala-wspolnota-moze-wiele.html",
+"z": "Vatican News",
+"d": "2026-11-20T11:58:00+00:00"
+},
+{
+"t": "Andrzej Piaseczny żegna mamę: „Zasnęła trzymana za rękę…”",
+"l": "https://stacja7.pl/z-kraju/andrzej-piaseczny-zegna-mame-zasnela-trzymana-za-reke/",
+"z": "Stacja7",
+"d": "2026-11-20T11:37:17+00:00"
+},
+{
+"t": "Rzym gospodarzem 48. Sesji MABPZ. Kolejna konferencja w Londynie",
+"l": "https://www.vaticannews.va/pl/swiat/news/2026-11/rzym-gospodarzem-48-sesji-mabpz-kolejna-konferencja-w-londynie.html",
+"z": "Vatican News",
+"d": "2026-11-20T10:51:00+00:00"
+},
+{
+"t": "Niepokojący poranek w Polsce. Alert RCB i naruszenie polskiej przestrzeni powietrznej",
 "l": "https://stacja7.pl/z-kraju/niepokojacy-poranek-w-polsce-alert-rcb-i-szczatki-niezidentyfikowanego-obiektu/",
 "z": "Stacja7",
 "d": "2026-11-20T09:51:31+00:00"
+},
+{
+"t": "Św. Jan Paweł II w słowach Leona XIV w Ameryce Łacińskiej",
+"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-swiety-jan-pawel-ii-w-slowach-leon-xiv-ameryka-lacinska.html",
+"z": "Vatican News",
+"d": "2026-11-20T09:49:00+00:00"
 },
 {
 "t": "Leon XIV: dziedzictwo Kościołów wschodnich skarbem całego Kościoła",
@@ -324,40 +414,10 @@
 "d": "2026-11-20T06:02:00+00:00"
 },
 {
-"t": "Brytyjscy katolicy łączą wiarę z konkretnymi uczynkami",
-"l": "https://www.vaticannews.va/pl/swiat/news/2026-11/przewodniczacy-catholics-in-fundraising-o-formacji-katolikow.html",
-"z": "Vatican News",
-"d": "2026-11-19T17:54:00+00:00"
-},
-{
-"t": "W niedzielę lokalne ŚDM, Papież spotka się z młodymi w sobotę",
-"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/w-niedziele-lokalne-sdm-papiez-leon-xiv-mlodzi-mlodziez.html",
-"z": "Vatican News",
-"d": "2026-11-19T16:52:00+00:00"
-},
-{
-"t": "„Puste ręce i bezradność” - na Ukrainie coraz trudniej o pomoc",
-"l": "https://www.vaticannews.va/pl/swiat/news/2026-11/puste-rece-i-bezradnosc-ukraina-pomoc-polska-ukraincy-papiez.html",
-"z": "Vatican News",
-"d": "2026-11-19T16:20:00+00:00"
-},
-{
-"t": "Cała Polska będzie odmawiać nowennę do św. Andrzeja Boboli",
-"l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/nowenna-pojednanie-polska-sw-andrzej-bobola-biskupi.html",
-"z": "Vatican News",
-"d": "2026-11-19T15:44:00+00:00"
-},
-{
 "t": "Adwent 2026. Kiedy wypada?",
 "l": "https://stacja7.pl/wiara/adwent-2026-kiedy-wypada/",
 "z": "Stacja7",
 "d": "2026-11-19T15:09:33+00:00"
-},
-{
-"t": "Leon XIV zwraca uwagę na problemy rybaków",
-"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-leon-xiv-zwraca-uwage-na-problemy-rybakow-rybolowstwo.html",
-"z": "Vatican News",
-"d": "2026-11-19T14:41:00+00:00"
 },
 {
 "t": "Polska wigilia trafi na prestiżową listę UNESCO? Wkrótce poznamy decyzję",
@@ -366,28 +426,10 @@
 "d": "2026-11-19T14:00:02+00:00"
 },
 {
-"t": "Gwiazdy kolarstwa spotkają się z Papieżem",
-"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/gwiazdy-kolarstwo-kolarze-spotkaja-sie-z-papiez-leon-xiv-sport.html",
-"z": "Vatican News",
-"d": "2026-11-19T13:37:00+00:00"
-},
-{
-"t": "Biskupi Libanu potępiają napaść na arcybiskupa Homs",
-"l": "https://www.vaticannews.va/pl/swiat/news/2026-11/biskupi-libanu-apeluja-o-ochrone-chrzescijan-w-syrii.html",
-"z": "Vatican News",
-"d": "2026-11-19T12:32:00+00:00"
-},
-{
 "t": "Mały człowiek, wielkie sprawy. Jak rozmawiać z dziećmi, żeby naprawdę wpuściły nas do swojego świata?",
 "l": "https://stacja7.pl/felietony/maly-czlowiek-wielkie-sprawy-jak-rozmawiac-z-dziecmi-zeby-naprawde-wpuscily-nas-do-swojego-swiata/",
 "z": "Stacja7",
 "d": "2026-11-19T12:18:00+00:00"
-},
-{
-"t": "„Tata widział św. Jana Pawła II. Ja opowiem mu o Leonie XIV”",
-"l": "https://www.vaticannews.va/pl/watykan/news/2026-11/swiadectwa-polakow-z-mszy-sw-przy-grobie-sw-jana-pawla-ii.html",
-"z": "Vatican News",
-"d": "2026-11-19T11:20:21+00:00"
 },
 {
 "t": "Zmarł ks. Ireneusz Posturzyński",
@@ -396,126 +438,138 @@
 "d": "2026-11-19T11:02:00+00:00"
 },
 {
-"t": "Pragnienia młodzieży się nie zmieniają. To miłość, piękno, Bóg - mówi Papież",
-"l": "https://www.vaticannews.va/pl/papiez/news/2026-11/leon-xiv-pokoj-wspolnota-katolicka-shalom-rocznica-45-lat.html",
-"z": "Vatican News",
-"d": "2026-11-19T10:31:00+00:00"
-},
-{
 "t": "Poczuj radość z rodzinnego czytania Biblii! Zapoczątkuj ten zwyczaj z książką “Franek odkrywa Biblię” [PREMIERA]",
 "l": "https://stacja7.pl/news/poczuj-radosc-z-rodzinnego-czytania-biblii-zapoczatkuj-ten-zwyczaj-z-ksiazka-franek-odkrywa-biblie-premiera/",
 "z": "Stacja7",
 "d": "2026-11-19T10:10:02+00:00"
-},
-{
-"t": "Jak odkryć w Biblii swoją osobistą historię? Poznaj trzy rady biblisty!",
-"l": "https://stacja7.pl/biblia/jak-odkryc-w-biblii-swoja-osobista-historie-poznaj-trzy-rady-biblisty/",
-"z": "Stacja7",
-"d": "2026-11-19T10:09:48+00:00"
-},
-{
-"t": "Nowenna w intencji Ojczyzny o zgodę i pojednanie w narodzie za wstawiennictwem św. Andrzeja Boboli",
-"l": "https://archidiecezjalubelska.pl/blog/nowenna-w-intencji-ojczyzny-o-zgode-i-pojednanie-w-narodzie-za-wstawiennictwem-sw-andrzeja-boboli/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-19T10:02:00+00:00"
-},
-{
-"t": "Bazylika św. Piotra w Rzymie ma już 400 lat! „Jej ogrom odzwierciedla nieprzemijające powołanie Kościoła”",
-"l": "https://stacja7.pl/zwatykanu/bazylika-sw-piotra-w-rzymie-ma-juz-400-lat-jej-ogrom-odzwierciedla-nieprzemijajace-powolanie-kosciola/",
-"z": "Stacja7",
-"d": "2026-11-19T09:17:09+00:00"
-},
-{
-"t": "50 tys. diod LED i ozdoby przygotowane przez dzieci. Już dziś 24-metrowa choinka stanie na Placu św. Piotra",
-"l": "https://stacja7.pl/zwatykanu/50-tys-diod-led-i-ozdoby-przygotowane-przez-dzieci-juz-dzis-24-metrowa-choinka-stanie-na-placu-sw-piotra/",
-"z": "Stacja7",
-"d": "2026-11-19T07:27:09+00:00"
-},
-{
-"t": "Jak czytać Pismo Święte z dziećmi?",
-"l": "https://stacja7.pl/biblia/jak-czytac-pismo-swiete-cala-rodzina/",
-"z": "Stacja7",
-"d": "2026-11-18T15:28:54+00:00"
-},
-{
-"t": "„To bywa bardzo podstępne zagranie”. Agata i Dawid Rusek o małżeństwie w technologicznym świecie",
-"l": "https://stacja7.pl/rozmowy/to-bywa-bardzo-podstepne-zagranie-agata-i-dawid-rusek-o-malzenstwie-w-technologicznym-swiecie/",
-"z": "Stacja7",
-"d": "2026-11-18T14:37:16+00:00"
 }
 ],
 "rolnicze": [
 {
-"t": "Zebrali dla dzieci ponad milion złotych, teraz sami potrzebują wsparcia. Ruszyła zbiórka dla OSP Kórnica",
-"l": "https://www.tygodnik-rolniczy.pl/wies-i-rodzina/osp/zebrali-dla-dzieci-ponad-milion-zlotych-teraz-sami-potrzebuja-wsparcia-ruszyla-zbiorka-dla-osp-kornica-2695475",
+"t": "Dziadek sadził jabłonie, dziś wnukowie zbierają zwykle 250 ton. Nie zgodzili się na warunki marketów",
+"l": "https://www.tygodnik-rolniczy.pl/uprawa/warzywa-owoce/dziadek-sadzil-jablonie-dzis-wnukowie-zbieraja-zwykle-250-ton-nie-zgodzili-sie-na-warunki-marketow-2695547",
 "z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-20T09:00:00+00:00"
+"d": "2026-11-20T18:01:00+00:00"
 },
 {
-"t": "Krowy muszą chętnie chodzić do robota. Jak prawidłowo je żywić?",
-"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/za-duzo-paszy-tresciwej-w-robocie-zwacz-i-pobranie-tmr-moga-ucierpiec-2695430",
+"t": "Ziemia zapada się pod polami uprawnymi. Winne intensywne nawadnianie?",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-na-swiecie/w-kukurydzy-krylo-sie-8-metrowe-zapadlisko-odkryli-je-podczas-zbioru-foto-2695504",
 "z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-20T08:30:00+00:00"
+"d": "2026-11-20T17:30:00+00:00"
 },
 {
-"t": "Rolnik oddał ziemię w dzierżawę, a urząd nadal liczy mu dochód. Jest ważny wyjątek",
-"l": "https://www.tygodnik-rolniczy.pl/prawo/porady-prawne/rolnik-oddal-ziemie-w-dzierzawe-a-urzad-nadal-liczy-mu-dochod-jest-wazny-wyjatek-2695457",
+"t": "Pszenica i kukurydza w górę. Co dzieje się z cenami świń, bydła i nawozów? [Raport 20.11]",
+"l": "https://www.tygodnik-rolniczy.pl/rynki-rolne/analizy-rynkowe/pszenica-i-kukurydza-w-gore-co-dzieje-sie-z-cenami-swin-bydla-i-nawozow-raport-20-11-2695533",
 "z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-20T08:00:00+00:00"
+"d": "2026-11-20T17:00:00+00:00"
 },
 {
-"t": "Kombajn zmiażdżył przód osobówki. Nie żyje 90-latka, a trzy osoby trafiły do szpitala",
-"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/wypadki-w-rolnictwie/kombajn-zmiazdzyl-przod-osobowki-2695472",
+"t": "Ceny świń: nawet 70 gr/kg mniej niż przed rokiem. Ile płacą skupy? [SONDA 20.11]",
+"l": "https://www.tygodnik-rolniczy.pl/rynki-rolne/ceny-tucznikow/tuczniki-nawet-po-3-60-zl-kg-a-teraz-kolejne-zagrozenie-jakie-sa-ceny-swin-sonda-13-11-2695528",
 "z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-20T07:30:00+00:00"
+"d": "2026-11-20T16:00:00+00:00"
 },
 {
-"t": "Na polu kukurydza rosła równo. Dopiero skaner pokazał, co naprawdę kryje się pod ziemią",
-"l": "https://www.tygodnik-rolniczy.pl/uprawa/nawozenie/na-polu-kukurydza-rosla-rowno-dopiero-skaner-pokazal-co-naprawde-kryje-sie-pod-ziemia-2695257",
+"t": "Sprzedawali konie nawet do Kanady i Meksyku. Dziś sama hodowla to za mało",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/40-lat-z-konmi-pod-wroclawiem-rodzinna-stadnina-bachmat-stawia-na-sport-i-nauke-jazdy-2695491",
 "z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-20T07:00:00+00:00"
+"d": "2026-11-20T15:30:00+00:00"
 },
 {
-"t": "Polska niegotowa na EUDR. Rolnicy mogą zapłacić za opóźnienia administracji",
-"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/unijne-przepisy-za-pasem-ustawy-brak-branza-wolowiny-apeluje-do-tuska-2695470",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-20T06:00:00+00:00"
+"t": "Stawki za tuczniki bez zmian. Nie ma paniki na rynku",
+"l": "https://www.agropolska.pl/hodowla/trzoda-chlewna/stawki-za-tuczniki-bez-zmian-nie-ma-paniki-na-rynku/",
+"z": "agroPolska",
+"d": "2026-11-20T15:09:13+00:00"
 },
 {
-"t": "„Jestem magistrem ekonomii, a grzebię w tej ziemi”. Sama obsługuje maszyny, ma 3 ha warzyw i 250 kur",
-"l": "https://www.tygodnik-rolniczy.pl/uprawa/warzywa-owoce/jestem-magistrem-ekonomii-a-grzebie-w-tej-ziemi-sama-obsluguje-maszyny-ma-3-ha-warzyw-i-250-kur-2695431",
+"t": "Nie zabierają cieląt od matek. W tej oborze krowy same odchowują młode",
+"l": "https://www.tygodnik-rolniczy.pl/mleko/gospodarstwo-mleczne/nie-zabieraja-cielat-od-matek-w-tej-oborze-krowy-same-odchowuja-mlode-2695516",
 "z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-20T05:05:00+00:00"
+"d": "2026-11-20T15:00:00+00:00"
 },
 {
-"t": "Mieli mocny pastuch elektryczny. Nie spodziewali się tego, co wydarzyło się zaledwie 150 m od obory",
-"l": "https://www.tygodnik-rolniczy.pl/zwierzeta/mieli-mocny-pastuch-elektryczny-nie-spodziewali-sie-tego-co-wydarzylo-sie-zaledwie-150-m-od-obory-2695466",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-20T04:35:00+00:00"
+"t": "Cięcia oznaczają demontaż WPR – jest apel o głos Prezydenta",
+"l": "https://www.agropolska.pl/aktualnosci/polska/ciecia-oznaczaja-demontaz-wpr-jest-apel-o-glos-prezydenta/",
+"z": "agroPolska",
+"d": "2026-11-20T14:35:28+00:00"
 },
 {
-"t": "15 ha i nawet dwukrotnie wyższa cena za plon. Rolnik nie powiedział ostatniego słowa",
-"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/15-ha-i-nawet-dwukrotnie-wyzsza-cena-za-plon-rolnik-nie-powiedzial-ostatniego-slowa-2695464",
+"t": "Rolnicy czekają latami na pozwolenia. Biurokracja hamuje rozwój gospodarstw",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/rolnicy-latami-czekaja-na-jeden-podpis-absurdy-blokuja-rozwoj-gospodarstw-2695506",
 "z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-19T18:00:00+00:00"
+"d": "2026-11-20T14:30:00+00:00"
 },
 {
-"t": "Postawił na uprawę, której w Polsce prawie nie ma. Zaczął od hektara, w Niemczech daje do 3 t/ha",
-"l": "https://www.tygodnik-rolniczy.pl/uprawa/rzepak-rosliny-oleiste/postawil-na-uprawe-ktorej-w-polsce-prawie-nie-ma-zaczal-od-hektara-w-niemczech-daje-do-3-t-ha-2695422",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-19T17:31:00+00:00"
+"t": "Robot udojowy bez mitów. Co decyduje o sukcesie?",
+"l": "https://www.agropolska.pl/hodowla/bydlo/robot-udojowy-bez-mitow-co-decyduje-o-sukcesie/",
+"z": "agroPolska",
+"d": "2026-11-20T14:17:02+00:00"
 },
 {
-"t": "Kukurydza ma nawet 40% wilgotności, a gaz podrożał dwukrotnie. Skupy ograniczają odbiór",
-"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/kukurydza-ma-nawet-40-wilgotnosci-a-gaz-podrozal-dwukrotnie-skupy-ograniczaja-odbior-2695463",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-19T17:30:00+00:00"
+"t": "Ceny pszenicy 19 listopada. Giełdy w górę, a w skupach nawet 1025 zł/t.",
+"l": "https://www.agrofakt.pl/ceny-pszenicy-19-listopada-gieldy-w-gore-a-w-skupach-nawet-1025-zl-t/",
+"z": "Agrofakt",
+"d": "2026-11-20T13:54:16+00:00"
 },
 {
-"t": "Dopłaty do nawozów mogą być wyższe, ale wniosków nie można już poprawić. Rolnicy interweniują",
-"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/doplaty-do-nawozow-rolnicy-chca-drugiego-naboru-po-zmianie-cen-2695444",
+"t": "Claas Dominator sprzed lat, ale rocznik 2023. Na aukcji aż trzy niemal nieużywane kombajny",
+"l": "https://www.tygodnik-rolniczy.pl/maszyny-rolnicze/kombajn/claas-dominator-sprzed-lat-ale-rocznik-2023-na-aukcji-az-trzy-niemal-nieuzywane-kombajny-2695526",
 "z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-19T17:30:00+00:00"
+"d": "2026-11-20T13:45:00+00:00"
+},
+{
+"t": "Prawie 22 mln zł na bezpieczeństwo wsi. Kto otrzyma dofinansowanie?",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/prawie-22-mln-zl-na-bezpieczenstwo-wsi-kto-otrzyma-dofinansowanie-2695512",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-20T13:30:00+00:00"
+},
+{
+"t": "Niewidoczne pułapki na polu kukurydzy. Zapadliska sięgają 15 metrów od rowu",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/niewidoczne-pulapki-na-polu-kukurydzy-zapadliska-siegaja-15-metrow-od-rowu-2695510",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-20T13:00:00+00:00"
+},
+{
+"t": "AI w gospodarstwie rolnym. Czy naprawdę pozwala oszczędzić czas i pieniądze?",
+"l": "https://www.agrofakt.pl/ai-w-gospodarstwie-rolnym-czy-naprawde-pozwala-oszczedzic-czas-i-pieniadze/",
+"z": "Agrofakt",
+"d": "2026-11-20T12:38:06+00:00"
+},
+{
+"t": "Reprezentuje rolników, a sprzedał 100 ze 140 ha własnej ziemi. Ponad 140 tys. zł za hektar",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/komenatrze-rolnikow/reprezentuje-rolnikow-a-sprzedal-100-ze-140-ha-wlasnej-ziemi-ponad-140-tys-zl-za-hektar-2695518",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-20T12:31:00+00:00"
+},
+{
+"t": "Nie dostali zapłaty za plony, a rekompensata też ma limit. Rolnicy chcą zmiany przepisów",
+"l": "https://www.tygodnik-rolniczy.pl/wiadomosci-rolnicze/rolnictwo-w-polsce/nie-dostali-zaplaty-za-plony-a-rekompensata-tez-ma-limit-rolnicy-chca-zmiany-przepisow-2695497",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-20T12:30:00+00:00"
+},
+{
+"t": "Ptaki żerują na rolnikach. Ale odszkodowania dopiero od 2028 r.",
+"l": "https://www.agropolska.pl/prawo-i-pieniadze/ptaki-zeruja-na-rolnikach-ale-odszkodowania-dopiero-od-2028-r/",
+"z": "agroPolska",
+"d": "2026-11-20T11:02:24+00:00"
+},
+{
+"t": "Scalanie gruntów – kolejne setki hektarów i kilometry dróg",
+"l": "https://www.agropolska.pl/aktualnosci/polska/scalanie-gruntow-kolejne-setki-hektarow-i-kilometry-drog/",
+"z": "agroPolska",
+"d": "2026-11-20T11:00:09+00:00"
+},
+{
+"t": "680 tys. zł wsparcia od ARiMR. Kto może złożyć wniosek do 10 grudnia?",
+"l": "https://www.agrofakt.pl/680-tys-zl-wsparcia-od-arimr-kto-moze-zlozyc-wniosek-do-10-grudnia/",
+"z": "Agrofakt",
+"d": "2026-11-20T10:47:55+00:00"
+},
+{
+"t": "Uprawnienia do obsługi dronów rolniczych",
+"l": "https://www.agropolska.pl/technika-rolnicza/uprawnienia-do-obslugi-dronow-rolniczych/",
+"z": "agroPolska",
+"d": "2026-11-20T10:42:04+00:00"
 },
 {
 "t": "Konferencja Partnerów Handlowych ADOB",
@@ -540,60 +594,6 @@
 "l": "https://www.agropolska.pl/aktualnosci/polska/chcial-zjechac-z-pola-na-droge-skradziony-ciagnik-utknal-w-rowie/",
 "z": "agroPolska",
 "d": "2026-11-19T09:37:36+00:00"
-},
-{
-"t": "„Żadnych cięć w WPR”. 26 listopada rolnicy wyjdą na ulice Brukseli",
-"l": "https://www.agrofakt.pl/zadnych-ciec-w-wpr-26-listopada-rolnicy-wyjda-na-ulice-brukseli/",
-"z": "Agrofakt",
-"d": "2026-11-19T09:30:03+00:00"
-},
-{
-"t": "Jak poprawić efektywność opasu bydła i odchowu cieląt? Phileo School 2026",
-"l": "https://www.agropolska.pl/hodowla/bydlo/efektywnosc-opasu-bydla/",
-"z": "agroPolska",
-"d": "2026-11-19T08:16:26+00:00"
-},
-{
-"t": "Polski drób jest pod presją. Eksport i konkurencja coraz większym wyzwaniem",
-"l": "https://www.agropolska.pl/hodowla/drob/polski-drob-jest-pod-presja-eksport-i-konkurencja-coraz-wiekszym-wyzwaniem/",
-"z": "agroPolska",
-"d": "2026-11-18T17:25:45+00:00"
-},
-{
-"t": "147 mln zł do rozdysponowania przez ARiMR. Grupy producentów wciąż mogą składać wnioski",
-"l": "https://www.agrofakt.pl/147-mln-zl-do-rozdysponowania-przez-arimr-grupy-producentow-wciaz-moga-skladac-wnioski/",
-"z": "Agrofakt",
-"d": "2026-11-18T14:24:06+00:00"
-},
-{
-"t": "Pszczelarstwo w UE – jakie potrzeby i problemy ma branża?",
-"l": "https://www.agropolska.pl/aktualnosci/europa/pszczelarstwo-w-ue-jakie-potrzeby-i-problemy-ma-branza/",
-"z": "agroPolska",
-"d": "2026-11-18T14:08:07+00:00"
-},
-{
-"t": "Ponowny nabór na pomoc nawozową? Rolnicy rezygnowali",
-"l": "https://www.agropolska.pl/prawo-i-pieniadze/ponowny-nabor-na-pomoc-nawozowa-rolnicy-rezygnowali/",
-"z": "agroPolska",
-"d": "2026-11-18T14:07:09+00:00"
-},
-{
-"t": "Produkcja wina w UE spada, a konsumenci kupują coraz mniej. Winiarze pod podwójną presją",
-"l": "https://www.agrofakt.pl/produkcja-wina-w-ue-spada-a-konsumenci-kupuja-coraz-mniej-winiarze-pod-podwojna-presja/",
-"z": "Agrofakt",
-"d": "2026-11-18T12:27:56+00:00"
-},
-{
-"t": "Strategia „Federacja 2030” z dofinansowaniem 7,5 mln zł z NCBR",
-"l": "https://www.agropolska.pl/hodowla/bydlo/strategia-federacja-2030-z-dofinansowaniem-75-mln-zl-z-ncbr/",
-"z": "agroPolska",
-"d": "2026-11-18T09:50:27+00:00"
-},
-{
-"t": "Dofinansowanie dla pszczelarzy do 40 tys. zł. Wnioski tylko do 27 listopada!",
-"l": "https://www.agrofakt.pl/dofinansowanie-dla-pszczelarzy-do-40-tys-zl-wnioski-tylko-do-27-listopada/",
-"z": "Agrofakt",
-"d": "2026-11-18T09:32:34+00:00"
 }
 ]
 }
