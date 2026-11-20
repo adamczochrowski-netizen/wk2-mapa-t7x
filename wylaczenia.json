@@ -1,6 +1,22 @@
 {
-"zaktualizowano": "2026-11-19T19:36:01+00:00",
+"zaktualizowano": "2026-11-20T01:43:53+00:00",
 "prad": [
+{
+"od": "2026-11-20 02:39:43",
+"do": "2026-11-20 04:15:00",
+"gminy": [
+"Zamość"
+],
+"miejsca": [
+"Jatutów",
+"Kalinowice",
+"Kolonia Jatutów",
+"Szopinek",
+"Wólka Panieńska"
+],
+"opis": "Stabrów; Mocówka; Kolonia Jatutów; Szopinek; Jarosławiec; Łabuńki Drugie; Wólka Horyszowska; Łabuńki Pierwsze; Boży Dar; Wólka Panieńska; Jatutów; Karp; Kalinowice",
+"odwolane": false
+},
 {
 "od": "2026-11-20 08:00:00",
 "do": "2026-11-20 12:00:00",
