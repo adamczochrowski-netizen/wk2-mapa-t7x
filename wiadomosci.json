@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-21T21:49:56+00:00",
+"zaktualizowano": "2026-11-22T02:00:14+00:00",
 "polska": [
 {
 "t": "„Przecież to jest absurdalne”. Sikorski odpowiada na oskarżenia Przydacza ws. ambasadorów",
@@ -148,6 +148,24 @@
 ],
 "swiat": [
 {
+"t": "Te słowa Donalda Trumpa wywołały oburzenie. Teraz znowu je powtórzył",
+"l": "https://wiadomosci.onet.pl/swiat/donald-trump-wywolal-irytacje-tymi-slowami-teraz-znowu-je-powtorzyl/nrbxp5e",
+"z": "Onet",
+"d": "2026-11-22T00:04:23+00:00"
+},
+{
+"t": "Kto poprowadzi Rosję? Putin szykuje przywództwo \"konstelacji awatarów\"",
+"l": "https://wiadomosci.onet.pl/swiat/putin-kreuje-porucznikow-i-wicekrolow-maja-za-kilka-lat-rzadzic-na-kremlu/te35ez9",
+"z": "Onet",
+"d": "2026-11-21T23:10:13+00:00"
+},
+{
+"t": "128 państw rozpoczyna prace nad zakazem robotów zabijających",
+"l": "https://wiadomosci.onet.pl/swiat/roboty-zabijajace-na-agendzie-onz-miedzynarodowe-negocjacje-ruszyly/8kpq88d",
+"z": "Onet",
+"d": "2026-11-21T22:15:12+00:00"
+},
+{
 "t": "Iran zaatakował cywilny obiekt w Bahrajnie. Trwa walka ze skutkami",
 "l": "https://wiadomosci.onet.pl/swiat/bahrajn-pod-ostrzalem-iran-zaatakowal-cywilny-obiekt-przemyslowy/g3t98zm",
 "z": "Onet",
@@ -244,28 +262,10 @@
 "d": "2026-11-21T14:43:31+00:00"
 },
 {
-"t": "Szef NATO pojawił się w Warszawie. \"Będziemy bronić każdego centymetra Polski\"",
-"l": "https://wiadomosci.onet.pl/swiat/mark-rutte-zapewnia-w-warszawie-nato-obroni-kazdy-centymetr-terytorium/w7bdp5k",
-"z": "Onet",
-"d": "2026-11-21T14:14:58+00:00"
-},
-{
-"t": "Kreml śmieje się nam w twarz. Tak agenci Putina panoszą się w całej Europie [ŚLEDZTWO]",
-"l": "https://wiadomosci.onet.pl/swiat/kreml-smieje-sie-nam-w-twarz-szemrani-ludzie-putina-juz-tu-sa-sledztwo/whvkfxy",
-"z": "Onet",
-"d": "2026-11-21T14:06:42+00:00"
-},
-{
 "t": "Na Bałtyku w rosyjski statek uderzył dron. Finowie potwierdzają incydent",
 "l": "https://www.rmf24.pl/fakty/swiat/news-na-baltyku-w-rosyjski-statek-uderzyl-dron-finowie-potwierdza,nIdn,1027100",
 "z": "RMF24",
 "d": "2026-11-21T13:43:00+00:00"
-},
-{
-"t": "Wołodymyr Zełenski mówi o Polsce. \"Bez niej nie może być negocjacji\"",
-"l": "https://wiadomosci.onet.pl/swiat/wolodymyr-zelenski-o-rozmowach-pokojowych-bez-polski-nie-bedzie-negocjacji/5ff8ht5",
-"z": "Onet",
-"d": "2026-11-21T13:37:49+00:00"
 },
 {
 "t": "Gdzie mandaty są najwyższe? W tych krajach kierowcy płacą słono",
@@ -294,9 +294,33 @@
 ],
 "religia": [
 {
+"t": "Bez resetu. TV lectio divina – Uroczystość Chrystusa Króla Wszechświata „A” (Mt 25, 31-46)",
+"l": "https://archidiecezjalubelska.pl/blog/bez-resetu-tv-lectio-divina-uroczystosc-chrystusa-krola-wszechswiata-a-mt-25-31-46/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-21T21:02:04+00:00"
+},
+{
+"t": "Kard. Müller o Chrystusie Królu. SPOTKANIA Z WIARĄ w Chrystusa Króla Wszechświata (22.11.2026)",
+"l": "https://archidiecezjalubelska.pl/blog/kard-muller-o-chrystusie-krolu-spotkania-z-wiara-w-chrystusa-krola-wszechswiata-22-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-21T20:03:52+00:00"
+},
+{
+"t": "Informacja o pogrzebie śp. Przemysława Mizińskiego",
+"l": "https://archidiecezjalubelska.pl/blog/informacja-o-pogrzebie-sp-przemyslawa-mizinskiego/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-21T19:02:00+00:00"
+},
+{
 "t": "USA: biskupi alarmują o rozdzielaniu rodzin migrantów",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/usa-biskupi-alarmuja-o-rozdzielaniu-rodzin-migrantow.html",
 "z": "Vatican News",
+"d": "2026-11-21T18:02:00+00:00"
+},
+{
+"t": "Nowenna w intencji Ojczyzny o zgodę i pojednanie w narodzie za wstawiennictwem św. Andrzeja Boboli",
+"l": "https://archidiecezjalubelska.pl/blog/nowenna-w-intencji-ojczyzny-o-zgode-i-pojednanie-w-narodzie-za-wstawiennictwem-sw-andrzeja-boboli/",
+"z": "Archidiecezja Lubelska",
 "d": "2026-11-21T18:02:00+00:00"
 },
 {
@@ -306,16 +330,22 @@
 "d": "2026-11-21T17:27:00+00:00"
 },
 {
+"t": "II tura rekolekcji kapłańskich w Nałęczowie 23-25.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/ii-tura-rekolekcji-kaplanskich-w-naleczowie-23-25-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-21T17:05:00+00:00"
+},
+{
 "t": "Papież do biskupów Ekwadoru: bądźcie zwiastunami nadziei",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/papiez-leon-xiv-biskupi-ekwador-badzcie-zwiastunami-nadzieja.html",
 "z": "Vatican News",
 "d": "2026-11-21T16:24:00+00:00"
 },
 {
-"t": "Bez resetu. TV lectio divina – Uroczystość Chrystusa Króla Wszechświata „A” (Mt 25, 31-46)",
-"l": "https://archidiecezjalubelska.pl/blog/bez-resetu-tv-lectio-divina-uroczystosc-chrystusa-krola-wszechswiata-a-mt-25-31-46/",
+"t": "Eucharystia krok po kroku. Paschalne korzenie Eucharystii",
+"l": "https://archidiecezjalubelska.pl/blog/eucharystia-krok-po-kroku-paschalne-korzenie-eucharystii/",
 "z": "Archidiecezja Lubelska",
-"d": "2026-11-21T15:21:04+00:00"
+"d": "2026-11-21T16:04:00+00:00"
 },
 {
 "t": "Nowa święta, 56 błogosławionych. 14-latka czcigodną służebnicą",
@@ -324,10 +354,10 @@
 "d": "2026-11-21T15:18:00+00:00"
 },
 {
-"t": "Kard. Müller o Chrystusie Królu. SPOTKANIA Z WIARĄ w Chrystusa Króla Wszechświata (22.11.2026)",
-"l": "https://archidiecezjalubelska.pl/blog/kard-muller-o-chrystusie-krolu-spotkania-z-wiara-w-chrystusa-krola-wszechswiata-22-11-2026/",
+"t": "Wykłady otwarte poświęcone teologii ikony – KUL: 28.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/wyklady-otwarte-poswiecone-teologii-ikony-kul-28-11-2026/",
 "z": "Archidiecezja Lubelska",
-"d": "2026-11-21T15:13:52+00:00"
+"d": "2026-11-21T15:03:00+00:00"
 },
 {
 "t": "Papieski obiad z ubogimi. Polacy wśród darczyńców",
@@ -336,16 +366,34 @@
 "d": "2026-11-21T14:23:00+00:00"
 },
 {
+"t": "Spotkanie kandydatów do bierzmowania – Rozpaleni – 28.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/spotkanie-kandydatow-do-bierzmowania-rozpaleni-28-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-21T14:04:00+00:00"
+},
+{
 "t": "Wielka Nowenna za Polskę. Początek już dziś",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/wielka-nowenna-modlitwa-polska-ojczyzna-poczatek-21-listopada.html",
 "z": "Vatican News",
 "d": "2026-11-21T13:20:00+00:00"
 },
 {
+"t": "Śmierć zamyka bramy czasu i otwiera bramy do wieczności – wykład 29.11.2026",
+"l": "https://archidiecezjalubelska.pl/blog/smierc-zamyka-bramy-czasu-i-otwiera-bramy-do-wiecznosci-wyklad-29-11-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-21T13:04:00+00:00"
+},
+{
 "t": "Forum Kosmiczne w Watykanie, Papież: kosmos tylko dla pokoju",
 "l": "https://www.vaticannews.va/pl/papiez/news/2026-11/przemowienie-leona-xiv-do-miedzynarodowego-forum-kosmicznego.html",
 "z": "Vatican News",
 "d": "2026-11-21T12:25:00+00:00"
+},
+{
+"t": "Dlaczego możesz ufać systemom SeAK?",
+"l": "https://archidiecezjalubelska.pl/blog/dlaczego-mozesz-ufac-systemom-seak/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-21T12:02:00+00:00"
 },
 {
 "t": "Papież na ŚDM w Rzymie: trwajcie przy Jezusie, On was poprowadzi",
@@ -378,22 +426,10 @@
 "d": "2026-11-21T09:18:45+00:00"
 },
 {
-"t": "Informacja o pogrzebie śp. Przemysława Mizińskiego",
-"l": "https://archidiecezjalubelska.pl/blog/informacja-o-pogrzebie-sp-przemyslawa-mizinskiego/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-21T09:02:00+00:00"
-},
-{
 "t": "Leon XIV wezwał Kościół w Peru do przezwyciężenia podziałów",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/przewodniczacy-episkopatu-peru-podsumowuje-pielgrzymke-papieza.html",
 "z": "Vatican News",
 "d": "2026-11-21T08:23:43+00:00"
-},
-{
-"t": "Nowenna w intencji Ojczyzny o zgodę i pojednanie w narodzie za wstawiennictwem św. Andrzeja Boboli",
-"l": "https://archidiecezjalubelska.pl/blog/nowenna-w-intencji-ojczyzny-o-zgode-i-pojednanie-w-narodzie-za-wstawiennictwem-sw-andrzeja-boboli/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-21T08:02:00+00:00"
 },
 {
 "t": "Łatwogang, Bedoes i Fundacja Cancer Fighters mają teraz swoje krasnale we Wrocławiu",
@@ -402,49 +438,19 @@
 "d": "2026-11-20T23:27:17+00:00"
 },
 {
-"t": "Zmarł ks. Ireneusz Posturzyński",
-"l": "https://archidiecezjalubelska.pl/blog/zmarl-ks-ireneusz-posturzynski/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-20T21:02:00+00:00"
-},
-{
-"t": "Nekrologi: śp. Jan Franciszek Garbacz",
-"l": "https://archidiecezjalubelska.pl/blog/nekrologi-2025/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-20T19:04:00+00:00"
-},
-{
-"t": "Eucharystia w intencji muzyków kościelnych – 21.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/eucharystia-w-intencji-muzykow-koscielnych-21-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-20T18:02:00+00:00"
-},
-{
-"t": "Dzień Muzyki Chrześcijańskiej „Cecylianka 2026” w lubelskim seminarium 21.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/dzien-muzyki-chrzescijanskiej-cecylianka-2026-w-lubelskim-seminarium-21-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-20T17:04:00+00:00"
-},
-{
 "t": "Rodzina odebrała ciało sprawcy zamachu w Krakowie. Prokuratura zakończyła dodatkowe badania",
 "l": "https://stacja7.pl/z-kraju/rodzina-odebrala-cialo-sprawcy-zamachu-w-krakowie-prokuratura-zakonczyla-dodatkowe-badania/",
 "z": "Stacja7",
 "d": "2026-11-20T16:53:18+00:00"
-},
-{
-"t": "„10 Słów Boga – Dekalog życia” Dzień skupienia dla młodych (18+) – 21.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/10-slow-boga-dekalog-zycia-dzien-skupienia-dla-mlodych-18-21-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-20T16:03:00+00:00"
-},
-{
-"t": "II tura rekolekcji kapłańskich w Nałęczowie 23-25.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/ii-tura-rekolekcji-kaplanskich-w-naleczowie-23-25-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-20T15:05:00+00:00"
 }
 ],
 "rolnicze": [
+{
+"t": "Obniżyli przyczepę do bel niemal do ziemi. Ale największy patent kryje się wyżej",
+"l": "https://www.tygodnik-rolniczy.pl/maszyny-rolnicze/przyczepy-rolnicze/obnizyli-przyczepe-do-bel-niemal-do-ziemi-ale-najwiekszy-patent-kryje-sie-wyzej-2695562",
+"z": "Tygodnik Poradnik Rolniczy",
+"d": "2026-11-21T23:00:00+00:00"
+},
 {
 "t": "Nowe dopłaty po 360 zł do krowy. Rolnicy pełni obaw: „dodatkowe koszty”",
 "l": "https://www.agrofakt.pl/nowe-doplaty-po-360-zl-do-krowy-rolnicy-pelni-obaw-dodatkowe-koszty/",
@@ -534,12 +540,6 @@
 "l": "https://www.tygodnik-rolniczy.pl/maszyny-rolnicze/ciagniki-rolnicze/wszelkie-podobienstwo-przypadkowe-niezwykle-chinskie-ciagniki-o-duzej-mocy-2695478",
 "z": "Tygodnik Poradnik Rolniczy",
 "d": "2026-11-21T09:00:00+00:00"
-},
-{
-"t": "Rolnik chce wyciąć drzewo na swoim polu. Kiedy może to zrobić bez zgody urzędu?",
-"l": "https://www.tygodnik-rolniczy.pl/prawo/porady-prawne/kiedy-rolnik-moze-wyciac-drzewo-bez-zezwolenia-te-zasady-trzeba-znac-2695481",
-"z": "Tygodnik Poradnik Rolniczy",
-"d": "2026-11-21T08:00:00+00:00"
 },
 {
 "t": "Mięso drobiowe tanieje. Ile kosztują filety, uda i tuszki?",
