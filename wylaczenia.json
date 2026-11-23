@@ -1,60 +1,6 @@
 {
-"zaktualizowano": "2026-11-23T07:03:53+00:00",
+"zaktualizowano": "2026-11-23T19:26:30+00:00",
 "prad": [
-{
-"od": "2026-11-23 08:00:00",
-"do": "2026-11-23 14:00:00",
-"gminy": [
-"Izbica"
-],
-"miejsca": [
-"Ostrówek",
-"Tarnogóra-Kolonia"
-],
-"opis": "Ostrówek; Tarnogóra-Kolonia",
-"odwolane": false
-},
-{
-"od": "2026-11-23 08:00:00",
-"do": "2026-11-23 15:00:00",
-"gminy": [
-"Skierbieszów",
-"Stary Zamość"
-],
-"miejsca": [
-"Osiczyna"
-],
-"opis": "Osiczyna; Osiczyna",
-"odwolane": false
-},
-{
-"od": "2026-11-23 08:00:00",
-"do": "2026-11-23 16:00:00",
-"gminy": [
-"Skierbieszów",
-"Stary Zamość",
-"Zamość"
-],
-"miejsca": [
-"Borowina Sitaniecka",
-"Majdan Sitaniecki",
-"Majdan Skierbieszowski"
-],
-"opis": "Majdan Sitaniecki; Majdan Skierbieszowski; Borowina Sitaniecka",
-"odwolane": false
-},
-{
-"od": "2026-11-23 10:00:00",
-"do": "2026-11-23 13:00:00",
-"gminy": [
-"Zamość"
-],
-"miejsca": [
-"Sitaniec"
-],
-"opis": "Sitaniec",
-"odwolane": false
-},
 {
 "od": "2026-11-24 07:15:00",
 "do": "2026-11-24 14:00:00",
@@ -272,6 +218,45 @@
 "odwolane": false
 },
 {
+"od": "2026-12-03 08:00:00",
+"do": "2026-12-03 12:00:00",
+"gminy": [
+"Sułów"
+],
+"miejsca": [
+"Deszkowice Pierwsze"
+],
+"opis": "Deszkowice Pierwsze",
+"odwolane": false
+},
+{
+"od": "2026-12-03 11:00:00",
+"do": "2026-12-03 15:00:00",
+"gminy": [
+"Sułów"
+],
+"miejsca": [
+"Kawęczyn-Kolonia",
+"Rozłopy",
+"Rozłopy-Kolonia",
+"Tworyczów"
+],
+"opis": "Tworyczów; Rozłopy-Kolonia; Kawęczyn-Kolonia; Rozłopy",
+"odwolane": false
+},
+{
+"od": "2026-12-03 11:00:00",
+"do": "2026-12-11 15:00:00",
+"gminy": [
+"Sułów"
+],
+"miejsca": [
+"Rozłopy"
+],
+"opis": "Szczebrzeszyn: ul. Przedmieście Szperówka; Rozłopy; Szperówka",
+"odwolane": false
+},
+{
 "od": "2026-12-07 08:30:00",
 "do": "2026-12-07 09:30:00",
 "gminy": [
@@ -285,5 +270,13 @@
 "odwolane": false
 }
 ],
-"woda": []
+"woda": [
+{
+"t": "Informacja – Szkolenie specjalistyczne w Garnizonie Chełm – zdobądź nowe umiejętności i rozpocznij służbę w Wojsku Polskim!",
+"opis": "Szkolenie specjalistyczne w Garnizonie Chełm – zdobądź nowe umiejętności i rozpocznij służbę w Wojsku Polskim! Wojsko Polskie oferuje wiele możliwości rozwoju zawodowego i zdobywania nowych doświadczeń. Jedną z nich jest szkolenie specjalistyczne realizowane w Garnizonie Chełm, które pozwala zdobyć ",
+"l": "https://www.gminaizbica.pl/informacja-szkolenie-specjalistyczne-w-garnizonie-chelm-zdobadz-nowe-umiejetnosci-i-rozpocznij-sluzbe-w-wojsku-polskim/",
+"d": "2026-11-23T09:53+00:00",
+"z": "Gmina Izbica"
+}
+]
 }
