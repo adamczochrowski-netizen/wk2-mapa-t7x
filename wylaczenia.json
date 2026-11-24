@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-23T19:26:30+00:00",
+"zaktualizowano": "2026-11-24T04:24:06+00:00",
 "prad": [
 {
 "od": "2026-11-24 07:15:00",
@@ -259,6 +259,19 @@
 {
 "od": "2026-12-07 08:30:00",
 "do": "2026-12-07 09:30:00",
+"gminy": [
+"Zamość"
+],
+"miejsca": [
+"Jatutów",
+"Wólka Panieńska"
+],
+"opis": "Jatutów; Wólka Panieńska",
+"odwolane": false
+},
+{
+"od": "2026-12-08 15:00:00",
+"do": "2026-12-08 16:30:00",
 "gminy": [
 "Zamość"
 ],
