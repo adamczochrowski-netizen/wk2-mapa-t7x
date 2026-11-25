@@ -1,57 +1,6 @@
 {
-"zaktualizowano": "2026-11-25T09:00:27+00:00",
+"zaktualizowano": "2026-11-25T19:31:54+00:00",
 "prad": [
-{
-"od": "2026-11-25 08:00:00",
-"do": "2026-11-25 15:00:00",
-"gminy": [
-"Skierbieszów"
-],
-"miejsca": [
-"Majdan Skierbieszowski"
-],
-"opis": "Majdan Skierbieszowski",
-"odwolane": false
-},
-{
-"od": "2026-11-25 08:00:00",
-"do": "2026-11-25 15:00:00",
-"gminy": [
-"Gorzków",
-"Izbica"
-],
-"miejsca": [
-"Mchy",
-"Piaski Szlacheckie",
-"Tarnogóra-Kolonia"
-],
-"opis": "Piaski Szlacheckie; Tarnogóra-Kolonia; Mchy",
-"odwolane": false
-},
-{
-"od": "2026-11-25 08:00:00",
-"do": "2026-11-25 16:00:00",
-"gminy": [
-"Skierbieszów"
-],
-"miejsca": [
-"Lipina Nowa"
-],
-"opis": "Lipina Nowa",
-"odwolane": false
-},
-{
-"od": "2026-11-25 08:43:00",
-"do": "2026-11-25 10:45:00",
-"gminy": [
-"Krasnystaw"
-],
-"miejsca": [
-"Krasnystaw"
-],
-"opis": "Krasnystaw: ul. Waręckich, ul. Kolonia Krakowskie Przedm., , ul. Krakowskie Przedmieście, ul. Bojarczuka",
-"odwolane": false
-},
 {
 "od": "2026-11-26 08:00:00",
 "do": "2026-11-26 12:30:00",
