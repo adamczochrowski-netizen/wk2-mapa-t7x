@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-25T00:02:29+00:00",
+"zaktualizowano": "2026-11-25T09:00:27+00:00",
 "prad": [
 {
 "od": "2026-11-25 08:00:00",
@@ -38,6 +38,18 @@
 "Lipina Nowa"
 ],
 "opis": "Lipina Nowa",
+"odwolane": false
+},
+{
+"od": "2026-11-25 08:43:00",
+"do": "2026-11-25 10:45:00",
+"gminy": [
+"Krasnystaw"
+],
+"miejsca": [
+"Krasnystaw"
+],
+"opis": "Krasnystaw: ul. Waręckich, ul. Kolonia Krakowskie Przedm., , ul. Krakowskie Przedmieście, ul. Bojarczuka",
 "odwolane": false
 },
 {
