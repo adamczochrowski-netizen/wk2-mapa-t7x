@@ -1,42 +1,6 @@
 {
-"zaktualizowano": "2026-11-26T12:08:34+00:00",
+"zaktualizowano": "2026-11-26T21:50:23+00:00",
 "prad": [
-{
-"od": "2026-11-26 08:00:00",
-"do": "2026-11-26 16:00:00",
-"gminy": [
-"Skierbieszów"
-],
-"miejsca": [
-"Lipina Stara"
-],
-"opis": "Lipina Stara",
-"odwolane": false
-},
-{
-"od": "2026-11-26 08:30:00",
-"do": "2026-11-26 14:00:00",
-"gminy": [
-"Siennica Różana"
-],
-"miejsca": [
-"Siennica Różana"
-],
-"opis": "Siennica Różana",
-"odwolane": false
-},
-{
-"od": "2026-11-26 13:00:00",
-"do": "2026-11-26 15:00:00",
-"gminy": [
-"Skierbieszów"
-],
-"miejsca": [
-"Podwysokie"
-],
-"opis": "Podwysokie",
-"odwolane": false
-},
 {
 "od": "2026-11-27 08:00:00",
 "do": "2026-11-27 16:00:00",
