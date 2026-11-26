@@ -1,6 +1,78 @@
 {
-"zaktualizowano": "2026-11-25T19:31:42+00:00",
+"zaktualizowano": "2026-11-26T02:43:14+00:00",
 "polska": [
+{
+"t": "\"Donald Tusk jest ujmującym człowiekiem\". Były szef BBN ocenia premiera",
+"l": "https://wiadomosci.onet.pl/kraj/donald-tusk-jest-ujmujacym-czlowiekiem-byly-szef-bbn-ocenia-premiera/hvxs9np",
+"z": "Onet",
+"d": "2026-11-26T01:26:11+00:00"
+},
+{
+"t": "Wraca sprawa śledztwa smoleńskiego. Prokuratura: przekażemy nowe informacje o przyczynach i przebiegu",
+"l": "https://wiadomosci.onet.pl/kraj/prokuratura-krajowa-z-nowym-raportem-dotyczacym-katastrofy-smolenskiej/70dvmec",
+"z": "Onet",
+"d": "2026-11-25T22:34:22+00:00"
+},
+{
+"t": "Uwaga na oblodzenie. Alerty IMGW w sześciu województwach",
+"l": "https://www.rmf24.pl/fakty/pogoda/news-uwaga-na-oblodzenie-alerty-imgw-w-szesciu-wojewodztwach,nIdn,1027720",
+"z": "RMF24",
+"d": "2026-11-25T22:07:00+00:00"
+},
+{
+"t": "Kiedy decyzja o stałej bazie USA w Polsce? Wiceminister wskazał możliwy termin",
+"l": "https://wiadomosci.onet.pl/kraj/wiceminister-decyzja-o-stalej-bazie-wojsk-usa-mozliwa-na-przelomie-roku/q0gb9z9",
+"z": "Onet",
+"d": "2026-11-25T21:41:16+00:00"
+},
+{
+"t": "Seniorzy za kółkiem. Będą obowiązkowe badania dla starszych kierowców?",
+"l": "https://www.rmf24.pl/fakty/polska/news-seniorzy-za-kolkiem-beda-obowiazkowe-badania-dla-starszych-k,nIdn,1027717",
+"z": "RMF24",
+"d": "2026-11-25T20:47:00+00:00"
+},
+{
+"t": "Zabili Ukraińca ze szczególnym okrucieństwem. Surowe wyroki sądu w Słupsku",
+"l": "https://www.rmf24.pl/regiony/trojmiasto/news-zabili-ukrainca-ze-szczegolnym-okrucienstwem-surowe-wyroki-s,nIdn,1027716",
+"z": "RMF24",
+"d": "2026-11-25T20:45:00+00:00"
+},
+{
+"t": "Ministerstwo Zdrowia chce wprowadzić elektroniczną kartę pacjenta. Te dane zobaczy lekarz",
+"l": "https://www.rmf24.pl/fakty/polska/news-ministerstwo-zdrowia-chce-wprowadzic-elektroniczna-karte-pac,nIdn,1027715",
+"z": "RMF24",
+"d": "2026-11-25T20:39:00+00:00"
+},
+{
+"t": "Prokuratura nie odpuści Bogdanowi Święczkowskiemu. Dariusz Korneluk mówi wprost",
+"l": "https://wiadomosci.onet.pl/kraj/dariusz-korneluk-ostrzega-bogdana-swieczkowskiego-zapowiada-nowy-wniosek/7qwezt0",
+"z": "Onet",
+"d": "2026-11-25T20:36:56+00:00"
+},
+{
+"t": "Kolejni ludzie Republiki z zarzutami. Wśród nich szef ochrony stacji",
+"l": "https://wiadomosci.onet.pl/kraj/awantura-w-prokuraturze-krajowej-kolejne-zarzuty-dla-ludzi-republiki/thxg0cm",
+"z": "Onet",
+"d": "2026-11-25T20:25:03+00:00"
+},
+{
+"t": "Politycy Polski 2050 zniknęli z listy w sprawie Collegium Humanum? Prokurator krajowy zabrał głos",
+"l": "https://wiadomosci.onet.pl/kraj/afera-collegium-humanum-holownia-i-kobosko-znikneli-z-listy-korneluk-komentuje/xqxpwxc",
+"z": "Onet",
+"d": "2026-11-25T20:05:38+00:00"
+},
+{
+"t": "Tusk apeluje do Nawrockiego. Chodzi o ustawę wprowadzającą zmiany w podatkach",
+"l": "https://www.rmf24.pl/fakty/polityka/news-tusk-apeluje-do-nawrockiego-chodzi-o-ustawe-wprowadzajaca-zm,nIdn,1027711",
+"z": "RMF24",
+"d": "2026-11-25T20:03:00+00:00"
+},
+{
+"t": "Gibała: Prace nad metrem w Krakowie zawieszone. Piątkowska grzmi o zaprzepaszczeniu szansy",
+"l": "https://www.rmf24.pl/regiony/krakow/news-gibala-prace-nad-metrem-w-krakowie-zawieszone-piatkowska-grz,nIdn,1027709",
+"z": "RMF24",
+"d": "2026-11-25T19:47:00+00:00"
+},
 {
 "t": "\"Na miłość Boga\". Premier ostrzega przed kolejnym prezydenckim wetem",
 "l": "https://wiadomosci.onet.pl/kraj/premier-ostrzega-przed-kolejnym-wetem-czekamy-w-wielkim-napieciu/wb2h3ek",
@@ -68,85 +140,67 @@
 "d": "2026-11-25T17:28:00+00:00"
 },
 {
-"t": "Kilkaset osób ma stracić pracę. Radni apelują do rządzących o pomoc",
-"l": "https://www.rmf24.pl/regiony/warszawa/news-kilkaset-osob-ma-stracic-prace-radni-apeluja-do-rzadzacych-o,nIdn,1027693",
-"z": "RMF24",
-"d": "2026-11-25T17:13:00+00:00"
-},
-{
-"t": "Samopodpalenie na Krakowskim Przedmieściu. Mężczyzna trafił do szpitala",
-"l": "https://www.rmf24.pl/regiony/news-samopodpalenie-na-krakowskim-przedmiesciu-mezczyzna-trafil-d,nIdn,1027692",
-"z": "RMF24",
-"d": "2026-11-25T17:05:00+00:00"
-},
-{
-"t": "Ambasador Bodnar: Polska zwróciła się do NATO ws. zestrzeliwania rakiet nad Ukrainą",
-"l": "https://www.rmf24.pl/rozmowy/popoludniowa-rozmowa/news-ambasador-bodnar-polska-zwrocila-sie-do-nato-ws-zestrzeliwan,nIdn,1027633",
-"z": "RMF24",
-"d": "2026-11-25T17:02:00+00:00"
-},
-{
 "t": "Tragiczne odkrycie w lesie na Mazowszu. Sprawę badają służby",
 "l": "https://wiadomosci.onet.pl/kraj/tragiczne-odkrycie-w-lesie-na-mazowszu-sprawe-badaja-sluzby/3wgwqdj",
 "z": "Onet",
 "d": "2026-11-25T16:43:44+00:00"
-},
-{
-"t": "Bogdan Święczkowski przemawiał w Parlamencie Europejskim. Waldemar Żurek: dziwię się",
-"l": "https://wiadomosci.onet.pl/kraj/waldemar-zurek-o-wystapieniu-prezesa-tk-w-strasburgu-dziwie-sie/tztkspe",
-"z": "Onet",
-"d": "2026-11-25T16:39:51+00:00"
-},
-{
-"t": "Sąd dyscyplinarny TK miał zdecydować ws. Święczkowskiego. Wniosek adwokata wymusił przerwę",
-"l": "https://www.rmf24.pl/fakty/polska/news-sad-dyscyplinarny-tk-mial-zdecydowac-ws-swieczkowskiego-wnio,nIdn,1027688",
-"z": "RMF24",
-"d": "2026-11-25T16:26:00+00:00"
-},
-{
-"t": "AI udaje znanych poetów? Kuriozalna wpadka na konkursie polonistycznym",
-"l": "https://wiadomosci.onet.pl/kraj/ai-udaje-znanych-poetow-kuriozalna-wpadka-na-konkursie-polonistycznym/n8zrnmk",
-"z": "Onet",
-"d": "2026-11-25T16:16:57+00:00"
-},
-{
-"t": "Polacy ocenili reakcję państwa na wtargnięcie rosyjskich rakiet. Rząd nie ma się z czego cieszyć [SONDAŻ]",
-"l": "https://wiadomosci.onet.pl/kraj/polacy-ocenili-reakcje-panstwa-na-wtargniecie-rakiet-zle-wiesci-dla-rzadu-sondaz/dee878c",
-"z": "Onet",
-"d": "2026-11-25T16:13:36+00:00"
-},
-{
-"t": "Afera Zondacrypto. Policja przeszukała lokale w Warszawie i Chełmie. Jest komunikat",
-"l": "https://wiadomosci.onet.pl/kraj/afera-zondacrypto-policja-przeszukala-lokale-w-warszawie-i-chelmie-jest-komunikat/xxy0xbk",
-"z": "Onet",
-"d": "2026-11-25T16:06:21+00:00"
-},
-{
-"t": "Cyberatak na Deichmann. Spółka ostrzega klientów",
-"l": "https://www.rmf24.pl/fakty/polska/news-cyberatak-na-deichmann-spolka-ostrzega-klientow,nIdn,1027683",
-"z": "RMF24",
-"d": "2026-11-25T15:43:00+00:00"
-},
-{
-"t": "„Za pierwszym razem było wielkie wow”. Tak wyciszenie może odmienić lekcje w szkole",
-"l": "https://www.rmf24.pl/regiony/warszawa/news-za-pierwszym-razem-bylo-wielkie-wow-tak-wyciszenie-moze-odmi,nIdn,1027682",
-"z": "RMF24",
-"d": "2026-11-25T15:25:00+00:00"
-},
-{
-"t": "Ruch w sprawie Bogdana Święczkowskiego i jego zastępcy. Nowy komunikat prokuratury",
-"l": "https://wiadomosci.onet.pl/kraj/decyzje-zgromadzenia-ogolnego-tk-trafily-do-prokuratury-nowy-komunikat/zcnd48m",
-"z": "Onet",
-"d": "2026-11-25T15:08:32+00:00"
-},
-{
-"t": "Bogdan Święczkowski pojawił się w Parlamencie Europejskim. \"Tusk zapowiedział, że musi mnie wysadzić z siodła\"",
-"l": "https://wiadomosci.onet.pl/kraj/bogdan-swieczkowski-pojawil-sie-w-parlamencie-europejskim/w8jccsq",
-"z": "Onet",
-"d": "2026-11-25T14:48:39+00:00"
 }
 ],
 "swiat": [
+{
+"t": "Rakiety balistyczne spadły na Kijów. Cztery osoby ranne",
+"l": "https://wiadomosci.onet.pl/swiat/rakiety-balistyczne-spadly-na-kijow-dwie-osoby-sa-ciezko-ranne/rz239jy",
+"z": "Onet",
+"d": "2026-11-26T00:46:57+00:00"
+},
+{
+"t": "Nie żyje gwiazda brytyjskiej muzyki. Andy Taylor miał 65 lat",
+"l": "https://wiadomosci.onet.pl/swiat/nie-zyje-gwiazda-brytyjskiej-muzyki-andy-taylor-mial-65-lat/sc8sftf",
+"z": "Onet",
+"d": "2026-11-26T00:10:15+00:00"
+},
+{
+"t": "Syn Kadyrowa otrzymał obywatelstwo Serbii? Jest reakcja władz regionu",
+"l": "https://wiadomosci.onet.pl/swiat/syn-kadyrowa-otrzymal-obywatelstwo-serbii-jest-reakcja-wladz-regionu/31dkhl7",
+"z": "Onet",
+"d": "2026-11-25T23:24:01+00:00"
+},
+{
+"t": "Rosyjski atak na Kijów. Na miasto spadły pociski balistyczne",
+"l": "https://www.rmf24.pl/fakty/swiat/news-rosyjski-atak-na-kijow-na-miasto-spadly-pociski-balistyczne,nIdn,1027719",
+"z": "RMF24",
+"d": "2026-11-25T21:18:00+00:00"
+},
+{
+"t": "Xi wygrał z Trumpem, ale odszedł na pewien czas. Teraz wraca na pozycję lidera. Doniesienia z rezerwatu",
+"l": "https://wiadomosci.onet.pl/swiat/byk-xi-przejmuje-kontrole-w-stadzie-trump-i-rjabko-ustepuja-pola/b44msjg",
+"z": "Onet",
+"d": "2026-11-25T21:02:56+00:00"
+},
+{
+"t": "Nie żyje Veruschka. Pierwsza niemiecka supermodelka miała 87 lat",
+"l": "https://www.rmf24.pl/fakty/swiat/news-nie-zyje-veruschka-pierwsza-niemiecka-supermodelka-miala-87-,nIdn,1027713",
+"z": "RMF24",
+"d": "2026-11-25T20:27:00+00:00"
+},
+{
+"t": "Spektakularny atak Ukrainy na na rosyjskie lotnisko wojskowe. Wołodymyr Zełenski komentuje. \"Będziemy nadal odpowiadać\"",
+"l": "https://wiadomosci.onet.pl/swiat/zelenski-o-ataku-ukrainy-na-lotnisko-w-rosji-bedziemy-nadal-odpowiadac/lq8kzbt",
+"z": "Onet",
+"d": "2026-11-25T19:57:20+00:00"
+},
+{
+"t": "Cysterna z paliwem stanęła w ogniu w Egipcie. Zginęło co najmniej 30 osób",
+"l": "https://wiadomosci.onet.pl/swiat/tragiczny-wypadek-w-egipcie-cysterna-eksplodowala-zginelo-30-osob/0j3lvne",
+"z": "Onet",
+"d": "2026-11-25T19:50:30+00:00"
+},
+{
+"t": "Rjabko przegrał z Xi, który wcześniej pokonał Trumpa. Stado z Czarnobyla ma nowego lidera",
+"l": "https://www.rmf24.pl/fakty/swiat/news-rjabko-przegral-z-xi-ktory-wczesniej-pokonal-trumpa-stado-z-,nIdn,1027707",
+"z": "RMF24",
+"d": "2026-11-25T19:44:00+00:00"
+},
 {
 "t": "Zmowa w świecie zapachów. Płaciliśmy więcej za kosmetyki i środki czystości",
 "l": "https://www.rmf24.pl/fakty/swiat/news-zmowa-w-swiecie-zapachow-placilismy-wiecej-za-kosmetyki-i-sr,nIdn,1027705",
@@ -214,22 +268,10 @@
 "d": "2026-11-25T17:42:00+00:00"
 },
 {
-"t": "Brawurowa operacja Ukrainy daleko od frontu. Eksperci ostrzegają przed niebezpiecznym precedensem",
-"l": "https://wiadomosci.onet.pl/swiat/brawurowa-operacja-ukrainy-daleko-od-frontu-eksperci-ostrzegaja-przed-niebezpiecznym/v3chtk9",
-"z": "Onet",
-"d": "2026-11-25T16:59:51+00:00"
-},
-{
 "t": "Jennifer Barreto z Portoryko nową Miss Universe. Konkurs w cieniu kontrowersji",
 "l": "https://www.rmf24.pl/fakty/swiat/news-jennifer-barreto-z-portoryko-nowa-miss-universe-konkurs-w-ci,nIdn,1027687",
 "z": "RMF24",
 "d": "2026-11-25T16:51:00+00:00"
-},
-{
-"t": "Głosowanie w sprawie ochrony przyrody podzieliło Parlament Europejski",
-"l": "https://wiadomosci.onet.pl/swiat/glosowanie-w-sprawie-ochrony-przyrody-podzielilo-parlament-europejski/xs41264",
-"z": "Onet",
-"d": "2026-11-25T16:36:23+00:00"
 },
 {
 "t": "Wielka detonacja w Iowa. Kłęby dymu i strach mieszkańców przed ołowiem",
@@ -238,66 +280,48 @@
 "d": "2026-11-25T16:11:00+00:00"
 },
 {
-"t": "Władimir Putin zaprosił Europejczyków do Moskwy. Jest głos z Kremla. \"Mamy nadzieję\"",
-"l": "https://wiadomosci.onet.pl/swiat/doradca-wladimira-putina-mowi-o-zaproszeniu-do-moskwy-czekamy/x8j7y7g",
-"z": "Onet",
-"d": "2026-11-25T15:50:34+00:00"
-},
-{
-"t": "Piotr Serafin krytykuje cięcia w unijnym budżecie. \"Niekoniecznie przyniosą oszczędności\"",
-"l": "https://wiadomosci.onet.pl/swiat/piotr-serafin-krytykuje-ciecia-w-unijnym-budzecie-niekoniecznie-przyniosa/3k5pllf",
-"z": "Onet",
-"d": "2026-11-25T15:48:41+00:00"
-},
-{
 "t": "USA szykują nowe cła na towary z UE i Chin. Stawki do 20 procent",
 "l": "https://www.rmf24.pl/fakty/ekonomia/news-usa-szykuja-nowe-cla-na-towary-z-ue-i-chin-stawki-do-20-proc,nIdn,1027681",
 "z": "RMF24",
 "d": "2026-11-25T15:44:00+00:00"
 },
 {
-"t": "Podejrzane ruchy Rosji na Bałtyku. Okręt stacjonuje koło niemieckiej wyspy",
-"l": "https://wiadomosci.onet.pl/swiat/rosja-przesuwa-okrety-na-zachod-baltyku-zaopatruja-je-u-wybrzezy-niemiec/6m4dmy6",
-"z": "Onet",
-"d": "2026-11-25T15:33:52+00:00"
-},
-{
 "t": "Zatrzymanie szefa tabloidu, oklaski i „idioci” w parlamencie. Trzęsienie ziemi w serbskich mediach",
 "l": "https://www.rmf24.pl/fakty/swiat/news-zatrzymanie-szefa-tabloidu-oklaski-i-idioci-w-parlamencie-tr,nIdn,1027678",
 "z": "RMF24",
 "d": "2026-11-25T14:54:00+00:00"
-},
-{
-"t": "Premier Hiszpanii Sanchez nie weźmie udziału w szczycie UE. Wskazał swojego zastępcę",
-"l": "https://wiadomosci.onet.pl/swiat/premier-hiszpanii-sanchez-nie-wezmie-udzialu-w-szczycie-ue-wskazal-swojego-zastepce/d7rx1w3",
-"z": "Onet",
-"d": "2026-11-25T14:42:46+00:00"
-},
-{
-"t": "Polska chce, by NATO zestrzeliwało rosyjskie rakiety nad Ukrainą? MON komentuje doniesienia Bloomberga",
-"l": "https://www.rmf24.pl/fakty/swiat/news-polska-chce-by-nato-zestrzeliwalo-rosyjskie-rakiety-nad-ukra,nIdn,1027668",
-"z": "RMF24",
-"d": "2026-11-25T14:22:00+00:00"
-},
-{
-"t": "Ciało odnalezione w Apeninach. W plecaku dokumenty zaginionego rok temu Polaka",
-"l": "https://www.rmf24.pl/fakty/swiat/news-cialo-odnalezione-w-apeninach-w-plecaku-dokumenty-zaginioneg,nIdn,1027665",
-"z": "RMF24",
-"d": "2026-11-25T14:03:00+00:00"
-},
-{
-"t": "„Big Tech nie może mieć już złudzeń”. Australia przyjęła „przełomową reformę”",
-"l": "https://www.rmf24.pl/fakty/swiat/news-big-tech-nie-moze-miec-juz-zludzen-australia-przyjela-przelo,nIdn,1027666",
-"z": "RMF24",
-"d": "2026-11-25T14:02:00+00:00"
 }
 ],
 "religia": [
+{
+"t": "Nowenna w intencji Ojczyzny o zgodę i pojednanie w narodzie za wstawiennictwem św. Andrzeja Boboli",
+"l": "https://archidiecezjalubelska.pl/blog/nowenna-w-intencji-ojczyzny-o-zgode-i-pojednanie-w-narodzie-za-wstawiennictwem-sw-andrzeja-boboli/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-25T21:02:00+00:00"
+},
+{
+"t": "XXVII Targi Wydawców Katolickich w Lublinie – KUL: 2-4.12.2026",
+"l": "https://archidiecezjalubelska.pl/blog/xxvii-targi-wydawcow-katolickich-w-lublinie-kul-2-4-12-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-25T20:04:00+00:00"
+},
+{
+"t": "XIII Orszak Świętego Mikołaja w Lublinie – 6.12.2026",
+"l": "https://archidiecezjalubelska.pl/blog/xiii-orszak-swietego-mikolaja-w-lublinie-6-12-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-25T19:04:00+00:00"
+},
 {
 "t": "Kenia: siostry wspierają rodziny w kryzysie",
 "l": "https://www.vaticannews.va/pl/kosciol/news/2026-11/kenia-siostry-wspieraja-rodziny-w-kryzysie.html",
 "z": "Vatican News",
 "d": "2026-11-25T18:45:00+00:00"
+},
+{
+"t": "Rekolekcje adwentowe pracowników ochrony zdrowia: Lublin, 6-8.12.2026",
+"l": "https://archidiecezjalubelska.pl/blog/rekolekcje-adwentowe-pracownikow-ochrony-zdrowia-lublin-6-8-12-2026/",
+"z": "Archidiecezja Lubelska",
+"d": "2026-11-25T18:03:00+00:00"
 },
 {
 "t": "Mjanma: ponowne poświęcenie katedry po trzęsieniu ziemi",
@@ -408,24 +432,6 @@
 "d": "2026-11-25T08:46:00+00:00"
 },
 {
-"t": "Nowenna w intencji Ojczyzny o zgodę i pojednanie w narodzie za wstawiennictwem św. Andrzeja Boboli",
-"l": "https://archidiecezjalubelska.pl/blog/nowenna-w-intencji-ojczyzny-o-zgode-i-pojednanie-w-narodzie-za-wstawiennictwem-sw-andrzeja-boboli/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-24T20:32:00+00:00"
-},
-{
-"t": "Informacja o pogrzebie śp. Przemysława Mizińskiego",
-"l": "https://archidiecezjalubelska.pl/blog/informacja-o-pogrzebie-sp-przemyslawa-mizinskiego/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-24T20:02:00+00:00"
-},
-{
-"t": "25 listopada 2026 r. (środa) – KANCELARIA Kurii Metropolitalnej nieczynna",
-"l": "https://archidiecezjalubelska.pl/blog/25-listopada-2026-r-sroda-kancelaria-kurii-metropolitalnej-nieczynna/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-24T19:02:00+00:00"
-},
-{
 "t": "Wykłady otwarte poświęcone teologii ikony – KUL: 28.11.2026",
 "l": "https://archidiecezjalubelska.pl/blog/wyklady-otwarte-poswiecone-teologii-ikony-kul-28-11-2026/",
 "z": "Archidiecezja Lubelska",
@@ -436,12 +442,6 @@
 "l": "https://stacja7.pl/film/dobry-bog-tak-chcial-ze-tego-samego-dnia-weszlismy-tak-wysoko-powstaje-film-o-wandzie-rutkiewicz/",
 "z": "Stacja7",
 "d": "2026-11-24T17:35:44+00:00"
-},
-{
-"t": "Spotkanie kandydatów do bierzmowania – Rozpaleni – 28.11.2026",
-"l": "https://archidiecezjalubelska.pl/blog/spotkanie-kandydatow-do-bierzmowania-rozpaleni-28-11-2026/",
-"z": "Archidiecezja Lubelska",
-"d": "2026-11-24T17:04:00+00:00"
 }
 ],
 "rolnicze": [
