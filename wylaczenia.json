@@ -1,5 +1,5 @@
 {
-"zaktualizowano": "2026-11-27T04:01:39+00:00",
+"zaktualizowano": "2026-11-27T14:12:12+00:00",
 "prad": [
 {
 "od": "2026-11-27 08:00:00",
@@ -90,6 +90,30 @@
 "Deszkowice Pierwsze"
 ],
 "opis": "Deszkowice Pierwsze",
+"odwolane": false
+},
+{
+"od": "2026-12-03 08:00:00",
+"do": "2026-12-03 15:00:00",
+"gminy": [
+"Krasnystaw"
+],
+"miejsca": [
+"Krasnystaw"
+],
+"opis": "Krasnystaw: ul. Kardynała Stefana Wyszyńskiego",
+"odwolane": false
+},
+{
+"od": "2026-12-03 08:30:00",
+"do": "2026-12-03 15:30:00",
+"gminy": [
+"Krasnystaw"
+],
+"miejsca": [
+"Krasnystaw"
+],
+"opis": "Krasnystaw: ul. Tytoniowa, ul. Wiśniowa, ul. Witosa, ul. Kwiatowa",
 "odwolane": false
 },
 {
