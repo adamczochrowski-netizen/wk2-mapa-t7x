@@ -1,6 +1,24 @@
 {
-"zaktualizowano": "2026-11-27T22:52:17+00:00",
+"zaktualizowano": "2026-11-28T04:38:43+00:00",
 "polska": [
+{
+"t": "PiS i Rozwój Plus znowu razem? Polacy zabrali głos [SONDAŻ]",
+"l": "https://wiadomosci.onet.pl/kraj/morawiecki-wroci-do-kaczynskiego-takie-jest-zdanie-polakow-sondaz/emsrhqe",
+"z": "Onet",
+"d": "2026-11-28T04:00:00+00:00"
+},
+{
+"t": "Były ambasador odpowiada Radosławowi Sikorskiemu. \"Nie porzuciłem placówki\"",
+"l": "https://wiadomosci.onet.pl/kraj/radoslaw-sikorski-mowil-ze-ambasadorzy-porzucili-placowki-dostal-odpowiedz/6k67zb3",
+"z": "Onet",
+"d": "2026-11-28T02:22:35+00:00"
+},
+{
+"t": "Akcja policji na Dolnym Śląsku. 12 osób zatrzymanych w sprawie korupcji w Urzędzie Wojewódzkim",
+"l": "https://wiadomosci.onet.pl/kraj/korupcja-w-dolnoslaskim-urzedzie-wojewodzkim-sluzby-zatrzymuja-12-osob/fwjsyjc",
+"z": "Onet",
+"d": "2026-11-28T01:30:58+00:00"
+},
 {
 "t": "Mateusz Morawiecki zamieścił wpis. Spotkał się z byłym prezydentem",
 "l": "https://wiadomosci.onet.pl/kraj/mateusz-morawiecki-zamiescil-krotki-wpis-spotkal-sie-z-andrzejem-duda/crdwd0n",
@@ -122,31 +140,43 @@
 "d": "2026-11-27T16:05:00+00:00"
 },
 {
-"t": "Marcin Kierwiński, ból głowy premiera. \"Niech Tusk uderzy się w pierś\"",
-"l": "https://wiadomosci.onet.pl/kraj/marcin-kierwinski-bol-glowy-premiera-niech-tusk-sie-uderzy-w-piers/10fqt3q",
-"z": "Onet",
-"d": "2026-11-27T16:01:58+00:00"
-},
-{
-"t": "Donald Tusk porównał Karola Nawrockiego do Grincha. Rzecznik prezydenta reaguje",
-"l": "https://wiadomosci.onet.pl/kraj/donald-tusk-porownal-karola-nawrockiego-do-grincha-rzecznik-prezydenta-reaguje/y7ymmw5",
-"z": "Onet",
-"d": "2026-11-27T15:46:39+00:00"
-},
-{
 "t": "„Na prośbę komendanta miejskiego”. Ruch Gibały ws. krakowskiej policji",
 "l": "https://www.rmf24.pl/regiony/krakow/news-na-prosbe-komendanta-miejskiego-ruch-gibaly-ws-krakowskiej-p,nIdn,1028030",
 "z": "RMF24",
 "d": "2026-11-27T15:41:00+00:00"
-},
-{
-"t": "Nowy ruch NBP w sprawie Trybunału Konstytucyjnego. Jest wniosek do prokuratury",
-"l": "https://wiadomosci.onet.pl/kraj/nowy-ruch-nbp-w-sprawie-trybunalu-konstytucyjnego-jest-wniosek-do-prokuratury/66ct3hz",
-"z": "Onet",
-"d": "2026-11-27T14:50:37+00:00"
 }
 ],
 "swiat": [
+{
+"t": "Włochy zaniepokojone akcją Ukrainy w Libii. Wołodymyr Zełenski tłumaczy się Giorgii Meloni",
+"l": "https://wiadomosci.onet.pl/swiat/wolodymyr-zelenski-przyznaje-operacja-w-libii-bez-konsultacji-z-europa/qskdn2f",
+"z": "Onet",
+"d": "2026-11-28T03:46:08+00:00"
+},
+{
+"t": "Moskwa obawia się o swoje jednostki. Rosyjska flotylla zawraca po ataku w Bengazi",
+"l": "https://wiadomosci.onet.pl/swiat/rosja-reaguje-na-strate-w-bengazi-zawraca-flotylle-zmierzajaca-do-libii/wxen939",
+"z": "Onet",
+"d": "2026-11-28T03:03:46+00:00"
+},
+{
+"t": "Niebezpieczny incydent na lotnisku w Waszyngtonie. Samolot zahaczył o skrzydło innego",
+"l": "https://wiadomosci.onet.pl/swiat/incydent-na-lotnisku-w-waszyngtonie-boeingi-zderzyly-sie-skrzydlami/p3zn2ng",
+"z": "Onet",
+"d": "2026-11-28T00:36:54+00:00"
+},
+{
+"t": "Małpia ospa w Rosji. Kolejny przypadek odnotowany w Petersburgu",
+"l": "https://wiadomosci.onet.pl/swiat/malpia-ospa-w-rosji-w-ciagu-dwoch-dni-wykryto-trzy-nowe-przypadki/m3cn8xt",
+"z": "Onet",
+"d": "2026-11-28T00:04:44+00:00"
+},
+{
+"t": "Partia premiera Węgier powiększa przewagę nad obozem Viktora Orbana. Nowy sondaż",
+"l": "https://wiadomosci.onet.pl/swiat/tisza-zyskuje-w-nowym-sondazu-oboz-viktora-orbana-traci-wyborcow/7pyl0td",
+"z": "Onet",
+"d": "2026-11-27T23:35:14+00:00"
+},
 {
 "t": "Nowa decyzja w sprawie podejrzanego o atak na Nord Stream. Podjął ją sąd w Chorwacji",
 "l": "https://wiadomosci.onet.pl/swiat/wolodymyr-zurawlow-nie-zostaje-wydany-niemcom-nowe-informacje/vqsphlt",
@@ -250,40 +280,10 @@
 "d": "2026-11-27T15:42:05+00:00"
 },
 {
-"t": "Minister spraw zagranicznych Rumunii: Rosja chce uczynić Morze Czarne nową cieśniną Ormuz",
-"l": "https://wiadomosci.onet.pl/swiat/minister-spraw-zagranicznych-rumunii-rosja-chce-uczynic-morze-czarne-nowa-ciesnina/fpxlqy6",
-"z": "Onet",
-"d": "2026-11-27T15:40:39+00:00"
-},
-{
-"t": "Trzy kraje mogą dołączyć do potężnego azjatyckiego bloku handlowego",
-"l": "https://wiadomosci.onet.pl/swiat/trzy-kraje-moga-dolaczyc-do-poteznego-azjatyckiego-bloku-handlowego/k4gqdlp",
-"z": "Onet",
-"d": "2026-11-27T15:12:47+00:00"
-},
-{
-"t": "Palestyńczycy jako \"żywe tarcze\". Izrael prowadzi dochodzenie. W sprawę angażuje się skrajna prawica",
-"l": "https://wiadomosci.onet.pl/swiat/palestynczycy-jako-zywe-tarcze-izrael-prowadzi-dochodzenie-w-sprawe-angazuje-sie/26wyng9",
-"z": "Onet",
-"d": "2026-11-27T14:46:48+00:00"
-},
-{
-"t": "Moskwa toczy batalię z Apple'em. Rosjanie mają coraz większy problem z iPhone'ami",
-"l": "https://wiadomosci.onet.pl/swiat/moskwa-toczy-batalie-z-appleem/vzv357h",
-"z": "Onet",
-"d": "2026-11-27T14:23:20+00:00"
-},
-{
 "t": "Św. Jan Paweł II upamiętniony w Ukrainie. „Przebaczamy i prosimy o przebaczenie”",
 "l": "https://www.rmf24.pl/fakty/swiat/news-sw-jan-pawel-ii-upamietniony-w-ukrainie-przebaczamy-i-prosim,nIdn,1028016",
 "z": "RMF24",
 "d": "2026-11-27T14:22:00+00:00"
-},
-{
-"t": "Ukraina ujawniła szczegóły operacji \"Piekło-3\". Kijów nie zwalnia tempa",
-"l": "https://wiadomosci.onet.pl/swiat/ukrainskie-pociski-zgotowaly-rosjanom-pieklo-kijow-ujawnia-szczegoly/l7hv4r6",
-"z": "Onet",
-"d": "2026-11-27T14:21:09+00:00"
 },
 {
 "t": "Dostała nerkę od świni. Pobiła dotychczasowe rekordy",
@@ -446,12 +446,6 @@
 ],
 "rolnicze": [
 {
-"t": "Do 98% strat na polu, a w aplikacji 11%. „Rolnik nie utrzymuje rodziny z wyniku algorytmu”",
-"l": "https://www.agrofakt.pl/do-98-strat-na-polu-a-w-aplikacji-11-rolnik-nie-utrzymuje-rodziny-z-wyniku-algorytmu/",
-"z": "Agrofakt",
-"d": "2026-11-27T19:50:26+00:00"
-},
-{
 "t": "Pszenica przebija 1000 zł. Czy czekać ze sprzedażą? Co z cenami nawozów i świń? [RAPORT 27.11]",
 "l": "https://www.tygodnik-rolniczy.pl/rynki-rolne/analizy-rynkowe/pszenica-przebija-1000-zl-czy-czekac-ze-sprzedaza-co-z-cenami-nawozow-i-swin-raport-27-11-2696003",
 "z": "Tygodnik Poradnik Rolniczy",
@@ -524,22 +518,10 @@
 "d": "2026-11-27T13:00:00+00:00"
 },
 {
-"t": "Wyższe kary dla rolników od 2027 r. Ponad 4700 zł za złe przechowywanie nawozów",
-"l": "https://www.agrofakt.pl/wyzsze-kary-dla-rolnikow-od-2027-r-ponad-4700-zl-za-zle-przechowywanie-nawozow/",
-"z": "Agrofakt",
-"d": "2026-11-27T12:51:55+00:00"
-},
-{
 "t": "145. ognisko grypy ptaków w Polsce. Wirus H5N1 w Wielkopolsce",
 "l": "https://www.agropolska.pl/hodowla/drob/145-ognisko-grypy-ptakow-w-polsce-wirus-h5n1-w-wielkopolsce/",
 "z": "agroPolska",
 "d": "2026-11-27T12:46:11+00:00"
-},
-{
-"t": "Rolnicy bronią budżetu WPR. „Co nam po nawet najsilniejszej […] armii, jak ona nie będzie miała co jeść",
-"l": "https://www.agrofakt.pl/rolnicy-bronia-budzetu-wpr-co-nam-po-nawet-najsilniejszej-armii-jak-ona-nie-bedzie-miala-co-jesc/",
-"z": "Agrofakt",
-"d": "2026-11-27T12:43:46+00:00"
 },
 {
 "t": "Drób zjada paszę, ale nie wszystko z niej wykorzystuje. Jak poprawić jej strawność?",
@@ -578,22 +560,22 @@
 "d": "2026-11-27T08:37:18+00:00"
 },
 {
-"t": "Blisko 500 wystawców i szansa na nowych odbiorców owoców i warzyw. TSW 2027 już w styczniu.",
-"l": "https://www.agrofakt.pl/blisko-500-wystawcow-i-szansa-na-nowych-odbiorcow-owocow-i-warzyw-tsw-2027-juz-w-styczniu/",
-"z": "Agrofakt",
-"d": "2026-11-27T07:51:40+00:00"
-},
-{
 "t": "Kulawizny krów kosztują hodowców setki litrów mleka",
 "l": "https://www.agropolska.pl/hodowla/bydlo/kulawizny-krow-kosztuja/",
 "z": "agroPolska",
 "d": "2026-11-27T07:30:00+00:00"
 },
 {
-"t": "Polacy cenią miód ze sprawdzonego źródła. ARiMR dofinansuje badania jego jakości",
-"l": "https://www.agrofakt.pl/polacy-cenia-miod-ze-sprawdzonego-zrodla-arimr-dofinansuje-badania-jego-jakosci/",
-"z": "Agrofakt",
-"d": "2026-11-26T15:32:56+00:00"
+"t": "Zdrowie stada się opłaca. Profilaktyka ogranicza stosowanie antybiotyków",
+"l": "https://www.agropolska.pl/bez-kategorii/zdrowie-stada-sie-oplaca-profilaktyka-ogranicza-stosowanie-antybiotykow/",
+"z": "agroPolska",
+"d": "2026-11-26T13:35:00+00:00"
+},
+{
+"t": "Drony dla rolnictwa z dofinansowaniem – ile ich kupiono?",
+"l": "https://www.agropolska.pl/prawo-i-pieniadze/drony-dla-rolnictwa-z-dofinansowaniem-ile-ich-kupiono/",
+"z": "agroPolska",
+"d": "2026-11-26T12:44:26+00:00"
 }
 ]
 }
